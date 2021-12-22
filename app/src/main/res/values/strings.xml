@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">WebsocketProjectTest</string>
+    <string name="name_format_with_percent">%s(%s%%)</string>
+</resources>

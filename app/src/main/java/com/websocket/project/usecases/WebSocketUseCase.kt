@@ -1,0 +1,21 @@
+package com.websocket.project.usecases
+
+import com.websocket.project.model.CryptoPairModel
+import com.websocket.project.response.CryptoResponse
+import com.websocket.project.request.SubscribeTickerRequest
+import com.websocket.project.request.TickerRequestParams
+import com.websocket.project.repository.WebSocketRepository
+import io.reactivex.Flowable
+
+class WebSocketUseCase(private val webSocketRepository: WebSocketRepository) {
+
+    operator fun invoke(): Flowable<MutableList<CryptoPairModel>> {
+        val subscribeTicker = SubscribeTickerRequest(
+            method = "subscribe",
+            ch = "ticker/3s/batch",
+            params = TickerRequestParams(arrayListOf("ETHBTC", "BTCUSDT")),
+            id = 123
+        )
+        return webSocketRepository.observeTicker(subscribeTicker)
+    }
+}
