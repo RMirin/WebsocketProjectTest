@@ -11,6 +11,8 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
+import java.math.RoundingMode
+import java.text.DecimalFormat
 
 fun <T : Any, L : LiveData<T>> LifecycleOwner.observe(liveData: L, body: (T) -> Unit) {
     liveData.observe(this, Observer(body))
@@ -67,3 +69,9 @@ inline fun <S : CharacterStyle> TextView.span(
 
 val TextView.asSpannableString: SpannableString
     get() = SpannableString(text)
+
+fun roundOffDecimal(number: Double): String {
+    val df = DecimalFormat("#.##")
+    df.roundingMode = RoundingMode.FLOOR
+    return df.format(number)
+}

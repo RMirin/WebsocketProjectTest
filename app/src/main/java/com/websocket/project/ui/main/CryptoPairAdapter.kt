@@ -8,10 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import com.websocket.project.R
 import com.websocket.project.databinding.ItemCryptoPairBinding
 import com.websocket.project.model.CryptoPairModel
-import com.websocket.project.ui.base.BaseRecyclerViewAdapter
-import com.websocket.project.ui.base.BaseViewHolder
-import com.websocket.project.ui.base.inflateWithBinding
-import com.websocket.project.ui.base.spanAll
+import com.websocket.project.ui.base.*
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
@@ -87,16 +84,9 @@ class CryptoPairAdapter : BaseRecyclerViewAdapter() {
         }
     }
 
-    fun roundOffDecimal(number: Double): String {
-        val df = DecimalFormat("#.##")
-        df.roundingMode = RoundingMode.FLOOR
-        return df.format(number)
-    }
-
     fun swap(mActualData: List<CryptoPairModel>) {
         val diffCallback = ActorDiffCallback(this.cryptoPairList, mActualData)
         val diffResult = DiffUtil.calculateDiff(diffCallback)
-
         this.cryptoPairList.clear()
         this.cryptoPairList.addAll(mActualData)
         diffResult.dispatchUpdatesTo(this)
