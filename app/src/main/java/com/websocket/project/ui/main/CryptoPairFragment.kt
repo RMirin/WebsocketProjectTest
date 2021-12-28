@@ -7,6 +7,9 @@ import androidx.fragment.app.viewModels
 import com.websocket.project.databinding.FragmentCryptoPairBinding
 import com.websocket.project.ui.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+
 
 @AndroidEntryPoint
 class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>() {
@@ -22,10 +25,15 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val dividerItemDecoration = DividerItemDecoration(
+            activity,
+            LinearLayoutManager.VERTICAL
+        )
+        binding.mainRecycler.addItemDecoration(dividerItemDecoration)
         binding.mainRecycler.adapter = cryptoPairAdapter
 
         viewModel.ticker.observe(viewLifecycleOwner, { ticker ->
-            cryptoPairAdapter.swap(ticker)
+            cryptoPairAdapter.setNewCryptoHashMap(ticker)
             Log.e("TAG", "onCreate: $ticker")
         })
     }

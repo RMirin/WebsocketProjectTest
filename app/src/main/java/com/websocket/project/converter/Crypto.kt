@@ -4,8 +4,8 @@ import com.websocket.project.dto.CryptoPairDto
 import com.websocket.project.model.CryptoPairModel
 import kotlin.math.round
 
-fun mapToCryptoPairModel(map: Map<String, CryptoPairDto>?) : MutableList<CryptoPairModel> {
-    val cryptoPairModelList = mutableListOf<CryptoPairModel>()
+fun mapToCryptoPairModel(map: Map<String, CryptoPairDto>?) : HashMap<String, CryptoPairModel> {
+    val cryptoPairModelMap = HashMap<String, CryptoPairModel>()
 
     if (map != null) {
         for (pair in map) {
@@ -18,11 +18,11 @@ fun mapToCryptoPairModel(map: Map<String, CryptoPairDto>?) : MutableList<CryptoP
                 bids = token.bids,
                 priceChangePercent = token.priceChangePercent?.round(2) ?: 0.00
             )
-            cryptoPairModelList.add(cryptoPairModel)
+            cryptoPairModelMap[pair.key] = cryptoPairModel
         }
     }
 
-    return cryptoPairModelList
+    return cryptoPairModelMap
 }
 
 fun Double.round(decimals: Int): Double {

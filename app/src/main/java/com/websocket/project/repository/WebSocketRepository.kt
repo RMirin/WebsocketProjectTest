@@ -6,5 +6,5 @@ import com.websocket.project.request.SubscribeTickerRequest
 import io.reactivex.Flowable
 
 interface WebSocketRepository {
-    fun observeTicker(subscribeTickerRequest: SubscribeTickerRequest): Flowable<MutableList<CryptoPairModel>>
+    fun observeTicker(subscribeTickerRequest: SubscribeTickerRequest): Flowable<HashMap<String, CryptoPairModel>>
 }
