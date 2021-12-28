@@ -10,7 +10,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 
-
 @AndroidEntryPoint
 class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>() {
 
@@ -33,6 +32,7 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>() {
         binding.mainRecycler.adapter = cryptoPairAdapter
 
         viewModel.ticker.observe(viewLifecycleOwner, { ticker ->
+            binding.cryptoPairProgress.visibility = View.GONE
             cryptoPairAdapter.setNewCryptoHashMap(ticker)
             Log.e("TAG", "onCreate: $ticker")
         })
