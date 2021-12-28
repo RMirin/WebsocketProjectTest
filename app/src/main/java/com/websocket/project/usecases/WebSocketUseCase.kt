@@ -9,11 +9,11 @@ import io.reactivex.Flowable
 
 class WebSocketUseCase(private val webSocketRepository: WebSocketRepository) {
 
-    operator fun invoke(): Flowable<MutableList<CryptoPairModel>> {
+    operator fun invoke(): Flowable<HashMap<String, CryptoPairModel>> {
         val subscribeTicker = SubscribeTickerRequest(
             method = "subscribe",
             ch = "ticker/3s/batch",
-            params = TickerRequestParams(arrayListOf("ETHBTC", "BTCUSDT")),
+            params = TickerRequestParams(arrayListOf("*")),
             id = 123
         )
         return webSocketRepository.observeTicker(subscribeTicker)

@@ -18,8 +18,8 @@ class MainActivityViewModel @Inject constructor(
 
     private val compositeDisposable = CompositeDisposable()
 
-    private val _ticker = MutableLiveData<MutableList<CryptoPairModel>>()
-    val ticker: LiveData<MutableList<CryptoPairModel>>
+    private val _ticker = MutableLiveData<HashMap<String, CryptoPairModel>>()
+    val ticker: LiveData<HashMap<String, CryptoPairModel>>
         get() = _ticker
 
     init {

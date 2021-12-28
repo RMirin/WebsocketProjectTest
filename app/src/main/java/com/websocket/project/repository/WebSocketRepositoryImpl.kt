@@ -14,7 +14,7 @@ class WebSocketRepositoryImpl @Inject constructor(
     private val hitBtcClientImpl: HitBtcClientImpl
 ) : WebSocketRepository {
 
-    override fun observeTicker(subscribeTickerRequest: SubscribeTickerRequest): Flowable<MutableList<CryptoPairModel>> {
+    override fun observeTicker(subscribeTickerRequest: SubscribeTickerRequest): Flowable<HashMap<String, CryptoPairModel>> {
         return hitBtcClientImpl.subscribeTicker(subscribeTickerRequest)
             .map { cryptoResponse ->
                 mapToCryptoPairModel(cryptoResponse.cryptoResponseData)

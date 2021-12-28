@@ -15,8 +15,8 @@ import java.text.DecimalFormat
 class CryptoPairAdapter : BaseRecyclerViewAdapter() {
 
     inner class ActorDiffCallback(
-        private val oldList: List<CryptoPairModel>,
-        private val newList: List<CryptoPairModel>
+        private val oldList: List<Pair<String, CryptoPairModel>>,
+        private val newList: List<Pair<String, CryptoPairModel>>
     ) : DiffUtil.Callback() {
 
         override fun getOldListSize() = oldList.size
@@ -24,15 +24,17 @@ class CryptoPairAdapter : BaseRecyclerViewAdapter() {
         override fun getNewListSize() = newList.size
 
         override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-            return oldList[oldItemPosition].name == newList[newItemPosition].name
+            return oldList[oldItemPosition].first == newList[newItemPosition].first
         }
 
         override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-            return (oldList[oldItemPosition].asks == newList[newItemPosition].asks) && (oldList[oldItemPosition].bids == newList[newItemPosition].bids)
+            return oldList[oldItemPosition].second.hashCode() == newList[newItemPosition].second.hashCode()
         }
     }
 
-    private val cryptoPairList: MutableList<CryptoPairModel> = mutableListOf()
+    private val cryptoMap = HashMap<String, CryptoPairModel>()
+    private val newList = mutableListOf<Pair<String, CryptoPairModel>>()
+    private val cryptoPairList: MutableList<Pair<String, CryptoPairModel>> = mutableListOf()
 
     override fun getItemCount() = cryptoPairList.size
 
@@ -47,7 +49,8 @@ class CryptoPairAdapter : BaseRecyclerViewAdapter() {
             val df = DecimalFormat("#.##")
             df.roundingMode = RoundingMode.FLOOR
             val item = cryptoPairList[position]
-            val roundedPercent = roundOffDecimal(item.priceChangePercent)
+            val itemPriceChangePercent = item.second.priceChangePercent
+            val roundedPercent = roundOffDecimal(itemPriceChangePercent)
 
             itemCryptoPairBinding.also {
                 with(it) {
@@ -55,15 +58,15 @@ class CryptoPairAdapter : BaseRecyclerViewAdapter() {
                     val context = it.root.context
                     cryptoPairName.text = context.getString(
                         R.string.name_format_with_percent,
-                        item.name,
+                        item.first,
                         roundedPercent
                     )
-                    cryptoPairAsk.text = item.asks
-                    cryptoPairBid.text = item.bids
+                    cryptoPairAsk.text = item.second.asks
+                    cryptoPairBid.text = item.second.bids
 
-                    if (item.priceChangePercent != 0.0) {
+                    if (itemPriceChangePercent != 0.0) {
                         cryptoPairName.spanAll(
-                            if (item.priceChangePercent > 0) ForegroundColorSpan(
+                            if (itemPriceChangePercent > 0) ForegroundColorSpan(
                                 ContextCompat.getColor(
                                     context,
                                     R.color.price_up
@@ -77,18 +80,28 @@ class CryptoPairAdapter : BaseRecyclerViewAdapter() {
                             roundedPercent
                         )
                     } else {
-                        cryptoPairName.setTextColor(Color.WHITE)
+                        cryptoPairName.setTextColor(Color.BLACK)
                     }
                 }
             }
         }
     }
 
-    fun swap(mActualData: List<CryptoPairModel>) {
-        val diffCallback = ActorDiffCallback(this.cryptoPairList, mActualData)
+    fun setNewCryptoHashMap(mData: HashMap<String, CryptoPairModel>) {
+        cryptoMap.putAll(mData)
+        newList.clear()
+        cryptoMap.forEach { (name, cryptoPairModel) ->
+            newList.add(Pair(name, cryptoPairModel))
+        }
+        swap(newList)
+    }
+
+    private fun swap(newCryptoList: List<Pair<String, CryptoPairModel>>) {
+        val diffCallback = ActorDiffCallback(cryptoPairList, newCryptoList)
         val diffResult = DiffUtil.calculateDiff(diffCallback)
-        this.cryptoPairList.clear()
-        this.cryptoPairList.addAll(mActualData)
+
+        cryptoPairList.clear()
+        cryptoPairList.addAll(newCryptoList)
         diffResult.dispatchUpdatesTo(this)
     }
 }
