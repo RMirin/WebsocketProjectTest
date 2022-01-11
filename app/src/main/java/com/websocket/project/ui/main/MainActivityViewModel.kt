@@ -21,6 +21,7 @@ class MainActivityViewModel @Inject constructor(
 
     private val compositeDisposable = CompositeDisposable()
 
+    //Get flag from shared prefs
     private val _permissionState = MutableStateFlow(value = true)
     val permissionState: StateFlow<Boolean> = _permissionState.asStateFlow()
 
