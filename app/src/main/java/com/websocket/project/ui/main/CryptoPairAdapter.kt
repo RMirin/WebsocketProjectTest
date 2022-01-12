@@ -2,6 +2,7 @@ package com.websocket.project.ui.main
 
 import android.graphics.Color
 import android.text.style.ForegroundColorSpan
+import android.util.Log
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
@@ -12,7 +13,8 @@ import com.websocket.project.ui.base.*
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
-class CryptoPairAdapter : BaseRecyclerViewAdapter() {
+class CryptoPairAdapter(private val cryptoRecyclerOnClick: CryptoRecyclerOnClick) :
+    BaseRecyclerViewAdapter() {
 
     inner class ActorDiffCallback(
         private val oldList: List<Pair<String, CryptoPairModel>>,
@@ -84,6 +86,9 @@ class CryptoPairAdapter : BaseRecyclerViewAdapter() {
                     }
                 }
             }
+            itemCryptoPairBinding.root.setOnClickListener {
+                cryptoRecyclerOnClick.goToCandleScreen(item.first)
+            }
         }
     }
 
@@ -92,6 +97,7 @@ class CryptoPairAdapter : BaseRecyclerViewAdapter() {
         newList.clear()
         cryptoMap.forEach { (name, cryptoPairModel) ->
             newList.add(Pair(name, cryptoPairModel))
+            Log.d("TAG", "setNewCryptoHashMap: ")
         }
         swap(newList)
     }

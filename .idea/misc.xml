@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/drawable/bg_progress.xml" value="0.20208333333333334" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_candle.xml" value="0.22385453842595526" />
         <entry key="app/src/main/res/layout/fragment_crypto_pair.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_crypto_pair.xml" value="0.25" />
       </map>

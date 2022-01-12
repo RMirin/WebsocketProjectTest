@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.websocket.project.databinding.FragmentCryptoPairBinding
 import com.websocket.project.ui.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,14 +22,14 @@ import com.websocket.project.ui.base.launchWhenStarted
 import java.lang.Exception
 
 @AndroidEntryPoint
-class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>() {
+class CryptoPairFragment : BaseFragment<FragmentCryptoPairBinding>(), CryptoRecyclerOnClick {
 
     private var isPermissionGranted = false
 
     private val viewModel: MainActivityViewModel by viewModels()
 
     private val cryptoPairAdapter by lazy(LazyThreadSafetyMode.NONE) {
-        CryptoPairAdapter()
+        CryptoPairAdapter(this)
     }
 
     override fun initViewBinding(): FragmentCryptoPairBinding =
@@ -46,7 +47,7 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>() {
         viewModel.ticker.observe(viewLifecycleOwner, { ticker ->
             binding.cryptoPairProgress.visibility = View.GONE
             cryptoPairAdapter.setNewCryptoHashMap(ticker)
-            Log.e("TAG", "onCreate: $ticker")
+            Log.d("TAG", "onCreate: $ticker")
         })
 
         viewModel.permissionState.launchWhenStarted(lifecycleScope) { isPermissionGranted ->
@@ -67,8 +68,10 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>() {
     }
 
     private fun checkSelfPermissions() {
-        requestPermissions(PERMISSIONS,
-            MY_PERMISSIONS_REQUEST)
+        requestPermissions(
+            PERMISSIONS,
+            MY_PERMISSIONS_REQUEST
+        )
     }
 
     override fun onRequestPermissionsResult(
@@ -78,8 +81,9 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>() {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (grantResults.isNotEmpty()
-            && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-              //Set flag in shared prefs to true
+            && grantResults[0] == PackageManager.PERMISSION_GRANTED
+        ) {
+            //Set flag in shared prefs to true
 //            policyViewModel.grantPermission()
             openFileChooser()
         }
@@ -105,7 +109,8 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>() {
                     val fileInputStream = activity?.contentResolver?.openInputStream(uri)
                     dataSize = fileInputStream?.available() ?: 0
                     if (dataSize < UPLOAD_FILE_MAX_SIZE_IN_BYTES) {
-                        Toast.makeText(activity, "File size in bytes: $dataSize", Toast.LENGTH_LONG).show()
+                        Toast.makeText(activity, "File size in bytes: $dataSize", Toast.LENGTH_LONG)
+                            .show()
                     } else {
                         Toast.makeText(activity, "File is too large", Toast.LENGTH_LONG).show()
                     }
@@ -118,6 +123,14 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>() {
         }
     }
 
+    override fun goToCandleScreen(pairName: String) {
+        findNavController().navigate(
+            CryptoPairFragmentDirections.actionCryptoPairFragmentToCandleFragment(
+                pairName
+            )
+        )
+    }
+
     companion object {
         fun newInstance() = CryptoPairFragment()
 
@@ -127,6 +140,7 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>() {
 
         private const val MY_PERMISSIONS_REQUEST = 0
         private const val FILE_CHOOSER_REQUEST_CODE = 111
+
         //10 Mb
         private const val UPLOAD_FILE_MAX_SIZE_IN_BYTES = 10_000_000
     }
