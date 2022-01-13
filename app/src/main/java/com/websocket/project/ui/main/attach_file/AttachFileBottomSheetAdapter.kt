@@ -34,7 +34,7 @@ class AttachFileBottomSheetAdapter(
                     itemFilterActionText.context.getText(itemFilterAction.title)
 
                 itemFilterActionLayout.setOnClickListener {
-                    attachFileBottomSheetListener.onFilterClick(itemFilterAction)
+                    attachFileBottomSheetListener.onAttachFileClick(itemFilterAction)
                 }
             }
         }

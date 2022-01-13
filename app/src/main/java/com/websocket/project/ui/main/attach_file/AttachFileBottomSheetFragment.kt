@@ -28,5 +28,5 @@ class AttachFileBottomSheetFragment(
 }
 
 interface AttachFileBottomSheetListener {
-    fun onFilterClick(action: AttachFileAction)
+    fun onAttachFileClick(action: AttachFileAction)
 }
