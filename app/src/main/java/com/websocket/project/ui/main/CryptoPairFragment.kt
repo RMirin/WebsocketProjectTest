@@ -202,7 +202,6 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>(), AttachFileB
         } catch (e: Exception) {
             e.printStackTrace()
         }
-        File(uri.toString()).listFiles()
         Log.e("TAG", "File size in bytes: $dataSize")
     }
 
