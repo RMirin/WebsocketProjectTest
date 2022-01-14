@@ -29,6 +29,7 @@ import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
+import com.websocket.project.R
 
 @AndroidEntryPoint
 class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>(), AttachFileBottomSheetListener {
@@ -107,46 +108,24 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>(), AttachFileB
             when(requestCode) {
                 REQUEST_CODE_FILE_CHOOSER -> {
                     val uri: Uri? = data?.data
-                    var dataSize = 0
                     Log.e("TAG", "FILE_CHOOSER_REQUEST_CODE onActivityResult: $uri")
                     val scheme: String? = uri?.scheme
                     if (scheme.equals(ContentResolver.SCHEME_CONTENT) && uri != null) {
-                        try {
-                            val fileInputStream = activity?.contentResolver?.openInputStream(uri)
-                            dataSize = fileInputStream?.available() ?: 0
-                            if (dataSize < UPLOAD_FILE_MAX_SIZE_IN_BYTES) {
-                                Toast.makeText(
-                                    activity,
-                                    "File size in bytes: $dataSize",
-                                    Toast.LENGTH_LONG
-                                ).show()
-                            } else {
-                                Toast.makeText(activity, "File is too large", Toast.LENGTH_LONG)
-                                    .show()
-                            }
-                        } catch (e: Exception) {
-                            e.printStackTrace()
-                        }
-
-                        Log.e("TAG", "File size in bytes: $dataSize")
+                        checkDataSize(uri)
                     }
                 }
                 REQUEST_CODE_GALLERY -> {
                     val uri: Uri? = data?.data
-                    Toast.makeText(
-                        activity,
-                        "Photo path: $uri",
-                        Toast.LENGTH_LONG
-                    ).show()
                     Log.e("TAG", "GALLERY_REQUEST_CODE onActivityResult: $uri")
+                    if (uri != null) {
+                        checkDataSize(uri)
+                    }
                 }
                 REQUEST_CODE_TAKE_PHOTO -> {
                     saveImageFileToGallery()
-                    Toast.makeText(
-                        activity,
-                        "Photo path: $currentPhotoPath",
-                        Toast.LENGTH_LONG
-                    ).show()
+                    if (currentPhotoPath.isNotEmpty()) {
+                        checkDataSize(Uri.fromFile(File(currentPhotoPath)))
+                    }
                     Log.e("TAG", "TAKE_PHOTO_REQUEST_CODE onActivityResult: $currentPhotoPath")
                 }
             }
@@ -183,7 +162,6 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>(), AttachFileB
     private fun checkCameraPermissions() {
         if (activity?.packageManager?.hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY) == true) {
 //            if (SDK_INT >= Build.VERSION_CODES.R) {
-//                //android 11 and higher
 //                try {
 //                    val intent = Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION)
 //                    intent.addCategory("android.intent.category.DEFAULT")
@@ -200,11 +178,32 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>(), AttachFileB
 //                    startActivityForResult(intent, REQUEST_CODE_TAKE_PHOTO)
 //                }
 //            } else {
-                //below android 11
                 //using that function only
                 checkSelfPermissions(PERMISSIONS_CAMERA, REQUEST_CODE_TAKE_PHOTO)
 //            }
         }
+    }
+
+    private fun checkDataSize(uri: Uri) {
+        var dataSize = 0
+        try {
+            val fileInputStream = activity?.contentResolver?.openInputStream(uri)
+            dataSize = fileInputStream?.available() ?: 0
+            if (dataSize < UPLOAD_FILE_MAX_SIZE_IN_BYTES) {
+                Toast.makeText(
+                    activity,
+                    "File size in bytes: $dataSize",
+                    Toast.LENGTH_LONG
+                ).show()
+            } else {
+                Toast.makeText(activity, "File is too large", Toast.LENGTH_LONG)
+                    .show()
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        File(uri.toString()).listFiles()
+        Log.e("TAG", "File size in bytes: $dataSize")
     }
 
     private fun openGallery() {
@@ -238,7 +237,7 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>(), AttachFileB
                     photoFile?.also {
                         val photoURI: Uri = FileProvider.getUriForFile(
                             requireContext(),
-                            "com.example.android.fileprovider",
+                            AUTHORITY_PHOTO,
                             it
                         )
                         takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
@@ -253,11 +252,11 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>(), AttachFileB
     private fun createImageFile(): File {
         Log.e("TAG", "createImageFile: ")
         // Create an image file name
-        val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.ENGLISH).format(Date())
+        val timeStamp: String = SimpleDateFormat(IMAGE_DATA_PATTERN, Locale.ENGLISH).format(Date())
         val storageDir: File? = activity?.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
         return File.createTempFile(
-            "JPEG_${timeStamp}_", /* prefix */
-            ".jpg", /* suffix */
+            requireContext().getString(R.string.image_name_prefix, timeStamp), /* prefix */
+            IMAGE_NAME_SUFFIX, /* suffix */
             storageDir /* directory */
         ).apply {
             // Save a file: path for use with ACTION_VIEW intents
@@ -303,6 +302,11 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>(), AttachFileB
             permission.CAMERA
         )
 
+        private const val AUTHORITY_PHOTO = "com.example.android.fileprovider"
+
+        private const val IMAGE_DATA_PATTERN = "yyyyMMdd_HHmmss"
+        private const val IMAGE_NAME_SUFFIX = ".jpg"
+
         private const val FILE_CHOOSER_TYPE_PDF = "application/pdf"
         private const val FILE_CHOOSER_TYPE_JPG = "image/jpg"
         private const val FILE_CHOOSER_TYPE_PNG = "image/png"
@@ -313,7 +317,7 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>(), AttachFileB
         private const val REQUEST_CODE_FILE_CHOOSER = 111
         private const val REQUEST_CODE_GALLERY = 222
         private const val REQUEST_CODE_TAKE_PHOTO = 333
-        //10 Mb
-        private const val UPLOAD_FILE_MAX_SIZE_IN_BYTES = 10_000_000
+
+        private const val UPLOAD_FILE_MAX_SIZE_IN_BYTES = 10_000_000   //10 Mb
     }
 }
