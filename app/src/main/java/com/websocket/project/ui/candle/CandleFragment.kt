@@ -1,6 +1,5 @@
 package com.websocket.project.ui.candle
 
-import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,21 +8,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.navigation.NavArgs
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
-import com.tradingview.lightweightcharts.api.chart.models.color.toIntColor
 import com.tradingview.lightweightcharts.api.interfaces.ChartApi
 import com.tradingview.lightweightcharts.api.interfaces.SeriesApi
 import com.tradingview.lightweightcharts.api.options.models.*
 import com.tradingview.lightweightcharts.api.series.common.SeriesData
 import com.tradingview.lightweightcharts.api.series.enums.CrosshairMode
-import com.tradingview.lightweightcharts.api.series.models.BarData
 import com.tradingview.lightweightcharts.api.series.models.PriceScaleId
 import com.tradingview.lightweightcharts.view.ChartsView
 import com.websocket.project.R
 import com.websocket.project.databinding.FragmentCandleBinding
-import com.websocket.project.ui.main.CryptoPairFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Job
 
 @AndroidEntryPoint
 class CandleFragment : Fragment() {
@@ -33,6 +30,7 @@ class CandleFragment : Fragment() {
     private val args: CandleFragmentArgs by navArgs()
 
     private var series: MutableList<SeriesApi> = mutableListOf()
+    private var realtimeDataJob: Job? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,7 +50,7 @@ class CandleFragment : Fragment() {
         }
         viewModel.getCandle(args.pairName)
         observeViewModelData()
-        subscribeOnChartReady(binding.chartsView)
+        subscribeOnChartReady(binding.candleChartsView)
         applyChartOptions()
     }
 
@@ -72,54 +70,40 @@ class CandleFragment : Fragment() {
     }
 
     private fun observeViewModelData() {
-        viewModel.candle.observe(viewLifecycleOwner, { data ->
-            Log.d("TAG", "observeViewModelData: $data")
-            createSeriesWithData(data, PriceScaleId.RIGHT, binding.chartsView.api) { series ->
+        viewModel.candleSnapshot.observe(viewLifecycleOwner, { data ->
+            createSeriesWithData(data, PriceScaleId.RIGHT, binding.candleChartsView.api) { series ->
                 this.series.clear()
                 this.series.add(series)
+
+                viewModel.candleUpdate.observe(viewLifecycleOwner, { data ->
+                    realtimeDataJob = lifecycleScope.launchWhenResumed {
+                        Log.d("TAG", "mapCandleToBarDataFragment: ${data.time.date}")
+                        series.update(data)
+                    }
+                })
             }
         })
     }
 
     private fun applyChartOptions() {
-        binding.chartsView.api.applyOptions {
-            handleScale = handleScaleOptions {
-                kineticScroll = kineticScrollOptions {
-                    touch = false
-                    mouse = false
-                }
-            }
-            layout = layoutOptions {
-                backgroundColor = Color.WHITE.toIntColor()
-                textColor = Color.argb(255, 33, 56, 77).toIntColor()
-            }
+        binding.candleChartsView.api.applyOptions {
             crosshair = crosshairOptions {
                 mode = CrosshairMode.NORMAL
             }
-            rightPriceScale = priceScaleOptions {
-                borderColor = Color.argb(255, 197, 203, 206).toIntColor()
-            }
             timeScale = timeScaleOptions {
-                borderColor = Color.argb(255, 197, 203, 206).toIntColor()
-                fixRightEdge = true
-                minBarSpacing = 0.7f
+                timeVisible = true
             }
         }
     }
 
     private fun createSeriesWithData(
-        data: List<BarData>,
+        data: List<SeriesData>,
         priceScale: PriceScaleId,
         chartApi: ChartApi,
         onSeriesCreated: (SeriesApi) -> Unit
     ) {
-        chartApi.addBarSeries(
-            options = BarSeriesOptions(
-                priceScaleId = priceScale,
-                thinBars = true,
-                downColor = Color.BLACK.toIntColor(),
-                upColor = Color.BLACK.toIntColor(),
-            ),
+        chartApi.addCandlestickSeries(
+            options = CandlestickSeriesOptions(),
             onSeriesCreated = { api ->
                 api.setData(data)
                 onSeriesCreated(api)

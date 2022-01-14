@@ -3,16 +3,14 @@ package com.websocket.project.repository
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
-import com.tradingview.lightweightcharts.api.series.common.SeriesData
 import com.tradingview.lightweightcharts.api.series.models.BarData
-import com.websocket.project.converter.mapToBarData
+import com.websocket.project.converter.mapCandleToBarData
 import com.websocket.project.converter.mapToCryptoPairModel
 import com.websocket.project.data.remote.HitBtcClientImpl
 import com.websocket.project.model.CryptoPairModel
 import com.websocket.project.request.SubscribeCandleRequest
 import com.websocket.project.request.SubscribeTickerRequest
 import io.reactivex.Flowable
-import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -33,7 +31,13 @@ class WebSocketRepositoryImpl @Inject constructor(
         return hitBtcClientImpl.subscribeCandle(subscribeCandleRequest)
             .map { candleResponse ->
                 Log.d("TAG", "observeCandle: $candleResponse")
-                mapToBarData(candleResponse.snapshot, candleResponse.update)
+                if (candleResponse.update != null) {
+                    mapCandleToBarData(candleResponse.update)
+                } else {
+                    mapCandleToBarData(candleResponse.snapshot)
+                }
             }
     }
+
+
 }

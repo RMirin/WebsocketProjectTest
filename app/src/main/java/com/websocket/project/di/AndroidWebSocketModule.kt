@@ -24,8 +24,6 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import java.security.KeyStore
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
@@ -74,21 +72,27 @@ object AndroidWebSocketModule {
 
     @Provides
     @Singleton
-    fun provideScarlet(okHttpClient: OkHttpClient, lifecycle: Lifecycle): HitBtcApi = Scarlet.Builder()
-        .webSocketFactory(okHttpClient.newWebSocketFactory(HitBtcApi.BASE_URI))
-        .lifecycle(lifecycle)
-        .addMessageAdapterFactory(GsonMessageAdapter.Factory())
-        .addStreamAdapterFactory(RxJava2StreamAdapterFactory())
-        .build()
-        .create()
+    fun provideScarlet(okHttpClient: OkHttpClient, lifecycle: Lifecycle): HitBtcApi =
+        Scarlet.Builder()
+            .webSocketFactory(okHttpClient.newWebSocketFactory(HitBtcApi.BASE_URI))
+            .lifecycle(lifecycle)
+            .addMessageAdapterFactory(GsonMessageAdapter.Factory())
+            .addStreamAdapterFactory(RxJava2StreamAdapterFactory())
+            .build()
+            .create()
 
     @Provides
     @Singleton
-    fun provideHitBtcClientImpl(hitBtcApi: HitBtcApi): HitBtcClientImpl = HitBtcClientImpl(hitBtcApi)
+    fun provideHitBtcClientImpl(
+        hitBtcApi: HitBtcApi
+    ): HitBtcClientImpl =
+        HitBtcClientImpl(hitBtcApi)
 
     @Provides
     @Singleton
-    fun provideWebSocketRepository(hitBtcClientImpl: HitBtcClientImpl): WebSocketRepository =
+    fun provideWebSocketRepository(
+        hitBtcClientImpl: HitBtcClientImpl,
+    ): WebSocketRepository =
         WebSocketRepositoryImpl(hitBtcClientImpl)
 
     @Provides

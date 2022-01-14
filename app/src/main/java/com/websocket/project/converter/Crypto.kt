@@ -1,5 +1,6 @@
 package com.websocket.project.converter
 
+import android.annotation.SuppressLint
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
@@ -8,6 +9,9 @@ import com.tradingview.lightweightcharts.api.series.models.Time
 import com.websocket.project.dto.CryptoPairDto
 import com.websocket.project.model.CryptoPairModel
 import com.websocket.project.response.candle_response.Candle
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.HashMap
 import kotlin.math.round
 
 fun mapToCryptoPairModel(map: Map<String, CryptoPairDto>?): HashMap<String, CryptoPairModel> {
@@ -32,35 +36,34 @@ fun mapToCryptoPairModel(map: Map<String, CryptoPairDto>?): HashMap<String, Cryp
 }
 
 @RequiresApi(Build.VERSION_CODES.N)
-fun mapToBarData(
-    snapshot: HashMap<String, List<Candle>>?,
+fun mapCandleToBarData(
     update: HashMap<String, List<Candle>>?
-): MutableList<BarData> {
+): List<BarData> {
     val candleList = mutableListOf<BarData>()
-    candleList.addAll(convertCandle(snapshot?.get("USDTBTC")))
-    candleList.addAll(convertCandle(update?.get("USDTBTC")))
-    /*snapshot?.forEach { (_, s1) ->
-        Log.d("MAPPP", "mapToBarData: ${s1[0].timestamp}")
-        candleList.addAll(convertCandle(s1))
-    }
     update?.forEach { (_, s1) ->
         candleList.addAll(convertCandle(s1))
     }
-    candleList.forEach{
-        Log.d("MAPPP", "mapToBarData: ${it.time}")
-    }*/
+    candleList.sortedBy { it.time.date }
+
+    candleList.forEach {
+        Log.d("TAG", "mapCandleToBarData: ${it.time.date}")
+    }
 
     return candleList
-}
-
-object list {
-    //val list
 }
 
 private fun convertCandle(candle: List<Candle>?): List<BarData> {
     val barList = mutableListOf<BarData>()
     candle?.forEach {
-        barList.add(BarData(Time.Utc(it.timestamp), it.open, it.high, it.low, it.close))
+        barList.add(
+            BarData(
+                Time.Utc.fromDate(Date(it.timestamp)),
+                it.open,
+                it.high,
+                it.low,
+                it.close
+            )
+        )
     }
     return barList
 }

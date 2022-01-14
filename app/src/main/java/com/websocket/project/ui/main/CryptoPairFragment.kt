@@ -44,12 +44,6 @@ class CryptoPairFragment : BaseFragment<FragmentCryptoPairBinding>(), CryptoRecy
         binding.mainRecycler.addItemDecoration(dividerItemDecoration)
         binding.mainRecycler.adapter = cryptoPairAdapter
 
-        viewModel.ticker.observe(viewLifecycleOwner, { ticker ->
-            binding.cryptoPairProgress.visibility = View.GONE
-            cryptoPairAdapter.setNewCryptoHashMap(ticker)
-            Log.d("TAG", "onCreate: $ticker")
-        })
-
         viewModel.permissionState.launchWhenStarted(lifecycleScope) { isPermissionGranted ->
             this.isPermissionGranted = isPermissionGranted
         }
@@ -57,6 +51,22 @@ class CryptoPairFragment : BaseFragment<FragmentCryptoPairBinding>(), CryptoRecy
         binding.pairAttachBtn.setOnClickListener {
             onAddClick()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        viewModel.ticker.observe(viewLifecycleOwner, { ticker ->
+            binding.cryptoPairProgress.visibility = View.GONE
+            cryptoPairAdapter.setNewCryptoHashMap(ticker)
+            Log.d("TAG", "onCreate: $ticker")
+        })
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.e("TAG", "onPause: removeObservers")
+        viewModel.ticker.removeObservers(viewLifecycleOwner)
     }
 
     private fun onAddClick() {

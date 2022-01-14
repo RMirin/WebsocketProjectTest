@@ -1,6 +1,5 @@
 package com.websocket.project.data.remote
 
-import android.annotation.SuppressLint
 import com.websocket.project.request.SubscribeCandleRequest
 import com.websocket.project.response.CryptoResponse
 import com.websocket.project.request.SubscribeTickerRequest

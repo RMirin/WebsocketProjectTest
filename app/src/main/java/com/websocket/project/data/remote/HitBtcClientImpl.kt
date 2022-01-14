@@ -2,7 +2,6 @@ package com.websocket.project.data.remote
 
 import android.annotation.SuppressLint
 import android.util.Log
-import com.tinder.scarlet.WebSocket
 import com.websocket.project.request.SubscribeCandleRequest
 import com.websocket.project.request.SubscribeTickerRequest
 import com.websocket.project.response.CryptoResponse
@@ -12,7 +11,9 @@ import io.reactivex.schedulers.Schedulers
 import javax.inject.Singleton
 
 @Singleton
-class HitBtcClientImpl(private val hitBtcApi: HitBtcApi) : HitBtcClient {
+class HitBtcClientImpl(
+    private val hitBtcApi: HitBtcApi
+) : HitBtcClient {
 
     @SuppressLint("CheckResult")
     override fun subscribeTicker(subscribeTickerRequest: SubscribeTickerRequest): Flowable<CryptoResponse> {
@@ -43,7 +44,7 @@ class HitBtcClientImpl(private val hitBtcApi: HitBtcApi) : HitBtcClient {
             .subscribeOn(Schedulers.io())
             .filter { cryptoResponse ->
                 Log.d("TAG", "subscribeCandle: $cryptoResponse")
-                cryptoResponse.ch != null
+                cryptoResponse.update != null || cryptoResponse.snapshot != null
             }
     }
 }

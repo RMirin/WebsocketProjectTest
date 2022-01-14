@@ -21,6 +21,6 @@
         <argument
             android:name="pairName"
             app:argType="string"
-            android:defaultValue="USDTBTC" />
+            android:defaultValue="BTCUSDT" />
     </fragment>
 </navigation>
