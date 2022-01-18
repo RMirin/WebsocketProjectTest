@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">WebsocketProjectTest</string>
     <string name="name_format_with_percent">%s(%s%%)</string>
+
+    <string name="image_name_prefix">JPEG_%s_</string>
+
+    <string name="action_bottom_sheet_camera">Камера</string>
+    <string name="action_bottom_sheet_gallery">Фотогалерея</string>
+    <string name="action_bottom_sheet_document">Документ</string>
 </resources>
