@@ -27,4 +27,21 @@
     </style>
 
     <style name="BottomSheetDialogTheme" parent="BaseBottomSheetDialog" />
+
+<!--    <declare-styleable name="RsiView">-->
+<!--        <attr format="string" name="text"/>-->
+<!--    </declare-styleable>-->
+
+    <declare-styleable name="CustomView">
+        <attr format="string" name="text"/>
+        <attr format="reference" name="image"/>
+    </declare-styleable>
+
+    <declare-styleable name="RsiView">
+        <attr format="string" name="actively_sell_text"/>
+        <attr format="string" name="sell_text"/>
+        <attr format="string" name="neutral_text"/>
+        <attr format="string" name="buy_text"/>
+        <attr format="string" name="actively_buy_text"/>
+    </declare-styleable>
 </resources>
