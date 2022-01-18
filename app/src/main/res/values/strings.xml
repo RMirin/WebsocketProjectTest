@@ -7,4 +7,10 @@
     <string name="action_bottom_sheet_camera">Камера</string>
     <string name="action_bottom_sheet_gallery">Фотогалерея</string>
     <string name="action_bottom_sheet_document">Документ</string>
+
+    <string name="actively_sell">Actively sell</string>
+    <string name="sell">Sell</string>
+    <string name="neutral">Neutral</string>
+    <string name="buy">Buy</string>
+    <string name="actively_buy">Actively buy</string>
 </resources>
