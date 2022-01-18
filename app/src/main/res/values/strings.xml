@@ -1,4 +1,27 @@
 <resources>
     <string name="app_name">WebsocketProjectTest</string>
     <string name="name_format_with_percent">%s(%s%%)</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--profile-->
+    <string name="settings">Настройки</string>
+    <string name="safety">Безопасность</string>
+    <string name="notification">Уведомления</string>
+    <string name="support">Центр поддержки</string>
+
+    <!--settings-->
+    <string name="language">Выбор языка</string>
+
+    <!--safety-->
+    <string name="enable_touch_id">Включить Face ID</string>
+    <string name="two_factor_authentication">2-факторная аутентификация</string>
+    <string name="edit_pin_code">Изменить PIN код</string>
+    <string name="enable_pin_code">Включить защиту по PIN коду</string>
+    <string name="change_password">Сменить пароль</string>
+    
+    <!--notification-->
+    <string name="app_notification">Уведомления приложения</string>
+    <string name="email_notification">Уведомления по электронной почте</string>
+    <string name="marketing_companies">Маркетинговые компании</string>
 </resources>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profile_navigation_graph"
+    app:startDestination="@id/profileFragment">
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.websocket.project.ui.profile.profile_main.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_settingsMainFragment"
+            app:destination="@id/settingsMainFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_safetyFragment"
+            app:destination="@id/safetyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsMainFragment"
+        android:name="com.websocket.project.ui.profile.settings.settings_main.SettingsMainFragment"
+        android:label="fragment_settings_main"
+        tools:layout="@layout/fragment_settings_main" >
+        <action
+            android:id="@+id/action_settingsMainFragment_to_settingsLanguageFragment"
+            app:destination="@id/settingsLanguageFragment" />
+        <action
+            android:id="@+id/action_settingsMainFragment_to_settingsNotificationFragment"
+            app:destination="@id/settingsNotificationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsLanguageFragment"
+        android:name="com.websocket.project.ui.profile.settings.language.SettingsLanguageFragment"
+        android:label="fragment_settings_language"
+        tools:layout="@layout/fragment_settings_language" />
+    <fragment
+        android:id="@+id/settingsNotificationFragment"
+        android:name="com.websocket.project.ui.profile.settings.notification.SettingsNotificationFragment"
+        android:label="fragment_settings_notification"
+        tools:layout="@layout/fragment_settings_notification" />
+    <fragment
+        android:id="@+id/safetyFragment"
+        android:name="com.websocket.project.ui.profile.safety.SafetyFragment"
+        android:label="fragment_safety"
+        tools:layout="@layout/fragment_safety" />
+</navigation>

@@ -3,10 +3,38 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/bg_exit_btn.xml" value="0.1264957264957265" />
         <entry key="app/src/main/res/drawable/bg_progress.xml" value="0.20208333333333334" />
+        <entry key="app/src/main/res/drawable/ic_switch_thumb.xml" value="0.24871794871794872" />
+        <entry key="app/src/main/res/drawable/ic_switch_track.xml" value="0.24871794871794872" />
+        <entry key="app/src/main/res/drawable/ic_view.xml" value="0.24871794871794872" />
+        <entry key="app/src/main/res/drawable/ic_view_hide.xml" value="0.24871794871794872" />
+        <entry key="app/src/main/res/drawable/selector_view_hide.xml" value="0.24871794871794872" />
+        <entry key="app/src/main/res/drawable/switch_off.xml" value="0.1346153846153846" />
+        <entry key="app/src/main/res/drawable/switch_on.xml" value="0.1346153846153846" />
+        <entry key="app/src/main/res/drawable/switch_selector.xml" value="0.23675213675213674" />
+        <entry key="app/src/main/res/drawable/switch_track.xml" value="0.23675213675213674" />
+        <entry key="app/src/main/res/drawable/verified_background.xml" value="0.24871794871794872" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_candle.xml" value="0.22385453842595526" />
         <entry key="app/src/main/res/layout/fragment_crypto_pair.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.33612432968975225" />
+        <entry key="app/src/main/res/layout/fragment_safety.xml" value="0.25487490503641735" />
+        <entry key="app/src/main/res/layout/fragment_settings_language.xml" value="0.29908594898121377" />
+        <entry key="app/src/main/res/layout/fragment_settings_main.xml" value="0.23096023735476728" />
+        <entry key="app/src/main/res/layout/fragment_settings_notification.xml" value="0.3282259279887119" />
         <entry key="app/src/main/res/layout/item_crypto_pair.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_notification.xml" value="0.36565295998132175" />
+        <entry key="app/src/main/res/layout/item_notification_switch.xml" value="0.1130308076602831" />
+        <entry key="app/src/main/res/layout/item_notification_title.xml" value="0.1130308076602831" />
+        <entry key="app/src/main/res/layout/item_profile.xml" value="0.10507246376811594" />
+        <entry key="app/src/main/res/layout/item_profile_settings.xml" value="0.12071599382683953" />
+        <entry key="app/src/main/res/layout/item_safety.xml" value="0.1130308076602831" />
+        <entry key="app/src/main/res/layout/item_safety_with_swtich.xml" value="0.7458726709993573" />
+        <entry key="app/src/main/res/layout/item_settings.xml" value="0.10720233139050792" />
+        <entry key="app/src/main/res/layout/item_settings_with_icon.xml" value="0.10720233139050792" />
+        <entry key="app/src/main/res/layout/item_settings_with_swtich.xml" value="0.13079463621712759" />
+        <entry key="app/src/main/res/layout/item_settings_without_icon.xml" value="0.275292819783853" />
       </map>
     </option>
   </component>
