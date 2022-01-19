@@ -8,6 +8,11 @@
     <string name="action_bottom_sheet_gallery">Фотогалерея</string>
     <string name="action_bottom_sheet_document">Документ</string>
 
+    <string name="main_bottom_navigation_main">Main</string>
+    <string name="main_bottom_navigation_markets">Markets</string>
+    <string name="main_bottom_navigation_trade">Trades</string>
+    <string name="main_bottom_navigation_wallet">Wallet</string>
+
     <string name="actively_sell">Actively sell</string>
     <string name="sell">Sell</string>
     <string name="neutral">Neutral</string>
