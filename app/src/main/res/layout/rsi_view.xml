@@ -6,11 +6,12 @@
     android:layout_width="match_parent"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
-    <View
+    <ImageView
         android:id="@+id/rsi_view_indicator_view"
         android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="@drawable/gradient"
+        android:layout_height="wrap_content"
+        android:src="@drawable/gradient"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
