@@ -10,7 +10,7 @@
         android:id="@+id/rsi_view_indicator_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/gradient"
+        android:src="@drawable/ic_rsi_view_indicator"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
