@@ -5,8 +5,6 @@ import com.websocket.project.R
 import com.websocket.project.ui.custom.rsi_view.RsiView
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.appcompat.app.AppCompatActivity
-import com.websocket.project.ui.custom.rsi_view.RsiIndicator
-
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -21,6 +19,6 @@ class MainActivity : AppCompatActivity() {
 //        }
         //Example of usage of RsiView
         val rsiView = findViewById<RsiView>(R.id.main_rsi_view)
-        rsiView.activateIndicator(RsiIndicator.BUY)
+        rsiView.setIndicator(progress = 10)
     }
 }
