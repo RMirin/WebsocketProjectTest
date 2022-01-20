@@ -5,6 +5,8 @@ import com.websocket.project.R
 import com.websocket.project.ui.custom.rsi_view.RsiView
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.appcompat.app.AppCompatActivity
+import com.websocket.project.ui.custom.risk_level_view.RiskLevel
+import com.websocket.project.ui.custom.risk_level_view.RiskLevelView
 import com.websocket.project.ui.custom.rsi_view.RsiIndicator
 
 
@@ -20,7 +22,10 @@ class MainActivity : AppCompatActivity() {
 //                .commitNow()
 //        }
         //Example of usage of RsiView
-        val rsiView = findViewById<RsiView>(R.id.main_rsi_view)
-        rsiView.activateIndicator(RsiIndicator.BUY)
+//        val rsiView = findViewById<RsiView>(R.id.main_rsi_view)
+//        rsiView.activateIndicator(RsiIndicator.BUY)
+        //Example of usage of RiskLevelView
+        val riskLevelView = findViewById<RiskLevelView>(R.id.main_risk_level_view)
+        riskLevelView.setRiskLevel(RiskLevel.HIGH)
     }
 }

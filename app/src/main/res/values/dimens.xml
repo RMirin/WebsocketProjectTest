@@ -9,4 +9,6 @@
     <dimen name="font_normal">16sp</dimen>
     <dimen name="font_large">24sp</dimen>
     <dimen name="font_huge">32sp</dimen>
+
+    <dimen name="risk_level_view_radius">19dp</dimen>
 </resources>

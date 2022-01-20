@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <View
+        android:id="@+id/view_risk_level_bg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_view_risk_level"
+        app:layout_constraintBottom_toBottomOf="@id/view_risk_level_medium_checked_text"
+        app:layout_constraintEnd_toEndOf="@id/view_risk_level_high_checked_text"
+        app:layout_constraintStart_toStartOf="@+id/view_risk_level_low_checked_text"
+        app:layout_constraintTop_toTopOf="@id/view_risk_level_medium_checked_text" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/view_risk_level_first_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.33" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/view_risk_level_second_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.66" />
+
+    <ImageView
+        android:id="@+id/view_risk_level_low_shadow_img"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:paddingBottom="3dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_view_risk_level_active_shadow"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/view_risk_level_low_checked_text"
+        app:layout_constraintEnd_toEndOf="@+id/view_risk_level_low_indicator_img"
+        app:layout_constraintStart_toStartOf="@+id/view_risk_level_low_indicator_img"
+        app:layout_constraintTop_toBottomOf="@+id/view_risk_level_low_checked_text" />
+
+    <ImageView
+        android:id="@+id/view_risk_level_medium_shadow_img"
+        android:layout_width="32dp"
+        android:layout_height="27dp"
+        android:paddingBottom="3dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_view_risk_level_active_shadow"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/view_risk_level_medium_checked_text"
+        app:layout_constraintEnd_toEndOf="@+id/view_risk_level_medium_indicator_img"
+        app:layout_constraintStart_toStartOf="@+id/view_risk_level_medium_indicator_img"
+        app:layout_constraintTop_toBottomOf="@+id/view_risk_level_medium_checked_text" />
+
+    <ImageView
+        android:id="@+id/view_risk_level_high_shadow_img"
+        android:layout_width="35dp"
+        android:layout_height="30dp"
+        android:paddingBottom="3dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_view_risk_level_active_shadow"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/view_risk_level_high_checked_text"
+        app:layout_constraintEnd_toEndOf="@+id/view_risk_level_high_indicator_img"
+        app:layout_constraintStart_toStartOf="@+id/view_risk_level_high_indicator_img"
+        app:layout_constraintTop_toBottomOf="@+id/view_risk_level_high_checked_text" />
+
+    <androidx.appcompat.widget.AppCompatCheckedTextView
+        android:id="@+id/view_risk_level_medium_checked_text"
+        android:layout_width="0dp"
+        android:layout_height="37dp"
+        android:background="@drawable/selector_view_risk_level_medium_text"
+        android:checked="false"
+        android:clickable="false"
+        android:focusable="false"
+        android:gravity="center"
+        android:maxLines="1"
+        android:paddingStart="@dimen/spacing_small"
+        android:paddingEnd="@dimen/spacing_small"
+        android:text="@string/risk_level_medium"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@drawable/selector_view_risk_level_text"
+        app:layout_constraintEnd_toEndOf="@id/view_risk_level_second_guideline"
+        app:layout_constraintStart_toStartOf="@id/view_risk_level_first_guideline"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatCheckedTextView
+        android:id="@+id/view_risk_level_low_checked_text"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:background="@drawable/selector_view_risk_level_low_text"
+        android:checked="false"
+        android:clickable="false"
+        android:focusable="false"
+        android:gravity="center"
+        android:maxLines="1"
+        android:paddingStart="@dimen/spacing_normal"
+        android:paddingEnd="@dimen/spacing_small"
+        android:text="@string/risk_level_low"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@drawable/selector_view_risk_level_text"
+        app:layout_constraintEnd_toStartOf="@+id/view_risk_level_first_guideline"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatCheckedTextView
+        android:id="@+id/view_risk_level_high_checked_text"
+        android:layout_width="0dp"
+        android:layout_height="37dp"
+        android:background="@drawable/selector_view_risk_level_high_text"
+        android:checked="false"
+        android:clickable="false"
+        android:focusable="false"
+        android:gravity="center"
+        android:maxLength="10"
+        android:maxLines="1"
+        android:paddingStart="@dimen/spacing_small"
+        android:paddingEnd="@dimen/spacing_normal"
+        android:text="@string/risk_level_high"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@drawable/selector_view_risk_level_text"
+        app:layout_constraintStart_toEndOf="@+id/view_risk_level_second_guideline"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/view_risk_level_low_indicator_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_view_risk_level_active_indicator_img"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/view_risk_level_low_checked_text"
+        app:layout_constraintEnd_toEndOf="@+id/view_risk_level_low_checked_text"
+        app:layout_constraintStart_toStartOf="@id/view_risk_level_low_checked_text" />
+
+    <ImageView
+        android:id="@+id/view_risk_level_medium_indicator_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="18dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_view_risk_level_active_indicator_img"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/view_risk_level_low_checked_text"
+        app:layout_constraintEnd_toEndOf="@+id/view_risk_level_medium_checked_text"
+        app:layout_constraintStart_toStartOf="@+id/view_risk_level_medium_checked_text" />
+
+    <ImageView
+        android:id="@+id/view_risk_level_high_indicator_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="7dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_view_risk_level_active_indicator_img"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/view_risk_level_low_checked_text"
+        app:layout_constraintEnd_toEndOf="@+id/view_risk_level_high_checked_text"
+        app:layout_constraintStart_toStartOf="@+id/view_risk_level_high_checked_text" />
+
+    <View
+        android:id="@+id/view_risk_level_divider_first"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@color/risk_level_stroke_color"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/view_risk_level_medium_checked_text"
+        app:layout_constraintStart_toEndOf="@+id/view_risk_level_low_checked_text"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view_risk_level_divider_second"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@color/risk_level_stroke_color"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/view_risk_level_medium_checked_text"
+        app:layout_constraintEnd_toStartOf="@+id/view_risk_level_high_checked_text"
+        app:layout_constraintStart_toEndOf="@+id/view_risk_level_medium_checked_text"
+        app:layout_constraintTop_toTopOf="parent" />
+</merge>

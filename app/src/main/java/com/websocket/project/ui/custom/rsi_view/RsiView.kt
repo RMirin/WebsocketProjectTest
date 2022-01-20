@@ -8,6 +8,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.websocket.project.R
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import java.lang.RuntimeException
 
 class RsiView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
     ConstraintLayout(context, attrs, defStyleAttr) {
@@ -50,7 +51,8 @@ class RsiView @JvmOverloads constructor(context: Context, attrs: AttributeSet? =
             rsiViewNeutralText.text = context.getText(RsiIndicator.NEUTRAL.rsiText)
             rsiViewBuyText.text = context.getText(RsiIndicator.BUY.rsiText)
             rsiViewActivelyBuyText.text = context.getText(RsiIndicator.ACTIVELY_BUY.rsiText)
-
+        } catch (ex: RuntimeException) {
+            ex.printStackTrace()
         } finally {
             ta.recycle()
         }

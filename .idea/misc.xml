@@ -3,16 +3,38 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.24583333333333332" />
+        <entry key="app/src/main/res/drawable/bg_bottom_nav.xml" value="0.24583333333333332" />
+        <entry key="app/src/main/res/drawable/bg_btn_risk_level_high_active.xml" value="0.16486486486486487" />
+        <entry key="app/src/main/res/drawable/bg_btn_risk_level_high_inactive.xml" value="0.61" />
+        <entry key="app/src/main/res/drawable/bg_btn_risk_level_low_active.xml" value="0.61" />
+        <entry key="app/src/main/res/drawable/bg_btn_risk_level_low_inactive.xml" value="0.61" />
+        <entry key="app/src/main/res/drawable/bg_btn_risk_level_medium_active.xml" value="0.61" />
+        <entry key="app/src/main/res/drawable/bg_btn_risk_level_medium_inactive.xml" value="0.61" />
         <entry key="app/src/main/res/drawable/bg_gradient_navigation_bar.xml" value="0.18333333333333332" />
         <entry key="app/src/main/res/drawable/bg_progress.xml" value="0.20208333333333334" />
+        <entry key="app/src/main/res/drawable/bg_risk_level.xml" value="0.20608108108108109" />
+        <entry key="app/src/main/res/drawable/bg_view_risk_level.xml" value="0.18958333333333333" />
+        <entry key="app/src/main/res/drawable/bg_view_risk_level_high_active.xml" value="0.18958333333333333" />
+        <entry key="app/src/main/res/drawable/bg_view_risk_level_low_active.xml" value="0.18958333333333333" />
+        <entry key="app/src/main/res/drawable/bg_view_risk_level_medium_active.xml" value="0.18958333333333333" />
         <entry key="app/src/main/res/drawable/bottom_sheet_background.xml" value="0.23645833333333333" />
         <entry key="app/src/main/res/drawable/gradient.xml" value="0.22864583333333333" />
         <entry key="app/src/main/res/drawable/ic_actively_sell.xml" value="0.3125" />
+        <entry key="app/src/main/res/drawable/ic_attach_file.xml" value="0.24583333333333332" />
         <entry key="app/src/main/res/drawable/ic_gradient.xml" value="0.75" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.24583333333333332" />
+        <entry key="app/src/main/res/drawable/ic_menu_main_active.xml" value="0.24583333333333332" />
+        <entry key="app/src/main/res/drawable/ic_menu_markets_active.xml" value="0.24583333333333332" />
+        <entry key="app/src/main/res/drawable/ic_menu_markets_inactive.xml" value="0.24583333333333332" />
+        <entry key="app/src/main/res/drawable/ic_menu_trade_active.xml" value="0.24583333333333332" />
+        <entry key="app/src/main/res/drawable/ic_menu_wallet_active.xml" value="0.24583333333333332" />
+        <entry key="app/src/main/res/drawable/ic_menu_wallet_inactive.xml" value="0.24583333333333332" />
         <entry key="app/src/main/res/drawable/ic_rsi_actively_buy.xml" value="0.3125" />
         <entry key="app/src/main/res/drawable/ic_rsi_buy.xml" value="0.3125" />
         <entry key="app/src/main/res/drawable/ic_rsi_neutral.xml" value="0.3125" />
         <entry key="app/src/main/res/drawable/ic_sell.xml" value="0.3125" />
+        <entry key="app/src/main/res/drawable/ic_view_risk_level_active_indicator_img.xml" value="0.32083333333333336" />
         <entry key="app/src/main/res/drawable/indicator_gradient_1.xml" value="0.29375" />
         <entry key="app/src/main/res/drawable/indicator_gradient_2.xml" value="0.29375" />
         <entry key="app/src/main/res/drawable/indicator_gradient_3.xml" value="0.29375" />
@@ -21,9 +43,20 @@
         <entry key="app/src/main/res/drawable/selector_main.xml" value="0.18333333333333332" />
         <entry key="app/src/main/res/drawable/selector_markets.xml" value="0.18333333333333332" />
         <entry key="app/src/main/res/drawable/selector_menu_item_text.xml" value="0.18333333333333332" />
+        <entry key="app/src/main/res/drawable/selector_menu_main.xml" value="0.24583333333333332" />
+        <entry key="app/src/main/res/drawable/selector_menu_markets.xml" value="0.24583333333333332" />
+        <entry key="app/src/main/res/drawable/selector_menu_trade.xml" value="0.24583333333333332" />
+        <entry key="app/src/main/res/drawable/selector_menu_wallet.xml" value="0.24583333333333332" />
         <entry key="app/src/main/res/drawable/selector_trade.xml" value="0.18333333333333332" />
+        <entry key="app/src/main/res/drawable/selector_view_risk_level_center_text.xml" value="0.18958333333333333" />
+        <entry key="app/src/main/res/drawable/selector_view_risk_level_high_text.xml" value="0.32083333333333336" />
+        <entry key="app/src/main/res/drawable/selector_view_risk_level_left_text.xml" value="0.18958333333333333" />
+        <entry key="app/src/main/res/drawable/selector_view_risk_level_low_text.xml" value="0.20608108108108109" />
+        <entry key="app/src/main/res/drawable/selector_view_risk_level_medium_text.xml" value="0.20608108108108109" />
+        <entry key="app/src/main/res/drawable/selector_view_risk_level_right_text.xml" value="0.18958333333333333" />
+        <entry key="app/src/main/res/drawable/selector_view_risk_level_text.xml" value="0.32083333333333336" />
         <entry key="app/src/main/res/drawable/selector_wallet.xml" value="0.18333333333333332" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/attach_file_bottom_sheet_layout.xml" value="0.2203125" />
         <entry key="app/src/main/res/layout/custom_layout.xml" value="0.18958333333333333" />
         <entry key="app/src/main/res/layout/fragment_candle.xml" value="0.2203125" />
@@ -31,8 +64,10 @@
         <entry key="app/src/main/res/layout/item_attach_file_action.xml" value="0.2203125" />
         <entry key="app/src/main/res/layout/item_crypto_pair.xml" value="0.25" />
         <entry key="app/src/main/res/layout/layout_rsi_view.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/rsi_view.xml" value="0.20520833333333333" />
+        <entry key="app/src/main/res/layout/rsi_view.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/view_risk_level.xml" value="0.25" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.2125" />
+        <entry key="app/src/main/res/menu/main_navigation_menu.xml" value="0.2296875" />
         <entry key="app/src/main/res/xml/attrs.xml" value="0.18958333333333333" />
         <entry key="app/src/main/res/xml/file_paths.xml" value="0.20260416666666667" />
       </map>

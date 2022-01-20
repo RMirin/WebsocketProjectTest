@@ -16,4 +16,10 @@
     <color name="neutral">#533DD6</color>
     <color name="buy">#1EA594</color>
     <color name="actively_buy">#19E85F</color>
+
+    <color name="risk_level_text_active">#3FE18E</color>
+    <color name="risk_level_stroke_color">#9C93C2</color>
+    <color name="risk_level_low">#0086A7</color>
+    <color name="risk_level_medium">#026B84</color>
+    <color name="risk_level_high">#01637A</color>
 </resources>
