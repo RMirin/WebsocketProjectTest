@@ -11,6 +11,13 @@
     <color name="price_down">#e57373</color>
     <color name="price_up">#81c784</color>
 
+    <color name="rsi_actively_sell_text">#B40404</color>
+    <color name="rsi_sell_text">#DA6511</color>
+    <color name="rsi_neutral_text">#533DD6</color>
+    <color name="rsi_buy_text">#1EA594</color>
+    <color name="rsi_actively_buy_text">#19E85F</color>
+
+    <color name="rsi_inactive">#80FFFFFF</color>
     <color name="rsi_5">#9E0709</color>
     <color name="rsi_10">#B30404</color>
     <color name="rsi_15">#B50A07</color>

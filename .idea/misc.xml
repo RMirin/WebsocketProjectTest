@@ -67,7 +67,7 @@
         <entry key="app/src/main/res/layout/layout_rsi_view.xml" value="0.25" />
         <entry key="app/src/main/res/layout/rsi_view.xml" value="0.33" />
         <entry key="app/src/main/res/layout/view_risk_level.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/view_rsi.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/view_rsi.xml" value="0.25" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.2125" />
         <entry key="app/src/main/res/menu/main_navigation_menu.xml" value="0.2296875" />
         <entry key="app/src/main/res/xml/attrs.xml" value="0.18958333333333333" />
