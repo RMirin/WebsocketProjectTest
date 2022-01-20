@@ -3,12 +3,12 @@ package com.websocket.project.ui.custom.risk_level_view
 import android.content.Context
 import android.os.Build
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.View
 import android.widget.CheckedTextView
 import android.widget.ImageView
-import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
+import androidx.core.widget.TextViewCompat
 import com.websocket.project.R
 import java.lang.RuntimeException
 
@@ -54,6 +54,22 @@ class RiskLevelView @JvmOverloads constructor(
 
             viewRiskLevelDividerFirstImg = findViewById(R.id.view_risk_level_divider_first)
             viewRiskLevelDividerSecondImg = findViewById(R.id.view_risk_level_divider_second)
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                viewRiskLevelLowText.setAutoSizeTextTypeUniformWithConfiguration(
+                    12, 16, 2, TypedValue.COMPLEX_UNIT_DIP)
+                viewRiskLevelMediumText.setAutoSizeTextTypeUniformWithConfiguration(
+                    12, 16, 2, TypedValue.COMPLEX_UNIT_DIP)
+                viewRiskLevelHighText.setAutoSizeTextTypeUniformWithConfiguration(
+                    12, 16, 2, TypedValue.COMPLEX_UNIT_DIP)
+            } else {
+                TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(viewRiskLevelLowText, 12, 16, 1,
+                    TypedValue.COMPLEX_UNIT_DIP)
+                TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(viewRiskLevelMediumText, 12, 16, 1,
+                    TypedValue.COMPLEX_UNIT_DIP)
+                TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(viewRiskLevelHighText, 12, 16, 1,
+                    TypedValue.COMPLEX_UNIT_DIP)
+            }
         } catch (ex: RuntimeException) {
             ex.printStackTrace()
         } finally {
