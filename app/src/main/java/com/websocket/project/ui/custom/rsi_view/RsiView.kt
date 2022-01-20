@@ -89,14 +89,14 @@ class RsiView @JvmOverloads constructor(context: Context, attrs: AttributeSet? =
     }
 
     fun setIndicator(progress: Int) {
+        var rsiColorSeekBarThumb = 0
+        val rsiColorInactive = ContextCompat.getColor(context, R.color.rsi_inactive)
+        val rsiColorActivelySell = ContextCompat.getColor(context, R.color.rsi_actively_sell_text)
+        val rsiColorSell = ContextCompat.getColor(context, R.color.rsi_sell_text)
+        val rsiColorNeutral = ContextCompat.getColor(context, R.color.rsi_neutral_text)
+        val rsiColorBuy = ContextCompat.getColor(context, R.color.rsi_buy_text)
+        val rsiColorActivelyBuy = ContextCompat.getColor(context, R.color.rsi_actively_buy_text)
         if (progress in 0..100) {
-            var rsiColorSeekBarThumb = 0
-            val rsiColorInactive = ContextCompat.getColor(context, R.color.rsi_inactive)
-            val rsiColorActivelySell = ContextCompat.getColor(context, R.color.rsi_actively_sell_text)
-            val rsiColorSell = ContextCompat.getColor(context, R.color.rsi_sell_text)
-            val rsiColorNeutral = ContextCompat.getColor(context, R.color.rsi_neutral_text)
-            val rsiColorBuy = ContextCompat.getColor(context, R.color.rsi_buy_text)
-            val rsiColorActivelyBuy = ContextCompat.getColor(context, R.color.rsi_actively_buy_text)
             when (progress) {
                 in 0..4 -> {
                     rsiColorSeekBarThumb = R.color.rsi_5
