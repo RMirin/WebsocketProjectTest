@@ -7,7 +7,8 @@ import com.websocket.project.response.candle_response.CandleResponse
 import io.reactivex.Flowable
 
 interface HitBtcClient {
-
     fun subscribeTicker(subscribeTickerRequest: SubscribeTickerRequest): Flowable<CryptoResponse>
     fun subscribeCandle(subscribeCandleRequest: SubscribeCandleRequest): Flowable<CandleResponse>
+    fun unsubscribeTicker(subscribeTickerRequest: SubscribeTickerRequest)
+    fun unsubscribeCandle(subscribeCandleRequest: SubscribeCandleRequest)
 }

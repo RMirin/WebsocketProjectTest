@@ -1,10 +1,9 @@
-package com.websocket.project.ui.main
+package com.websocket.project.ui.crypto_pair
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.websocket.project.model.CryptoPairModel
-import com.websocket.project.response.CryptoResponse
 import com.websocket.project.usecases.WebSocketUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -15,8 +14,8 @@ import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 
 @HiltViewModel
-class MainActivityViewModel @Inject constructor(
-    webSocketUseCase: WebSocketUseCase
+class CryptoPairViewModel @Inject constructor(
+  private val webSocketUseCase: WebSocketUseCase
 ): ViewModel() {
 
     private val compositeDisposable = CompositeDisposable()
@@ -29,8 +28,8 @@ class MainActivityViewModel @Inject constructor(
     val ticker: LiveData<HashMap<String, CryptoPairModel>>
         get() = _ticker
 
-    init {
-        compositeDisposable.add(webSocketUseCase.invoke()
+    fun subscribeTickers(){
+        compositeDisposable.add(webSocketUseCase.subscribeTickers()
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ ticker ->
                 _ticker.postValue(ticker)
@@ -38,5 +37,9 @@ class MainActivityViewModel @Inject constructor(
                 e.printStackTrace()
             })
         )
+    }
+
+    fun unsubscribeTickers(){
+        webSocketUseCase.unsubscribeTicker()
     }
 }

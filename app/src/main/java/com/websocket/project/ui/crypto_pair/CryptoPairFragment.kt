@@ -1,4 +1,4 @@
-package com.websocket.project.ui.main
+package com.websocket.project.ui.crypto_pair
 
 import android.Manifest
 import android.content.ContentResolver
@@ -26,7 +26,7 @@ class CryptoPairFragment : BaseFragment<FragmentCryptoPairBinding>(), CryptoRecy
 
     private var isPermissionGranted = false
 
-    private val viewModel: MainActivityViewModel by viewModels()
+    private val viewModel: CryptoPairViewModel by viewModels()
 
     private val cryptoPairAdapter by lazy(LazyThreadSafetyMode.NONE) {
         CryptoPairAdapter(this)
@@ -51,22 +51,26 @@ class CryptoPairFragment : BaseFragment<FragmentCryptoPairBinding>(), CryptoRecy
         binding.pairAttachBtn.setOnClickListener {
             onAddClick()
         }
+        observePair()
     }
 
     override fun onResume() {
         super.onResume()
-
-        viewModel.ticker.observe(viewLifecycleOwner, { ticker ->
-            binding.cryptoPairProgress.visibility = View.GONE
-            cryptoPairAdapter.setNewCryptoHashMap(ticker)
-            Log.d("TAG", "onCreate: $ticker")
-        })
+        viewModel.subscribeTickers()
     }
 
     override fun onPause() {
         super.onPause()
         Log.e("TAG", "onPause: removeObservers")
-        viewModel.ticker.removeObservers(viewLifecycleOwner)
+        viewModel.unsubscribeTickers()
+    }
+
+    fun observePair() {
+        viewModel.ticker.observe(viewLifecycleOwner, { ticker ->
+            binding.cryptoPairProgress.visibility = View.GONE
+            cryptoPairAdapter.setNewCryptoHashMap(ticker)
+            Log.d("TAG", "onCreate: $ticker")
+        })
     }
 
     private fun onAddClick() {

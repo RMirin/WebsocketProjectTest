@@ -19,15 +19,19 @@ class WebSocketRepositoryImpl @Inject constructor(
     private val hitBtcClientImpl: HitBtcClientImpl
 ) : WebSocketRepository {
 
-    override fun observeTicker(subscribeTickerRequest: SubscribeTickerRequest): Flowable<HashMap<String, CryptoPairModel>> {
+    override fun subscribeTicker(subscribeTickerRequest: SubscribeTickerRequest): Flowable<HashMap<String, CryptoPairModel>> {
         return hitBtcClientImpl.subscribeTicker(subscribeTickerRequest)
             .map { cryptoResponse ->
                 mapToCryptoPairModel(cryptoResponse.cryptoResponseData)
             }
     }
 
+    override fun unsubscribeTicker(subscribeTickerRequest: SubscribeTickerRequest) {
+        hitBtcClientImpl.unsubscribeTicker(subscribeTickerRequest)
+    }
+
     @RequiresApi(Build.VERSION_CODES.N)
-    override fun observeCandle(subscribeCandleRequest: SubscribeCandleRequest): Flowable<List<BarData>> {
+    override fun subscribeCandle(subscribeCandleRequest: SubscribeCandleRequest): Flowable<List<BarData>> {
         return hitBtcClientImpl.subscribeCandle(subscribeCandleRequest)
             .map { candleResponse ->
                 Log.d("TAG", "observeCandle: $candleResponse")
@@ -39,5 +43,8 @@ class WebSocketRepositoryImpl @Inject constructor(
             }
     }
 
+    override fun unsubscribeCandle(subscribeCandleRequest: SubscribeCandleRequest) {
+        hitBtcClientImpl.unsubscribeCandle(subscribeCandleRequest)
+    }
 
 }

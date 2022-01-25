@@ -9,6 +9,8 @@ import com.websocket.project.request.SubscribeTickerRequest
 import io.reactivex.Flowable
 
 interface WebSocketRepository {
-    fun observeTicker(subscribeTickerRequest: SubscribeTickerRequest): Flowable<HashMap<String, CryptoPairModel>>
-    fun observeCandle(subscribeCandleRequest: SubscribeCandleRequest): Flowable<List<BarData>>
+    fun subscribeTicker(subscribeTickerRequest: SubscribeTickerRequest): Flowable<HashMap<String, CryptoPairModel>>
+    fun subscribeCandle(subscribeCandleRequest: SubscribeCandleRequest): Flowable<List<BarData>>
+    fun unsubscribeTicker(subscribeTickerRequest: SubscribeTickerRequest)
+    fun unsubscribeCandle(subscribeCandleRequest: SubscribeCandleRequest)
 }

@@ -14,14 +14,17 @@ interface HitBtcApi {
     @Receive
     fun openWebSocketEvent(): Flowable<WebSocket.Event>
 
-    @Receive
-    fun receiveResponse(): Flowable<String>
-
     @Send
     fun sendTickerRequest(subscribeTickerRequest: SubscribeTickerRequest)
 
     @Send
+    fun sendUnsubscribeTickerRequest(subscribeTickerRequest: SubscribeTickerRequest)
+
+    @Send
     fun sendCandleRequest(subscribeCandleRequest: SubscribeCandleRequest)
+
+    @Send
+    fun sendUnsubscribeCandleRequest(subscribeCandleRequest: SubscribeCandleRequest)
 
     @Receive
     fun observeTicker(): Flowable<CryptoResponse>

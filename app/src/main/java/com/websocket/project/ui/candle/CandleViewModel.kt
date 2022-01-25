@@ -36,9 +36,13 @@ class CandleViewModel @Inject constructor(
         get() = _candleSnapshot
 
 
-    fun getCandle(pairName: String) {
+    fun unsubscribeCandle(pairName: String) {
+        webSocketUseCase.unsubscribeCandle(pairName)
+    }
+
+    fun subscribeCandle(pairName: String) {
         compositeDisposable.add(
-            webSocketUseCase.getCandleCryptoPair(pairName)
+            webSocketUseCase.subscribeCandle(pairName)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ candle ->
                     if (firstMessage) {
@@ -52,6 +56,5 @@ class CandleViewModel @Inject constructor(
                 })
         )
     }
-
 
 }
