@@ -15,8 +15,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CryptoPairViewModel @Inject constructor(
-  private val webSocketUseCase: WebSocketUseCase
-): ViewModel() {
+    private val webSocketUseCase: WebSocketUseCase
+) : ViewModel() {
 
     private val compositeDisposable = CompositeDisposable()
 
@@ -28,18 +28,20 @@ class CryptoPairViewModel @Inject constructor(
     val ticker: LiveData<HashMap<String, CryptoPairModel>>
         get() = _ticker
 
-    fun subscribeTickers(){
-        compositeDisposable.add(webSocketUseCase.subscribeTickers()
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ ticker ->
-                _ticker.postValue(ticker)
-            }, { e ->
-                e.printStackTrace()
-            })
+    fun subscribeTickers() {
+        compositeDisposable.add(
+            webSocketUseCase.subscribeTickers()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ ticker ->
+                    _ticker.postValue(ticker)
+                }, { e ->
+                    e.printStackTrace()
+                })
         )
     }
 
-    fun unsubscribeTickers(){
+    fun unsubscribeTickers() {
         webSocketUseCase.unsubscribeTicker()
+        compositeDisposable.clear()
     }
 }

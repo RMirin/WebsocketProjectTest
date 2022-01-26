@@ -38,6 +38,7 @@ class CandleViewModel @Inject constructor(
 
     fun unsubscribeCandle(pairName: String) {
         webSocketUseCase.unsubscribeCandle(pairName)
+        compositeDisposable.dispose()
     }
 
     fun subscribeCandle(pairName: String) {
