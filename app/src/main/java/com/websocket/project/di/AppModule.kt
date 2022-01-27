@@ -3,24 +3,26 @@ package com.websocket.project.di
 import android.app.Application
 import android.content.Context
 import android.net.ConnectivityManager
-import com.websocket.project.data.remote.HitBtcApi
-import com.websocket.project.data.remote.HitBtcClientImpl
-import com.websocket.project.repository.WebSocketRepository
-import com.websocket.project.repository.WebSocketRepositoryImpl
+import com.websocket.project.data.remote.market_data.MarketDataApi
+import com.websocket.project.data.remote.market_data.MarketDataClientImpl
+import com.websocket.project.repository.MarketDataRepository
+import com.websocket.project.repository.MarketDataRepositoryImpl
 import com.websocket.project.service.NetworkService
 import com.websocket.project.service.NetworkServiceImpl
-import com.websocket.project.usecases.WebSocketUseCase
+import com.websocket.project.usecases.MarketDataUseCase
 import com.tinder.scarlet.Lifecycle
 import com.tinder.scarlet.Scarlet
 import com.tinder.scarlet.lifecycle.android.AndroidLifecycle
 import com.tinder.scarlet.messageadapter.gson.GsonMessageAdapter
 import com.tinder.scarlet.streamadapter.rxjava2.RxJava2StreamAdapterFactory
 import com.tinder.scarlet.websocket.okhttp.newWebSocketFactory
+import com.websocket.project.data.remote.trading.TradingApi
 import com.websocket.project.interceptor.NetworkConnectionInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.android.scopes.ViewModelScoped
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -33,7 +35,7 @@ import javax.net.ssl.X509TrustManager
 
 @Module
 @InstallIn(SingletonComponent::class)
-object AndroidWebSocketModule {
+object AppModule {
 
     @Provides
     @Singleton
@@ -69,34 +71,4 @@ object AndroidWebSocketModule {
                 }
             }
             .build()
-
-    @Provides
-    @Singleton
-    fun provideScarlet(okHttpClient: OkHttpClient, lifecycle: Lifecycle): HitBtcApi =
-        Scarlet.Builder()
-            .webSocketFactory(okHttpClient.newWebSocketFactory(HitBtcApi.BASE_URI))
-            .lifecycle(lifecycle)
-            .addMessageAdapterFactory(GsonMessageAdapter.Factory())
-            .addStreamAdapterFactory(RxJava2StreamAdapterFactory())
-            .build()
-            .create()
-
-    @Provides
-    @Singleton
-    fun provideHitBtcClientImpl(
-        hitBtcApi: HitBtcApi
-    ): HitBtcClientImpl =
-        HitBtcClientImpl(hitBtcApi)
-
-    @Provides
-    @Singleton
-    fun provideWebSocketRepository(
-        hitBtcClientImpl: HitBtcClientImpl,
-    ): WebSocketRepository =
-        WebSocketRepositoryImpl(hitBtcClientImpl)
-
-    @Provides
-    @Singleton
-    fun provideWebSocketUseCase(webSocketRepositoryImpl: WebSocketRepositoryImpl): WebSocketUseCase =
-        WebSocketUseCase(webSocketRepositoryImpl)
 }

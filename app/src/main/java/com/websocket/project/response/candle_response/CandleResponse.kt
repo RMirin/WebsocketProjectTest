@@ -5,8 +5,8 @@ import com.websocket.project.dto.CandleDto
 
 data class CandleResponse(
     @SerializedName("ch") val ch: String?,
-    @SerializedName("snapshot") val snapshot: Map<String, List<CandleDto>>,
-    @SerializedName("update") val update: Map<String, List<CandleDto>>
+    @SerializedName("snapshot") val snapshot: HashMap<String, List<CandleDto>>?,
+    @SerializedName("update") val update: HashMap<String, List<CandleDto>>?
 )
 
 //class Snapshot {

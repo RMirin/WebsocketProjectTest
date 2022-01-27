@@ -1,4 +1,4 @@
-package com.websocket.project.ui.main
+package com.websocket.project.ui.crypto_pair
 
 import android.graphics.Color
 import android.text.style.ForegroundColorSpan
@@ -71,12 +71,12 @@ class CryptoPairAdapter(private val cryptoRecyclerOnClick: CryptoRecyclerOnClick
                             if (itemPriceChangePercent > 0) ForegroundColorSpan(
                                 ContextCompat.getColor(
                                     context,
-                                    R.color.price_up
+                                    R.color.candle_up_color
                                 )
                             ) else ForegroundColorSpan(
                                 ContextCompat.getColor(
                                     context,
-                                    R.color.price_down
+                                    R.color.candle_down_color
                                 )
                             ),
                             roundedPercent

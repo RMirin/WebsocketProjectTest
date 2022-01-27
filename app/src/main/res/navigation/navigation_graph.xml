@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/candleFragment">
+    app:startDestination="@id/cryptoPairFragment">
 
     <fragment
         android:id="@+id/cryptoPairFragment"
-        android:name="com.websocket.project.ui.main.CryptoPairFragment"
+        android:name="com.websocket.project.ui.crypto_pair.CryptoPairFragment"
         android:label="CryptoPairFragment">
         <action
             android:id="@+id/action_cryptoPairFragment_to_candleFragment"

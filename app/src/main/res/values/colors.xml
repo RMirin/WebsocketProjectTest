@@ -41,4 +41,11 @@
     <color name="rsi_95">#19E75F</color>
     <color name="rsi_100">#19E75F</color>
 
+    <color name="backgoundApp">#111627</color>
+    <color name="transpent">#00000000</color>
+
+    <color name="candle_up_color">#3CC0B0</color>
+    <color name="candle_down_color">#C32B57</color>
+    <color name="candle_font_color">#898D94</color>
+    <color name="candle_border_color">#73699C</color>
 </resources>

@@ -1,10 +1,9 @@
 package com.websocket.project.ui.main
 
 import android.os.Bundle
-import com.websocket.project.R
-import com.websocket.project.ui.custom.rsi_view.RsiView
-import dagger.hilt.android.AndroidEntryPoint
 import androidx.appcompat.app.AppCompatActivity
+import com.websocket.project.R
+import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -17,8 +16,5 @@ class MainActivity : AppCompatActivity() {
 //                .replace(R.id.container, CryptoPairFragment.newInstance())
 //                .commitNow()
 //        }
-        //Example of usage of RsiView
-//        val rsiView = findViewById<RsiView>(R.id.main_rsi_view)
-//        rsiView.setIndicator(progress = 10)
     }
 }

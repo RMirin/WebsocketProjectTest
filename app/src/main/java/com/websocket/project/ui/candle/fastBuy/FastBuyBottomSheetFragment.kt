@@ -9,7 +9,7 @@ import com.websocket.project.R
 import com.websocket.project.databinding.FastBuyBottomSheetLayoutBinding
 
 class FastBuyBottomSheetFragment(
-    private val listener: FilterBottomSheetListener
+    private val listener: FastBuyBottomSheetListener
 ) : BottomSheetDialogFragment() {
 
     lateinit var binding: FastBuyBottomSheetLayoutBinding
@@ -23,7 +23,7 @@ class FastBuyBottomSheetFragment(
     }
 }
 
-interface FilterBottomSheetListener {
+interface FastBuyBottomSheetListener {
     fun onDepositClick()
     fun onBuyClick()
 }

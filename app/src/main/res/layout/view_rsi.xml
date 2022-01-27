@@ -70,12 +70,11 @@
         android:id="@+id/layout_rsi_actively_sell_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/rsi_actively_sell"
-        android:textSize="12sp"
-        android:textAlignment="center"
         android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/rsi_view_01_guideline"
-        app:layout_constraintStart_toStartOf="@+id/rsi_view_01_guideline"
+        android:text="@string/rsi_actively_sell"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/rsi_view_indicator_view"
         app:layout_constraintTop_toBottomOf="@+id/rsi_view_indicator_view" />
 
     <TextView
@@ -118,11 +117,10 @@
         android:id="@+id/layout_rsi_actively_buy_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/rsi_actively_buy"
-        android:textSize="12sp"
-        android:textAlignment="center"
         android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/rsi_view_09_guideline"
-        app:layout_constraintStart_toStartOf="@+id/rsi_view_09_guideline"
+        android:text="@string/rsi_actively_buy"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/rsi_view_indicator_view"
         app:layout_constraintTop_toBottomOf="@+id/rsi_view_indicator_view" />
 </merge>

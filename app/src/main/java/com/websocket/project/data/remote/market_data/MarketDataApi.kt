@@ -1,4 +1,4 @@
-package com.websocket.project.data.remote
+package com.websocket.project.data.remote.market_data
 
 import com.websocket.project.request.SubscribeTickerRequest
 import com.tinder.scarlet.WebSocket
@@ -9,19 +9,22 @@ import com.websocket.project.response.CryptoResponse
 import com.websocket.project.response.candle_response.CandleResponse
 import io.reactivex.Flowable
 
-interface HitBtcApi {
+interface MarketDataApi {
 
     @Receive
     fun openWebSocketEvent(): Flowable<WebSocket.Event>
-
-    @Receive
-    fun receiveResponse(): Flowable<String>
 
     @Send
     fun sendTickerRequest(subscribeTickerRequest: SubscribeTickerRequest)
 
     @Send
+    fun sendUnsubscribeTickerRequest(subscribeTickerRequest: SubscribeTickerRequest)
+
+    @Send
     fun sendCandleRequest(subscribeCandleRequest: SubscribeCandleRequest)
+
+    @Send
+    fun sendUnsubscribeCandleRequest(subscribeCandleRequest: SubscribeCandleRequest)
 
     @Receive
     fun observeTicker(): Flowable<CryptoResponse>
@@ -30,6 +33,6 @@ interface HitBtcApi {
     fun observeCandle(): Flowable<CandleResponse>
 
     companion object {
-        const val BASE_URI = "wss://api.multiexchange.com/api/3/ws/public"
+        const val BASE_MARKET_DATA_URI = "wss://api.multiexchange.com/api/3/ws/public"
     }
 }

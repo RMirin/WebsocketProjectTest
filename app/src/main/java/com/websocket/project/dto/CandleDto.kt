@@ -3,11 +3,18 @@ package com.websocket.project.dto
 import com.google.gson.annotations.SerializedName
 
 data class CandleDto(
-    @SerializedName("t") val timestamp: Long?,
-    @SerializedName("o") val open: String?,
-    @SerializedName("c") val close: String?,
-    @SerializedName("h") val high: String?,
-    @SerializedName("l") val low: String?,
-    @SerializedName("v") val baseAssetVolume: String?,
-    @SerializedName("q") val quoteAssetVolume: String?
+    @SerializedName("c")
+    val close: Float,
+    @SerializedName("h")
+    val high: Float,
+    @SerializedName("l")
+    val low: Float,
+    @SerializedName("o")
+    val open: Float,
+    @SerializedName("q")
+    val quoteAssetVolume: String,
+    @SerializedName("t")
+    val timestamp: Long,
+    @SerializedName("v")
+    val baseAssetVolume: String
 )

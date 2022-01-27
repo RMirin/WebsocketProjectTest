@@ -1,4 +1,4 @@
-package com.websocket.project.ui.main
+package com.websocket.project.ui.crypto_pair
 
 import android.Manifest.permission
 import android.content.ContentResolver
@@ -25,16 +25,18 @@ import android.os.Build.VERSION.SDK_INT
 import android.os.Environment
 import android.provider.MediaStore
 import androidx.core.content.FileProvider
+import androidx.navigation.fragment.findNavController
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
 import com.websocket.project.R
+import com.websocket.project.ui.main.MainActivity
 
 @AndroidEntryPoint
 class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>(), AttachFileBottomSheetListener, CryptoRecyclerOnClick {
 
-    private val viewModel: MainActivityViewModel by viewModels()
+    private val viewModel: CryptoPairViewModel by viewModels()
 
     private val cryptoPairAdapter by lazy(LazyThreadSafetyMode.NONE) {
         CryptoPairAdapter(this)
@@ -60,23 +62,26 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>(), AttachFileB
                 "tag"
             )
         }
+        observePair()
     }
 
     override fun onResume() {
         super.onResume()
-
-        Log.e("TAG", "onResume: subscribe")
-        viewModel.ticker.observe(viewLifecycleOwner, { ticker ->
-            binding.cryptoPairProgress.visibility = View.GONE
-            cryptoPairAdapter.setNewCryptoHashMap(ticker)
-//            Log.e("TAG", "onCreate: $ticker")
-        })
+        viewModel.subscribeTickers()
     }
 
     override fun onPause() {
         super.onPause()
         Log.e("TAG", "onPause: removeObservers")
-        viewModel.ticker.removeObservers(viewLifecycleOwner)
+        viewModel.unsubscribeTickers()
+    }
+
+    fun observePair() {
+        viewModel.ticker.observe(viewLifecycleOwner, { ticker ->
+            binding.cryptoPairProgress.visibility = View.GONE
+            cryptoPairAdapter.setNewCryptoHashMap(ticker)
+//            Log.e("TAG", "onCreate: $ticker")
+        })
     }
 
     override fun onRequestPermissionsResult(
@@ -289,11 +294,11 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>(), AttachFileB
     }
 
     override fun goToCandleScreen(pairName: String) {
-//        findNavController().navigate(
-//            CryptoPairFragmentDirections.actionCryptoPairFragmentToCandleFragment(
-//                pairName
-//            )
-//        )
+        findNavController().navigate(
+            CryptoPairFragmentDirections.actionCryptoPairFragmentToCandleFragment(
+                pairName
+            )
+        )
     }
 
     companion object {
