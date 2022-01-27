@@ -4,8 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.websocket.project.model.CryptoPairModel
-import com.websocket.project.usecases.WebSocketUseCase
+import com.websocket.project.usecases.MarketDataUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.scopes.FragmentScoped
+import dagger.hilt.android.scopes.ViewModelScoped
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,7 +17,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CryptoPairViewModel @Inject constructor(
-    private val webSocketUseCase: WebSocketUseCase
+    private val marketDataUseCase: MarketDataUseCase
 ) : ViewModel() {
 
     private val compositeDisposable = CompositeDisposable()
@@ -30,7 +32,7 @@ class CryptoPairViewModel @Inject constructor(
 
     fun subscribeTickers() {
         compositeDisposable.add(
-            webSocketUseCase.subscribeTickers()
+            marketDataUseCase.subscribeTickers()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ ticker ->
                     _ticker.postValue(ticker)
@@ -41,7 +43,10 @@ class CryptoPairViewModel @Inject constructor(
     }
 
     fun unsubscribeTickers() {
-        webSocketUseCase.unsubscribeTicker()
+        /*LifecycleCoroutineScope. {
+            webSocketUseCase.unsubscribeTicker()
+        }*/
+        //webSocketUseCase.unsubscribeTicker()
         compositeDisposable.clear()
     }
 }

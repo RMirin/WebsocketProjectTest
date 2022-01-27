@@ -4,12 +4,13 @@ import com.tradingview.lightweightcharts.api.series.models.BarData
 import com.websocket.project.model.CryptoPairModel
 import com.websocket.project.request.SubscribeTickerRequest
 import com.websocket.project.request.TickerRequestParams
-import com.websocket.project.repository.WebSocketRepository
+import com.websocket.project.repository.MarketDataRepository
 import com.websocket.project.request.CandleRequestParams
 import com.websocket.project.request.SubscribeCandleRequest
 import io.reactivex.Flowable
+import javax.inject.Inject
 
-class WebSocketUseCase(private val webSocketRepository: WebSocketRepository) {
+class MarketDataUseCase @Inject constructor(private val marketDataRepository: MarketDataRepository) {
 
     fun subscribeTickers(): Flowable<HashMap<String, CryptoPairModel>> {
         val subscribeTicker = SubscribeTickerRequest(
@@ -18,7 +19,7 @@ class WebSocketUseCase(private val webSocketRepository: WebSocketRepository) {
             params = TickerRequestParams(arrayListOf("*")),
             id = 123
         )
-        return webSocketRepository.subscribeTicker(subscribeTicker)
+        return marketDataRepository.subscribeTicker(subscribeTicker)
     }
 
     fun unsubscribeTicker(){
@@ -28,7 +29,7 @@ class WebSocketUseCase(private val webSocketRepository: WebSocketRepository) {
             params = TickerRequestParams(arrayListOf("*")),
             id = 123
         )
-        webSocketRepository.unsubscribeTicker(unsubscribeTicker)
+        marketDataRepository.unsubscribeTicker(unsubscribeTicker)
     }
 
     fun subscribeCandle(pairName: String): Flowable<List<BarData>> {
@@ -38,7 +39,7 @@ class WebSocketUseCase(private val webSocketRepository: WebSocketRepository) {
             params = CandleRequestParams(arrayListOf(pairName), 50),
             id = 123
         )
-        return webSocketRepository.subscribeCandle(subscribeCandle)
+        return marketDataRepository.subscribeCandle(subscribeCandle)
     }
 
     fun unsubscribeCandle(pairName: String) {
@@ -48,6 +49,6 @@ class WebSocketUseCase(private val webSocketRepository: WebSocketRepository) {
             params = CandleRequestParams(arrayListOf(pairName), 50),
             id = 123
         )
-        webSocketRepository.unsubscribeCandle(unsubscribeCandle)
+        marketDataRepository.unsubscribeCandle(unsubscribeCandle)
     }
 }

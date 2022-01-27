@@ -6,35 +6,34 @@ import androidx.annotation.RequiresApi
 import com.tradingview.lightweightcharts.api.series.models.BarData
 import com.websocket.project.converter.mapCandleToBarData
 import com.websocket.project.converter.mapToCryptoPairModel
-import com.websocket.project.data.remote.HitBtcClientImpl
+import com.websocket.project.data.remote.market_data.MarketDataClient
 import com.websocket.project.model.CryptoPairModel
 import com.websocket.project.request.SubscribeCandleRequest
 import com.websocket.project.request.SubscribeTickerRequest
 import io.reactivex.Flowable
 import javax.inject.Inject
-import javax.inject.Singleton
 
-@Singleton
-class WebSocketRepositoryImpl @Inject constructor(
-    private val hitBtcClientImpl: HitBtcClientImpl
-) : WebSocketRepository {
+class MarketDataRepositoryImpl @Inject constructor(
+    private val marketDataClient: MarketDataClient
+) : MarketDataRepository {
 
     override fun subscribeTicker(subscribeTickerRequest: SubscribeTickerRequest): Flowable<HashMap<String, CryptoPairModel>> {
-        return hitBtcClientImpl.subscribeTicker(subscribeTickerRequest)
+        return marketDataClient.subscribeTicker(subscribeTickerRequest)
             .map { cryptoResponse ->
+                Log.d("TAG", "subscribeRepositoryTicker: $cryptoResponse")
                 mapToCryptoPairModel(cryptoResponse.cryptoResponseData)
             }
     }
 
     override fun unsubscribeTicker(subscribeTickerRequest: SubscribeTickerRequest) {
-        hitBtcClientImpl.unsubscribeTicker(subscribeTickerRequest)
+        marketDataClient.unsubscribeTicker(subscribeTickerRequest)
     }
 
     @RequiresApi(Build.VERSION_CODES.N)
     override fun subscribeCandle(subscribeCandleRequest: SubscribeCandleRequest): Flowable<List<BarData>> {
-        return hitBtcClientImpl.subscribeCandle(subscribeCandleRequest)
+        return marketDataClient.subscribeCandle(subscribeCandleRequest)
             .map { candleResponse ->
-                Log.d("TAG", "observeCandle: $candleResponse")
+                Log.d("TAG", "subscribeRepositoryCandle: $candleResponse")
                 if (candleResponse.update != null) {
                     mapCandleToBarData(candleResponse.update)
                 } else {
@@ -44,7 +43,7 @@ class WebSocketRepositoryImpl @Inject constructor(
     }
 
     override fun unsubscribeCandle(subscribeCandleRequest: SubscribeCandleRequest) {
-        hitBtcClientImpl.unsubscribeCandle(subscribeCandleRequest)
+        marketDataClient.unsubscribeCandle(subscribeCandleRequest)
     }
 
 }

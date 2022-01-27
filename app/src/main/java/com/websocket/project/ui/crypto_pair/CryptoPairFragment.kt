@@ -19,6 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.websocket.project.ui.base.launchWhenStarted
+import dagger.hilt.android.scopes.FragmentScoped
 import java.lang.Exception
 
 @AndroidEntryPoint

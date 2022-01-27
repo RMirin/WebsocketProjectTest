@@ -87,19 +87,19 @@ class CandleFragment : Fragment() {
 
     @RequiresApi(Build.VERSION_CODES.M)
     private fun observeViewModelData() {
-        viewModel.candleSnapshot.observe(viewLifecycleOwner, { data ->
+        viewModel.candleSnapshot.observe(viewLifecycleOwner) { data ->
             createSeriesWithData(data, PriceScaleId.RIGHT, binding.candleChartsView.api) { series ->
                 this.series.clear()
                 this.series.add(series)
 
-                viewModel.candleUpdate.observe(viewLifecycleOwner, { data ->
+                viewModel.candleUpdate.observe(viewLifecycleOwner) { data ->
                     realtimeDataJob = lifecycleScope.launchWhenResumed {
                         Log.d("TAG", "mapCandleToBarDataFragment: ${data.time.date}")
                         series.update(data)
                     }
-                })
+                }
             }
-        })
+        }
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
