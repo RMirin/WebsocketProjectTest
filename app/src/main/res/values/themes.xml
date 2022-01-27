@@ -15,7 +15,9 @@
         <item name="enforceTextAppearance">true</item>
     </style>
 
-    <!-- Bottom sheet. -->
+
+    <!-- Fast buy. -->
+
 
     <style name="FastBuyBottomSheet" parent="@style/Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/bg_fast_buy_bottom_sheet_fragment</item>
@@ -27,4 +29,19 @@
     </style>
 
     <style name="FastBuyBottomSheetDialogTheme" parent="FastBuyBottomSheetDialog" />
+
+
+    <!-- Bottom sheet. -->
+
+
+    <style name="BottomSheet" parent="@style/Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bg_bottom_sheet</item>
+    </style>
+
+    <style name="BaseBottomSheetDialog" parent="@style/Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="bottomSheetStyle">@style/BottomSheet</item>
+    </style>
+
+    <style name="BottomSheetDialogTheme" parent="BaseBottomSheetDialog" />
 </resources>

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">WebsocketProjectTest</string>
     <string name="name_format_with_percent">%s(%s%%)</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -11,4 +12,16 @@
     <string name="fast_buy_bottom_sheet_deposit">Deposit</string>
     <string name="fast_buy_bottom_sheet_balance">Balance</string>
     <string name="fast_buy_bottom_sheet_not_enough_msg">There is not enough to complete the transaction %s\n(taking into account leverage 500 $)\nPlease top up your balance</string>
+
+    <string name="image_name_prefix">JPEG_%s_</string>
+
+    <string name="action_bottom_sheet_camera">Камера</string>
+    <string name="action_bottom_sheet_gallery">Фотогалерея</string>
+    <string name="action_bottom_sheet_document">Документ</string>
+
+    <string name="rsi_actively_sell">Actively sell</string>
+    <string name="rsi_sell">Sell</string>
+    <string name="rsi_neutral">Neutral</string>
+    <string name="rsi_buy">Buy</string>
+    <string name="rsi_actively_buy">Actively buy</string>
 </resources>

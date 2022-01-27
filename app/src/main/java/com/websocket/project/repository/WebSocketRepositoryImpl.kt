@@ -4,7 +4,7 @@ import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
 import com.tradingview.lightweightcharts.api.series.models.BarData
-import com.websocket.project.converter.mapCandleToBarData
+import com.websocket.project.converter.mapToBarData
 import com.websocket.project.converter.mapToCryptoPairModel
 import com.websocket.project.data.remote.HitBtcClientImpl
 import com.websocket.project.model.CryptoPairModel
@@ -32,9 +32,9 @@ class WebSocketRepositoryImpl @Inject constructor(
             .map { candleResponse ->
                 Log.d("TAG", "observeCandle: $candleResponse")
                 if (candleResponse.update != null) {
-                    mapCandleToBarData(candleResponse.update)
+                    mapToBarData(candleResponse.update)
                 } else {
-                    mapCandleToBarData(candleResponse.snapshot)
+                    mapToBarData(candleResponse.snapshot)
                 }
             }
     }

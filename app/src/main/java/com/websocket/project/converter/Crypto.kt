@@ -2,19 +2,13 @@ package com.websocket.project.converter
 
 import android.annotation.SuppressLint
 import android.os.Build
+import android.util.Log
 import androidx.annotation.RequiresApi
 import com.tradingview.lightweightcharts.api.series.models.BarData
 import com.tradingview.lightweightcharts.api.series.models.Time
 import com.websocket.project.dto.CryptoPairDto
 import com.websocket.project.model.CryptoPairModel
-<<<<<<< HEAD
-import com.websocket.project.response.candle_response.Candle
-import java.text.SimpleDateFormat
-import java.util.*
-import kotlin.collections.HashMap
-=======
 import com.websocket.project.dto.CandleDto
->>>>>>> fixes
 import kotlin.math.round
 
 fun mapToCryptoPairModel(map: Map<String, CryptoPairDto>?): HashMap<String, CryptoPairModel> {
@@ -39,16 +33,10 @@ fun mapToCryptoPairModel(map: Map<String, CryptoPairDto>?): HashMap<String, Cryp
 }
 
 @RequiresApi(Build.VERSION_CODES.N)
-<<<<<<< HEAD
-fun mapCandleToBarData(
-    update: HashMap<String, List<Candle>>?
-): List<BarData> {
-=======
 fun mapToBarData(
     snapshot: Map<String, List<CandleDto>>?,
     update: Map<String, List<CandleDto>>?
 ): MutableList<BarData> {
->>>>>>> fixes
     val candleList = mutableListOf<BarData>()
     update?.forEach { (_, s1) ->
         candleList.addAll(convertCandle(s1))
@@ -64,21 +52,8 @@ fun mapToBarData(
 
 private fun convertCandle(candleDto: List<CandleDto>?): List<BarData> {
     val barList = mutableListOf<BarData>()
-<<<<<<< HEAD
-    candle?.forEach {
-        barList.add(
-            BarData(
-                Time.Utc.fromDate(Date(it.timestamp)),
-                it.open,
-                it.high,
-                it.low,
-                it.close
-            )
-        )
-=======
     candleDto?.forEach {
 //        barList.add(BarData(Time.Utc(it.timestamp), it.open, it.high, it.low, it.close))
->>>>>>> fixes
     }
     return barList
 }
