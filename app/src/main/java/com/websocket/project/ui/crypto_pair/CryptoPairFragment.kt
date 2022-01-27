@@ -49,11 +49,11 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>(), AttachFileB
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val dividerItemDecoration = DividerItemDecoration(
-            activity,
-            LinearLayoutManager.VERTICAL
-        )
-        binding.mainRecycler.addItemDecoration(dividerItemDecoration)
+//        val dividerItemDecoration = DividerItemDecoration(
+//            activity,
+//            LinearLayoutManager.VERTICAL
+//        )
+//        binding.mainRecycler.addItemDecoration(dividerItemDecoration)
         binding.mainRecycler.adapter = cryptoPairAdapter
 
         binding.pairAttachBtn.setOnClickListener {

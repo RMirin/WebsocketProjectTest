@@ -5,15 +5,16 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginBottom="@dimen/spacing_small">
 
         <TextView
             android:id="@+id/crypto_pair_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
             tools:text="BTCUSDT" />
 
         <LinearLayout
@@ -26,8 +27,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_weight="1"
-                android:textColor="@color/black"
-                tools:text="ask" />
+                android:textSize="@dimen/font_small"
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:id="@+id/crypto_pair_bid"
@@ -35,8 +36,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_weight="1"
-                android:textColor="@color/black"
-                tools:text="bid" />
+                android:textSize="@dimen/font_small"
+                android:textColor="@android:color/white" />
         </LinearLayout>
 
     </LinearLayout>

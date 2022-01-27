@@ -26,6 +26,7 @@ import com.websocket.project.databinding.FragmentCandleBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import com.websocket.project.R
+import com.websocket.project.ui.custom.risk_level_view.RiskLevel
 
 
 @AndroidEntryPoint
@@ -54,7 +55,8 @@ class CandleFragment : Fragment() {
 
         with(binding) {
             candleRsiView.setIndicator(progress = 10)
-            candleCurrencyTextView.text = args.pairName
+            candleRiskLevelView.setRiskLevel(RiskLevel.LOW)
+            candleCryptoPairTextView.text = args.pairName
         }
         observeViewModelData()
         subscribeOnChartReady(binding.candleChartsView)

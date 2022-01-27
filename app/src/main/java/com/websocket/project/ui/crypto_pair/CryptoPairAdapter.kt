@@ -82,7 +82,7 @@ class CryptoPairAdapter(private val cryptoRecyclerOnClick: CryptoRecyclerOnClick
                             roundedPercent
                         )
                     } else {
-                        cryptoPairName.setTextColor(Color.BLACK)
+                        cryptoPairName.setTextColor(Color.WHITE)
                     }
                 }
             }

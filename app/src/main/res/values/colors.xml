@@ -9,9 +9,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="white_opacity_50">#80FFFFFF</color>
-
-    <color name="price_down">#e57373</color>
-    <color name="price_up">#81c784</color>
+    <color name="white_opacity_30">#4DFFFFFF</color>
 
     <color name="rsi_actively_sell_text">#B40404</color>
     <color name="rsi_sell_text">#DA6511</color>
@@ -48,4 +46,10 @@
     <color name="candle_down_color">#C32B57</color>
     <color name="candle_font_color">#898D94</color>
     <color name="candle_border_color">#73699C</color>
+
+    <color name="risk_level_text_active">#3FE18E</color>
+    <color name="risk_level_stroke_color">#9C93C2</color>
+    <color name="risk_level_low">#0086A7</color>
+    <color name="risk_level_medium">#026B84</color>
+    <color name="risk_level_high">#01637A</color>
 </resources>

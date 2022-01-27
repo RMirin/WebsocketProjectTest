@@ -24,4 +24,11 @@
     <string name="rsi_neutral">Neutral</string>
     <string name="rsi_buy">Buy</string>
     <string name="rsi_actively_buy">Actively buy</string>
+
+    <string name="risk_level_low">Low</string>
+    <string name="risk_level_medium">Medium</string>
+    <string name="risk_level_high">High</string>
+
+    <string name="crypto_pair_buy">Покупка</string>
+    <string name="crypto_pair_sell">Продажа</string>
 </resources>
