@@ -3,4 +3,12 @@
     <string name="name_format_with_percent">%s(%s%%)</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="candle_rsi">Indicator RSI</string>
+    <string name="candle_risk_level">Risk Level</string>
+    
+    <string name="fast_buy_bottom_sheet_buy">Buy</string>
+    <string name="fast_buy_bottom_sheet_deposit">Deposit</string>
+    <string name="fast_buy_bottom_sheet_balance">Balance</string>
+    <string name="fast_buy_bottom_sheet_not_enough_msg">There is not enough to complete the transaction %s\n(taking into account leverage 500 $)\nPlease top up your balance</string>
 </resources>

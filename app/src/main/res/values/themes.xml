@@ -14,4 +14,17 @@
         <item name="enforceMaterialTheme">true</item>
         <item name="enforceTextAppearance">true</item>
     </style>
+
+    <!-- Bottom sheet. -->
+
+    <style name="FastBuyBottomSheet" parent="@style/Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bg_fast_buy_bottom_sheet_fragment</item>
+    </style>
+
+    <style name="FastBuyBottomSheetDialog" parent="@style/Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="bottomSheetStyle">@style/FastBuyBottomSheet</item>
+    </style>
+
+    <style name="FastBuyBottomSheetDialogTheme" parent="FastBuyBottomSheetDialog" />
 </resources>

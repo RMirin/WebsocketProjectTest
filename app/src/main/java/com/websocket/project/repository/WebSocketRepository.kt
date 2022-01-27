@@ -1,6 +1,5 @@
 package com.websocket.project.repository
 
-import com.tradingview.lightweightcharts.api.series.common.SeriesData
 import com.tradingview.lightweightcharts.api.series.models.BarData
 import com.websocket.project.model.CryptoPairModel
 import com.websocket.project.request.SubscribeCandleRequest

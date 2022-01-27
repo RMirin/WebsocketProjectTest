@@ -27,7 +27,7 @@ class WebSocketUseCase(private val webSocketRepository: WebSocketRepository) {
         val subscribeCandle = SubscribeCandleRequest(
             method = "subscribe",
             ch = "candles/M1",
-            params = CandleRequestParams(arrayListOf(pairName), 100),
+            params = CandleRequestParams(arrayListOf("USDTBTC"), 10),
             id = 123
         )
         return webSocketRepository.observeCandle(subscribeCandle)

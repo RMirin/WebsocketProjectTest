@@ -134,11 +134,11 @@ class CryptoPairFragment : BaseFragment<FragmentCryptoPairBinding>(), CryptoRecy
     }
 
     override fun goToCandleScreen(pairName: String) {
-        findNavController().navigate(
-            CryptoPairFragmentDirections.actionCryptoPairFragmentToCandleFragment(
-                pairName
-            )
-        )
+//        findNavController().navigate(
+//            CryptoPairFragmentDirections.actionCryptoPairFragmentToCandleFragment(
+//                pairName
+//            )
+//        )
     }
 
     companion object {
