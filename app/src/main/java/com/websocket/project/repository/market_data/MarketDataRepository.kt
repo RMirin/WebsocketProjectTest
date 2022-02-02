@@ -1,4 +1,4 @@
-package com.websocket.project.repository
+package com.websocket.project.repository.market_data
 
 import com.tradingview.lightweightcharts.api.series.models.BarData
 import com.websocket.project.model.CryptoPairModel

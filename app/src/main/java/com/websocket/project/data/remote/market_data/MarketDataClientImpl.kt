@@ -9,6 +9,9 @@ import com.websocket.project.response.CryptoResponse
 import com.websocket.project.response.candle_response.CandleResponse
 import io.reactivex.Flowable
 import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
 import javax.inject.Singleton
 
 class MarketDataClientImpl(

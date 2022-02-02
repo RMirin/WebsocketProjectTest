@@ -6,10 +6,12 @@ import androidx.lifecycle.ViewModel
 import com.tradingview.lightweightcharts.api.series.models.BarData
 import com.websocket.project.usecases.MarketDataUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.scopes.FragmentScoped
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -39,11 +41,10 @@ class CandleViewModel @Inject constructor(
         get() = _candleSnapshot
 
 
-    fun unsubscribeCandle(pairName: String) {
-        MainScope().launch(Dispatchers.IO) {
-            marketDataUseCase.unsubscribeCandle(pairName)
+    suspend fun unsubscribeCandle(pairName: String) {
+        coroutineScope {
+            launch(Dispatchers.IO) { marketDataUseCase.unsubscribeCandle(pairName) }
         }
-        //webSocketUseCase.unsubscribeCandle(pairName)
         compositeDisposable.dispose()
     }
 

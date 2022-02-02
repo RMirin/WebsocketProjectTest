@@ -10,9 +10,12 @@ import dagger.hilt.android.scopes.FragmentScoped
 import dagger.hilt.android.scopes.ViewModelScoped
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -38,11 +41,10 @@ class CryptoPairViewModel @Inject constructor(
         )
     }
 
-    fun unsubscribeTickers() {
-        /*LifecycleCoroutineScope. {
-            webSocketUseCase.unsubscribeTicker()
-        }*/
-        //webSocketUseCase.unsubscribeTicker()
+    suspend fun unsubscribeTickers() {
+        coroutineScope {
+            launch(Dispatchers.IO) { marketDataUseCase.unsubscribeTicker() }
+        }
         compositeDisposable.clear()
     }
 }

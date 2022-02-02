@@ -27,6 +27,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import com.websocket.project.R
 import com.websocket.project.ui.custom.risk_level_view.RiskLevel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
@@ -70,7 +72,7 @@ class CandleFragment : Fragment() {
 
     override fun onPause() {
         super.onPause()
-        viewModel.unsubscribeCandle(args.pairName)
+        lifecycleScope.launch { viewModel.unsubscribeCandle(args.pairName) }
     }
 
     private fun subscribeOnChartReady(view: ChartsView) {

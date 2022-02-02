@@ -1,4 +1,4 @@
-package com.websocket.project.repository
+package com.websocket.project.repository.market_data
 
 import android.os.Build
 import android.util.Log

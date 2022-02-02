@@ -25,6 +25,7 @@ import android.os.Build.VERSION.SDK_INT
 import android.os.Environment
 import android.provider.MediaStore
 import androidx.core.content.FileProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import java.io.File
 import java.io.IOException
@@ -32,9 +33,11 @@ import java.text.SimpleDateFormat
 import java.util.*
 import com.websocket.project.R
 import com.websocket.project.ui.main.MainActivity
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>(), AttachFileBottomSheetListener, CryptoRecyclerOnClick {
+class CryptoPairFragment : BaseFragment<FragmentCryptoPairBinding>(), AttachFileBottomSheetListener,
+    CryptoRecyclerOnClick {
 
     private val viewModel: CryptoPairViewModel by viewModels()
 
@@ -73,7 +76,7 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>(), AttachFileB
     override fun onPause() {
         super.onPause()
         Log.e("TAG", "onPause: removeObservers")
-        viewModel.unsubscribeTickers()
+        lifecycleScope.launch { viewModel.unsubscribeTickers() }
     }
 
     fun observePair() {
@@ -91,7 +94,8 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>(), AttachFileB
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (grantResults.isNotEmpty()
-            && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            && grantResults[0] == PackageManager.PERMISSION_GRANTED
+        ) {
             when (requestCode) {
                 REQUEST_CODE_FILE_CHOOSER -> {
                     openFileChooser()
@@ -110,8 +114,11 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>(), AttachFileB
         super.onActivityResult(requestCode, resultCode, data)
         Log.e("TAG", "onActivityResult: $resultCode")
         if (resultCode == AppCompatActivity.RESULT_OK) {
-            Log.e("TAG", "onActivityResult: resiult ok data ${data?.data} request code $requestCode")
-            when(requestCode) {
+            Log.e(
+                "TAG",
+                "onActivityResult: resiult ok data ${data?.data} request code $requestCode"
+            )
+            when (requestCode) {
                 REQUEST_CODE_FILE_CHOOSER -> {
                     val uri: Uri? = data?.data
                     Log.e("TAG", "FILE_CHOOSER_REQUEST_CODE onActivityResult: $uri")
@@ -142,7 +149,11 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>(), AttachFileB
                     openCamera()
                 } else {
                     Log.e("TAG", "REQUEST_CODE_TAKE_PHOTO onActivityResult: require access")
-                    Toast.makeText(requireContext(), "Allow permission for storage access!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(
+                        requireContext(),
+                        "Allow permission for storage access!",
+                        Toast.LENGTH_SHORT
+                    ).show();
                 }
             }
         }
@@ -161,8 +172,10 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>(), AttachFileB
     }
 
     private fun checkSelfPermissions(permissions: Array<String>, permissionsRequestCode: Int) {
-        requestPermissions(permissions,
-            permissionsRequestCode)
+        requestPermissions(
+            permissions,
+            permissionsRequestCode
+        )
     }
 
     private fun checkCameraPermissions() {
@@ -184,8 +197,8 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>(), AttachFileB
 //                    startActivityForResult(intent, REQUEST_CODE_TAKE_PHOTO)
 //                }
 //            } else {
-                //using that function only
-                checkSelfPermissions(PERMISSIONS_CAMERA, REQUEST_CODE_TAKE_PHOTO)
+            //using that function only
+            checkSelfPermissions(PERMISSIONS_CAMERA, REQUEST_CODE_TAKE_PHOTO)
 //            }
         }
     }
@@ -280,7 +293,7 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>(), AttachFileB
     }
 
     override fun onAttachFileClick(action: AttachFileAction) {
-        when(action) {
+        when (action) {
             AttachFileAction.CAMERA -> {
                 onCameraClick()
             }
