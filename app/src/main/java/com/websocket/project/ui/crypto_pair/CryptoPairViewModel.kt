@@ -43,8 +43,10 @@ class CryptoPairViewModel @Inject constructor(
 
     suspend fun unsubscribeTickers() {
         coroutineScope {
-            launch(Dispatchers.IO) { marketDataUseCase.unsubscribeTicker() }
+            launch(Dispatchers.IO) {
+                marketDataUseCase.unsubscribeTicker()
+                compositeDisposable.clear()
+            }
         }
-        compositeDisposable.clear()
     }
 }

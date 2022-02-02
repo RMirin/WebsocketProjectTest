@@ -43,9 +43,11 @@ class CandleViewModel @Inject constructor(
 
     suspend fun unsubscribeCandle(pairName: String) {
         coroutineScope {
-            launch(Dispatchers.IO) { marketDataUseCase.unsubscribeCandle(pairName) }
+            launch(Dispatchers.IO) {
+                marketDataUseCase.unsubscribeCandle(pairName)
+                compositeDisposable.dispose()
+            }
         }
-        compositeDisposable.dispose()
     }
 
     fun subscribeCandle(pairName: String) {

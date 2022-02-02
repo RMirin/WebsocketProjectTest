@@ -97,7 +97,6 @@ class CryptoPairAdapter(private val cryptoRecyclerOnClick: CryptoRecyclerOnClick
         newList.clear()
         cryptoMap.forEach { (name, cryptoPairModel) ->
             newList.add(Pair(name, cryptoPairModel))
-            Log.d("TAG", "setNewCryptoHashMap: ")
         }
         swap(newList)
     }

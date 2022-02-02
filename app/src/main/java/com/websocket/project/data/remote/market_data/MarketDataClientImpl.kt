@@ -36,7 +36,7 @@ class MarketDataClientImpl(
         return marketDataApi.observeTicker()
             .subscribeOn(Schedulers.io())
             .filter { cryptoResponse ->
-                Log.d("TAG", "subscribeTicker: ")
+                Log.d("TAG", "subscribeTicker: $cryptoResponse")
                 cryptoResponse.ch != null
             }
     }
