@@ -24,7 +24,7 @@ import okhttp3.OkHttpClient
 import javax.inject.Singleton
 
 @Module
-@InstallIn(FragmentComponent::class)
+@InstallIn(ViewModelComponent::class)
 object TradingModule {
     @Provides
     @ViewModelScoped

@@ -68,11 +68,15 @@ class CandleFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         viewModel.subscribeCandle(args.pairName)
+        viewModel.subscribeSpot()
     }
 
     override fun onPause() {
         super.onPause()
-        lifecycleScope.launch { viewModel.unsubscribeCandle(args.pairName) }
+        lifecycleScope.launch {
+            viewModel.unsubscribeCandle(args.pairName)
+            viewModel.unsubscribeSpot()
+        }
     }
 
     private fun subscribeOnChartReady(view: ChartsView) {

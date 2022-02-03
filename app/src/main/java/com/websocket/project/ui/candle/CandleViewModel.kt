@@ -1,10 +1,12 @@
 package com.websocket.project.ui.candle
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.tradingview.lightweightcharts.api.series.models.BarData
 import com.websocket.project.usecases.MarketDataUseCase
+import com.websocket.project.usecases.TradingUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.scopes.FragmentScoped
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -21,7 +23,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CandleViewModel @Inject constructor(
-    private val marketDataUseCase: MarketDataUseCase
+    private val marketDataUseCase: MarketDataUseCase,
+    private val tradingUseCase: TradingUseCase
 ) : ViewModel() {
 
     private var firstMessage = true
@@ -65,6 +68,25 @@ class CandleViewModel @Inject constructor(
                     e.printStackTrace()
                 })
         )
+    }
+
+    fun subscribeSpot() {
+        compositeDisposable.add(
+            tradingUseCase.subscribeSpot()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe { spot ->
+
+                }
+        )
+    }
+
+    suspend fun unsubscribeSpot() {
+        coroutineScope {
+            launch(Dispatchers.IO) {
+                tradingUseCase.unsubscribeSpot()
+                compositeDisposable.dispose()
+            }
+        }
     }
 
 }

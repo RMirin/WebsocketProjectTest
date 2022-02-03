@@ -3,16 +3,12 @@ package com.websocket.project.data.remote.market_data
 import android.annotation.SuppressLint
 import android.util.Log
 import com.tinder.scarlet.WebSocket
-import com.websocket.project.request.SubscribeCandleRequest
-import com.websocket.project.request.SubscribeTickerRequest
+import com.websocket.project.request.candle_request.SubscribeCandleRequest
+import com.websocket.project.request.ticker_request.SubscribeTickerRequest
 import com.websocket.project.response.CryptoResponse
 import com.websocket.project.response.candle_response.CandleResponse
 import io.reactivex.Flowable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.launch
-import javax.inject.Singleton
 
 class MarketDataClientImpl(
     private val marketDataApi: MarketDataApi

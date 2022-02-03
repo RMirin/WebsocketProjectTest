@@ -8,8 +8,8 @@ import com.websocket.project.converter.mapCandleToBarData
 import com.websocket.project.converter.mapToCryptoPairModel
 import com.websocket.project.data.remote.market_data.MarketDataClient
 import com.websocket.project.model.CryptoPairModel
-import com.websocket.project.request.SubscribeCandleRequest
-import com.websocket.project.request.SubscribeTickerRequest
+import com.websocket.project.request.candle_request.SubscribeCandleRequest
+import com.websocket.project.request.ticker_request.SubscribeTickerRequest
 import io.reactivex.Flowable
 import javax.inject.Inject
 

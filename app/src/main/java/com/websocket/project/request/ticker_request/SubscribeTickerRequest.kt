@@ -1,4 +1,4 @@
-package com.websocket.project.request
+package com.websocket.project.request.ticker_request
 
 data class SubscribeTickerRequest(
     val method: String,

@@ -2,11 +2,11 @@ package com.websocket.project.usecases
 
 import com.tradingview.lightweightcharts.api.series.models.BarData
 import com.websocket.project.model.CryptoPairModel
-import com.websocket.project.request.SubscribeTickerRequest
-import com.websocket.project.request.TickerRequestParams
+import com.websocket.project.request.ticker_request.SubscribeTickerRequest
+import com.websocket.project.request.ticker_request.TickerRequestParams
 import com.websocket.project.repository.market_data.MarketDataRepository
-import com.websocket.project.request.CandleRequestParams
-import com.websocket.project.request.SubscribeCandleRequest
+import com.websocket.project.request.candle_request.CandleRequestParams
+import com.websocket.project.request.candle_request.SubscribeCandleRequest
 import io.reactivex.Flowable
 import javax.inject.Inject
 

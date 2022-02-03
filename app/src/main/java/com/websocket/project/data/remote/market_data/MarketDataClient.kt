@@ -1,8 +1,8 @@
 package com.websocket.project.data.remote.market_data
 
-import com.websocket.project.request.SubscribeCandleRequest
+import com.websocket.project.request.candle_request.SubscribeCandleRequest
 import com.websocket.project.response.CryptoResponse
-import com.websocket.project.request.SubscribeTickerRequest
+import com.websocket.project.request.ticker_request.SubscribeTickerRequest
 import com.websocket.project.response.candle_response.CandleResponse
 import io.reactivex.Flowable
 

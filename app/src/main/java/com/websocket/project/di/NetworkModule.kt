@@ -11,6 +11,9 @@ import com.websocket.project.data.remote.market_data.MarketDataClientImpl
 import com.websocket.project.data.remote.trading.TradingApi
 import com.websocket.project.data.remote.trading.TradingClient
 import com.websocket.project.data.remote.trading.TradingClientImpl
+import com.websocket.project.data.remote.wallet.WalletApi
+import com.websocket.project.data.remote.wallet.WalletClient
+import com.websocket.project.data.remote.wallet.WalletClientImpl
 import com.websocket.project.interceptor.NetworkConnectionInterceptor
 import com.websocket.project.service.NetworkService
 import dagger.Module
@@ -82,4 +85,21 @@ object NetworkModule {
     @Singleton
     fun provideTradingClient(tradingApi: TradingApi): TradingClient =
         TradingClientImpl(tradingApi)
+
+
+    @Provides
+    @Singleton
+    fun provideWalletApi(okHttpClient: OkHttpClient, lifecycle: Lifecycle): WalletApi =
+        Scarlet.Builder()
+            .webSocketFactory(okHttpClient.newWebSocketFactory(WalletApi.BASE_WALLET_URI))
+            .lifecycle(lifecycle)
+            .addMessageAdapterFactory(GsonMessageAdapter.Factory())
+            .addStreamAdapterFactory(RxJava2StreamAdapterFactory())
+            .build()
+            .create()
+
+    @Provides
+    @Singleton
+    fun provideWalletClient(walletApi: WalletApi): WalletClient =
+        WalletClientImpl(walletApi)
 }

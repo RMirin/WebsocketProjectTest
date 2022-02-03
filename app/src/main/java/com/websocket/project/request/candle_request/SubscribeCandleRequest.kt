@@ -1,4 +1,4 @@
-package com.websocket.project.request
+package com.websocket.project.request.candle_request
 
 data class SubscribeCandleRequest(
     val method: String,
