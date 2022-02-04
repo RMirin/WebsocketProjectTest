@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="spacing_small">8dp</dimen>
-    <dimen name="spacing_normal">16dp</dimen>
-    <dimen name="spacing_large">20dp</dimen>
+    <!-- Font sizes -->
 
-    <dimen name="font_small">12sp</dimen>
+    <dimen name="font_huge">24sp</dimen>
+    <dimen name="font_large">18sp</dimen>
     <dimen name="font_normal">16sp</dimen>
-    <dimen name="font_large">24sp</dimen>
-    <dimen name="font_huge">32sp</dimen>
+    <dimen name="font_small">14sp</dimen>
+    <dimen name="font_minute">12sp</dimen>
+
+
+    <!-- Typical spacing between two views -->
+
+    <dimen name="spacing_huge">48dp</dimen>
+    <dimen name="spacing_large">24dp</dimen>
+    <dimen name="spacing_normal">16dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
+
 
     <dimen name="risk_level_view_radius">19dp</dimen>
 </resources>

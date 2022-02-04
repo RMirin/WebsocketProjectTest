@@ -8,14 +8,44 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="price_down">#e57373</color>
-    <color name="price_up">#81c784</color>
-    
-    <color name="actively_sell">#B40404</color>
-    <color name="sell">#DA6511</color>
-    <color name="neutral">#533DD6</color>
-    <color name="buy">#1EA594</color>
-    <color name="actively_buy">#19E85F</color>
+    <color name="white_opacity_50">#80FFFFFF</color>
+    <color name="white_opacity_30">#4DFFFFFF</color>
+
+    <color name="rsi_actively_sell_text">#B40404</color>
+    <color name="rsi_sell_text">#DA6511</color>
+    <color name="rsi_neutral_text">#533DD6</color>
+    <color name="rsi_buy_text">#1EA594</color>
+    <color name="rsi_actively_buy_text">#19E85F</color>
+
+    <color name="rsi_inactive">#80FFFFFF</color>
+    <color name="rsi_5">#9E0709</color>
+    <color name="rsi_10">#B30404</color>
+    <color name="rsi_15">#B50A07</color>
+    <color name="rsi_20">#D1663A</color>
+    <color name="rsi_25">#DA6714</color>
+    <color name="rsi_30">#D96511</color>
+    <color name="rsi_35">#D96612</color>
+    <color name="rsi_40">#A76F64</color>
+    <color name="rsi_45">#4D3E81</color>
+    <color name="rsi_50">#3C2C78</color>
+    <color name="rsi_55">#3C2C78</color>
+    <color name="rsi_60">#526E93</color>
+    <color name="rsi_65">#39AA9E</color>
+    <color name="rsi_70">#1DA494</color>
+    <color name="rsi_75">#1DA494</color>
+    <color name="rsi_80">#3BBC97</color>
+    <color name="rsi_85">#3BE478</color>
+    <color name="rsi_90">#19E75F</color>
+    <color name="rsi_95">#19E75F</color>
+    <color name="rsi_100">#19E75F</color>
+
+    <color name="backgoundApp">#111627</color>
+    <color name="transpent">#00000000</color>
+
+    <color name="candle_up_color">#3CC0B0</color>
+    <color name="candle_down_color">#C32B57</color>
+    <color name="candle_font_color">#898D94</color>
+    <color name="candle_border_color">#73699C</color>
 
     <color name="risk_level_text_active">#3FE18E</color>
     <color name="risk_level_stroke_color">#9C93C2</color>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <ImageView
+        android:id="@+id/rsi_view_indicator_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_rsi_view_indicator"
+        android:scaleType="fitXY"
+        android:layout_marginStart="@dimen/spacing_normal"
+        android:layout_marginEnd="@dimen/spacing_normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatSeekBar
+        android:id="@+id/rsi_view_seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:progress="0"
+        android:enabled="false"
+        android:progressDrawable="@android:color/transparent"
+        app:layout_constraintBottom_toTopOf="@+id/rsi_view_indicator_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/rsi_view_01_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/rsi_view_03_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/rsi_view_05_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/rsi_view_07_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.7" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/rsi_view_09_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <TextView
+        android:id="@+id/layout_rsi_actively_sell_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/rsi_actively_sell"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/rsi_view_indicator_view"
+        app:layout_constraintTop_toBottomOf="@+id/rsi_view_indicator_view" />
+
+    <TextView
+        android:id="@+id/layout_rsi_sell_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rsi_sell"
+        android:textSize="12sp"
+        android:textAlignment="center"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/rsi_view_03_guideline"
+        app:layout_constraintStart_toStartOf="@+id/rsi_view_03_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/rsi_view_indicator_view" />
+
+    <TextView
+        android:id="@+id/layout_rsi_neutral_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rsi_neutral"
+        android:textSize="12sp"
+        android:textAlignment="center"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/rsi_view_05_guideline"
+        app:layout_constraintStart_toStartOf="@+id/rsi_view_05_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/rsi_view_indicator_view" />
+
+    <TextView
+        android:id="@+id/layout_rsi_buy_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rsi_buy"
+        android:textSize="12sp"
+        android:textAlignment="center"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/rsi_view_07_guideline"
+        app:layout_constraintStart_toStartOf="@+id/rsi_view_07_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/rsi_view_indicator_view" />
+
+    <TextView
+        android:id="@+id/layout_rsi_actively_buy_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/rsi_actively_buy"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/rsi_view_indicator_view"
+        app:layout_constraintTop_toBottomOf="@+id/rsi_view_indicator_view" />
+</merge>
