@@ -22,4 +22,7 @@
     <color name="risk_level_low">#0086A7</color>
     <color name="risk_level_medium">#026B84</color>
     <color name="risk_level_high">#01637A</color>
+
+    <color name="message_text_color">#50FFFFFF</color>
+    <color name="message_more_btn_color">#6965F3</color>
 </resources>
