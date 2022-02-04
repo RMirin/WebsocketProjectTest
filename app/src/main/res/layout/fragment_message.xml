@@ -36,6 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
+        android:fontFamily="@font/sf_font_pro"
         android:text="Login attempted from new IP"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/messageBegin20dpGuideline"
@@ -47,6 +48,7 @@
         android:layout_height="0dp"
         android:text="@string/string"
         android:ellipsize="end"
+        android:fontFamily="@font/sf_font_pro"
         android:textColor="@color/message_text_color"
         android:layout_marginTop="20dp"
         app:layout_constraintBottom_toTopOf="@+id/messageCentreHorizontalGuideline"
@@ -68,6 +70,7 @@
         android:text="@string/message_show_more"
         android:textColor="@color/message_more_btn_color"
         android:textSize="16sp"
+        android:fontFamily="@font/sf_font_pro"
         app:layout_constraintStart_toEndOf="@id/messageBegin20dpGuideline"
         app:layout_constraintTop_toTopOf="@+id/messageCentreHorizontalGuideline" />
 
