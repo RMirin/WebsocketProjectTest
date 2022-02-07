@@ -5,10 +5,13 @@
     <dimen name="spacing_normal">16dp</dimen>
     <dimen name="spacing_large">20dp</dimen>
 
-    <dimen name="font_small">12sp</dimen>
+    <dimen name="font_minute">12sp</dimen>
+    <dimen name="font_small">14sp</dimen>
     <dimen name="font_normal">16sp</dimen>
     <dimen name="font_large">24sp</dimen>
     <dimen name="font_huge">32sp</dimen>
 
     <dimen name="risk_level_view_radius">19dp</dimen>
+
+    <dimen name="image_in_list_size">50dp</dimen>
 </resources>

@@ -1,18 +1,15 @@
-package com.websocket.project.ui.main
+package com.websocket.project.ui.main.crypto
 
-import android.graphics.Color
-import android.text.style.ForegroundColorSpan
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import com.websocket.project.R
-import com.websocket.project.databinding.ItemCryptoPairBinding
+import com.websocket.project.databinding.ItemMainCryptoBinding
 import com.websocket.project.model.CryptoPairModel
 import com.websocket.project.ui.base.*
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
-class CryptoPairAdapter : BaseRecyclerViewAdapter() {
+class MainAdapter : BaseRecyclerViewAdapter() {
 
     inner class ActorDiffCallback(
         private val oldList: List<Pair<String, CryptoPairModel>>,
@@ -39,12 +36,12 @@ class CryptoPairAdapter : BaseRecyclerViewAdapter() {
     override fun getItemCount() = cryptoPairList.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
-        return CryptoPairViewHolder(parent.inflateWithBinding(R.layout.item_crypto_pair))
+        return CryptoPairViewHolder(parent.inflateWithBinding(R.layout.item_main_crypto))
     }
 
     private inner class CryptoPairViewHolder(
-        private val itemCryptoPairBinding: ItemCryptoPairBinding
-    ) : BaseViewHolder(itemCryptoPairBinding) {
+        private val itemMainCryptoBinding: ItemMainCryptoBinding
+    ) : BaseViewHolder(itemMainCryptoBinding) {
         override fun bind(position: Int) {
             val df = DecimalFormat("#.##")
             df.roundingMode = RoundingMode.FLOOR
@@ -52,36 +49,36 @@ class CryptoPairAdapter : BaseRecyclerViewAdapter() {
             val itemPriceChangePercent = item.second.priceChangePercent
             val roundedPercent = roundOffDecimal(itemPriceChangePercent)
 
-            itemCryptoPairBinding.also {
+            itemMainCryptoBinding.also {
                 with(it) {
 
                     val context = it.root.context
-                    cryptoPairName.text = context.getString(
-                        R.string.name_format_with_percent,
-                        item.first,
-                        roundedPercent
-                    )
-                    cryptoPairAsk.text = item.second.asks
-                    cryptoPairBid.text = item.second.bids
+                    itemMainCryptoTitleText.text = item.first
+//                    itemMainCryptoTitleText.text = context.getString(
+//                        R.string.name_format_with_percent,
+//                        item.first,
+//                        roundedPercent
+//                    )
+                    itemMainCryptoPriceUsdText.text = item.second.asks
 
-                    if (itemPriceChangePercent != 0.0) {
-                        cryptoPairName.spanAll(
-                            if (itemPriceChangePercent > 0) ForegroundColorSpan(
-                                ContextCompat.getColor(
-                                    context,
-                                    R.color.price_up
-                                )
-                            ) else ForegroundColorSpan(
-                                ContextCompat.getColor(
-                                    context,
-                                    R.color.price_down
-                                )
-                            ),
-                            roundedPercent
-                        )
-                    } else {
-                        cryptoPairName.setTextColor(Color.BLACK)
-                    }
+//                    if (itemPriceChangePercent != 0.0) {
+//                        cryptoPairName.spanAll(
+//                            if (itemPriceChangePercent > 0) ForegroundColorSpan(
+//                                ContextCompat.getColor(
+//                                    context,
+//                                    R.color.price_up
+//                                )
+//                            ) else ForegroundColorSpan(
+//                                ContextCompat.getColor(
+//                                    context,
+//                                    R.color.price_down
+//                                )
+//                            ),
+//                            roundedPercent
+//                        )
+//                    } else {
+//                        cryptoPairName.setTextColor(Color.BLACK)
+//                    }
                 }
             }
         }

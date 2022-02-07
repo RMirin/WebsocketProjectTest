@@ -8,9 +8,15 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="white_opacity_30">#4DFFFFFF</color>
+    <color name="white_opacity_50">#80FFFFFF</color>
+
     <color name="price_down">#e57373</color>
     <color name="price_up">#81c784</color>
-    
+
+    <color name="main_header_price_down">#C32B57</color>
+    <color name="main_header_price_up">#57B993</color>
+
     <color name="actively_sell">#B40404</color>
     <color name="sell">#DA6511</color>
     <color name="neutral">#533DD6</color>
@@ -22,4 +28,7 @@
     <color name="risk_level_low">#0086A7</color>
     <color name="risk_level_medium">#026B84</color>
     <color name="risk_level_high">#01637A</color>
+
+    <color name="main_header_title">#CC817E8C</color>
+    <color name="bg_main_crypto_img">#202942</color>
 </resources>

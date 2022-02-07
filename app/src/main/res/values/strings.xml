@@ -17,4 +17,34 @@
     <string name="risk_level_low">Low</string>
     <string name="risk_level_medium">Medium</string>
     <string name="risk_level_high">High</string>
+
+    <string name="main_portfolio">Portfolio</string>
+    <string name="main_coin">Coin</string>
+    <string name="main_price">Price</string>
+    <string name="main_balance">Balance</string>
+    <string name="main_header_total_balance">Total balance</string>
+    <string name="main_header_profit">Profit 24h</string>
+
+    <string name="crypto_aave">AAVEUSDT</string>
+    <string name="crypto_ada">ADAUSDT</string>
+    <string name="crypto_avax">AVAXUSDT</string>
+    <string name="crypto_bch">BCHUSDT</string>
+    <string name="crypto_bnb">BNBUSDT</string>
+    <string name="crypto_btc">BTCUSDT</string>
+    <string name="crypto_dot">DOTUSDT</string>
+    <string name="crypto_eos">EOSUSDT</string>
+    <string name="crypto_eth">ETHUSDT</string>
+    <string name="crypto_link">Link</string>
+    <string name="crypto_ltc">LTCUSDT</string>
+    <string name="crypto_luna">Luna</string>
+    <string name="crypto_mana">MANAUSDT</string>
+    <string name="crypto_matik">Matik</string>
+    <string name="crypto_shib">SHIBUSDT</string>
+    <string name="crypto_sol">Sol</string>
+    <string name="crypto_trx">TRXUSDT</string>
+    <string name="crypto_uni">UNIUSDT</string>
+    <string name="crypto_usdt">USDT</string>
+    <string name="crypto_xlm">XLMUSDT</string>
+    <string name="crypto_xrp">XRPUSDT</string>
+    <string name="crypto_zec">ZECUSDT</string>
 </resources>

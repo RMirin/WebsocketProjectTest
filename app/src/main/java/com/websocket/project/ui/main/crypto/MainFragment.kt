@@ -1,4 +1,4 @@
-package com.websocket.project.ui.main
+package com.websocket.project.ui.main.crypto
 
 import android.Manifest.permission
 import android.content.ContentResolver
@@ -11,13 +11,11 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
-import com.websocket.project.databinding.FragmentCryptoPairBinding
 import com.websocket.project.ui.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.websocket.project.ui.main.attach_file.AttachFileAction
-import com.websocket.project.ui.main.attach_file.AttachFileBottomSheetFragment
 import com.websocket.project.ui.main.attach_file.AttachFileBottomSheetListener
 import java.lang.Exception
 import android.os.Build
@@ -30,20 +28,22 @@ import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
 import com.websocket.project.R
+import com.websocket.project.databinding.FragmentMainBinding
+import com.websocket.project.ui.main.MainActivityViewModel
 
 @AndroidEntryPoint
-class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>(), AttachFileBottomSheetListener {
+class MainFragment: BaseFragment<FragmentMainBinding>(), AttachFileBottomSheetListener {
 
     private val viewModel: MainActivityViewModel by viewModels()
 
     private val cryptoPairAdapter by lazy(LazyThreadSafetyMode.NONE) {
-        CryptoPairAdapter()
+        MainAdapter()
     }
 
     lateinit var currentPhotoPath: String
 
-    override fun initViewBinding(): FragmentCryptoPairBinding =
-        FragmentCryptoPairBinding.inflate(layoutInflater)
+    override fun initViewBinding(): FragmentMainBinding =
+        FragmentMainBinding.inflate(layoutInflater)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -54,22 +54,22 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>(), AttachFileB
         binding.mainRecycler.addItemDecoration(dividerItemDecoration)
         binding.mainRecycler.adapter = cryptoPairAdapter
 
-        binding.pairAttachBtn.setOnClickListener {
-            AttachFileBottomSheetFragment(this@CryptoPairFragment).show(
-                (activity as MainActivity).supportFragmentManager,
-                "tag"
-            )
-        }
+//        binding.pairAttachBtn.setOnClickListener {
+//            AttachFileBottomSheetFragment(this@MainFragment).show(
+//                (activity as MainActivity).supportFragmentManager,
+//                "tag"
+//            )
+//        }
     }
 
     override fun onResume() {
         super.onResume()
         Log.e("TAG", "onResume: subscribe")
-        viewModel.ticker.observe(viewLifecycleOwner, { ticker ->
-            binding.cryptoPairProgress.visibility = View.GONE
+        viewModel.ticker.observe(viewLifecycleOwner) { ticker ->
+            binding.mainProgress.visibility = View.GONE
             cryptoPairAdapter.setNewCryptoHashMap(ticker)
 //            Log.e("TAG", "onCreate: $ticker")
-        })
+        }
     }
 
     override fun onPause() {
@@ -288,7 +288,7 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>(), AttachFileB
     }
 
     companion object {
-        fun newInstance() = CryptoPairFragment()
+        fun newInstance() = MainFragment()
 
         private val PERMISSIONS = arrayOf(
             permission.READ_EXTERNAL_STORAGE,
