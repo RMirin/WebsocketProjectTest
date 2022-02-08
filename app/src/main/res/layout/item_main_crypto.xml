@@ -82,7 +82,6 @@
             app:layout_constraintBottom_toTopOf="@+id/itemMainCryptoHorizontal05Guideline"
             app:layout_constraintEnd_toStartOf="@+id/itemMainCryptoVertical07Guideline"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/itemMainCryptoDescrText"
             app:layout_constraintTop_toTopOf="@+id/itemMainCryptoHorizontal05Guideline"
             tools:text="1.00 $" />
 

@@ -77,7 +77,7 @@
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.2" />
         <entry key="app/src/main/res/layout/item_attach_file_action.xml" value="0.2203125" />
         <entry key="app/src/main/res/layout/item_crypto_pair.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/item_main_crypto.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/item_main_crypto.xml" value="0.67" />
         <entry key="app/src/main/res/layout/layout_main_header.xml" value="0.25" />
         <entry key="app/src/main/res/layout/layout_rsi_view.xml" value="0.25" />
         <entry key="app/src/main/res/layout/rsi_view.xml" value="0.33" />
