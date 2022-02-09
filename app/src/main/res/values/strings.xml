@@ -22,8 +22,19 @@
     <string name="main_coin">Coin</string>
     <string name="main_price">Price</string>
     <string name="main_balance">Balance</string>
+    <string name="main_actions">Actions</string>
+
     <string name="main_header_total_balance">Total balance</string>
     <string name="main_header_profit">Profit 24h</string>
+
+    <string name="main_complete_verification_title">Complete\nVerification</string>
+
+    <string name="main_action_buy">Buy</string>
+    <string name="main_action_deposit">Deposit</string>
+    <string name="main_action_sell">Sell</string>
+    <string name="main_action_withdraw">Withdraw</string>
+
+    <string name="main_price_format_with_currency">%s $</string>
 
     <string name="crypto_aave">AAVEUSDT</string>
     <string name="crypto_ada">ADAUSDT</string>

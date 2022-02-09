@@ -23,6 +23,7 @@ import android.os.Build.VERSION.SDK_INT
 import android.os.Environment
 import android.provider.MediaStore
 import androidx.core.content.FileProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
@@ -32,12 +33,16 @@ import com.websocket.project.databinding.FragmentMainBinding
 import com.websocket.project.ui.main.MainActivityViewModel
 
 @AndroidEntryPoint
-class MainFragment: BaseFragment<FragmentMainBinding>(), AttachFileBottomSheetListener {
+class MainFragment: BaseFragment<FragmentMainBinding>(), AttachFileBottomSheetListener, MainFragmentActionsListener {
 
     private val viewModel: MainActivityViewModel by viewModels()
 
     private val cryptoPairAdapter by lazy(LazyThreadSafetyMode.NONE) {
-        MainAdapter()
+        MainFragmentCryptoAdapter()
+    }
+
+    private val mainActionsAdapter by lazy(LazyThreadSafetyMode.NONE) {
+        MainFragmentActionAdapter(this)
     }
 
     lateinit var currentPhotoPath: String
@@ -51,8 +56,20 @@ class MainFragment: BaseFragment<FragmentMainBinding>(), AttachFileBottomSheetLi
             activity,
             LinearLayoutManager.VERTICAL
         )
-        binding.mainRecycler.addItemDecoration(dividerItemDecoration)
-        binding.mainRecycler.adapter = cryptoPairAdapter
+        with(binding.mainActionsRecycler) {
+            adapter = mainActionsAdapter
+            layoutManager = GridLayoutManager(context, 2)
+        }
+        mainActionsAdapter.setActions(MainFragmentAction.values())
+
+        with(binding.mainRecycler) {
+            addItemDecoration(dividerItemDecoration)
+            adapter = cryptoPairAdapter
+        }
+
+        binding.mainCompleteVerificationInclude.layoutMainCompleteVerification.setOnClickListener {
+            Log.e("TAG", "onMainFragmentCompleteVerificationClick")
+        }
 
 //        binding.pairAttachBtn.setOnClickListener {
 //            AttachFileBottomSheetFragment(this@MainFragment).show(
@@ -285,6 +302,10 @@ class MainFragment: BaseFragment<FragmentMainBinding>(), AttachFileBottomSheetLi
                 onGalleryClick()
             }
         }
+    }
+
+    override fun onMainFragmentActionClick(mainFragmentAction: MainFragmentAction) {
+        Log.e("TAG", "onMainFragmentActionClick: ", )
     }
 
     companion object {

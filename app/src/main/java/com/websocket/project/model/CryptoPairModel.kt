@@ -1,6 +1,7 @@
 package com.websocket.project.model
 
 data class CryptoPairModel(
+    var icon: Int?,
     var name: String?,
     var timestamp: Long?,
     var sequence: String?,

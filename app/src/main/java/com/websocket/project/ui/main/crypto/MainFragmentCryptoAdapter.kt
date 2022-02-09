@@ -9,7 +9,7 @@ import com.websocket.project.ui.base.*
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
-class MainAdapter : BaseRecyclerViewAdapter() {
+class MainFragmentCryptoAdapter : BaseRecyclerViewAdapter() {
 
     inner class ActorDiffCallback(
         private val oldList: List<Pair<String, CryptoPairModel>>,
@@ -53,13 +53,15 @@ class MainAdapter : BaseRecyclerViewAdapter() {
                 with(it) {
 
                     val context = it.root.context
-                    itemMainCryptoTitleText.text = item.first
+                    val cryptoItem = item.second
+                    itemMainCryptoImg.setImageResource(cryptoItem.icon?: R.drawable.bg_item_main_crypto_img)
+                    itemMainCryptoTitleText.text = cryptoItem.name
 //                    itemMainCryptoTitleText.text = context.getString(
 //                        R.string.name_format_with_percent,
 //                        item.first,
 //                        roundedPercent
 //                    )
-                    itemMainCryptoPriceUsdText.text = item.second.asks
+                    itemMainCryptoPriceUsdText.text = context.getString(R.string.main_price_format_with_currency, cryptoItem.asks)
 
 //                    if (itemPriceChangePercent != 0.0) {
 //                        cryptoPairName.spanAll(

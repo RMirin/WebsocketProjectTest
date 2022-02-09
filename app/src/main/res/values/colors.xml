@@ -29,6 +29,8 @@
     <color name="risk_level_medium">#026B84</color>
     <color name="risk_level_high">#01637A</color>
 
-    <color name="main_header_title">#CC817E8C</color>
+    <color name="main_title">#CC817E8C</color>
     <color name="bg_main_crypto_img">#202942</color>
+
+    <color name="common_ripple">@color/white_opacity_30</color>
 </resources>
