@@ -31,4 +31,10 @@
 
     <string name="crypto_pair_buy">Покупка</string>
     <string name="crypto_pair_sell">Продажа</string>
+
+    <string name="buy_sell_earnings">Earnings</string>
+    <string name="buy_sell_losses">Losses</string>
+    <string name="buy_sell_buy">Buy</string>
+    <string name="buy_sell_sell">Sell</string>
+    <string name="buy_sell_available">Available:</string>
 </resources>

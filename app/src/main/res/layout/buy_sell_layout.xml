@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/buy_sell_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/buy_sell_bg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bg_buy_sell" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buy_sell_start_16dp_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buy_sell_end_16dp_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="16dp" />
+
+    <TextView
+        android:id="@+id/buy_sell_pair_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/sf_pro_display_semibold"
+        android:text="Amount, USDT"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/buy_sell_start_16dp_guideline"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/buy_sell_available_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sf_pro_display_semibold"
+        android:text="3 000.00 $"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/buy_sell_pair_name_tv"
+        app:layout_constraintEnd_toStartOf="@+id/buy_sell_end_16dp_guideline"
+        app:layout_constraintTop_toTopOf="@+id/buy_sell_pair_name_tv" />
+
+    <TextView
+        android:id="@+id/buy_sell_available_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:fontFamily="@font/sf_pro_display_semibold"
+        android:text="@string/buy_sell_available"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/buy_sell_pair_name_tv"
+        app:layout_constraintEnd_toStartOf="@+id/buy_sell_available_tv"
+        app:layout_constraintTop_toTopOf="@+id/buy_sell_pair_name_tv" />
+
+    <TextView
+        android:id="@+id/buy_sell_amount_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/sf_pro_display_bold"
+        android:text="750 $"
+        android:textColor="@color/white"
+        android:textSize="36sp"
+        app:layout_constraintStart_toStartOf="@+id/buy_sell_start_16dp_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/buy_sell_pair_name_tv" />
+
+    <ImageButton
+        android:id="@+id/buy_sell_plus_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:src="@drawable/bg_buy_sell_plus_btn"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/buy_sell_amount_tv"
+        app:layout_constraintEnd_toStartOf="@+id/buy_sell_end_16dp_guideline"
+        app:layout_constraintTop_toTopOf="@+id/buy_sell_amount_tv" />
+
+    <ImageButton
+        android:id="@+id/buy_sell_minus_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/bg_buy_sell_minus_btn"
+        app:layout_constraintBottom_toBottomOf="@+id/buy_sell_amount_tv"
+        app:layout_constraintEnd_toStartOf="@+id/buy_sell_plus_btn"
+        app:layout_constraintTop_toTopOf="@+id/buy_sell_amount_tv" />
+
+    <View
+        android:id="@+id/buy_sell_horizontal_line"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toStartOf="@id/buy_sell_end_16dp_guideline"
+        app:layout_constraintStart_toEndOf="@id/buy_sell_start_16dp_guideline"
+        app:layout_constraintTop_toBottomOf="@id/buy_sell_amount_tv" />
+
+    <View
+        android:id="@+id/buy_sell_vertical_line"
+        android:layout_width="1dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toStartOf="@id/buy_sell_end_16dp_guideline"
+        app:layout_constraintStart_toEndOf="@id/buy_sell_start_16dp_guideline"
+        app:layout_constraintTop_toBottomOf="@id/buy_sell_horizontal_line" />
+
+    <TextView
+        android:id="@+id/buy_sell_earnings_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sf_pro_display_semibold"
+        android:text="@string/buy_sell_earnings"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/buy_sell_vertical_line"
+        app:layout_constraintStart_toStartOf="@+id/buy_sell_start_16dp_guideline"
+        app:layout_constraintTop_toTopOf="@+id/buy_sell_vertical_line" />
+
+    <TextView
+        android:id="@+id/buy_sell_earnings_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/sf_pro_display_semibold"
+        android:text="≈15 $"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/buy_sell_vertical_line"
+        app:layout_constraintEnd_toStartOf="@+id/buy_sell_vertical_line"
+        app:layout_constraintTop_toTopOf="@+id/buy_sell_vertical_line" />
+
+    <TextView
+        android:id="@+id/buy_sell_losses_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sf_pro_display_semibold"
+        android:text="≈15 $"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/buy_sell_vertical_line"
+        app:layout_constraintEnd_toStartOf="@+id/buy_sell_end_16dp_guideline"
+        app:layout_constraintTop_toTopOf="@+id/buy_sell_vertical_line" />
+
+    <TextView
+        android:id="@+id/buy_sell_losses_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/sf_pro_display_semibold"
+        android:text="@string/buy_sell_losses"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/buy_sell_vertical_line"
+        app:layout_constraintStart_toEndOf="@+id/buy_sell_vertical_line"
+        app:layout_constraintTop_toTopOf="@+id/buy_sell_vertical_line" />
+
+    <TextView
+        android:id="@+id/buy_sell_buy_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/bg_buy_btn"
+        android:fontFamily="@font/sf_pro_display_bold"
+        android:gravity="center"
+        android:minHeight="50dp"
+        android:text="@string/buy_sell_buy"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@id/buy_sell_vertical_line"
+        app:layout_constraintStart_toEndOf="@+id/buy_sell_start_16dp_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/buy_sell_vertical_line" />
+
+    <TextView
+        android:id="@+id/buy_sell_sell_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_sell_btn"
+        android:fontFamily="@font/sf_pro_display_bold"
+        android:gravity="center"
+        android:minHeight="50dp"
+        android:text="@string/buy_sell_sell"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/buy_sell_end_16dp_guideline"
+        app:layout_constraintStart_toEndOf="@id/buy_sell_vertical_line"
+        app:layout_constraintTop_toBottomOf="@+id/buy_sell_vertical_line" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -52,4 +52,7 @@
     <color name="risk_level_low">#0086A7</color>
     <color name="risk_level_medium">#026B84</color>
     <color name="risk_level_high">#01637A</color>
+    
+    <color name="buy_btn_color">#603CC0B0</color>
+    <color name="sell_btn_color">#60C32B57</color>
 </resources>

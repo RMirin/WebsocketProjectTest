@@ -1,88 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_candle_fragment"
+    android:orientation="vertical"
     tools:context=".ui.candle.CandleFragment">
 
-    <ImageView
-        android:id="@+id/candleCryptoPairImageView"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="@dimen/spacing_normal"
-        android:layout_marginTop="@dimen/spacing_normal"
-        android:background="@drawable/bg_currency_icon"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/candleCryptoPairTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textColor="@android:color/white"
-        android:layout_marginStart="@dimen/spacing_normal"
-        app:layout_constraintBottom_toBottomOf="@+id/candleCryptoPairImageView"
-        app:layout_constraintStart_toEndOf="@+id/candleCryptoPairImageView"
-        app:layout_constraintTop_toTopOf="@+id/candleCryptoPairImageView"
-        tools:text="USDTBTC" />
-
-    <com.tradingview.lightweightcharts.view.ChartsView
-        android:id="@+id/candleChartsView"
-        android:layout_width="0dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="@dimen/spacing_normal"
-        android:background="@color/transpent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/candleCryptoPairImageView" />
-
-    <TextView
-        android:id="@+id/candleRsiTitleTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/candle_rsi_title"
-        android:textSize="@dimen/font_large"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:layout_marginStart="@dimen/spacing_normal"
-        android:layout_marginTop="@dimen/spacing_normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/candleChartsView" />
-
-    <com.websocket.project.ui.custom.rsi_view.RsiView
-        android:id="@+id/candleRsiView"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/candleRsiTitleTextView" />
+        android:layout_height="wrap_content">
 
-    <com.websocket.project.ui.custom.risk_level_view.RiskLevelView
-        android:id="@+id/candleRiskLevelView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/spacing_small"
-        android:layout_marginTop="@dimen/spacing_normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/candleRsiView" />
 
-    <TextView
-        android:id="@+id/candleRiskLevelTitleTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/spacing_normal"
-        android:layout_marginBottom="14dp"
-        android:text="@string/candle_risk_level_title"
-        android:textSize="@dimen/font_large"
-        android:textStyle="bold"
-        android:textColor="@android:color/white"
-        android:maxLines="2"
-        app:layout_constraintBottom_toBottomOf="@+id/candleRiskLevelView"
-        app:layout_constraintEnd_toStartOf="@+id/candleRiskLevelView"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/candleRiskLevelView" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/candleCryptoPairImageView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:background="@drawable/bg_currency_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/candleCryptoPairTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/candleCryptoPairImageView"
+            app:layout_constraintStart_toEndOf="@+id/candleCryptoPairImageView"
+            app:layout_constraintTop_toTopOf="@+id/candleCryptoPairImageView"
+            tools:text="USDTBTC" />
+
+        <com.tradingview.lightweightcharts.view.ChartsView
+            android:id="@+id/candleChartsView"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:background="@color/transpent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/candleCryptoPairImageView" />
+
+        <TextView
+            android:id="@+id/candleRsiTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:text="@string/candle_rsi_title"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_large"
+            android:fontFamily="@font/sf_pro_display_bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/candleChartsView" />
+
+        <com.websocket.project.ui.custom.rsi_view.RsiView
+            android:id="@+id/candleRsiView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/candleRsiTitleTextView" />
+
+        <com.websocket.project.ui.custom.risk_level_view.RiskLevelView
+            android:id="@+id/candleRiskLevelView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/candleRsiView" />
+
+        <TextView
+            android:id="@+id/candleRiskLevelTitleTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginBottom="14dp"
+            android:maxLines="2"
+            android:fontFamily="@font/sf_pro_display_bold"
+            android:text="@string/candle_risk_level_title"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_large"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/candleRiskLevelView"
+            app:layout_constraintEnd_toStartOf="@+id/candleRiskLevelView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/candleRiskLevelView" />
+
+        <include
+            layout="@layout/buy_sell_layout"
+            android:layout_marginTop="20dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/candleRiskLevelView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
