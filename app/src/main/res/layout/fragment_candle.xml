@@ -19,7 +19,7 @@
             android:layout_height="50dp"
             android:layout_marginStart="@dimen/spacing_normal"
             android:layout_marginTop="@dimen/spacing_normal"
-            android:background="@drawable/bg_currency_icon"
+            android:background="@drawable/ic_crypto_placeholder"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,12 +28,39 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_normal"
+            android:fontFamily="@font/sf_pro_display_semibold"
             android:textColor="@android:color/white"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/candleCryptoPairImageView"
+            android:textSize="16sp"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintBottom_toTopOf="@+id/candlePairNameTextView"
             app:layout_constraintStart_toEndOf="@+id/candleCryptoPairImageView"
             app:layout_constraintTop_toTopOf="@+id/candleCryptoPairImageView"
             tools:text="USDTBTC" />
+
+        <TextView
+            android:id="@+id/candleLeverageTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:textColor="@color/candle_leverage"
+            android:textSize="16sp"
+            android:fontFamily="@font/sf_pro_display_semibold"
+            app:layout_constraintBottom_toBottomOf="@+id/candleCryptoPairTextView"
+            app:layout_constraintStart_toEndOf="@+id/candleCryptoPairTextView"
+            app:layout_constraintTop_toTopOf="@+id/candleCryptoPairTextView"
+            android:text="x100" />
+
+        <TextView
+            android:id="@+id/candlePairNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bitcoin"
+            android:textSize="12sp"
+            android:fontFamily="@font/sf_pro_display_semibold"
+            android:layout_marginStart="@dimen/spacing_normal"
+            app:layout_constraintBottom_toBottomOf="@+id/candleCryptoPairImageView"
+            app:layout_constraintStart_toEndOf="@+id/candleCryptoPairImageView"
+            app:layout_constraintTop_toBottomOf="@+id/candleCryptoPairTextView" />
 
         <com.tradingview.lightweightcharts.view.ChartsView
             android:id="@+id/candleChartsView"
@@ -51,10 +78,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_normal"
             android:layout_marginTop="@dimen/spacing_normal"
+            android:fontFamily="@font/sf_pro_display_bold"
             android:text="@string/candle_rsi_title"
             android:textColor="@android:color/white"
             android:textSize="@dimen/font_large"
-            android:fontFamily="@font/sf_pro_display_bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/candleChartsView" />
 
@@ -81,8 +108,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_normal"
             android:layout_marginBottom="14dp"
-            android:maxLines="2"
             android:fontFamily="@font/sf_pro_display_bold"
+            android:maxLines="2"
             android:text="@string/candle_risk_level_title"
             android:textColor="@android:color/white"
             android:textSize="@dimen/font_large"
@@ -95,11 +122,22 @@
 
         <include
             layout="@layout/buy_sell_layout"
-            android:layout_marginTop="20dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/candleRiskLevelView" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_candle_star"
+            app:layout_constraintBottom_toBottomOf="@+id/candleCryptoPairImageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/candleCryptoPairImageView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

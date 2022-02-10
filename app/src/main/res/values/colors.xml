@@ -46,6 +46,7 @@
     <color name="candle_down_color">#C32B57</color>
     <color name="candle_font_color">#898D94</color>
     <color name="candle_border_color">#73699C</color>
+    <color name="candle_leverage">#7B88FB</color>
 
     <color name="risk_level_text_active">#3FE18E</color>
     <color name="risk_level_stroke_color">#9C93C2</color>

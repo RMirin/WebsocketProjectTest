@@ -48,6 +48,7 @@
                 android:layout_marginStart="@dimen/spacing_normal"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/font_normal"
+                android:fontFamily="@font/sf_pro_display_semibold"
                 app:layout_constraintBottom_toTopOf="@+id/fast_buy_pair_guideline"
                 app:layout_constraintStart_toEndOf="@+id/fast_buy_pair_img"
                 tools:text="USDT" />
@@ -60,6 +61,7 @@
                 android:layout_marginTop="4dp"
                 android:textColor="@color/white_opacity_50"
                 android:textSize="@dimen/font_minute"
+                android:fontFamily="@font/sf_pro_display_semibold"
                 app:layout_constraintStart_toEndOf="@+id/fast_buy_pair_img"
                 app:layout_constraintTop_toTopOf="@+id/fast_buy_pair_guideline"
                 tools:text="Tether USD" />
@@ -70,6 +72,7 @@
                 android:layout_marginEnd="@dimen/spacing_normal"
                 android:layout_marginBottom="4dp"
                 android:text="@string/fast_buy_bottom_sheet_balance"
+                android:fontFamily="@font/sf_pro_display_semibold"
                 android:textColor="@color/white_opacity_50"
                 android:textSize="@dimen/font_minute"
                 app:layout_constraintBottom_toTopOf="@+id/fast_buy_pair_guideline"
@@ -83,6 +86,7 @@
                 android:layout_marginEnd="@dimen/spacing_normal"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/font_normal"
+                android:fontFamily="@font/sf_pro_display_semibold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/fast_buy_pair_guideline"
                 tools:text="5.00$" />
@@ -125,6 +129,7 @@
             android:paddingEnd="@dimen/spacing_large"
             android:paddingBottom="@dimen/spacing_normal"
             android:text="@string/fast_buy_bottom_sheet_buy"
+            android:fontFamily="@font/sf_pro_display_regular"
             android:textColor="@android:color/white"
             android:textSize="@dimen/font_normal"
             app:drawableStartCompat="@drawable/ic_fast_buy_buy"
@@ -159,6 +164,7 @@
             android:text="@string/fast_buy_bottom_sheet_deposit"
             android:textColor="@android:color/white"
             android:textSize="@dimen/font_normal"
+            android:fontFamily="@font/sf_pro_display_regular"
             app:drawableStartCompat="@drawable/ic_fast_buy_deposit"
             app:layout_constraintBottom_toBottomOf="@+id/view"
             app:layout_constraintEnd_toEndOf="parent"
