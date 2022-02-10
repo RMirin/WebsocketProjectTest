@@ -21,6 +21,7 @@
         <entry key="app/src/main/res/drawable/bg_main_header_profit_zero.xml" value="0.2485" />
         <entry key="app/src/main/res/drawable/bg_progress.xml" value="0.20208333333333334" />
         <entry key="app/src/main/res/drawable/bg_risk_level.xml" value="0.20608108108108109" />
+        <entry key="app/src/main/res/drawable/bg_transparent_btn_oval.xml" value="0.1865" />
         <entry key="app/src/main/res/drawable/bg_view_risk_level.xml" value="0.18958333333333333" />
         <entry key="app/src/main/res/drawable/bg_view_risk_level_high_active.xml" value="0.18958333333333333" />
         <entry key="app/src/main/res/drawable/bg_view_risk_level_low_active.xml" value="0.18958333333333333" />
@@ -34,6 +35,8 @@
         <entry key="app/src/main/res/drawable/ic_crypto_trx.xml" value="0.1995" />
         <entry key="app/src/main/res/drawable/ic_gradient.xml" value="0.75" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.24583333333333332" />
+        <entry key="app/src/main/res/drawable/ic_main_action_buy.xml" value="0.2195" />
+        <entry key="app/src/main/res/drawable/ic_main_action_sell.xml" value="0.2195" />
         <entry key="app/src/main/res/drawable/ic_main_buy.xml" value="0.1995" />
         <entry key="app/src/main/res/drawable/ic_main_deposit.xml" value="0.1995" />
         <entry key="app/src/main/res/drawable/ic_main_header_price_down.xml" value="0.1895" />
@@ -42,6 +45,8 @@
         <entry key="app/src/main/res/drawable/ic_main_header_profit_down.xml" value="0.1895" />
         <entry key="app/src/main/res/drawable/ic_main_header_profit_up.xml" value="0.1895" />
         <entry key="app/src/main/res/drawable/ic_main_header_profit_zero.xml" value="0.1895" />
+        <entry key="app/src/main/res/drawable/ic_main_notification.xml" value="0.289" />
+        <entry key="app/src/main/res/drawable/ic_main_profile.xml" value="0.289" />
         <entry key="app/src/main/res/drawable/ic_menu_main_active.xml" value="0.24583333333333332" />
         <entry key="app/src/main/res/drawable/ic_menu_markets_active.xml" value="0.24583333333333332" />
         <entry key="app/src/main/res/drawable/ic_menu_markets_inactive.xml" value="0.24583333333333332" />
@@ -80,13 +85,13 @@
         <entry key="app/src/main/res/layout/custom_layout.xml" value="0.18958333333333333" />
         <entry key="app/src/main/res/layout/fragment_candle.xml" value="0.2203125" />
         <entry key="app/src/main/res/layout/fragment_crypto_pair.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/fragment_main.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/fragment_main.xml" value="0.22" />
         <entry key="app/src/main/res/layout/item_attach_file_action.xml" value="0.2203125" />
         <entry key="app/src/main/res/layout/item_crypto_pair.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_main_action.xml" value="0.2" />
         <entry key="app/src/main/res/layout/item_main_crypto.xml" value="0.5518672199170125" />
         <entry key="app/src/main/res/layout/layout_main_complete_verification.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/layout_main_header.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/layout_main_header.xml" value="0.75" />
         <entry key="app/src/main/res/layout/layout_rsi_view.xml" value="0.25" />
         <entry key="app/src/main/res/layout/rsi_view.xml" value="0.33" />
         <entry key="app/src/main/res/layout/view_risk_level.xml" value="0.25" />

@@ -30,6 +30,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 import com.websocket.project.R
 import com.websocket.project.databinding.FragmentMainBinding
+import com.websocket.project.ui.base.observe
 import com.websocket.project.ui.main.MainActivityViewModel
 
 @AndroidEntryPoint
@@ -56,20 +57,23 @@ class MainFragment: BaseFragment<FragmentMainBinding>(), AttachFileBottomSheetLi
             activity,
             LinearLayoutManager.VERTICAL
         )
+
         with(binding.mainActionsRecycler) {
             adapter = mainActionsAdapter
             layoutManager = GridLayoutManager(context, 2)
         }
         mainActionsAdapter.setActions(MainFragmentAction.values())
 
-        with(binding.mainRecycler) {
+        with(binding.mainCryptoRecycler) {
             addItemDecoration(dividerItemDecoration)
             adapter = cryptoPairAdapter
         }
 
-        binding.mainCompleteVerificationInclude.layoutMainCompleteVerification.setOnClickListener {
-            Log.e("TAG", "onMainFragmentCompleteVerificationClick")
-        }
+        with(binding) {
+
+            mainCompleteVerificationInclude.layoutMainCompleteVerification.setOnClickListener {
+                Log.e("TAG", "onMainFragmentCompleteVerificationClick")
+            }
 
 //        binding.pairAttachBtn.setOnClickListener {
 //            AttachFileBottomSheetFragment(this@MainFragment).show(
@@ -77,13 +81,26 @@ class MainFragment: BaseFragment<FragmentMainBinding>(), AttachFileBottomSheetLi
 //                "tag"
 //            )
 //        }
+
+            mainHeaderInclude.mainHeaderHidePriceBtn.setOnClickListener {
+                viewModel.showHideBalance()
+            }
+
+            observe(viewModel.balanceShown) { balanceShown ->
+                if (balanceShown) {
+                    mainHeaderInclude.mainHeaderHidePriceBtn.setImageResource(R.drawable.ic_main_header_price_show)
+                } else {
+                    mainHeaderInclude.mainHeaderHidePriceBtn.setImageResource(R.drawable.ic_main_header_price_hide)
+                }
+            }
+        }
     }
 
     override fun onResume() {
         super.onResume()
         Log.e("TAG", "onResume: subscribe")
         viewModel.ticker.observe(viewLifecycleOwner) { ticker ->
-            binding.mainProgress.visibility = View.GONE
+//            binding.mainProgress.visibility = View.GONE
             cryptoPairAdapter.setNewCryptoHashMap(ticker)
 //            Log.e("TAG", "onCreate: $ticker")
         }

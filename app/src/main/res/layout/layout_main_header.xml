@@ -7,25 +7,43 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <ImageView
+            android:id="@+id/mainHeaderProfileImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_main_profile"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/mainHeaderNotificationImg"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_main_notification"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/mainHeaderTotalBalanceHeaderText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/main_header_total_balance"
             android:textColor="@color/main_title"
+            android:layout_marginTop="@dimen/spacing_normal"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/mainHeaderProfileImg" />
 
         <TextView
             android:id="@+id/mainHeaderProfitHeaderText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/main_header_profit"
+            android:layout_marginTop="@dimen/spacing_normal"
             android:textColor="@color/main_title"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/mainHeaderNotificationImg" />
 
         <TextView
             android:id="@+id/mainHeaderTotalBalanceText"
@@ -46,6 +64,7 @@
             android:layout_height="0dp"
             android:layout_gravity="center_vertical"
             android:paddingStart="@dimen/spacing_small"
+            android:foreground="@drawable/bg_transparent_btn_oval"
             android:paddingEnd="@dimen/spacing_small"
             android:src="@drawable/ic_main_header_price_hide"
             app:layout_constraintBottom_toBottomOf="@+id/mainHeaderTotalBalanceText"

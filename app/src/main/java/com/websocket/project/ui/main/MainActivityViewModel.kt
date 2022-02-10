@@ -1,5 +1,7 @@
 package com.websocket.project.ui.main
 
+import androidx.databinding.ObservableBoolean
+import androidx.databinding.ObservableInt
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -25,6 +27,11 @@ class MainActivityViewModel @Inject constructor(
     val ticker: LiveData<HashMap<String, CryptoPairModel>>
         get() = _ticker
 
+    private val _balanceShown = MutableLiveData(true)
+    val balanceShown: LiveData<Boolean>
+        get() = _balanceShown
+
+
     init {
         compositeDisposable.add(webSocketUseCase.invoke()
             .observeOn(AndroidSchedulers.mainThread())
@@ -34,5 +41,9 @@ class MainActivityViewModel @Inject constructor(
                 e.printStackTrace()
             })
         )
+    }
+
+    fun showHideBalance() {
+        _balanceShown.postValue(!(_balanceShown.value?:true))
     }
 }
