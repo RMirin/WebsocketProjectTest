@@ -91,7 +91,7 @@
         <entry key="app/src/main/res/layout/item_main_action.xml" value="0.2" />
         <entry key="app/src/main/res/layout/item_main_crypto.xml" value="0.5518672199170125" />
         <entry key="app/src/main/res/layout/layout_main_complete_verification.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/layout_main_header.xml" value="0.75" />
+        <entry key="app/src/main/res/layout/layout_main_header.xml" value="0.2" />
         <entry key="app/src/main/res/layout/layout_rsi_view.xml" value="0.25" />
         <entry key="app/src/main/res/layout/rsi_view.xml" value="0.33" />
         <entry key="app/src/main/res/layout/view_risk_level.xml" value="0.25" />
