@@ -42,6 +42,7 @@
         <entry key="app/src/main/res/drawable/indicator_gradient_3.xml" value="0.29375" />
         <entry key="app/src/main/res/drawable/indicator_gradient_4.xml" value="0.29375" />
         <entry key="app/src/main/res/drawable/indicator_layer_list.xml" value="0.29739583333333336" />
+        <entry key="app/src/main/res/drawable/ripple_buy_sell.xml" value="0.1575" />
         <entry key="app/src/main/res/drawable/selector_main.xml" value="0.18333333333333332" />
         <entry key="app/src/main/res/drawable/selector_markets.xml" value="0.18333333333333332" />
         <entry key="app/src/main/res/drawable/selector_menu_item_text.xml" value="0.18333333333333332" />
