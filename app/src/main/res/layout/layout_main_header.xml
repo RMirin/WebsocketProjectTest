@@ -45,32 +45,51 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mainHeaderNotificationImg" />
 
-        <TextView
-            android:id="@+id/mainHeaderTotalBalanceText"
+        <LinearLayout
+            android:id="@+id/mainHeaderTotalBalanceLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxLines="1"
-            android:textColor="@android:color/white"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            app:layout_constraintHorizontal_bias="0.0"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mainHeaderTotalBalanceHeaderText"
-            android:text="5 260 $" />
+            app:layout_constraintTop_toBottomOf="@+id/mainHeaderTotalBalanceHeaderText">
 
-        <ImageView
-            android:id="@+id/mainHeaderHidePriceBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_gravity="center_vertical"
-            android:paddingStart="@dimen/spacing_small"
-            android:foreground="@drawable/bg_transparent_btn_oval"
-            android:paddingEnd="@dimen/spacing_small"
-            android:src="@drawable/ic_main_header_price_hide"
-            app:layout_constraintBottom_toBottomOf="@+id/mainHeaderTotalBalanceText"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/mainHeaderTotalBalanceText"
-            app:layout_constraintTop_toBottomOf="@+id/mainHeaderTotalBalanceHeaderText" />
+            <TextView
+                android:id="@+id/mainHeaderTotalBalanceText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="5 260 $"
+                android:textColor="@android:color/white"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mainHeaderTotalBalanceHeaderText" />
+
+            <ImageView
+                android:id="@+id/mainHeaderTotalBalanceHiddenImg"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_main_header_total_balance_hidden"/>
+
+            <ImageView
+                android:id="@+id/mainHeaderHidePriceBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:foreground="@drawable/bg_transparent_btn_oval"
+                android:paddingStart="@dimen/spacing_small"
+                android:paddingEnd="@dimen/spacing_small"
+                android:src="@drawable/ic_main_header_total_balance_hide"
+                app:layout_constraintBottom_toBottomOf="@+id/mainHeaderTotalBalanceText"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/mainHeaderTotalBalanceText"
+                app:layout_constraintTop_toBottomOf="@+id/mainHeaderTotalBalanceHeaderText" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/mainHeaderProfitText"
@@ -86,10 +105,21 @@
             android:maxLines="1"
             android:minWidth="80dp"
             app:drawableStartCompat="@drawable/ic_main_header_profit_up"
-            app:layout_constraintBottom_toBottomOf="@+id/mainHeaderTotalBalanceText"
+            app:layout_constraintBottom_toBottomOf="@+id/mainHeaderTotalBalanceLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mainHeaderTotalBalanceHeaderText"
             android:text="20%" />
+
+        <ImageView
+            android:id="@+id/mainHeaderProfitHideImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_main_header_profit_hidden"
+            android:padding="@dimen/spacing_small"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/mainHeaderTotalBalanceLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainHeaderTotalBalanceHeaderText" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

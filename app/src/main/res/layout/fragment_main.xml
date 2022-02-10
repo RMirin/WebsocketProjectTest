@@ -12,7 +12,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
             app:layout_behavior=".ui.custom.CustomScrollingViewBehavior">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
@@ -103,7 +103,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/spacing_normal"
-                            android:layout_weight="1"
                             android:text="@string/main_coin"
                             android:textColor="@color/white_opacity_30"
                             android:textSize="@dimen/font_small"
@@ -114,8 +113,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/spacing_normal"
-                            android:layout_marginEnd="@dimen/spacing_normal"
-                            android:layout_weight="1"
                             android:text="@string/main_price"
                             android:textColor="@color/white_opacity_30"
                             android:textSize="@dimen/font_small"
@@ -126,7 +123,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/spacing_normal"
-                            android:layout_weight="1"
                             android:text="@string/main_balance"
                             android:textColor="@color/white_opacity_30"
                             android:textSize="@dimen/font_small"

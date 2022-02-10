@@ -65,6 +65,7 @@ class MainFragment: BaseFragment<FragmentMainBinding>(), AttachFileBottomSheetLi
         mainActionsAdapter.setActions(MainFragmentAction.values())
 
         with(binding.mainCryptoRecycler) {
+            itemAnimator = null
             addItemDecoration(dividerItemDecoration)
             adapter = cryptoPairAdapter
         }
@@ -87,10 +88,20 @@ class MainFragment: BaseFragment<FragmentMainBinding>(), AttachFileBottomSheetLi
             }
 
             observe(viewModel.balanceShown) { balanceShown ->
-                if (balanceShown) {
-                    mainHeaderInclude.mainHeaderHidePriceBtn.setImageResource(R.drawable.ic_main_header_price_show)
-                } else {
-                    mainHeaderInclude.mainHeaderHidePriceBtn.setImageResource(R.drawable.ic_main_header_price_hide)
+                with(mainHeaderInclude) {
+                    if (balanceShown) {
+                        mainHeaderHidePriceBtn.setImageResource(R.drawable.ic_main_header_total_balance_hide)
+                        mainHeaderProfitHideImg.visibility = View.GONE
+                        mainHeaderProfitText.visibility = View.VISIBLE
+                        mainHeaderTotalBalanceHiddenImg.visibility = View.GONE
+                        mainHeaderTotalBalanceText.visibility = View.VISIBLE
+                    } else {
+                        mainHeaderHidePriceBtn.setImageResource(R.drawable.ic_main_header_total_balance_show)
+                        mainHeaderProfitHideImg.visibility = View.VISIBLE
+                        mainHeaderProfitText.visibility = View.GONE
+                        mainHeaderTotalBalanceHiddenImg.visibility = View.VISIBLE
+                        mainHeaderTotalBalanceText.visibility = View.GONE
+                    }
                 }
             }
         }
