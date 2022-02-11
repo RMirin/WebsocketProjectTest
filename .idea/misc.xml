@@ -13,6 +13,7 @@
         <entry key="app/src/main/res/drawable/bg_btn_risk_level_medium_inactive.xml" value="0.61" />
         <entry key="app/src/main/res/drawable/bg_gradient_navigation_bar.xml" value="0.18333333333333332" />
         <entry key="app/src/main/res/drawable/bg_item_main_crypto_img.xml" value="0.1895" />
+        <entry key="app/src/main/res/drawable/bg_item_main_shimmer_crypto_img.xml" value="0.2195" />
         <entry key="app/src/main/res/drawable/bg_main_action.xml" value="0.1995" />
         <entry key="app/src/main/res/drawable/bg_main_complete_verification.xml" value="0.1865" />
         <entry key="app/src/main/res/drawable/bg_main_header_price_down.xml" value="0.1895" />
@@ -92,8 +93,10 @@
         <entry key="app/src/main/res/layout/item_attach_file_action.xml" value="0.2203125" />
         <entry key="app/src/main/res/layout/item_crypto_pair.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_main_action.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/item_main_crypto.xml" value="0.5518672199170125" />
+        <entry key="app/src/main/res/layout/item_main_crypto.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/item_main_crypto_placeholder.xml" value="0.25" />
         <entry key="app/src/main/res/layout/layout_main_complete_verification.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/layout_main_crypto_shimmer.xml" value="0.12432432432432433" />
         <entry key="app/src/main/res/layout/layout_main_header.xml" value="0.33" />
         <entry key="app/src/main/res/layout/layout_rsi_view.xml" value="0.25" />
         <entry key="app/src/main/res/layout/rsi_view.xml" value="0.33" />

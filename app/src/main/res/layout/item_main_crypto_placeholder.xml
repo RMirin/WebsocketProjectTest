@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/common_shimmer_layout">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/itemMainCryptoPlaceholderHorizontal05Guideline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/itemMainCryptoPlaceholderVertical07Guideline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.7" />
+
+        <ImageView
+            android:id="@+id/itemMainCryptoPlaceholderImg"
+            android:layout_width="@dimen/image_in_list_size"
+            android:layout_height="@dimen/image_in_list_size"
+            android:layout_margin="@dimen/spacing_normal"
+            android:background="@drawable/bg_item_main_shimmer_crypto_img"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/itemMainCryptoPlaceholderTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_normal"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintBottom_toTopOf="@+id/itemMainCryptoPlaceholderHorizontal05Guideline"
+            app:layout_constraintStart_toEndOf="@+id/itemMainCryptoPlaceholderImg"
+            app:layout_constraintTop_toTopOf="@+id/itemMainCryptoPlaceholderImg"
+            tools:text="USDT" />
+
+        <TextView
+            android:id="@+id/itemMainCryptoPlaceholderDescrText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_normal"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/font_minute"
+            app:layout_constraintBottom_toBottomOf="@+id/itemMainCryptoPlaceholderImg"
+            app:layout_constraintStart_toEndOf="@+id/itemMainCryptoPlaceholderImg"
+            app:layout_constraintTop_toTopOf="@+id/itemMainCryptoPlaceholderHorizontal05Guideline"
+            tools:text="Tether USD" />
+
+        <TextView
+            android:id="@+id/itemMainCryptoPlaceholderBalanceUsdText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_normal"
+            android:textAlignment="textEnd"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintBottom_toTopOf="@+id/itemMainCryptoPlaceholderHorizontal05Guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/itemMainCryptoPlaceholderVertical07Guideline"
+            app:layout_constraintTop_toTopOf="@+id/itemMainCryptoPlaceholderHorizontal05Guideline"
+            tools:text="4.8K $" />
+
+        <TextView
+            android:id="@+id/itemMainCryptoPlaceholderPriceUsdText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_normal"
+            android:textAlignment="textEnd"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintBottom_toTopOf="@+id/itemMainCryptoPlaceholderHorizontal05Guideline"
+            app:layout_constraintEnd_toStartOf="@+id/itemMainCryptoPlaceholderVertical07Guideline"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintTop_toTopOf="@+id/itemMainCryptoPlaceholderHorizontal05Guideline"
+            tools:text="1.00 $" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

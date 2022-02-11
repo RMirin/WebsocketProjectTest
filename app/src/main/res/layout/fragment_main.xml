@@ -136,6 +136,13 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
+        <include
+            android:id="@+id/mainCryptoShimmerLayout"
+            layout="@layout/layout_main_crypto_shimmer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/mainCryptoRecycler"
             android:layout_width="match_parent"
@@ -143,10 +150,6 @@
             android:overScrollMode="never"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
             tools:listitem="@layout/item_main_crypto" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

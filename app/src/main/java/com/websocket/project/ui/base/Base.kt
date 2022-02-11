@@ -4,6 +4,7 @@ import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.CharacterStyle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
@@ -11,6 +12,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
+import com.facebook.shimmer.ShimmerFrameLayout
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
@@ -74,4 +76,18 @@ fun roundOffDecimal(number: Double): String {
     val df = DecimalFormat("#.##")
     df.roundingMode = RoundingMode.FLOOR
     return df.format(number)
+}
+
+fun ShimmerFrameLayout.shimmerShow() {
+    this.apply {
+        startShimmer()
+        visibility = View.VISIBLE
+    }
+}
+
+fun ShimmerFrameLayout.shimmerHide() {
+    this.apply {
+        stopShimmer()
+        visibility = View.GONE
+    }
 }
