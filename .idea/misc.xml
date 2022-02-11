@@ -89,7 +89,7 @@
         <entry key="app/src/main/res/layout/custom_layout.xml" value="0.18958333333333333" />
         <entry key="app/src/main/res/layout/fragment_candle.xml" value="0.2203125" />
         <entry key="app/src/main/res/layout/fragment_crypto_pair.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/fragment_main.xml" value="0.14" />
+        <entry key="app/src/main/res/layout/fragment_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_attach_file_action.xml" value="0.2203125" />
         <entry key="app/src/main/res/layout/item_crypto_pair.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_main_action.xml" value="0.2" />

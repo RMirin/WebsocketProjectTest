@@ -5,34 +5,35 @@ import android.content.ContentResolver
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
+import android.os.Build.VERSION.SDK_INT
 import android.os.Bundle
+import android.os.Environment
+import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.FileProvider
 import androidx.fragment.app.viewModels
-import com.websocket.project.ui.base.BaseFragment
-import dagger.hilt.android.AndroidEntryPoint
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.websocket.project.R
+import com.websocket.project.databinding.FragmentMainBinding
+import com.websocket.project.ui.base.BaseFragment
+import com.websocket.project.ui.base.SpacesItemDecoration
+import com.websocket.project.ui.base.observe
+import com.websocket.project.ui.base.shimmerHide
+import com.websocket.project.ui.main.MainActivityViewModel
 import com.websocket.project.ui.main.attach_file.AttachFileAction
 import com.websocket.project.ui.main.attach_file.AttachFileBottomSheetListener
-import java.lang.Exception
-import android.os.Build
-import android.os.Build.VERSION.SDK_INT
-import android.os.Environment
-import android.provider.MediaStore
-import androidx.core.content.FileProvider
-import androidx.recyclerview.widget.GridLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
-import com.websocket.project.R
-import com.websocket.project.databinding.FragmentMainBinding
-import com.websocket.project.ui.base.observe
-import com.websocket.project.ui.base.shimmerHide
-import com.websocket.project.ui.main.MainActivityViewModel
+
 
 @AndroidEntryPoint
 class MainFragment: BaseFragment<FragmentMainBinding>(), AttachFileBottomSheetListener, MainFragmentActionsListener {
@@ -60,6 +61,7 @@ class MainFragment: BaseFragment<FragmentMainBinding>(), AttachFileBottomSheetLi
         )
 
         with(binding.mainActionsRecycler) {
+            addItemDecoration(SpacesItemDecoration(resources.getDimensionPixelSize(R.dimen.recycler_items_spacing)))
             adapter = mainActionsAdapter
             layoutManager = GridLayoutManager(context, 2)
         }
@@ -333,7 +335,7 @@ class MainFragment: BaseFragment<FragmentMainBinding>(), AttachFileBottomSheetLi
     }
 
     override fun onMainFragmentActionClick(mainFragmentAction: MainFragmentAction) {
-        Log.e("TAG", "onMainFragmentActionClick: ", )
+        Log.e("TAG", "onMainFragmentActionClick: ")
     }
 
     companion object {

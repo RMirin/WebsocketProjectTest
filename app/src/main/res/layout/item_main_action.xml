@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:focusable="true"
-        android:layout_margin="@dimen/spacing_small"
+        android:layout_marginTop="@dimen/spacing_small"
         android:background="@drawable/bg_main_action">
 
         <TextView

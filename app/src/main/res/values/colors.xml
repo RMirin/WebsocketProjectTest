@@ -33,6 +33,5 @@
     <color name="bg_main_crypto_img">#202942</color>
 
     <color name="common_ripple">@color/white_opacity_30</color>
-    <color name="common_shimmer_layout">#80FFFFFF</color>
-    <color name="common_shimmer_img">#CCFFFFFF</color>
+    <color name="common_shimmer">#80FFFFFF</color>
 </resources>

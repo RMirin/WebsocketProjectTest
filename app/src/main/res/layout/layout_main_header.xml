@@ -55,6 +55,12 @@
             app:layout_constraintTop_toBottomOf="@+id/mainHeaderTotalBalanceHeaderText">
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="28sp"
+                android:textStyle="bold"/>
+
+            <TextView
                 android:id="@+id/mainHeaderTotalBalanceText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -62,10 +68,7 @@
                 android:text="5 260 $"
                 android:textColor="@android:color/white"
                 android:textSize="28sp"
-                android:textStyle="bold"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/mainHeaderTotalBalanceHeaderText" />
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/mainHeaderTotalBalanceHiddenImg"
@@ -83,11 +86,7 @@
                 android:foreground="@drawable/bg_transparent_btn_oval"
                 android:paddingStart="@dimen/spacing_small"
                 android:paddingEnd="@dimen/spacing_small"
-                android:src="@drawable/ic_main_header_total_balance_hide"
-                app:layout_constraintBottom_toBottomOf="@+id/mainHeaderTotalBalanceText"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/mainHeaderTotalBalanceText"
-                app:layout_constraintTop_toBottomOf="@+id/mainHeaderTotalBalanceHeaderText" />
+                android:src="@drawable/ic_main_header_total_balance_hide" />
 
         </LinearLayout>
 

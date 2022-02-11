@@ -14,4 +14,6 @@
     <dimen name="risk_level_view_radius">19dp</dimen>
 
     <dimen name="image_in_list_size">50dp</dimen>
+
+    <dimen name="recycler_items_spacing">@dimen/spacing_small</dimen>
 </resources>

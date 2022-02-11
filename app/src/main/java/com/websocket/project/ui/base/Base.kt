@@ -1,5 +1,6 @@
 package com.websocket.project.ui.base
 
+import android.graphics.Rect
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.CharacterStyle
@@ -12,9 +13,12 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.facebook.shimmer.ShimmerFrameLayout
 import java.math.RoundingMode
 import java.text.DecimalFormat
+
 
 fun <T : Any, L : LiveData<T>> LifecycleOwner.observe(liveData: L, body: (T) -> Unit) {
     liveData.observe(this, Observer(body))
@@ -89,5 +93,31 @@ fun ShimmerFrameLayout.shimmerHide() {
     this.apply {
         stopShimmer()
         visibility = View.GONE
+    }
+}
+
+class SpacesItemDecoration(private val space: Int) : ItemDecoration() {
+    override fun getItemOffsets(
+        outRect: Rect,
+        view: View,
+        parent: RecyclerView,
+        state: RecyclerView.State
+    ) {
+        super.getItemOffsets(outRect, view, parent, state)
+
+        outRect.bottom = space
+
+        // Add top margin only for the first item to avoid double space between items
+        if (parent.getChildLayoutPosition(view) % 2 == 0) {
+            outRect.right = space
+        } else {
+            outRect.left = space
+        }
+
+//        if (parent.getChildLayoutPosition(view) == 0) {
+//            outRect.top = space
+//        } else {
+//            outRect.top = 0
+//        }
     }
 }
