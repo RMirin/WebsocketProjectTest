@@ -22,7 +22,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.websocket.project.R
 import com.websocket.project.databinding.FragmentMainBinding
 import com.websocket.project.ui.base.BaseFragment
-import com.websocket.project.ui.base.SpacesItemDecoration
+import com.websocket.project.ui.base.MainActionsRecyclerItemDecoration
 import com.websocket.project.ui.base.observe
 import com.websocket.project.ui.base.shimmerHide
 import com.websocket.project.ui.main.MainActivityViewModel
@@ -61,7 +61,7 @@ class MainFragment: BaseFragment<FragmentMainBinding>(), AttachFileBottomSheetLi
         )
 
         with(binding.mainActionsRecycler) {
-            addItemDecoration(SpacesItemDecoration(resources.getDimensionPixelSize(R.dimen.recycler_items_spacing)))
+            addItemDecoration(MainActionsRecyclerItemDecoration(resources.getDimensionPixelSize(R.dimen.recycler_items_spacing)))
             adapter = mainActionsAdapter
             layoutManager = GridLayoutManager(context, 2)
         }

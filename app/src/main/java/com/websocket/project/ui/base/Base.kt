@@ -96,7 +96,7 @@ fun ShimmerFrameLayout.shimmerHide() {
     }
 }
 
-class SpacesItemDecoration(private val space: Int) : ItemDecoration() {
+class MainActionsRecyclerItemDecoration(private val space: Int) : ItemDecoration() {
     override fun getItemOffsets(
         outRect: Rect,
         view: View,
@@ -107,17 +107,10 @@ class SpacesItemDecoration(private val space: Int) : ItemDecoration() {
 
         outRect.bottom = space
 
-        // Add top margin only for the first item to avoid double space between items
         if (parent.getChildLayoutPosition(view) % 2 == 0) {
             outRect.right = space
         } else {
             outRect.left = space
         }
-
-//        if (parent.getChildLayoutPosition(view) == 0) {
-//            outRect.top = space
-//        } else {
-//            outRect.top = 0
-//        }
     }
 }
