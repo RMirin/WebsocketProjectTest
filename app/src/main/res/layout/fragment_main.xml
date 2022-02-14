@@ -38,6 +38,18 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <include
+                        android:id="@+id/mainHeaderShimmerLayout"
+                        layout="@layout/layout_main_header_shimmer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_normal"
+                        android:layout_marginTop="@dimen/spacing_normal"
+                        android:layout_marginEnd="@dimen/spacing_normal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <include
                         android:id="@+id/mainCompleteVerificationInclude"
                         layout="@layout/layout_main_complete_verification"
                         android:layout_width="match_parent"

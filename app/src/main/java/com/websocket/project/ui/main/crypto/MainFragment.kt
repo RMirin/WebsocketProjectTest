@@ -90,22 +90,8 @@ class MainFragment: BaseFragment<FragmentMainBinding>(), AttachFileBottomSheetLi
                 viewModel.showHideBalance()
             }
 
-            observe(viewModel.balanceShown) { balanceShown ->
-                with(mainHeaderInclude) {
-                    if (balanceShown) {
-                        mainHeaderHidePriceBtn.setImageResource(R.drawable.ic_main_header_total_balance_hide)
-                        mainHeaderProfitHideImg.visibility = View.GONE
-                        mainHeaderProfitText.visibility = View.VISIBLE
-                        mainHeaderTotalBalanceHiddenImg.visibility = View.GONE
-                        mainHeaderTotalBalanceText.visibility = View.VISIBLE
-                    } else {
-                        mainHeaderHidePriceBtn.setImageResource(R.drawable.ic_main_header_total_balance_show)
-                        mainHeaderProfitHideImg.visibility = View.VISIBLE
-                        mainHeaderProfitText.visibility = View.GONE
-                        mainHeaderTotalBalanceHiddenImg.visibility = View.VISIBLE
-                        mainHeaderTotalBalanceText.visibility = View.GONE
-                    }
-                }
+            mainHeaderInclude.mainHeaderProfileImg.setOnClickListener {
+                Log.e("TAG", "onViewCreated: ", )
             }
         }
     }
@@ -114,7 +100,7 @@ class MainFragment: BaseFragment<FragmentMainBinding>(), AttachFileBottomSheetLi
         super.onResume()
         Log.e("TAG", "onResume: subscribe")
         viewModel.ticker.observe(viewLifecycleOwner) { ticker ->
-            binding.mainCryptoShimmerLayout.shimmerLayout.shimmerHide()
+            handleViewVisibilityOnDataReady()
             cryptoPairAdapter.setNewCryptoHashMap(ticker)
         }
     }
@@ -184,6 +170,30 @@ class MainFragment: BaseFragment<FragmentMainBinding>(), AttachFileBottomSheetLi
                 } else {
                     Log.e("TAG", "REQUEST_CODE_TAKE_PHOTO onActivityResult: require access")
                     Toast.makeText(requireContext(), "Allow permission for storage access!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+    }
+
+    private fun handleViewVisibilityOnDataReady() {
+        binding.mainCryptoShimmerLayout.shimmerLayout.shimmerHide()
+        binding.mainHeaderShimmerLayout.headerShimmerLayout.shimmerHide()
+        binding.mainHeaderInclude.mainHeaderTotalBalanceLayout.visibility = View.VISIBLE
+        binding.mainHeaderInclude.mainHeaderProfitText.visibility = View.VISIBLE
+        observe(viewModel.balanceShown) { balanceShown ->
+            with(binding.mainHeaderInclude) {
+                if (balanceShown) {
+                    mainHeaderHidePriceBtn.setImageResource(R.drawable.ic_main_header_total_balance_hide)
+                    mainHeaderProfitHideImg.visibility = View.GONE
+                    mainHeaderProfitText.visibility = View.VISIBLE
+                    mainHeaderTotalBalanceHiddenImg.visibility = View.GONE
+                    mainHeaderTotalBalanceText.visibility = View.VISIBLE
+                } else {
+                    mainHeaderHidePriceBtn.setImageResource(R.drawable.ic_main_header_total_balance_show)
+                    mainHeaderProfitHideImg.visibility = View.VISIBLE
+                    mainHeaderProfitText.visibility = View.GONE
+                    mainHeaderTotalBalanceHiddenImg.visibility = View.VISIBLE
+                    mainHeaderTotalBalanceText.visibility = View.GONE
                 }
             }
         }

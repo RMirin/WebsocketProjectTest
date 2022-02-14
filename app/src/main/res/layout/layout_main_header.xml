@@ -50,6 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mainHeaderTotalBalanceHeaderText">
@@ -98,6 +99,7 @@
             android:drawablePadding="@dimen/spacing_small"
             android:gravity="center"
             android:padding="4dp"
+            android:visibility="invisible"
             android:textColor="@android:color/white"
             android:textSize="@dimen/font_normal"
             android:textStyle="bold"
