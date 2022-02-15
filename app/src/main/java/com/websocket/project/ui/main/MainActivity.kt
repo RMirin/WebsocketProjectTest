@@ -9,6 +9,7 @@ import com.websocket.project.ui.custom.risk_level_view.RiskLevel
 import com.websocket.project.ui.custom.risk_level_view.RiskLevelView
 import com.websocket.project.ui.custom.rsi_view.RsiIndicator
 import com.websocket.project.ui.main.crypto.MainFragment
+import com.websocket.project.ui.main.splash.SplashFragment
 
 
 @AndroidEntryPoint
@@ -19,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.main_fragment_container, MainFragment.newInstance())
+                .replace(R.id.main_fragment_container, SplashFragment.newInstance())
                 .commitNow()
         }
         //Example of usage of RsiView
