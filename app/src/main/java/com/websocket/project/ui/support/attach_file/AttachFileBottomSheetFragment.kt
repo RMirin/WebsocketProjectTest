@@ -1,4 +1,4 @@
-package com.websocket.project.ui.main.attach_file
+package com.websocket.project.ui.support.attach_file
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -21,7 +21,7 @@ class AttachFileBottomSheetFragment(
 
         val adapter = AttachFileBottomSheetAdapter(listener)
         adapter.setFilterActions(AttachFileAction.values())
-        binding.bottomSheetLayoutRecycler.adapter = adapter
+        binding.attachFileBottomSheetLayoutRecycler.adapter = adapter
 
         return binding.root
     }

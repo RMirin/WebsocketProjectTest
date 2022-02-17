@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.websocket.project.ui.custom.risk_level_view.RiskLevel
 import com.websocket.project.ui.custom.risk_level_view.RiskLevelView
 import com.websocket.project.ui.custom.rsi_view.RsiIndicator
+import com.websocket.project.ui.support.SupportFragment
 
 
 @AndroidEntryPoint
@@ -16,16 +17,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//        if (savedInstanceState == null) {
-//            supportFragmentManager.beginTransaction()
-//                .replace(R.id.container, CryptoPairFragment.newInstance())
-//                .commitNow()
-//        }
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.main_fragment_container, SupportFragment.newInstance())
+                .commitNow()
+        }
         //Example of usage of RsiView
 //        val rsiView = findViewById<RsiView>(R.id.main_rsi_view)
 //        rsiView.activateIndicator(RsiIndicator.BUY)
         //Example of usage of RiskLevelView
-        val riskLevelView = findViewById<RiskLevelView>(R.id.main_risk_level_view)
-        riskLevelView.setRiskLevel(RiskLevel.HIGH)
+//        val riskLevelView = findViewById<RiskLevelView>(R.id.main_risk_level_view)
+//        riskLevelView.setRiskLevel(RiskLevel.HIGH)
     }
 }

@@ -4,9 +4,9 @@
 
     <string name="image_name_prefix">JPEG_%s_</string>
 
-    <string name="action_bottom_sheet_camera">Камера</string>
-    <string name="action_bottom_sheet_gallery">Фотогалерея</string>
-    <string name="action_bottom_sheet_document">Документ</string>
+    <string name="attach_file_bottom_sheet_camera">Камера</string>
+    <string name="attach_file_bottom_sheet_gallery">Фотогалерея</string>
+    <string name="attach_file_bottom_sheet_document">Документ</string>
 
     <string name="actively_sell">Actively sell</string>
     <string name="sell">Sell</string>
@@ -17,4 +17,10 @@
     <string name="risk_level_low">Low</string>
     <string name="risk_level_medium">Medium</string>
     <string name="risk_level_high">High</string>
+
+    <string name="support_attach">Прикрепить файл 0/12</string>
+    <string name="support_format">Формат файлов: .jpg, .png, .pdf до 10 мб</string>
+    <string name="support_files_file_format">pdf</string>
+
+    <string name="common_cancel">Отмена</string>
 </resources>

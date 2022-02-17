@@ -1,5 +1,10 @@
 package com.websocket.project.ui.base
 
+import android.database.Cursor
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.net.Uri
+import android.provider.MediaStore
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.CharacterStyle
@@ -13,6 +18,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import java.math.RoundingMode
 import java.text.DecimalFormat
+import kotlin.math.roundToInt
+
 
 fun <T : Any, L : LiveData<T>> LifecycleOwner.observe(liveData: L, body: (T) -> Unit) {
     liveData.observe(this, Observer(body))
@@ -74,4 +81,39 @@ fun roundOffDecimal(number: Double): String {
     val df = DecimalFormat("#.##")
     df.roundingMode = RoundingMode.FLOOR
     return df.format(number)
+}
+
+fun getScaledBitmap(picturePath: String, width: Int, height: Int): Bitmap? {
+    val sizeOptions = BitmapFactory.Options()
+    sizeOptions.inJustDecodeBounds = true
+    BitmapFactory.decodeFile(picturePath, sizeOptions)
+    val inSampleSize = calculateInSampleSize(sizeOptions, width, height)
+    sizeOptions.inJustDecodeBounds = false
+    sizeOptions.inSampleSize = inSampleSize
+    return BitmapFactory.decodeFile(picturePath, sizeOptions)
+}
+
+private fun calculateInSampleSize(
+    options: BitmapFactory.Options,
+    reqWidth: Int,
+    reqHeight: Int
+): Int {
+    // Raw height and width of image
+    val height = options.outHeight
+    val width = options.outWidth
+    var inSampleSize = 1
+    if (height > reqHeight || width > reqWidth) {
+
+        // Calculate ratios of height and width to requested height and
+        // width
+        val heightRatio = (height.toFloat() / reqHeight.toFloat()).roundToInt()
+        val widthRatio = (width.toFloat() / reqWidth.toFloat()).roundToInt()
+
+        // Choose the smallest ratio as inSampleSize value, this will
+        // guarantee
+        // a final image with both dimensions larger than or equal to the
+        // requested height and width.
+        inSampleSize = if (heightRatio < widthRatio) heightRatio else widthRatio
+    }
+    return inSampleSize
 }
