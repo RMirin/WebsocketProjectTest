@@ -1,12 +1,10 @@
-package com.websocket.project.ui.support
+package com.websocket.project.ui.support.files
 
 import android.net.Uri
 
-class FileModel (
+class DocumentModel (
     var url : Uri?,
-    var size: Int = 0,
-    var name: String = ""
-): SupportFragmentFileType {
+): BaseFileModel(), SupportFragmentFileType {
     override val supportFileViewType: SupportFileViewType
         get() = SupportFileViewType.FILE_PDF
 }

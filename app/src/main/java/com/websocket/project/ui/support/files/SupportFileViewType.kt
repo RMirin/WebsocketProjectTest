@@ -1,4 +1,4 @@
-package com.websocket.project.ui.support
+package com.websocket.project.ui.support.files
 
 import com.google.gson.annotations.SerializedName
 

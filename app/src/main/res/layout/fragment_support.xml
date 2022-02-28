@@ -3,68 +3,359 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="supportViewModelBinding"
+            type="com.websocket.project.ui.support.SupportFragmentViewModel" />
+
+        <variable
+            name="supportActionListenerBinding"
+            type="com.websocket.project.ui.support.SupportFragmentActionListener" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_main"
+        android:fitsSystemWindows="true">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/supportFilesRecycler"
-            android:layout_width="match_parent"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/supportBackBtn"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:padding="0dp"
+            android:onClick="@{() -> supportActionListenerBinding.backBtnClick()}"
+            app:icon="@drawable/ic_back"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconTint="@color/common_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button"
+            app:strokeColor="@android:color/transparent" />
+
+        <TextView
+            android:id="@+id/supportTitleText"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/item_support_files_image"
-            android:orientation="horizontal"
+            android:layout_margin="@dimen/spacing_normal"
+            android:text="@string/support_title"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_large"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/supportBackBtn" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/spacing_large"
             android:overScrollMode="never"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toTopOf="@+id/supportAttachLayout"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/supportAttachLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_normal"
-            android:layout_marginEnd="@dimen/spacing_normal"
+            android:paddingTop="@dimen/spacing_small"
+            android:paddingBottom="@dimen/spacing_small"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/supportTitleText"
+            app:layout_constraintVertical_bias="0.0">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/supportAttachBtn"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:padding="0dp"
-                app:icon="@drawable/ic_attach_file_attach"
-                app:iconGravity="textStart"
-                app:iconPadding="0dp"
-                app:iconTint="@color/support_attach_icon"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button"
-                app:strokeColor="@android:color/transparent" />
-
-            <TextView
-                android:layout_width="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_small"
-                android:text="@string/support_attach"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/font_small"
-                app:layout_constraintStart_toEndOf="@+id/supportAttachBtn"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:fillViewport="true">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_small"
-                android:text="@string/support_format"
-                android:textColor="@color/white_opacity_50"
-                android:textSize="@dimen/font_minute"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/supportAttachBtn" />
+                <TextView
+                    android:id="@+id/supportCategoryOfAppealTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:text="@string/support_category_of_appeal_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/supportCategoryOfAppealBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:gravity="start|center_vertical"
+                    android:onClick="@{() -> supportActionListenerBinding.selectCategoryOfAppealBtnClick()}"
+                    android:paddingStart="@dimen/spacing_normal"
+                    android:paddingEnd="@dimen/spacing_normal"
+                    android:text="@string/support_category_of_appeal_hint"
+                    android:textColor="@color/white_opacity_50"
+                    android:textSize="@dimen/font_small"
+                    app:drawableEndCompat="@drawable/ic_next"
+                    app:isErrorText="@{supportViewModelBinding.categoryError}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/supportCategoryOfAppealTitleText"
+                    tools:background="@drawable/bg_rectangle_gradient_view" />
+
+                <TextView
+                    android:id="@+id/supportCategoryOfAppealErrorText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:text="@string/support_category_of_appeal_error"
+                    android:textColor="@color/common_error"
+                    android:textSize="@dimen/font_minute"
+                    app:isVisible="@{supportViewModelBinding.categoryError}"
+                    app:layout_constraintStart_toStartOf="@+id/supportCategoryOfAppealBtn"
+                    app:layout_constraintTop_toBottomOf="@+id/supportCategoryOfAppealBtn" />
+
+                <TextView
+                    android:id="@+id/supportSubjectOfAppealTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:text="@string/support_subject_of_appeal_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/supportCategoryOfAppealErrorText" />
+
+                <TextView
+                    android:id="@+id/supportSubjectOfAppealMaxSymbolsText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_marginEnd="30dp"
+                    android:text="@{supportViewModelBinding.subjectOfAppealMaxSymbolsCount}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/supportCategoryOfAppealErrorText"
+                    tools:text="0/50" />
+
+                <EditText
+                    android:id="@+id/supportSubjectOfAppealEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:gravity="start|center_vertical"
+                    android:hint="@string/support_subject_of_appeal_hint"
+                    android:inputType="text"
+                    android:maxLength="50"
+                    android:paddingStart="@dimen/spacing_normal"
+                    android:paddingEnd="@dimen/spacing_normal"
+                    android:textColor="@color/white_opacity_50"
+                    android:textColorHint="@drawable/selector_edit_text_hint_color"
+                    android:textSize="@dimen/font_small"
+                    app:isErrorText="@{supportViewModelBinding.subjectError}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/supportSubjectOfAppealTitleText"
+                    tools:background="@drawable/bg_rectangle_gradient_view" />
+
+                <TextView
+                    android:id="@+id/supportSubjectOfAppealErrorText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:text="@string/support_subject_of_appeal_error"
+                    android:textColor="@color/common_error"
+                    android:textSize="@dimen/font_minute"
+                    app:isVisible="@{supportViewModelBinding.subjectError}"
+                    app:layout_constraintStart_toStartOf="@+id/supportSubjectOfAppealEditText"
+                    app:layout_constraintTop_toBottomOf="@+id/supportSubjectOfAppealEditText" />
+
+                <TextView
+                    android:id="@+id/supportTextOfAppealTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:text="@string/support_text_of_appeal_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/supportSubjectOfAppealErrorText" />
+
+                <TextView
+                    android:id="@+id/supportTextOfAppealMaxSymbolsText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_marginEnd="30dp"
+                    android:text="@{supportViewModelBinding.textOfAppealMaxSymbolsCount}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/supportSubjectOfAppealErrorText"
+                    tools:text="0/1000" />
+
+                <RelativeLayout
+                    android:id="@+id/linearLayout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:minHeight="52dp"
+                    android:orientation="vertical"
+                    app:isErrorText="@{supportViewModelBinding.textOfAppealError}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/supportTextOfAppealTitleText"
+                    tools:background="@drawable/bg_rectangle_gradient_view">
+
+                    <EditText
+                        android:id="@+id/supportTextOfAppealEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:background="@android:color/transparent"
+                        android:gravity="start"
+                        android:hint="@string/support_text_of_appeal_hint"
+                        android:inputType="text|textMultiLine"
+                        android:maxLength="1000"
+                        android:paddingStart="@dimen/spacing_normal"
+                        android:paddingTop="@dimen/spacing_small"
+                        android:paddingEnd="@dimen/spacing_big"
+                        android:paddingBottom="@dimen/spacing_small"
+                        android:textColor="@color/white_opacity_50"
+                        android:textColorHint="@drawable/selector_edit_text_hint_color"
+                        android:textSize="@dimen/font_small"
+                        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+
+                    <RelativeLayout
+                        android:id="@+id/supportFilesFileRemoveBtnLayout"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="@dimen/spacing_small"
+                        android:layout_marginEnd="@dimen/spacing_small"
+                        android:onClick="@{() -> supportActionListenerBinding.deleteTextOfAppealBtnClick()}">
+
+                        <ImageView
+                            isInvisible="@{true}"
+                            show="@{!supportViewModelBinding.deleteAllTextButtonVisible}"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/ic_delete"
+                            android:visibility="visible" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/supportTextOfAppealErrorText"
+                    isInvisible="@{true}"
+                    show="@{!supportViewModelBinding.textOfAppealError}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:text="@string/support_text_of_appeal_error"
+                    android:textColor="@color/common_error"
+                    android:textSize="@dimen/font_minute"
+                    app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/supportAttachLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/supportTextOfAppealErrorText">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/supportAttachBtn"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:onClick="@{() -> supportActionListenerBinding.attachFilesBtnClick()}"
+                        android:padding="0dp"
+                        app:icon="@drawable/ic_attach_file_attach"
+                        app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:iconTint="@color/support_attach_icon"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button"
+                        app:strokeColor="@android:color/transparent" />
+
+                    <TextView
+                        android:id="@+id/supportAttachFileText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_small"
+                        android:text="@string/support_attach"
+                        android:textColor="@color/white_opacity_50"
+                        android:textSize="@dimen/font_small"
+                        app:layout_constraintStart_toEndOf="@+id/supportAttachBtn"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_small"
+                        android:text="@string/support_format"
+                        android:textColor="@color/white_opacity_50"
+                        android:textSize="@dimen/font_minute"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/supportAttachBtn" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/supportFilesRecycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_normal"
+                    android:orientation="horizontal"
+                    android:overScrollMode="never"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/supportAttachLayout"
+                    tools:listitem="@layout/item_support_files_image" />
+
+                <TextView
+                    android:id="@+id/supportDeleteAllBtn"
+                    isInvisible="@{true}"
+                    show="@{!supportViewModelBinding.deleteAllFilesButtonVisible}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_normal"
+                    android:background="@drawable/bg_rectangle_outlined_btn"
+                    android:onClick="@{() -> supportActionListenerBinding.deleteAllFilesBtnClick()}"
+                    android:paddingStart="@dimen/spacing_big"
+                    android:paddingTop="@dimen/spacing_small"
+                    android:paddingEnd="@dimen/spacing_big"
+                    android:paddingBottom="@dimen/spacing_small"
+                    android:text="@string/support_delete_all_btn"
+                    android:textColor="@color/support_text"
+                    android:textSize="@dimen/font_normal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/supportFilesRecycler" />
+
+                <TextView
+                    android:id="@+id/supportSendBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_margin="@dimen/spacing_normal"
+                    android:background="@drawable/bg_rectangle_accent_btn"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:onClick="@{() -> supportActionListenerBinding.supportSendBtnClick()}"
+                    android:text="@string/support_send_btn"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/supportDeleteAllBtn" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

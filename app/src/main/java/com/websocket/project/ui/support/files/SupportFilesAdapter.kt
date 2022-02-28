@@ -1,4 +1,4 @@
-package com.websocket.project.ui.support
+package com.websocket.project.ui.support.files
 
 import android.view.ViewGroup
 import com.websocket.project.R
@@ -6,9 +6,12 @@ import com.websocket.project.databinding.ItemSupportFilesFileBinding
 import com.websocket.project.databinding.ItemSupportFilesImageBinding
 import com.websocket.project.ui.base.BaseRecyclerViewAdapter
 import com.websocket.project.ui.base.BaseViewHolder
+import com.websocket.project.ui.base.humanReadableByteCountSI
 import com.websocket.project.ui.base.inflateWithBinding
 
-class SupportFilesAdapter(): BaseRecyclerViewAdapter() {
+class SupportFilesAdapter(
+    val listener: SupportFilesActionListener
+) : BaseRecyclerViewAdapter() {
 
     val attachedFiles = mutableListOf<SupportFragmentFileType>()
 
@@ -18,12 +21,16 @@ class SupportFilesAdapter(): BaseRecyclerViewAdapter() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         return when (viewType) {
-            SupportFragmentFileType.IMG -> ImageViewHolder(parent.inflateWithBinding(
-                R.layout.item_support_files_image
-            ))
-            else -> FileViewHolder(parent.inflateWithBinding(
-                R.layout.item_support_files_file
-            ))
+            SupportFragmentFileType.IMG -> ImageViewHolder(
+                parent.inflateWithBinding(
+                    R.layout.item_support_files_image
+                )
+            )
+            else -> FileViewHolder(
+                parent.inflateWithBinding(
+                    R.layout.item_support_files_file
+                )
+            )
         }
     }
 
@@ -37,13 +44,21 @@ class SupportFilesAdapter(): BaseRecyclerViewAdapter() {
                 if (item.supportFileViewType.viewType == SupportFragmentFileType.IMG) {
                     val img: ImageModel = item as ImageModel
                     with(it) {
-                        if (img.imageBitmap != null) {
+                        val bitmap = img.imageBitmap
+                        if (bitmap != null) {
                             supportFilesImageImg.setImageBitmap(
-                                img.imageBitmap
+                                bitmap
                             )
+
+                            supportFilesImageImg.setOnClickListener {
+                                listener.showPhotoDetail(bitmap)
+                            }
                         }
                         supportFilesImageNameText.text = img.name
-                        supportFilesImageSizeText.text = img.size.toString()
+                        supportFilesImageSizeText.text = humanReadableByteCountSI(img.size)
+                        supportFileImageRemoveBtnLayout.setOnClickListener {
+                            listener.onRemoveFileClick(item)
+                        }
                     }
                 }
             }
@@ -58,10 +73,18 @@ class SupportFilesAdapter(): BaseRecyclerViewAdapter() {
 
             itemSupportFilesFileBinding.also {
                 if (item.supportFileViewType.viewType == SupportFragmentFileType.FILE_PDF) {
-                    val file: FileModel = item as FileModel
+                    val document: DocumentModel = item as DocumentModel
                     with(it) {
-                        supportFilesFileNameText.text = file.name
-                        supportFilesFileSizeText.text = file.size.toString()
+                        supportFragmentFileBinding = document
+                        supportFilesFileNameText.text = document.name
+                        supportFilesFileSizeText.text = humanReadableByteCountSI(document.size)
+                        supportFilesFileRemoveBtnLayout.setOnClickListener {
+                            listener.onRemoveFileClick(item)
+                        }
+
+                        supportFilesFileLayout.setOnClickListener {
+                            listener.showPdfFile(document.url)
+                        }
                     }
                 }
             }
@@ -71,6 +94,16 @@ class SupportFilesAdapter(): BaseRecyclerViewAdapter() {
     fun addItem(item: SupportFragmentFileType) {
         attachedFiles.add(item)
         notifyItemInserted(attachedFiles.size)
+    }
+
+    fun removeAllItems() {
+        attachedFiles.clear()
+        notifyDataSetChanged()
+    }
+
+    fun removeItem(item: SupportFragmentFileType) {
+        attachedFiles.remove(item)
+        notifyDataSetChanged()
     }
 
     override fun getItemCount() = attachedFiles.size

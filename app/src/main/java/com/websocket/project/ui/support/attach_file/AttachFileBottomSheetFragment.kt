@@ -20,13 +20,8 @@ class AttachFileBottomSheetFragment(
         binding = AttachFileBottomSheetLayoutBinding.bind(inflater.inflate(R.layout.attach_file_bottom_sheet_layout, container))
 
         val adapter = AttachFileBottomSheetAdapter(listener)
-        adapter.setFilterActions(AttachFileAction.values())
         binding.attachFileBottomSheetLayoutRecycler.adapter = adapter
 
         return binding.root
     }
-}
-
-interface AttachFileBottomSheetListener {
-    fun onAttachFileClick(action: AttachFileAction)
 }

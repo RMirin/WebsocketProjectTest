@@ -11,13 +11,7 @@ class AttachFileBottomSheetAdapter(
     val attachFileBottomSheetListener: AttachFileBottomSheetListener
 ): BaseRecyclerViewAdapter() {
 
-    val attachFileActionsList = mutableListOf<AttachFileAction>()
-
-    fun setFilterActions(filterActions: Array<AttachFileAction>) {
-        this.attachFileActionsList.apply {
-            addAll(filterActions)
-        }
-    }
+    val attachFileActionsList = AttachFileAction.values()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         return CharacterNewItemViewHolder(parent.inflateWithBinding(R.layout.item_attach_file_action))

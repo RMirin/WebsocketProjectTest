@@ -30,8 +30,18 @@
     <color name="risk_level_high">#01637A</color>
 
     <color name="common_ripple">@color/white_opacity_30</color>
+    <color name="common_back">#999EA8</color>
+    <color name="common_error">#CF202C</color>
+    <color name="common_btn">#262768</color>
 
     <color name="support_attach_icon">#6965F3</color>
     <color name="support_text">#6965F3</color>
     <color name="support_attach_file">#202942</color>
+    <color name="support_stroke">#6965F3</color>
+    
+    <color name="common_field_gradient_end">#804223C1</color>
+    <color name="common_field_gradient_start">#804A67D9</color>
+
+    <color name="dialog_view_gradient_start">#28206B</color>
+    <color name="dialog_view_gradient_end">#363B9C</color>
 </resources>

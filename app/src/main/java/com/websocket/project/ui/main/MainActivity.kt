@@ -9,6 +9,7 @@ import com.websocket.project.ui.custom.risk_level_view.RiskLevel
 import com.websocket.project.ui.custom.risk_level_view.RiskLevelView
 import com.websocket.project.ui.custom.rsi_view.RsiIndicator
 import com.websocket.project.ui.support.SupportFragment
+import com.websocket.project.ui.support.appeal_category.AppealCategoryFragment
 
 
 @AndroidEntryPoint
@@ -17,11 +18,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.main_fragment_container, SupportFragment.newInstance())
-                .commitNow()
-        }
+//        if (savedInstanceState == null) {
+//            supportFragmentManager.beginTransaction()
+//                .replace(R.id.main_fragment_container, AppealCategoryFragment.newInstance())
+//                .commitNow()
+//        }
         //Example of usage of RsiView
 //        val rsiView = findViewById<RsiView>(R.id.main_rsi_view)
 //        rsiView.activateIndicator(RsiIndicator.BUY)

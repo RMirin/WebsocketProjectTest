@@ -1,14 +1,17 @@
 package com.websocket.project.ui.base
 
+import android.content.Context
 import android.database.Cursor
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
-import android.provider.MediaStore
+import android.provider.OpenableColumns
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.CharacterStyle
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
@@ -16,8 +19,12 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
+import androidx.test.core.app.ApplicationProvider.getApplicationContext
 import java.math.RoundingMode
+import java.text.CharacterIterator
 import java.text.DecimalFormat
+import java.text.StringCharacterIterator
+import java.util.*
 import kotlin.math.roundToInt
 
 
@@ -116,4 +123,56 @@ private fun calculateInSampleSize(
         inSampleSize = if (heightRatio < widthRatio) heightRatio else widthRatio
     }
     return inSampleSize
+}
+
+fun humanReadableByteCountSI(bytesToConvert: Int): String? {
+    var bytes = bytesToConvert
+    if (-1000 < bytes && bytes < 1000) {
+        return "$bytes B"
+    }
+    val ci: CharacterIterator = StringCharacterIterator("kMGTPE")
+    while (bytes <= -999950 || bytes >= 999950) {
+        bytes /= 1000
+        ci.next()
+    }
+    return java.lang.String.format(Locale.US, "%.1f %cB", bytes / 1000.0, ci.current())
+}
+
+fun View.show(visible: Boolean = false) {
+    visibility = if (visible) {
+        View.VISIBLE
+    } else {
+        View.INVISIBLE
+    }
+}
+
+fun View.show(show: Boolean = true, invisible: Boolean = false) {
+    visibility = if (show) {
+        View.VISIBLE
+    } else {
+        if (invisible) View.INVISIBLE else View.GONE
+    }
+}
+
+fun convertDpToPixel(dp: Float, context: Context): Int {
+    return (dp * (context.resources
+        .displayMetrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)).toInt()
+}
+
+fun convertPixelsToDp(px: Float, context: Context): Int {
+    return (px / (context.resources
+        .displayMetrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)).toInt()
+}
+
+fun displayName(uri: Uri): String {
+    var filename = ""
+    val mCursor: Cursor? =
+        getApplicationContext<Context>().contentResolver.query(uri, null, null, null, null)
+    if (mCursor != null) {
+        val indexedname: Int = mCursor.getColumnIndex(OpenableColumns.DISPLAY_NAME)
+        mCursor.moveToFirst()
+        filename = mCursor.getString(indexedname)
+        mCursor.close()
+    }
+    return filename
 }

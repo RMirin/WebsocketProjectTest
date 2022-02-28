@@ -18,9 +18,46 @@
     <string name="risk_level_medium">Medium</string>
     <string name="risk_level_high">High</string>
 
-    <string name="support_attach">Прикрепить файл 0/12</string>
+    <string name="support_attach">Прикрепить файл %d/12</string>
+    <string name="support_attach_file_span">Прикрепить файл</string>
     <string name="support_format">Формат файлов: .jpg, .png, .pdf до 10 мб</string>
     <string name="support_files_file_format">pdf</string>
+    <string name="support_file_too_large_msg">File is too large!</string>
+    <string name="support_storage_access_msg">Allow permission for storage access!</string>
 
-    <string name="common_cancel">Отмена</string>
+    <string name="support_title">Support center</string>
+    <string name="support_category_of_appeal_title">Category of appeal</string>
+    <string name="support_category_of_appeal_hint">Select a category</string>
+    <string name="support_category_of_appeal_error">No category selected</string>
+    <string name="support_subject_of_appeal_title">Subject of the appeal</string>
+    <string name="support_subject_of_appeal_hint">Enter a subject</string>
+    <string name="support_subject_of_appeal_error">No topic entered</string>
+    <string name="support_subject_of_appeal_max_symbols">%d/50</string>
+    <string name="support_text_of_appeal_title">The text of the appeal</string>
+    <string name="support_text_of_appeal_hint">Enter the text</string>
+    <string name="support_text_of_appeal_error">No text entered</string>
+    <string name="support_text_of_appeal_max_symbols">%d/1000</string>
+    <string name="support_delete_all_btn">Delete All</string>
+    <string name="support_send_btn">Send</string>
+    
+    <string name="support_dialog_delete_all_files">Do you really want\nto delete all the files?</string>
+    <string name="support_dialog_delete_text">Do you really want\nto delete the text?</string>
+    <string name="support_dialog_delete_file">Do you really want\nto delete the file?\n\n%s, %s</string>
+    
+    <string name="support_appeal_category_title">Choosing a category</string>
+    <string name="support_appeal_category_fiat_withdrawal">Fiat Withdrawal</string>
+    <string name="support_appeal_category_deposit_in_cryptocurrency">Deposit in cryptocurrency</string>
+    <string name="support_appeal_category_fiat_deposit">Fiat deposit</string>
+    <string name="support_appeal_category_withdrawal_in_cryptocurrency">Withdrawal in cryptocurrency</string>
+    <string name="support_appeal_category_trade_problem">Trade Problem</string>
+    <string name="support_appeal_category_trade_issue">Trade issue</string>
+    <string name="support_appeal_category_reset_2fa">Reset 2FA</string>
+    <string name="support_appeal_category_change_email">Change e-mail</string>
+    <string name="support_appeal_category_proof_of_identity">Proof of identity</string>
+    <string name="support_appeal_category_technical_issue">Technical issue</string>
+    <string name="support_appeal_category_closing_an_account">Closing an account</string>
+    <string name="support_appeal_category_other">Other</string>
+
+    <string name="common_remove">Remove</string>
+    <string name="common_cancel">Cancel</string>
 </resources>
