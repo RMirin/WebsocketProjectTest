@@ -58,4 +58,11 @@
     <string name="crypto_xlm">XLMUSDT</string>
     <string name="crypto_xrp">XRPUSDT</string>
     <string name="crypto_zec">ZECUSDT</string>
+    
+    <string name="transaction_history_title">Transaction history</string>
+    <string name="transaction_history_folder_all">All</string>
+    <string name="transaction_history_folder_deposit">Deposit</string>
+    <string name="transaction_history_folder_withdrawal">Withdrawal</string>
+    <string name="transaction_history_folder_buy">Buy</string>
+    <string name="transaction_history_folder_sell">Sell</string>
 </resources>

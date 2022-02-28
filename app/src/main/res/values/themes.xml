@@ -15,6 +15,13 @@
         <item name="enforceTextAppearance">true</item>
     </style>
 
+    <style name="ShapeAppearanceOverlay.MyApp.Button" parent="">
+        <item name="cornerSize">100%</item>
+        <item name="backgroundColor">@android:color/transparent</item>
+        <item name="enforceMaterialTheme">true</item>
+        <item name="enforceTextAppearance">true</item>
+    </style>
+
     <!-- Bottom sheet. -->
 
     <style name="BottomSheet" parent="@style/Widget.Design.BottomSheet.Modal">
