@@ -2,6 +2,7 @@ package com.websocket.project.converter
 
 import com.websocket.project.dto.CryptoPairDto
 import com.websocket.project.model.CryptoPairModel
+import com.websocket.project.ui.main.crypto.Crypto
 import kotlin.math.round
 
 fun mapToCryptoPairModel(map: Map<String, CryptoPairDto>?) : HashMap<String, CryptoPairModel> {
@@ -10,8 +11,10 @@ fun mapToCryptoPairModel(map: Map<String, CryptoPairDto>?) : HashMap<String, Cry
     if (map != null) {
         for (pair in map) {
             val token = pair.value
+            val name = pair.key.replace("USDT", "")
             val cryptoPairModel = CryptoPairModel(
-                name = pair.key,
+                icon = Crypto.valueOf(name).icon,
+                name = name,
                 timestamp = token.timestamp,
                 sequence = token.sequence,
                 asks = token.asks,

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/mainHeaderProfileImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_main_profile"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/mainHeaderNotificationImg"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_main_notification"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/mainHeaderTotalBalanceHeaderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_header_total_balance"
+            android:textColor="@color/main_title"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainHeaderProfileImg" />
+
+        <TextView
+            android:id="@+id/mainHeaderProfitHeaderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_header_profit"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:textColor="@color/main_title"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainHeaderNotificationImg" />
+
+        <LinearLayout
+            android:id="@+id/mainHeaderTotalBalanceLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainHeaderTotalBalanceHeaderText">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="28sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/mainHeaderTotalBalanceText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="5 260 $"
+                android:textColor="@android:color/white"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/mainHeaderTotalBalanceHiddenImg"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_main_header_total_balance_hidden"/>
+
+            <ImageView
+                android:id="@+id/mainHeaderHidePriceBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:foreground="@drawable/bg_transparent_btn_oval"
+                android:paddingStart="@dimen/spacing_small"
+                android:paddingEnd="@dimen/spacing_small"
+                android:src="@drawable/ic_main_header_total_balance_hide" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/mainHeaderProfitText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_main_header_profit_up"
+            android:drawablePadding="@dimen/spacing_small"
+            android:gravity="center"
+            android:padding="4dp"
+            android:visibility="invisible"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:minWidth="80dp"
+            app:drawableStartCompat="@drawable/ic_main_header_profit_up"
+            app:layout_constraintBottom_toBottomOf="@+id/mainHeaderTotalBalanceLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainHeaderTotalBalanceHeaderText"
+            android:text="20%" />
+
+        <ImageView
+            android:id="@+id/mainHeaderProfitHideImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_main_header_profit_hidden"
+            android:padding="@dimen/spacing_small"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/mainHeaderTotalBalanceLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainHeaderTotalBalanceHeaderText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,49 +1,57 @@
-package com.websocket.project.ui.main
+package com.websocket.project.ui.main.crypto
 
 import android.Manifest.permission
 import android.content.ContentResolver
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
+import android.os.Build.VERSION.SDK_INT
 import android.os.Bundle
+import android.os.Environment
+import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.viewModels
-import com.websocket.project.databinding.FragmentCryptoPairBinding
-import com.websocket.project.ui.base.BaseFragment
-import dagger.hilt.android.AndroidEntryPoint
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.websocket.project.ui.main.attach_file.AttachFileAction
-import com.websocket.project.ui.main.attach_file.AttachFileBottomSheetFragment
-import com.websocket.project.ui.main.attach_file.AttachFileBottomSheetListener
-import java.lang.Exception
-import android.os.Build
-import android.os.Build.VERSION.SDK_INT
-import android.os.Environment
-import android.provider.MediaStore
 import androidx.core.content.FileProvider
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.websocket.project.R
+import com.websocket.project.databinding.FragmentMainBinding
+import com.websocket.project.ui.base.BaseFragment
+import com.websocket.project.ui.base.MainActionsRecyclerItemDecoration
+import com.websocket.project.ui.base.observe
+import com.websocket.project.ui.base.shimmerHide
+import com.websocket.project.ui.main.MainActivityViewModel
+import com.websocket.project.ui.main.attach_file.AttachFileAction
+import com.websocket.project.ui.main.attach_file.AttachFileBottomSheetListener
+import dagger.hilt.android.AndroidEntryPoint
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
-import com.websocket.project.R
+
 
 @AndroidEntryPoint
-class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>(), AttachFileBottomSheetListener {
+class MainFragment: BaseFragment<FragmentMainBinding>(), AttachFileBottomSheetListener, MainFragmentActionsListener {
 
     private val viewModel: MainActivityViewModel by viewModels()
 
     private val cryptoPairAdapter by lazy(LazyThreadSafetyMode.NONE) {
-        CryptoPairAdapter()
+        MainFragmentCryptoAdapter()
+    }
+
+    private val mainActionsAdapter by lazy(LazyThreadSafetyMode.NONE) {
+        MainFragmentActionAdapter(this)
     }
 
     lateinit var currentPhotoPath: String
 
-    override fun initViewBinding(): FragmentCryptoPairBinding =
-        FragmentCryptoPairBinding.inflate(layoutInflater)
+    override fun initViewBinding(): FragmentMainBinding =
+        FragmentMainBinding.inflate(layoutInflater)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -51,25 +59,50 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>(), AttachFileB
             activity,
             LinearLayoutManager.VERTICAL
         )
-        binding.mainRecycler.addItemDecoration(dividerItemDecoration)
-        binding.mainRecycler.adapter = cryptoPairAdapter
 
-        binding.pairAttachBtn.setOnClickListener {
-            AttachFileBottomSheetFragment(this@CryptoPairFragment).show(
-                (activity as MainActivity).supportFragmentManager,
-                "tag"
-            )
+        with(binding.mainActionsRecycler) {
+            addItemDecoration(MainActionsRecyclerItemDecoration(resources.getDimensionPixelSize(R.dimen.recycler_items_spacing)))
+            adapter = mainActionsAdapter
+            layoutManager = GridLayoutManager(context, 2)
+        }
+        mainActionsAdapter.setActions(MainFragmentAction.values())
+
+        with(binding.mainCryptoRecycler) {
+            itemAnimator = null
+            addItemDecoration(dividerItemDecoration)
+            adapter = cryptoPairAdapter
+        }
+
+        with(binding) {
+
+            mainCompleteVerificationInclude.layoutMainCompleteVerification.setOnClickListener {
+                Log.e("TAG", "onMainFragmentCompleteVerificationClick")
+            }
+
+//        binding.pairAttachBtn.setOnClickListener {
+//            AttachFileBottomSheetFragment(this@MainFragment).show(
+//                (activity as MainActivity).supportFragmentManager,
+//                "tag"
+//            )
+//        }
+
+            mainHeaderInclude.mainHeaderHidePriceBtn.setOnClickListener {
+                viewModel.showHideBalance()
+            }
+
+            mainHeaderInclude.mainHeaderProfileImg.setOnClickListener {
+                Log.e("TAG", "onViewCreated: ", )
+            }
         }
     }
 
     override fun onResume() {
         super.onResume()
         Log.e("TAG", "onResume: subscribe")
-        viewModel.ticker.observe(viewLifecycleOwner, { ticker ->
-            binding.cryptoPairProgress.visibility = View.GONE
+        viewModel.ticker.observe(viewLifecycleOwner) { ticker ->
+            handleViewVisibilityOnDataReady()
             cryptoPairAdapter.setNewCryptoHashMap(ticker)
-//            Log.e("TAG", "onCreate: $ticker")
-        })
+        }
     }
 
     override fun onPause() {
@@ -137,6 +170,30 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>(), AttachFileB
                 } else {
                     Log.e("TAG", "REQUEST_CODE_TAKE_PHOTO onActivityResult: require access")
                     Toast.makeText(requireContext(), "Allow permission for storage access!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+    }
+
+    private fun handleViewVisibilityOnDataReady() {
+        binding.mainCryptoShimmerLayout.shimmerLayout.shimmerHide()
+        binding.mainHeaderShimmerLayout.headerShimmerLayout.shimmerHide()
+        binding.mainHeaderInclude.mainHeaderTotalBalanceLayout.visibility = View.VISIBLE
+        binding.mainHeaderInclude.mainHeaderProfitText.visibility = View.VISIBLE
+        observe(viewModel.balanceShown) { balanceShown ->
+            with(binding.mainHeaderInclude) {
+                if (balanceShown) {
+                    mainHeaderHidePriceBtn.setImageResource(R.drawable.ic_main_header_total_balance_hide)
+                    mainHeaderProfitHideImg.visibility = View.GONE
+                    mainHeaderProfitText.visibility = View.VISIBLE
+                    mainHeaderTotalBalanceHiddenImg.visibility = View.GONE
+                    mainHeaderTotalBalanceText.visibility = View.VISIBLE
+                } else {
+                    mainHeaderHidePriceBtn.setImageResource(R.drawable.ic_main_header_total_balance_show)
+                    mainHeaderProfitHideImg.visibility = View.VISIBLE
+                    mainHeaderProfitText.visibility = View.GONE
+                    mainHeaderTotalBalanceHiddenImg.visibility = View.VISIBLE
+                    mainHeaderTotalBalanceText.visibility = View.GONE
                 }
             }
         }
@@ -287,8 +344,12 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>(), AttachFileB
         }
     }
 
+    override fun onMainFragmentActionClick(mainFragmentAction: MainFragmentAction) {
+        Log.e("TAG", "onMainFragmentActionClick: ")
+    }
+
     companion object {
-        fun newInstance() = CryptoPairFragment()
+        fun newInstance() = MainFragment()
 
         private val PERMISSIONS = arrayOf(
             permission.READ_EXTERNAL_STORAGE,

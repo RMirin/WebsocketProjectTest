@@ -13,7 +13,27 @@ class WebSocketUseCase(private val webSocketRepository: WebSocketRepository) {
         val subscribeTicker = SubscribeTickerRequest(
             method = "subscribe",
             ch = "ticker/3s/batch",
-            params = TickerRequestParams(arrayListOf("*")),
+            params = TickerRequestParams(
+                arrayListOf(
+                    "AVEUSDT",
+                    "ADAUSDT",
+                    "AVAXUSDT",
+                    "BCHUSDT",
+                    "BNBUSDT",
+                    "BTCUSDT",
+                    "DOTUSDT",
+                    "EOSUSDT",
+                    "ETHUSDT",
+                    "LTCUSDT",
+                    "MANAUSDT",
+                    "SHIBUSDT",
+                    "TRXUSDT",
+                    "UNIUSDT",
+                    "XLMUSDT",
+                    "XRPUSDT",
+                    "ZECUSDT"
+                )
+            ),
             id = 123
         )
         return webSocketRepository.observeTicker(subscribeTicker)
