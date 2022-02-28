@@ -1,7 +1,6 @@
 package com.websocket.project.ui.support.appeal_category
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -13,7 +12,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class AppealCategoryFragment : BaseFragment<FragmentAppealCategoryBinding>(),
-    AppealCategoryAdapter.AppealCategoryActionListener, AppealCategoryActionListener {
+    AppealCategoryAdapterActionListener, AppealCategoryActionListener {
 
     private var currentCheckedPosition = -1
     private val appealCategoryAdapter by lazy(LazyThreadSafetyMode.NONE) {

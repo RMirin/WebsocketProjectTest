@@ -6,7 +6,7 @@ import com.websocket.project.databinding.ItemAppealCategoryBinding
 import com.websocket.project.ui.base.*
 
 class AppealCategoryAdapter(
-    private val appealCategoryListener: AppealCategoryActionListener,
+    private val appealCategoryAdapterListener: AppealCategoryAdapterActionListener,
     initCheckedValue: Int
 ) : BaseRecyclerViewAdapter() {
 
@@ -28,7 +28,7 @@ class AppealCategoryAdapter(
                 appealCategoryText.text =
                     appealCategoryText.context.getText(appealCategoryItem.title)
                 appealCategoryText.setOnClickListener {
-                    appealCategoryListener.onAppealCategorySelected(appealCategoryItem)
+                    appealCategoryAdapterListener.onAppealCategorySelected(appealCategoryItem)
                 }
             }
         }
@@ -39,9 +39,5 @@ class AppealCategoryAdapter(
     fun onAppealCategorySelected(position: Int) {
         initValue = position
         notifyDataSetChanged()
-    }
-
-    interface AppealCategoryActionListener {
-        fun onAppealCategorySelected(appealCategory: AppealCategory)
     }
 }
