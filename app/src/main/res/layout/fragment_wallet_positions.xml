@@ -65,10 +65,26 @@
             android:id="@+id/walletPositionsRecycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/item_wallet_positions"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/walletPositionsCoinText" />
+            app:layout_constraintTop_toBottomOf="@+id/walletPositionsCoinText"
+            tools:listitem="@layout/item_wallet_positions" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:gravity="center_horizontal"
+            android:text="@string/transaction_history_empty"
+            android:textColor="@color/white_opacity_50"
+            android:textSize="18sp"
+            android:visibility="gone"
+            app:drawableTopCompat="@drawable/ic_empty"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
