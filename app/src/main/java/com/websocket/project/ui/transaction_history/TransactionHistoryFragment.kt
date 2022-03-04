@@ -2,6 +2,8 @@ package com.websocket.project.ui.transaction_history
 
 import android.os.Bundle
 import android.view.View
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.flexbox.AlignItems
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexboxLayoutManager
@@ -30,10 +32,11 @@ class TransactionHistoryFragment : BaseFragment<FragmentTransactionHistoryBindin
     }
 
     private fun initFolderRecycler() {
-        val layoutManager = FlexboxLayoutManager(requireContext())
-        layoutManager.flexDirection = FlexDirection.ROW
-        layoutManager.justifyContent = JustifyContent.CENTER
-        layoutManager.alignItems = AlignItems.CENTER
+        val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+//        layoutManager.flexDirection = FlexDirection.ROW
+//        layoutManager.justifyContent = JustifyContent.CENTER
+//        layoutManager.alignItems = AlignItems.CENTER
+//        layoutManager.maxLine = 1
         binding.transactionHistoryFoldersRecycler.layoutManager = layoutManager
         binding.transactionHistoryFoldersRecycler.adapter = transactionHistoryFolderAdapter
     }
