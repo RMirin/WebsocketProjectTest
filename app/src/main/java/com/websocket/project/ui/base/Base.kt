@@ -1,12 +1,10 @@
 package com.websocket.project.ui.base
 
 import android.content.Context
-import android.graphics.Color
 import android.graphics.Rect
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.CharacterStyle
-import android.text.style.ForegroundColorSpan
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View

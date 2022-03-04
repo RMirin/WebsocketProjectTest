@@ -5,7 +5,6 @@ import com.websocket.project.data.remote.HitBtcClientImpl
 import com.websocket.project.model.CryptoPairModel
 import com.websocket.project.request.SubscribeTickerRequest
 import io.reactivex.Flowable
-import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 import javax.inject.Singleton
 

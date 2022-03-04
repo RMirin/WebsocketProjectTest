@@ -159,7 +159,7 @@
         <entry key="app/src/main/res/layout/fragment_support.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_transaction_history.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_wallet.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/fragment_wallet_position_history.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_wallet_position_history.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_wallet_positions.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_wallet_positions_history.xml" value="0.1761436511329628" />
         <entry key="app/src/main/res/layout/itam_validation.xml" value="0.15472972972972973" />

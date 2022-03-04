@@ -1,11 +1,7 @@
 package com.websocket.project.ui.wallet
 
-import android.text.style.ForegroundColorSpan
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
-import androidx.databinding.ObservableBoolean
 import com.websocket.project.R
-import com.websocket.project.databinding.ItemWalletPositionHistoryBinding
 import com.websocket.project.databinding.ItemWalletPositionsBinding
 import com.websocket.project.ui.base.BaseRecyclerViewAdapter
 import com.websocket.project.ui.base.BaseViewHolder

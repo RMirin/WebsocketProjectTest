@@ -1,12 +1,8 @@
 package com.websocket.project.ui.base
 
 import android.graphics.Bitmap
-import android.text.style.CharacterStyle
-import android.text.style.RelativeSizeSpan
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.databinding.BindingAdapter
 
 @BindingAdapter("isVisible")
