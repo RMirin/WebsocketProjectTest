@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/itemWalletPositionsLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/spacing_normal"
+    android:layout_marginEnd="@dimen/spacing_normal"
+    android:layout_marginBottom="@dimen/spacing_normal">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/itemWalletPositionsPlaceholder04VerticalGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/itemWalletPositionsPlaceholder088VerticalGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.88" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/itemWalletTradingAccountPositionsPlaceholder05HorizontalGuideline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <ImageView
+        android:id="@+id/itemWalletPositionsPlaceholderCryptoImg"
+        android:layout_width="@dimen/image_in_list_size"
+        android:layout_height="@dimen/image_in_list_size"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
+        android:background="@drawable/bg_item_main_shimmer_crypto_img"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="@dimen/spacing_small"
+        android:background="@drawable/bg_item_main_shimmer_crypto_text"
+        android:textSize="@dimen/font_normal"
+        app:layout_constraintBottom_toTopOf="@+id/itemWalletTradingAccountPositionsPlaceholder05HorizontalGuideline"
+        app:layout_constraintEnd_toStartOf="@+id/itemWalletPositionsPlaceholder04VerticalGuideline"
+        app:layout_constraintStart_toEndOf="@+id/itemWalletPositionsPlaceholderCryptoImg"
+        app:layout_constraintTop_toTopOf="@+id/itemWalletTradingAccountPositionsPlaceholder05HorizontalGuideline" />
+
+    <TextView
+        android:layout_width="44dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_item_main_shimmer_crypto_text"
+        android:textSize="@dimen/font_normal"
+        app:layout_constraintBottom_toTopOf="@+id/itemWalletTradingAccountPositionsPlaceholder05HorizontalGuideline"
+        app:layout_constraintStart_toStartOf="@+id/itemWalletPositionsPlaceholder04VerticalGuideline"
+        app:layout_constraintTop_toTopOf="@+id/itemWalletTradingAccountPositionsPlaceholder05HorizontalGuideline" />
+
+    <TextView
+        android:layout_width="83dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/bg_item_main_shimmer_crypto_text"
+        android:textSize="@dimen/font_normal"
+        app:layout_constraintBottom_toTopOf="@+id/itemWalletTradingAccountPositionsPlaceholder05HorizontalGuideline"
+        app:layout_constraintEnd_toStartOf="@+id/itemWalletPositionsPlaceholder088VerticalGuideline" />
+
+    <TextView
+        android:layout_width="61dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/bg_item_main_shimmer_crypto_text"
+        android:textSize="@dimen/font_minute"
+        app:layout_constraintEnd_toStartOf="@+id/itemWalletPositionsPlaceholder088VerticalGuideline"
+        app:layout_constraintTop_toBottomOf="@+id/itemWalletTradingAccountPositionsPlaceholder05HorizontalGuideline" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

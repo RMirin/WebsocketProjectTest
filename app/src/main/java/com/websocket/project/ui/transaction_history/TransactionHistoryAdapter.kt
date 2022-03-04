@@ -1,44 +1,27 @@
 package com.websocket.project.ui.transaction_history
 
+import android.view.ViewGroup
+import com.websocket.project.R
+import com.websocket.project.databinding.ItemMainCryptoBinding
 import com.websocket.project.ui.base.BaseRecyclerViewAdapter
+import com.websocket.project.ui.base.BaseViewHolder
+import com.websocket.project.ui.base.inflateWithBinding
 
 class TransactionHistoryAdapter(
-    private val appealCategoryListener: AppealCategoryActionListener,
-    initCheckedValue: Int
+    private val transactionHistoryList: MutableList<TransactionHistoryModel>
 ) : BaseRecyclerViewAdapter() {
 
-    private var initValue = initCheckedValue
-    private val appealCategoryList = AppealCategory.values()
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
-        return AppealCategoryViewHolder(parent.inflateWithBinding(R.layout.item_appeal_category))
+        return TransactionHistoryViewHolder(parent.inflateWithBinding(R.layout.item_transaction_history))
     }
 
-    private inner class AppealCategoryViewHolder(
-        private val itemAppealCategoryBinding: ItemAppealCategoryBinding
-    ) : BaseViewHolder(itemAppealCategoryBinding) {
+    override fun getItemCount(): Int = transactionHistoryList.size
+
+    private inner class TransactionHistoryViewHolder(
+        private val itemMainCryptoBinding: ItemMainCryptoBinding
+    ) : BaseViewHolder(itemMainCryptoBinding) {
         override fun bind(position: Int) {
-            with(itemAppealCategoryBinding) {
-                val appealCategoryItem = appealCategoryList[position]
-
-                appealCategoryText.isChecked = (initValue == position)
-                appealCategoryText.text =
-                    appealCategoryText.context.getText(appealCategoryItem.title)
-                appealCategoryText.setOnClickListener {
-                    appealCategoryListener.onAppealCategorySelected(appealCategoryItem)
-                }
-            }
+            val transactionHistoryItem = transactionHistoryList[position]
         }
-    }
-
-    override fun getItemCount(): Int = appealCategoryList.size
-
-    fun onAppealCategorySelected(position: Int) {
-        initValue = position
-        notifyDataSetChanged()
-    }
-
-    interface AppealCategoryActionListener {
-        fun onAppealCategorySelected(appealCategory: AppealCategory)
     }
 }

@@ -1,34 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/transactionHistoryBackBtn"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="@dimen/spacing_small"
-        android:padding="0dp"
-        app:icon="@drawable/ic_back"
-        app:iconGravity="textStart"
-        app:iconPadding="0dp"
-        app:iconTint="@color/common_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button"
-        app:strokeColor="@android:color/transparent" />
+    <data>
 
-    <TextView
-        android:id="@+id/transactionHistoryTitleText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/transaction_history_title"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/font_large"
-        android:layout_margin="@dimen/spacing_normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/transactionHistoryBackBtn" />
+        <variable
+            name="fragmentTransactionHistoryListener"
+            type="com.websocket.project.ui.transaction_history.TransactionHistoryFragmentListener" />
+    </data>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_main">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/transactionHistoryBackBtn"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:padding="0dp"
+            android:onClick="@{() -> fragmentTransactionHistoryListener.backBtnClick()}"
+            app:icon="@drawable/ic_back"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconTint="@color/common_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button"
+            app:strokeColor="@android:color/transparent" />
+
+        <TextView
+            android:id="@+id/transactionHistoryTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_normal"
+            android:text="@string/transaction_history_title"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_large"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/transactionHistoryBackBtn" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/transactionHistoryFoldersRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:orientation="horizontal"
+            android:overScrollMode="never"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/transactionHistoryTitleText" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/transactionHistoryVertical02Guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/transactionHistoryVertical045Guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.45" />
+
+        <TextView
+            android:id="@+id/transactionHistoryColumnCoinTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_normal"
+            android:text="@string/transaction_history_column_coin"
+            android:textColor="@color/white_opacity_30"
+            android:textSize="@dimen/font_small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/transactionHistoryFoldersRecycler" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:text="@string/transaction_history_column_date_time"
+            android:textColor="@color/white_opacity_30"
+            android:textSize="@dimen/font_small"
+            app:layout_constraintStart_toStartOf="@+id/transactionHistoryVertical02Guideline"
+            app:layout_constraintTop_toBottomOf="@+id/transactionHistoryFoldersRecycler" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:text="@string/transaction_history_column_type_status"
+            android:textColor="@color/white_opacity_30"
+            android:textSize="@dimen/font_small"
+            app:layout_constraintStart_toStartOf="@+id/transactionHistoryVertical045Guideline"
+            app:layout_constraintTop_toBottomOf="@+id/transactionHistoryFoldersRecycler" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_normal"
+            android:text="@string/transaction_history_column_amount_fee"
+            android:textColor="@color/white_opacity_30"
+            android:textSize="@dimen/font_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/transactionHistoryFoldersRecycler" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/include">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_empty" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="18sp"
+                android:textColor="@color/white_opacity_50"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:text="@string/transaction_history_empty"/>
+        </LinearLayout>
+
+        <include
+            android:id="@+id/include"
+            layout="@layout/layout_transaction_history_shimmer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/spacing_normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/transactionHistoryColumnCoinTitleText" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/transactionHistoryRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/spacing_normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/transactionHistoryColumnCoinTitleText"
+            tools:listitem="@layout/item_transaction_history"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

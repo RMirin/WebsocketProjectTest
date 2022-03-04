@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/itemTransactionHistoryVertical02Guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/itemTransactionHistoryVertical045Guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.45" />
+
+        <TextView
+            android:id="@+id/itemTransactionHistoryCoinNameText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="12dp"
+            android:maxLines="1"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintEnd_toStartOf="@+id/itemTransactionHistoryVertical02Guideline"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="USDT" />
+
+        <TextView
+            android:id="@+id/itemTransactionHistoryCoinDescriptionTitleText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="12dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="@color/white_opacity_50"
+            android:textSize="@dimen/font_minute"
+            app:layout_constraintEnd_toStartOf="@+id/itemTransactionHistoryVertical02Guideline"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemTransactionHistoryCoinNameText"
+            tools:text="Tether" />
+
+        <TextView
+            android:id="@+id/itemTransactionHistoryDateText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginEnd="4dp"
+            android:layout_marginTop="12dp"
+            android:maxLines="1"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintEnd_toStartOf="@+id/itemTransactionHistoryVertical045Guideline"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/itemTransactionHistoryVertical02Guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="21 Nov 2020" />
+
+        <TextView
+            android:id="@+id/itemTransactionHistoryTimeText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginTop="12dp"
+            android:maxLines="1"
+            android:textColor="@color/white_opacity_50"
+            android:textSize="@dimen/font_minute"
+            app:layout_constraintEnd_toStartOf="@+id/itemTransactionHistoryVertical045Guideline"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/itemTransactionHistoryVertical02Guideline"
+            app:layout_constraintTop_toBottomOf="@+id/itemTransactionHistoryCoinNameText"
+            tools:text="15:21:57" />
+
+        <TextView
+            android:id="@+id/itemTransactionHistoryTypeText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginTop="12dp"
+            android:maxLines="1"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/itemTransactionHistoryVertical045Guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Sell" />
+
+        <TextView
+            android:id="@+id/itemTransactionHistoryStatusText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginTop="12dp"
+            android:maxLines="1"
+            android:textColor="@color/white_opacity_50"
+            android:textSize="@dimen/font_minute"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/itemTransactionHistoryVertical045Guideline"
+            app:layout_constraintTop_toBottomOf="@+id/itemTransactionHistoryCoinNameText"
+            tools:text="Closed" />
+
+        <TextView
+            android:id="@+id/itemTransactionHistoryAmountText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:maxLines="1"
+            android:textAlignment="textEnd"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/itemTransactionHistoryTypeText"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="-5.00 $" />
+
+        <TextView
+            android:id="@+id/itemTransactionHistoryFeeText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:maxLines="1"
+            android:textAlignment="textEnd"
+            android:textColor="@color/white_opacity_50"
+            android:textSize="@dimen/font_minute"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/itemTransactionHistoryStatusText"
+            app:layout_constraintTop_toBottomOf="@+id/itemTransactionHistoryCoinNameText"
+            tools:text="3.30 $" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

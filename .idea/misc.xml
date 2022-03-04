@@ -46,7 +46,13 @@
         <entry key="app/src/main/res/drawable/bg_support_btn.xml" value="0.2195" />
         <entry key="app/src/main/res/drawable/bg_support_error_btn.xml" value="0.2195" />
         <entry key="app/src/main/res/drawable/bg_support_msg_btn.xml" value="0.2195" />
+        <entry key="app/src/main/res/drawable/bg_tab_active.xml" value="0.251" />
+        <entry key="app/src/main/res/drawable/bg_tab_layout.xml" value="0.251" />
+        <entry key="app/src/main/res/drawable/bg_transaction_history_folder_not_selected.xml" value="0.251" />
+        <entry key="app/src/main/res/drawable/bg_transaction_history_folder_selected.xml" value="0.251" />
         <entry key="app/src/main/res/drawable/bg_transparent_btn_oval.xml" value="0.1865" />
+        <entry key="app/src/main/res/drawable/bg_transparent_btn_rectangle.xml" value="0.251" />
+        <entry key="app/src/main/res/drawable/bg_trnsparent_btn_rectangle.xml" value="0.251" />
         <entry key="app/src/main/res/drawable/bg_view_risk_level.xml" value="0.18958333333333333" />
         <entry key="app/src/main/res/drawable/bg_view_risk_level_high_active.xml" value="0.18958333333333333" />
         <entry key="app/src/main/res/drawable/bg_view_risk_level_low_active.xml" value="0.18958333333333333" />
@@ -59,11 +65,15 @@
         <entry key="app/src/main/res/drawable/ic_attach_file_bottom_sheet_camera.xml" value="0.242" />
         <entry key="app/src/main/res/drawable/ic_attach_file_bottom_sheet_document.xml" value="0.242" />
         <entry key="app/src/main/res/drawable/ic_back.xml" value="0.251" />
+        <entry key="app/src/main/res/drawable/ic_balance_hidden.xml" value="0.251" />
+        <entry key="app/src/main/res/drawable/ic_balance_hidden_normal.xml" value="0.251" />
+        <entry key="app/src/main/res/drawable/ic_balance_hidden_small.xml" value="0.251" />
         <entry key="app/src/main/res/drawable/ic_crypto_aave.xml" value="0.205" />
         <entry key="app/src/main/res/drawable/ic_crypto_ada.xml" value="0.1995" />
         <entry key="app/src/main/res/drawable/ic_crypto_trx.xml" value="0.1995" />
         <entry key="app/src/main/res/drawable/ic_delete.xml" value="0.251" />
         <entry key="app/src/main/res/drawable/ic_gradient.xml" value="0.75" />
+        <entry key="app/src/main/res/drawable/ic_hide.xml" value="0.251" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.24583333333333332" />
         <entry key="app/src/main/res/drawable/ic_main_action_buy.xml" value="0.2195" />
         <entry key="app/src/main/res/drawable/ic_main_action_sell.xml" value="0.2195" />
@@ -87,11 +97,13 @@
         <entry key="app/src/main/res/drawable/ic_menu_wallet_active.xml" value="0.24583333333333332" />
         <entry key="app/src/main/res/drawable/ic_menu_wallet_inactive.xml" value="0.24583333333333332" />
         <entry key="app/src/main/res/drawable/ic_next.xml" value="0.2195" />
+        <entry key="app/src/main/res/drawable/ic_profit_hidden_minute.xml" value="0.251" />
         <entry key="app/src/main/res/drawable/ic_rsi_actively_buy.xml" value="0.3125" />
         <entry key="app/src/main/res/drawable/ic_rsi_arrow.xml" value="0.12736486486486487" />
         <entry key="app/src/main/res/drawable/ic_rsi_buy.xml" value="0.3125" />
         <entry key="app/src/main/res/drawable/ic_rsi_neutral.xml" value="0.3125" />
         <entry key="app/src/main/res/drawable/ic_sell.xml" value="0.3125" />
+        <entry key="app/src/main/res/drawable/ic_show.xml" value="0.251" />
         <entry key="app/src/main/res/drawable/ic_solid_btn.xml" value="0.2195" />
         <entry key="app/src/main/res/drawable/ic_splash_animation_step_1.xml" value="0.1595" />
         <entry key="app/src/main/res/drawable/ic_splash_animation_step_2.xml" value="0.1595" />
@@ -99,7 +111,15 @@
         <entry key="app/src/main/res/drawable/ic_splash_logo.xml" value="0.242" />
         <entry key="app/src/main/res/drawable/ic_support_files_remove_attachment_img.xml" value="0.251" />
         <entry key="app/src/main/res/drawable/ic_support_gallery.xml" value="0.242" />
+        <entry key="app/src/main/res/drawable/ic_transaction_history_empty.xml" value="0.251" />
         <entry key="app/src/main/res/drawable/ic_view_risk_level_active_indicator_img.xml" value="0.32083333333333336" />
+        <entry key="app/src/main/res/drawable/ic_visibility_hide.xml" value="0.2215" />
+        <entry key="app/src/main/res/drawable/ic_wallet_.xml" value="0.251" />
+        <entry key="app/src/main/res/drawable/ic_wallet_action_buy.xml" value="0.251" />
+        <entry key="app/src/main/res/drawable/ic_wallet_action_deposit.xml" value="0.251" />
+        <entry key="app/src/main/res/drawable/ic_wallet_action_sell.xml" value="0.251" />
+        <entry key="app/src/main/res/drawable/ic_wallet_action_withdraw.xml" value="0.251" />
+        <entry key="app/src/main/res/drawable/ic_wallet_profit_hidden.xml" value="0.251" />
         <entry key="app/src/main/res/drawable/indicator_gradient_1.xml" value="0.29375" />
         <entry key="app/src/main/res/drawable/indicator_gradient_2.xml" value="0.29375" />
         <entry key="app/src/main/res/drawable/indicator_gradient_3.xml" value="0.29375" />
@@ -115,6 +135,7 @@
         <entry key="app/src/main/res/drawable/selector_menu_trade.xml" value="0.24583333333333332" />
         <entry key="app/src/main/res/drawable/selector_menu_wallet.xml" value="0.24583333333333332" />
         <entry key="app/src/main/res/drawable/selector_trade.xml" value="0.18333333333333332" />
+        <entry key="app/src/main/res/drawable/selector_transaction_history_folder.xml" value="0.251" />
         <entry key="app/src/main/res/drawable/selector_view_risk_level_center_text.xml" value="0.18958333333333333" />
         <entry key="app/src/main/res/drawable/selector_view_risk_level_high_text.xml" value="0.32083333333333336" />
         <entry key="app/src/main/res/drawable/selector_view_risk_level_left_text.xml" value="0.18958333333333333" />
@@ -136,7 +157,11 @@
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.24983027834351662" />
         <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.12" />
         <entry key="app/src/main/res/layout/fragment_support.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/fragment_transaction_history.xml" value="0.21" />
+        <entry key="app/src/main/res/layout/fragment_transaction_history.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_wallet.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/fragment_wallet_position_history.xml" value="0.3688811188811189" />
+        <entry key="app/src/main/res/layout/fragment_wallet_positions.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/fragment_wallet_positions_history.xml" value="0.1761436511329628" />
         <entry key="app/src/main/res/layout/itam_validation.xml" value="0.15472972972972973" />
         <entry key="app/src/main/res/layout/item_appeal_category.xml" value="0.1331081081081081" />
         <entry key="app/src/main/res/layout/item_appeal_category_binding.xml" value="0.31549687282835304" />
@@ -148,11 +173,30 @@
         <entry key="app/src/main/res/layout/item_support_files_file.xml" value="0.9" />
         <entry key="app/src/main/res/layout/item_support_files_image.xml" value="0.75" />
         <entry key="app/src/main/res/layout/item_support_files_photo.xml" value="0.20662568306010928" />
+        <entry key="app/src/main/res/layout/item_transaction_history.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_transaction_history_folder.xml" value="0.5611866501854141" />
+        <entry key="app/src/main/res/layout/item_transaction_history_placeholder.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_wallet_action.xml" value="0.30387685290763966" />
+        <entry key="app/src/main/res/layout/item_wallet_position_history.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/item_wallet_position_history_placeholder.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/item_wallet_positions.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/item_wallet_positions_placeholder.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/item_wallet_trading_account_position.xml" value="0.2" />
         <entry key="app/src/main/res/layout/layout_main_complete_verification.xml" value="0.33" />
         <entry key="app/src/main/res/layout/layout_main_crypto_shimmer.xml" value="0.12432432432432433" />
         <entry key="app/src/main/res/layout/layout_main_header.xml" value="0.33" />
         <entry key="app/src/main/res/layout/layout_main_header_shimmer.xml" value="0.16" />
         <entry key="app/src/main/res/layout/layout_rsi_view.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/layout_transaction_history_shimmer.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/layout_wallet.xml" value="0.2278751603249252" />
+        <entry key="app/src/main/res/layout/layout_wallet_header.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/layout_wallet_header_shimmer.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/layout_wallet_position_history_shimmer.xml" value="0.18041898247114152" />
+        <entry key="app/src/main/res/layout/layout_wallet_positions_shimmer.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/layout_wallet_trading_account.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/layout_wallet_trading_account_shimmer.xml" value="0.21504916631038906" />
+        <entry key="app/src/main/res/layout/layout_wallet_wallet.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/layout_wallet_wallet_shimmer.xml" value="0.2278751603249252" />
         <entry key="app/src/main/res/layout/rsi_view.xml" value="0.33" />
         <entry key="app/src/main/res/layout/text_input.xml" value="0.15472972972972973" />
         <entry key="app/src/main/res/layout/view_risk_level.xml" value="0.25" />

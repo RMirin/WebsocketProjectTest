@@ -11,6 +11,8 @@
     <color name="white_opacity_30">#4DFFFFFF</color>
     <color name="white_opacity_50">#80FFFFFF</color>
 
+    <color name="grey_opacity_80">#CC817E8C</color>
+
     <color name="price_down">#e57373</color>
     <color name="price_up">#81c784</color>
 
@@ -36,4 +38,14 @@
     <color name="common_shimmer">#4223C1</color>
     <color name="common_shimmer_highlight">#4A67D9</color>
     <color name="common_back">#999EA8</color>
+    <color name="common_outlined_btn_text">#6965F3</color>
+    <color name="common_field_gradient_end">#804223C1</color>
+    <color name="common_field_gradient_start">#804A67D9</color>
+
+    <color name="transaction_history_folder_selected">#4B47CD</color>
+    <color name="transaction_history_folder_not_selected">#322F8C</color>
+
+    <color name="wallet_tab_layout_active_tab">#6965F3</color>
+    <color name="wallet_leverage_text">#6965F3</color>
+
 </resources>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/itemWalletPositionHistoryPlaceholderLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/spacing_normal"
+    android:layout_marginEnd="@dimen/spacing_normal"
+    android:layout_marginBottom="@dimen/spacing_normal">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/itemWalletPositionHistoryPlaceholder04Guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/itemWalletTradingAccountPositionHistoryPlaceholder05HorizontalGuideline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <ImageView
+        android:id="@+id/itemWalletPositionHistoryPlaceholderCryptoImg"
+        android:layout_width="@dimen/image_in_list_size"
+        android:layout_height="@dimen/image_in_list_size"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
+        android:background="@drawable/bg_item_main_shimmer_crypto_img"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="@dimen/spacing_small"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/bg_item_main_shimmer_crypto_text"
+        android:textSize="@dimen/font_normal"
+        app:layout_constraintBottom_toTopOf="@+id/itemWalletTradingAccountPositionHistoryPlaceholder05HorizontalGuideline"
+        app:layout_constraintEnd_toStartOf="@+id/itemWalletPositionHistoryPlaceholder04Guideline"
+        app:layout_constraintStart_toEndOf="@+id/itemWalletPositionHistoryPlaceholderCryptoImg" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="@dimen/spacing_small"
+        android:background="@drawable/bg_item_main_shimmer_crypto_text"
+        android:textSize="@dimen/font_minute"
+        app:layout_constraintEnd_toStartOf="@+id/itemWalletPositionHistoryPlaceholder04Guideline"
+        app:layout_constraintStart_toEndOf="@+id/itemWalletPositionHistoryPlaceholderCryptoImg"
+        app:layout_constraintTop_toTopOf="@+id/itemWalletTradingAccountPositionHistoryPlaceholder05HorizontalGuideline" />
+
+    <TextView
+        android:layout_width="44dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/bg_item_main_shimmer_crypto_text"
+        android:textSize="@dimen/font_normal"
+        app:layout_constraintBottom_toTopOf="@+id/itemWalletTradingAccountPositionHistoryPlaceholder05HorizontalGuideline"
+        app:layout_constraintStart_toStartOf="@+id/itemWalletPositionHistoryPlaceholder04Guideline" />
+
+    <TextView
+        android:layout_width="44dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/bg_item_main_shimmer_crypto_text"
+        android:textSize="@dimen/font_minute"
+        app:layout_constraintStart_toStartOf="@+id/itemWalletPositionHistoryPlaceholder04Guideline"
+        app:layout_constraintTop_toTopOf="@+id/itemWalletTradingAccountPositionHistoryPlaceholder05HorizontalGuideline" />
+
+    <TextView
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/bg_item_main_shimmer_crypto_text"
+        android:textSize="@dimen/font_normal"
+        app:layout_constraintBottom_toTopOf="@+id/itemWalletTradingAccountPositionHistoryPlaceholder05HorizontalGuideline"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/bg_item_main_shimmer_crypto_text"
+        android:textSize="@dimen/font_minute"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/itemWalletTradingAccountPositionHistoryPlaceholder05HorizontalGuideline" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

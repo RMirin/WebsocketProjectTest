@@ -65,4 +65,35 @@
     <string name="transaction_history_folder_withdrawal">Withdrawal</string>
     <string name="transaction_history_folder_buy">Buy</string>
     <string name="transaction_history_folder_sell">Sell</string>
+    <string name="transaction_history_column_coin">Coin</string>
+    <string name="transaction_history_column_date_time">Date/Time</string>
+    <string name="transaction_history_column_type_status">Type/Status</string>
+    <string name="transaction_history_column_amount_fee">Amount/Fee</string>
+    <string name="transaction_history_type_sell">Sell</string>
+    <string name="transaction_history_type_withdrawal">Withdrawal</string>
+    <string name="transaction_history_type_buy">Buy</string>
+    <string name="transaction_history_type_deposit">Deposit</string>
+    <string name="transaction_history_empty">Nothing found</string>
+
+    <string name="wallet_action_deposit">Deposit</string>
+    <string name="wallet_action_buy">Buy</string>
+    <string name="wallet_action_withdraw">Withdraw</string>
+    <string name="wallet_action_sell">Sell</string>
+    <string name="wallet_transaction_history">Transaction history</string>
+    <string name="wallet_balance_title">Balance</string>
+    <string name="wallet_wallet_title">Wallet</string>
+    <string name="wallet_total">Total, USDT</string>
+    <string name="wallet_available">Available, USDT</string>
+    <string name="wallet_trading_account_title">Trading Account</string>
+    <string name="wallet_positions">Positions</string>
+    <string name="wallet_position_history">Position history</string>
+    <string name="wallet_coin">Coin</string>
+    <string name="wallet_positions_side">Side</string>
+    <string name="wallet_positions_total_ex_profit">Total Ex/Profit</string>
+    <string name="wallet_position_history_profit_side">Profit/Side</string>
+    <string name="wallet_position_name_leverage">%s %s</string>
+
+    <string name="side_long">Long</string>
+    <string name="side_short">Short</string>
+
 </resources>

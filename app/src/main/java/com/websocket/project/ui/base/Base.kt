@@ -1,9 +1,13 @@
 package com.websocket.project.ui.base
 
+import android.content.Context
+import android.graphics.Color
 import android.graphics.Rect
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.CharacterStyle
+import android.text.style.ForegroundColorSpan
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,7 +45,7 @@ inline fun <reified T : ViewDataBinding> LayoutInflater.inflateBinding(
 
 inline fun <S : CharacterStyle> TextView.spanAll(characterStyle: S, stringToSpan: String) {
     if (stringToSpan.isEmpty()) return
-
+//val style: CharacterStyle = ForegroundColorSpan(Color.BLUE)
     var startSpanIndex = text.indexOf(stringToSpan).takeUnless { it == -1 } ?: return
     var endSpanIndex = startSpanIndex + stringToSpan.length
 
@@ -113,4 +117,30 @@ class MainActionsRecyclerItemDecoration(private val space: Int) : ItemDecoration
             outRect.left = space
         }
     }
+}
+
+fun View.show(visible: Boolean = false) {
+    visibility = if (visible) {
+        View.VISIBLE
+    } else {
+        View.INVISIBLE
+    }
+}
+
+fun View.show(show: Boolean = true, invisible: Boolean = false) {
+    visibility = if (show) {
+        View.VISIBLE
+    } else {
+        if (invisible) View.INVISIBLE else View.GONE
+    }
+}
+
+fun convertDpToPixel(dp: Float, context: Context): Int {
+    return (dp * (context.resources
+        .displayMetrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)).toInt()
+}
+
+fun convertPixelsToDp(px: Float, context: Context): Int {
+    return (px / (context.resources
+        .displayMetrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)).toInt()
 }

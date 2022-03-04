@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="walletViewModelBinding"
+            type="com.websocket.project.ui.wallet.WalletViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_rectangle_gradient_view">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/walletWalletVertical05Guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5"/>
+
+        <TextView
+            android:id="@+id/walletWalletTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wallet_wallet_title"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/walletWalletTotalTitleText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:textColor="@color/grey_opacity_80"
+            android:textSize="@dimen/font_small"
+            android:maxLines="1"
+            app:layout_constraintEnd_toStartOf="@+id/walletWalletVertical05Guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/walletWalletTitleText"
+            android:text="@string/wallet_total" />
+
+        <TextView
+            android:id="@+id/walletWalletTotalText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:layout_marginBottom="@dimen/spacing_normal"
+            android:textColor="@color/grey_opacity_80"
+            android:textSize="@dimen/font_small"
+            android:maxLines="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/walletWalletVertical05Guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/walletWalletTotalTitleText" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_balance_hidden_small"
+            show="@{walletViewModelBinding.showBalance}"
+            app:layout_constraintBottom_toBottomOf="@+id/walletWalletTotalText"
+            app:layout_constraintStart_toStartOf="@+id/walletWalletTotalText"
+            app:layout_constraintTop_toTopOf="@+id/walletWalletTotalText" />
+
+        <TextView
+            android:id="@+id/walletWalletAvailableTitleText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:textColor="@color/grey_opacity_80"
+            android:textSize="@dimen/font_small"
+            android:maxLines="1"
+            android:text="@string/wallet_available"
+            android:layout_marginStart="@dimen/spacing_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/walletWalletVertical05Guideline"
+            app:layout_constraintTop_toBottomOf="@+id/walletWalletTitleText" />
+
+        <TextView
+            android:id="@+id/walletWalletAvailableText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginBottom="@dimen/spacing_normal"
+            android:textColor="@color/grey_opacity_80"
+            android:textSize="@dimen/font_small"
+            android:maxLines="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/walletWalletVertical05Guideline"
+            app:layout_constraintTop_toBottomOf="@+id/walletWalletTotalTitleText" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_balance_hidden_small"
+            show="@{walletViewModelBinding.showBalance}"
+            app:layout_constraintBottom_toBottomOf="@+id/walletWalletAvailableText"
+            app:layout_constraintStart_toStartOf="@+id/walletWalletAvailableText"
+            app:layout_constraintTop_toTopOf="@+id/walletWalletAvailableText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

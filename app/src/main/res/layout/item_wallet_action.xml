@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="walletActionItemBinding"
+            type="com.websocket.project.ui.wallet.WalletAction" />
+
+        <variable
+            name="walletActionListenerBinding"
+            type="com.websocket.project.ui.wallet.WalletActionsListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_normal"
+        android:layout_marginEnd="@dimen/spacing_normal"
+        android:background="@drawable/bg_transparent_btn_rectangle"
+        android:onClick="@{() -> walletActionListenerBinding.onWalletActionClick(walletActionItemBinding)}">
+
+        <ImageView
+            android:id="@+id/itemWalletActionImg"
+            imgId="@{walletActionItemBinding.icon}"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{walletActionItemBinding.title}"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_small"
+            app:layout_constraintEnd_toEndOf="@+id/itemWalletActionImg"
+            app:layout_constraintStart_toStartOf="@+id/itemWalletActionImg"
+            app:layout_constraintTop_toBottomOf="@+id/itemWalletActionImg" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
