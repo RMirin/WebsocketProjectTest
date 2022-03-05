@@ -46,7 +46,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_normal"
-            android:layout_marginEnd="@dimen/spacing_small"
             android:text="@string/wallet_positions_total_ex_profit"
             android:textColor="@color/white_opacity_30"
             android:textSize="@dimen/font_small"

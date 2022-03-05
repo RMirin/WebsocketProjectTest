@@ -1,4 +1,12 @@
 package com.websocket.project.ui.transaction_history
 
-class TransactionStatus {
+import androidx.annotation.StringRes
+import com.websocket.project.R
+
+enum class TransactionStatus(
+    @StringRes val statusText: Int
+) {
+    CLOSED(
+        statusText = R.string.transaction_status_closed
+    )
 }

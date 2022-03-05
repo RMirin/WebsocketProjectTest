@@ -4,8 +4,6 @@
     android:id="@+id/itemWalletPositionsLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="@dimen/spacing_normal"
-    android:layout_marginEnd="@dimen/spacing_normal"
     android:layout_marginBottom="@dimen/spacing_normal">
 
     <androidx.constraintlayout.widget.Guideline
@@ -35,6 +33,7 @@
         android:layout_height="@dimen/image_in_list_size"
         android:layout_marginTop="6dp"
         android:layout_marginBottom="6dp"
+        android:layout_marginStart="@dimen/spacing_normal"
         android:background="@drawable/bg_item_main_shimmer_crypto_img"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

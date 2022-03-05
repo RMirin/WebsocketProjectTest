@@ -7,7 +7,7 @@ import com.websocket.project.R
 import com.websocket.project.databinding.FragmentWalletPositionHistoryBinding
 import com.websocket.project.ui.base.BaseFragment
 
-class FragmentWalletPositionHistory : BaseFragment<FragmentWalletPositionHistoryBinding>() {
+class WalletPositionHistoryFragment : BaseFragment<FragmentWalletPositionHistoryBinding>() {
 
     private val walletPositionHistoryAdapter by lazy(LazyThreadSafetyMode.NONE) {
         WalletPositionHistoryAdapter(
@@ -97,8 +97,8 @@ class FragmentWalletPositionHistory : BaseFragment<FragmentWalletPositionHistory
         FragmentWalletPositionHistoryBinding.inflate(layoutInflater)
 
     companion object {
-        fun newInstance(): FragmentWalletPositionHistory {
-            return FragmentWalletPositionHistory()
+        fun newInstance(): WalletPositionHistoryFragment {
+            return WalletPositionHistoryFragment()
         }
     }
 }

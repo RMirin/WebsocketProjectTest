@@ -16,6 +16,7 @@ import com.google.android.flexbox.JustifyContent
 import com.google.android.material.tabs.TabLayoutMediator
 import com.websocket.project.R
 import com.websocket.project.databinding.FragmentWalletBinding
+import com.websocket.project.ui.base.TabFragmentAdapter
 import com.websocket.project.ui.base.convertDpToPixel
 import com.websocket.project.ui.main.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -33,11 +34,11 @@ class WalletFragment : Fragment(),
     }
 
     private val fragmentWalletPositions by lazy(LazyThreadSafetyMode.NONE) {
-        FragmentWalletPositions.newInstance()
+        WalletPositionsFragment.newInstance()
     }
 
     private val fragmentWalletPositionHistory by lazy(LazyThreadSafetyMode.NONE) {
-        FragmentWalletPositionHistory.newInstance()
+        WalletPositionHistoryFragment.newInstance()
     }
 
     override fun onCreateView(
@@ -65,7 +66,7 @@ class WalletFragment : Fragment(),
 
     private fun initWalletTradingAccountTabLayout() {
 
-        val adapter = WalletTabFragmentAdapter(
+        val adapter = TabFragmentAdapter(
             (activity as MainActivity).supportFragmentManager,
             this.lifecycle
         )

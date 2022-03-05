@@ -3,14 +3,16 @@ package com.websocket.project.ui.transaction_history
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.google.android.flexbox.AlignItems
-import com.google.android.flexbox.FlexDirection
-import com.google.android.flexbox.FlexboxLayoutManager
-import com.google.android.flexbox.JustifyContent
 import com.websocket.project.databinding.FragmentTransactionHistoryBinding
 import com.websocket.project.ui.base.BaseFragment
+import com.websocket.project.ui.base.TabFragmentAdapter
 import com.websocket.project.ui.main.MainActivity
+import com.websocket.project.ui.transaction_history.folder.*
+import com.websocket.project.ui.transaction_history.folder.all.TransactionHistoryFolderAllFragment
+import com.websocket.project.ui.transaction_history.folder.buy.TransactionHistoryFolderBuyFragment
+import com.websocket.project.ui.transaction_history.folder.deposit.TransactionHistoryFolderDepositFragment
+import com.websocket.project.ui.transaction_history.folder.sell.TransactionHistoryFolderSellFragment
+import com.websocket.project.ui.transaction_history.folder.withdrawal.TransactionHistoryFolderWithdrawalFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,36 +23,70 @@ class TransactionHistoryFragment : BaseFragment<FragmentTransactionHistoryBindin
         TransactionHistoryFolderAdapter(this, 0)
     }
 
+    private val fragmentTransactionHistoryFolderAll by lazy(LazyThreadSafetyMode.NONE) {
+        TransactionHistoryFolderAllFragment.newInstance()
+    }
+
+    private val fragmentTransactionHistoryFolderDepositFragment by lazy(LazyThreadSafetyMode.NONE) {
+        TransactionHistoryFolderDepositFragment.newInstance()
+    }
+
+    private val fragmentTransactionHistoryFolderWithdrawalFragment by lazy(LazyThreadSafetyMode.NONE) {
+        TransactionHistoryFolderWithdrawalFragment.newInstance()
+    }
+
+    private val fragmentTransactionHistoryFolderBuyFragment by lazy(LazyThreadSafetyMode.NONE) {
+        TransactionHistoryFolderBuyFragment.newInstance()
+    }
+
+    private val fragmentTransactionHistoryFolderSellFragment by lazy(LazyThreadSafetyMode.NONE) {
+        TransactionHistoryFolderSellFragment.newInstance()
+    }
+
     override fun initViewBinding(): FragmentTransactionHistoryBinding =
         FragmentTransactionHistoryBinding.inflate(layoutInflater)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        initFolderRecycler()
+        initFolders()
         with(binding) {
             fragmentTransactionHistoryListener = this@TransactionHistoryFragment
         }
     }
 
-    private fun initFolderRecycler() {
-        val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-//        layoutManager.flexDirection = FlexDirection.ROW
-//        layoutManager.justifyContent = JustifyContent.CENTER
-//        layoutManager.alignItems = AlignItems.CENTER
-//        layoutManager.maxLine = 1
-        binding.transactionHistoryFoldersRecycler.layoutManager = layoutManager
-        binding.transactionHistoryFoldersRecycler.adapter = transactionHistoryFolderAdapter
+    private fun initFolders() {
+        val adapter = TabFragmentAdapter(
+            (activity as MainActivity).supportFragmentManager,
+            this.lifecycle
+        )
+
+        with(binding) {
+            transactionHistoryRecycler.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            transactionHistoryRecycler.adapter = transactionHistoryFolderAdapter
+
+            transactionHistoryViewPager.adapter = adapter
+            transactionHistoryViewPager.isUserInputEnabled = false
+        }
+
+        with(adapter) {
+            addFragment(fragmentTransactionHistoryFolderAll)
+            addFragment(fragmentTransactionHistoryFolderDepositFragment)
+            addFragment(fragmentTransactionHistoryFolderWithdrawalFragment)
+            addFragment(fragmentTransactionHistoryFolderBuyFragment)
+            addFragment(fragmentTransactionHistoryFolderSellFragment)
+        }
     }
 
     override fun onTransactionHistoryFolderSelected(transactionHistoryFolder: TransactionHistoryFolder) {
         val transactionHistoryFolderPosition = TransactionHistoryFolder.valueOf(transactionHistoryFolder.name).ordinal
+        binding.transactionHistoryViewPager.currentItem = transactionHistoryFolderPosition
         transactionHistoryFolderAdapter.onTransactionHistoryFolderSelected(transactionHistoryFolderPosition)
-    }
-
-    companion object {
-        fun newInstance() = TransactionHistoryFragment()
     }
 
     override fun backBtnClick() {
         (activity as MainActivity).onBackPressed()
+    }
+
+    companion object {
+        fun newInstance() = TransactionHistoryFragment()
     }
 }

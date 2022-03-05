@@ -69,10 +69,14 @@
     <string name="transaction_history_column_date_time">Date/Time</string>
     <string name="transaction_history_column_type_status">Type/Status</string>
     <string name="transaction_history_column_amount_fee">Amount/Fee</string>
+    
+    <string name="transaction_status_closed">Closed</string>
+    
     <string name="transaction_history_type_sell">Sell</string>
     <string name="transaction_history_type_withdrawal">Withdrawal</string>
     <string name="transaction_history_type_buy">Buy</string>
     <string name="transaction_history_type_deposit">Deposit</string>
+
     <string name="transaction_history_empty">Nothing found</string>
 
     <string name="wallet_action_deposit">Deposit</string>

@@ -13,11 +13,11 @@
 
     <color name="grey_opacity_80">#CC817E8C</color>
 
-    <color name="price_down">#e57373</color>
-    <color name="price_up">#81c784</color>
+    <color name="common_price_down">#C32B57</color>
+    <color name="common_price_up">#57B993</color>
 
-    <color name="main_header_price_down">#C32B57</color>
-    <color name="main_header_price_up">#57B993</color>
+    <color name="main_header_price_down">@color/common_price_down</color>
+    <color name="main_header_price_up">@color/common_price_up</color>
 
     <color name="actively_sell">#B40404</color>
     <color name="sell">#DA6511</color>

@@ -7,7 +7,7 @@ import com.websocket.project.R
 import com.websocket.project.databinding.FragmentWalletPositionsBinding
 import com.websocket.project.ui.base.BaseFragment
 
-class FragmentWalletPositions : BaseFragment<FragmentWalletPositionsBinding>() {
+class WalletPositionsFragment : BaseFragment<FragmentWalletPositionsBinding>() {
 
     private val walletPositionsAdapter by lazy(LazyThreadSafetyMode.NONE) {
         WalletPositionsAdapter(
@@ -85,8 +85,8 @@ class FragmentWalletPositions : BaseFragment<FragmentWalletPositionsBinding>() {
         FragmentWalletPositionsBinding.inflate(layoutInflater)
 
     companion object {
-        fun newInstance(): FragmentWalletPositions {
-            return FragmentWalletPositions()
+        fun newInstance(): WalletPositionsFragment {
+            return WalletPositionsFragment()
         }
     }
 }
