@@ -1,4 +1,4 @@
-package com.websocket.project.ui.wallet
+package com.websocket.project.ui.wallet.position_history
 
 import android.view.ViewGroup
 import com.websocket.project.R
@@ -8,6 +8,7 @@ import com.websocket.project.ui.base.BaseViewHolder
 import com.websocket.project.ui.base.inflateWithBinding
 
 class WalletPositionHistoryAdapter(
+    private val walletPositionHistoryFragmentListener: WalletPositionHistoryFragmentListener,
     private val walletPositionHistoryList: MutableList<WalletPositionHistoryModel>
 ) : BaseRecyclerViewAdapter() {
 
@@ -30,11 +31,9 @@ class WalletPositionHistoryAdapter(
         override fun bind(position: Int) {
             val walletPositionItem = walletPositionHistoryList[position]
             with(itemWalletPositionHistoryBinding) {
+                walletPositionHistoryFragmentListenerBinding = walletPositionHistoryFragmentListener
+                walletPositionHistoryModelBinding = walletPositionItem
                 showBalanceBinding = showBalance
-                nameBinding = walletPositionItem.name
-                leverageBinding = walletPositionItem.leverage
-                imageBinding = walletPositionItem.icon
-                fullNameBinding = walletPositionItem.nameFull
             }
         }
     }

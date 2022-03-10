@@ -11,6 +11,7 @@ class TransactionHistoryFolderWithdrawalFragment : BaseFragment<FragmentTransact
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.showContent = false
     }
 
     override fun initViewBinding(): FragmentTransactionHistoryFolderWithdrawalBinding =

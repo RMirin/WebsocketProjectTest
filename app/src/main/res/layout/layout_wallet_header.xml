@@ -50,7 +50,7 @@
             <TextView
                 android:id="@+id/mainHeaderBalanceText"
                 isInvisible="@{false}"
-                show="@{!walletViewModelBinding.showBalance}"
+                show="@{walletViewModelBinding.showBalance}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxLines="1"
@@ -62,7 +62,7 @@
             <ImageView
                 android:id="@+id/walletHeaderBalanceHiddenImg"
                 isInvisible="@{false}"
-                show="@{walletViewModelBinding.showBalance}"
+                show="@{!walletViewModelBinding.showBalance}"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
@@ -85,7 +85,7 @@
         <TextView
             android:id="@+id/walletHeaderProfitText"
             isInvisible="@{true}"
-            show="@{!walletViewModelBinding.showBalance}"
+            show="@{walletViewModelBinding.showBalance}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/spacing_normal"
@@ -104,7 +104,7 @@
 
         <ImageView
             android:id="@+id/walletHeaderProfitHideImg"
-            show="@{walletViewModelBinding.showBalance}"
+            show="@{!walletViewModelBinding.showBalance}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="@dimen/spacing_small"

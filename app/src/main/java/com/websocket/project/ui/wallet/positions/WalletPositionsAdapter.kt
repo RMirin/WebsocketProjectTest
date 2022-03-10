@@ -1,4 +1,4 @@
-package com.websocket.project.ui.wallet
+package com.websocket.project.ui.wallet.positions
 
 import android.view.ViewGroup
 import com.websocket.project.R

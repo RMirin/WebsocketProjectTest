@@ -1,125 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
-            name="showEmptyBinding"
+            name="showContent"
             type="Boolean" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/transactionHistoryFolderSellVertical02Guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.2" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/transactionHistoryFolderSellVertical045Guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.45" />
-
         <TextView
-            android:id="@+id/transactionHistoryFolderSellColumnCoinTitleText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/spacing_normal"
-            android:text="@string/transaction_history_column_coin"
-            android:textColor="@color/white_opacity_30"
-            android:textSize="@dimen/font_small"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_small"
-            android:layout_marginTop="@dimen/spacing_normal"
-            android:text="@string/transaction_history_column_date_time"
-            android:textColor="@color/white_opacity_30"
-            android:textSize="@dimen/font_small"
-            app:layout_constraintStart_toStartOf="@+id/transactionHistoryFolderSellVertical02Guideline"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_small"
-            android:layout_marginTop="@dimen/spacing_normal"
-            android:text="@string/transaction_history_column_type_status"
-            android:textColor="@color/white_opacity_30"
-            android:textSize="@dimen/font_small"
-            app:layout_constraintStart_toStartOf="@+id/transactionHistoryFolderSellVertical045Guideline"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/spacing_normal"
-            android:text="@string/transaction_history_column_amount_fee"
-            android:textColor="@color/white_opacity_30"
-            android:textSize="@dimen/font_small"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
             isInvisible="@{false}"
-            show="@{showEmptyBinding}"
+            show="@{!showContent}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:text="@string/transaction_history_empty"
+            android:textColor="@color/white_opacity_50"
+            android:textSize="18sp"
+            app:drawableTopCompat="@drawable/ic_empty"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/transactionHistoryFolderSellShimmerInclude">
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
+        <androidx.constraintlayout.widget.ConstraintLayout
+            isInvisible="@{false}"
+            show="@{showContent}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/transactionHistoryFolderAllVertical02Guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.2" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/transactionHistoryFolderAllVertical05Guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <TextView
+                android:id="@+id/transactionHistoryFolderAllColumnCoinTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_empty" />
+                android:layout_margin="@dimen/spacing_normal"
+                android:text="@string/transaction_history_column_coin"
+                android:textColor="@color/white_opacity_30"
+                android:textSize="@dimen/font_small"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/spacing_small"
-                android:text="@string/transaction_history_empty"
-                android:textColor="@color/white_opacity_50"
-                android:textSize="18sp" />
-        </LinearLayout>
+                android:layout_marginStart="@dimen/spacing_small"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:text="@string/transaction_history_column_date_time"
+                android:textColor="@color/white_opacity_30"
+                android:textSize="@dimen/font_small"
+                app:layout_constraintStart_toStartOf="@+id/transactionHistoryFolderAllVertical02Guideline"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <include
-            android:id="@+id/transactionHistoryFolderSellShimmerInclude"
-            layout="@layout/layout_transaction_history_shimmer"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginBottom="@dimen/spacing_normal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/transactionHistoryFolderSellColumnCoinTitleText" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:text="@string/transaction_history_column_type_status"
+                android:textColor="@color/white_opacity_30"
+                android:textSize="@dimen/font_small"
+                app:layout_constraintStart_toStartOf="@+id/transactionHistoryFolderAllVertical05Guideline"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/transactionHistoryFolderSellRecycler"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginBottom="@dimen/spacing_normal"
-            isInvisible="@{false}"
-            show="@{!showEmptyBinding}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/transactionHistoryFolderSellColumnCoinTitleText"
-            tools:listitem="@layout/item_transaction_history" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_normal"
+                android:text="@string/transaction_history_column_amount_fee"
+                android:textColor="@color/white_opacity_30"
+                android:textSize="@dimen/font_small"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <include
+                android:id="@+id/transactionHistoryFolderAllShimmerInclude"
+                layout="@layout/layout_transaction_history_shimmer"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/transactionHistoryFolderAllColumnCoinTitleText" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/transactionHistoryFolderAllRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:overScrollMode="never"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/transactionHistoryFolderAllColumnCoinTitleText"
+                tools:listitem="@layout/item_transaction_history" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

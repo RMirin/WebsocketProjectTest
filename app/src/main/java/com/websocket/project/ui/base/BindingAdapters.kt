@@ -14,14 +14,9 @@ import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
-@BindingAdapter("isVisible")
-fun View.bindIsVisible(isVisible: Boolean) {
-    show(isVisible)
-}
-
 @BindingAdapter(value = ["show", "isInvisible"], requireAll = false)
 fun View.bindVisibility(show: Boolean, isInvisible: Boolean) {
-    show(!show, isInvisible)
+    show(show, isInvisible)
 }
 
 @BindingAdapter("imageBitmap")
@@ -39,7 +34,7 @@ fun ImageView.bindImgId(imgId: Int) {
 @BindingAdapter("date")
 fun TextView.bindDate(dateTime: Long) {
     val date = Date(dateTime)
-    val format = SimpleDateFormat("dd MMM yyyy")
+    val format = SimpleDateFormat("dd MMM yyyy", Locale.US)
     val dateText = format.format(date).replace(".","")
     text = dateText
 }
@@ -47,7 +42,7 @@ fun TextView.bindDate(dateTime: Long) {
 @BindingAdapter("time")
 fun TextView.bindTime(dateTime: Long) {
     val date = Date(dateTime)
-    val format = SimpleDateFormat("HH:mm")
+    val format = SimpleDateFormat("HH:mm", Locale.US)
     text = format.format(date)
 }
 

@@ -6,33 +6,26 @@
     <data>
 
         <variable
-            name="imageBinding"
-            type="Integer" />
+            name="walletPositionHistoryModelBinding"
+            type="com.websocket.project.ui.wallet.position_history.WalletPositionHistoryModel" />
 
         <variable
-            name="nameBinding"
-            type="String" />
-
-        <variable
-            name="fullNameBinding"
-            type="String" />
-
-        <variable
-            name="leverageBinding"
-            type="String" />
+            name="walletPositionHistoryFragmentListenerBinding"
+            type="com.websocket.project.ui.wallet.position_history.WalletPositionHistoryFragmentListener" />
 
         <variable
             name="showBalanceBinding"
             type="Boolean" />
     </data>
-    
+
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/itemWalletPositionHistoryLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/itemWalletPositionHistoryLayout"
         android:layout_marginStart="@dimen/spacing_normal"
         android:layout_marginEnd="@dimen/spacing_normal"
-        android:layout_marginBottom="@dimen/spacing_normal">
+        android:layout_marginBottom="@dimen/spacing_normal"
+        android:onClick="@{() -> walletPositionHistoryFragmentListenerBinding.onWalletPositionHistoryItemClick(walletPositionHistoryModelBinding)}">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/itemWalletPositionHistory04Guideline"
@@ -55,7 +48,7 @@
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"
             android:background="@drawable/bg_item_main_crypto_img"
-            imgId="@{imageBinding}"
+            imgId="@{walletPositionHistoryModelBinding.icon}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -66,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_small"
             android:layout_marginBottom="2dp"
-            android:text="@{nameBinding}"
+            android:text="@{walletPositionHistoryModelBinding.name}"
             android:textAllCaps="true"
             android:textColor="@android:color/white"
             android:textSize="@dimen/font_normal"
@@ -79,7 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:text="@{leverageBinding}"
+            android:text="@{walletPositionHistoryModelBinding.leverage}"
             android:textColor="@color/wallet_leverage_text"
             android:textSize="@dimen/font_small"
             app:layout_constraintBottom_toBottomOf="@+id/itemWalletPositionHistoryCryptoName"
@@ -95,7 +88,7 @@
             android:layout_marginTop="2dp"
             android:maxLines="1"
             android:ellipsize="end"
-            android:text="@{fullNameBinding}"
+            android:text="@{walletPositionHistoryModelBinding.nameFull}"
             android:textColor="@color/white_opacity_50"
             android:textSize="@dimen/font_minute"
             app:layout_constraintEnd_toStartOf="@+id/itemWalletPositionHistory04Guideline"
@@ -133,7 +126,7 @@
             android:textColor="@android:color/white"
             android:textSize="@dimen/font_normal"
             android:visibility="visible"
-            show="@{!showBalanceBinding}"
+            show="@{showBalanceBinding}"
             isInvisible="@{true}"
             app:layout_constraintBottom_toTopOf="@+id/itemWalletTradingAccountPositionHistory05HorizontalGuideline"
             app:layout_constraintEnd_toEndOf="parent"
@@ -143,7 +136,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_profit_hidden_small"
-            show="@{showBalanceBinding}"
+            show="@{!showBalanceBinding}"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@+id/itemWalletPositionHistoryTotalEx"
             app:layout_constraintBottom_toBottomOf="@+id/itemWalletPositionHistoryTotalEx"
@@ -156,8 +149,9 @@
             android:layout_marginTop="2dp"
             android:textColor="@color/white_opacity_50"
             android:textSize="@dimen/font_minute"
-            show="@{!showBalanceBinding}"
+            show="@{showBalanceBinding}"
             isInvisible="@{true}"
+            android:text="@{walletPositionHistoryModelBinding.side.sideName}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/itemWalletTradingAccountPositionHistory05HorizontalGuideline"
             tools:text="Long" />
@@ -166,7 +160,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_position_side_hidden_minute"
-            show="@{showBalanceBinding}"
+            show="@{!showBalanceBinding}"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@+id/itemWalletPositionHistorySideText"
             app:layout_constraintBottom_toBottomOf="@+id/itemWalletPositionHistorySideText"

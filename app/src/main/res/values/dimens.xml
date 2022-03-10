@@ -13,6 +13,7 @@
 
     <dimen name="risk_level_view_radius">19dp</dimen>
     <dimen name="radius_small">8dp</dimen>
+    <dimen name="radius_large">20dp</dimen>
 
     <dimen name="image_in_list_size">50dp</dimen>
 

@@ -48,4 +48,9 @@
     <color name="wallet_tab_layout_active_tab">#6965F3</color>
     <color name="wallet_leverage_text">#6965F3</color>
 
+    <color name="dialog_view_gradient_start">#28206B</color>
+    <color name="dialog_view_gradient_end">#363B9C</color>
+    <color name="dialog_view_accent_text">#7B88FB</color>
+
+    <color name="support_attach_icon">#6965F3</color>
 </resources>

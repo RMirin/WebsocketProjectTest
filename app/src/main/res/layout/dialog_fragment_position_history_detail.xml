@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="positionHistoryModelBinding"
+            type="com.websocket.project.ui.wallet.position_history.WalletPositionHistoryModel" />
+
+        <variable
+            name="listener"
+            type="com.websocket.project.ui.wallet.position_history.detail.DialogFragmentPositionHistoryDetailListener" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_rectangle_gradient_dialog_view"
+        android:padding="22dp"
+        android:scrollbars="none"
+        android:overScrollMode="never">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/positionHistoryDetailImg"
+            imgId="@{positionHistoryModelBinding.icon}"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:textAlignment="gravity"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            android:text="@{positionHistoryModelBinding.name}"
+            app:layout_constraintStart_toEndOf="@+id/positionHistoryDetailImg"
+            app:layout_constraintTop_toTopOf="@+id/positionHistoryDetailImg"
+            tools:text="ETH" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:textColor="@color/white_opacity_50"
+            android:textSize="@dimen/font_minute"
+            android:text="@{positionHistoryModelBinding.nameFull}"
+            app:layout_constraintBottom_toBottomOf="@+id/positionHistoryDetailImg"
+            app:layout_constraintStart_toEndOf="@+id/positionHistoryDetailImg"
+            tools:text="Etherium" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailLeverage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/dialog_view_accent_text"
+            android:textSize="@dimen/font_small"
+            android:text="@{positionHistoryModelBinding.leverage}"
+            app:layout_constraintBottom_toBottomOf="@+id/positionHistoryDetailNameText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/positionHistoryDetailNameText"
+            tools:text="75x" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailPositionIdTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:textColor="@color/white_opacity_50"
+            android:textSize="@dimen/font_normal"
+            android:text="@string/position_history_detail_position_id"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailImg" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailSideTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:textColor="@color/white_opacity_50"
+            android:textSize="@dimen/font_normal"
+            android:text="@string/position_history_detail_side"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailPositionIdTitleText" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailStatusTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:textColor="@color/white_opacity_50"
+            android:textSize="@dimen/font_normal"
+            android:text="@string/position_history_detail_status"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailSideTitleText" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailOpeningDateTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:textColor="@color/white_opacity_50"
+            android:textSize="@dimen/font_normal"
+            android:text="@string/position_history_detail_opening_date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailStatusTitleText" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailOpeningTimeTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:textColor="@color/white_opacity_50"
+            android:textSize="@dimen/font_normal"
+            android:text="@string/position_history_detail_opening_time"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailOpeningDateTitleText" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailAverageSellPriceTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:textColor="@color/white_opacity_50"
+            android:textSize="@dimen/font_normal"
+            android:text="@string/position_history_detail_average_sell_price"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailOpeningTimeTitleText" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailAmountCryptoSellTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:textColor="@color/white_opacity_50"
+            android:textSize="@dimen/font_normal"
+            android:text= "@{@string/position_history_detail_amount_buy_crypto(positionHistoryModelBinding.name)}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailAverageSellPriceTitleText" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailAmountUsdtSellTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:textColor="@color/white_opacity_50"
+            android:textSize="@dimen/font_normal"
+            android:text="@string/position_history_detail_amount_sell_usdt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailAmountCryptoSellTitleText" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailClosingDateTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:textColor="@color/white_opacity_50"
+            android:textSize="@dimen/font_normal"
+            android:text="@string/position_history_detail_closing_date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailAmountUsdtSellTitleText" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailClosingTimeTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:textColor="@color/white_opacity_50"
+            android:textSize="@dimen/font_normal"
+            android:text="@string/position_history_detail_closingTime"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailClosingDateTitleText" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailAverageBuyPriceTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:textColor="@color/white_opacity_50"
+            android:textSize="@dimen/font_normal"
+            android:text="@string/position_history_detail_average_buy_price"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailClosingTimeTitleText" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailAmountCryptoBuyTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:textColor="@color/white_opacity_50"
+            android:textSize="@dimen/font_normal"
+            android:text= "@{@string/position_history_detail_amount_buy_crypto(positionHistoryModelBinding.name)}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailAverageBuyPriceTitleText" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailAmountUsdtBuyTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:textColor="@color/white_opacity_50"
+            android:textSize="@dimen/font_normal"
+            android:text="@string/position_history_detail_amount_sell_usdt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailAmountCryptoBuyTitleText" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailPositionIdDataText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            android:text="@{positionHistoryModelBinding.positionId.toString()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailImg" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailSideDataText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            android:text="@{positionHistoryModelBinding.side.sideName}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailPositionIdDataText" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailStatusDataText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            android:text="@{positionHistoryModelBinding.status.statusText}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailSideDataText" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailOpeningDateDataText"
+            date="@{positionHistoryModelBinding.openingDate}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailStatusDataText" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailOpeningTimeDataText"
+            time="@{positionHistoryModelBinding.openingTime}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailOpeningDateDataText" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailAverageSellPriceDataText"
+            price="@{positionHistoryModelBinding.averageSellPrice}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailOpeningTimeDataText" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailAmountCryptoSellDataText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            android:text="@{positionHistoryModelBinding.amountSellCrypto.toString()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailAverageSellPriceDataText" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailAmountUsdtSellDataText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            android:text="@{positionHistoryModelBinding.amountSellUsdt.toString()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailAmountCryptoSellDataText" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailClosingDateDataText"
+            date="@{positionHistoryModelBinding.closingDate}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailAmountUsdtSellDataText" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailClosingTimeDataText"
+            time="@{positionHistoryModelBinding.closingTime}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailClosingDateDataText" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailAverageBuyPriceDataText"
+            price="@{positionHistoryModelBinding.averageBuyPrice}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailClosingTimeDataText" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailAmountCryptoBuyDataText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            android:text="@{positionHistoryModelBinding.amountSellCrypto.toString()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailAverageBuyPriceTitleText" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailAmountUsdtBuyDataText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            android:text="@{positionHistoryModelBinding.amountBuyUsdt.toString()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailAmountCryptoBuyDataText" />
+
+        <View
+            android:id="@+id/positionHistoryDetailDivider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:background="@android:color/white"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailAmountUsdtBuyTitleText" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailProfitTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:textColor="@color/white_opacity_50"
+            android:textSize="@dimen/font_normal"
+            android:text="@string/position_history_detail_profit"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailDivider" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailFeeTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:textColor="@color/white_opacity_50"
+            android:textSize="@dimen/font_normal"
+            android:text="@string/position_history_detail_fee"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailProfitTitleText" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailProfitDataText"
+            price="@{positionHistoryModelBinding.profit}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:textColor="@color/white_opacity_50"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailDivider" />
+
+        <TextView
+            android:id="@+id/positionHistoryDetailFeeDataText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:textColor="@color/white_opacity_50"
+            android:textSize="@dimen/font_normal"
+            android:text="@{@string/main_price_format_with_currency(positionHistoryModelBinding.fee.toString())}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailProfitTitleText"
+            tools:text="2.98140735 $" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:background="@drawable/bg_rectangle_accent_btn"
+            android:gravity="center"
+            android:text="@string/common_close"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            android:onClick="@{() -> listener.onCloseBtnClick()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/positionHistoryDetailFeeTitleText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

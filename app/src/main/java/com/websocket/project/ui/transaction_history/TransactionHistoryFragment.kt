@@ -63,6 +63,7 @@ class TransactionHistoryFragment : BaseFragment<FragmentTransactionHistoryBindin
             transactionHistoryRecycler.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             transactionHistoryRecycler.adapter = transactionHistoryFolderAdapter
 
+            transactionHistoryViewPager.offscreenPageLimit = 5
             transactionHistoryViewPager.adapter = adapter
             transactionHistoryViewPager.isUserInputEnabled = false
         }

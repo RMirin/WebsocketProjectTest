@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -8,106 +8,106 @@
             name="walletListenerBinding"
             type="com.websocket.project.ui.wallet.WalletListener" />
     </data>
-    
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/bg_main"
         android:overScrollMode="never"
-        android:scrollbars="none"
-        android:background="@drawable/bg_main">
+        android:scrollbars="none">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/spacing_small">
-
-        <TextView
-            android:id="@+id/wallet_transaction_history_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_rectangle_outlined_btn"
-            android:text="@string/wallet_transaction_history"
-            android:layout_margin="@dimen/spacing_normal"
-            android:textColor="@color/common_outlined_btn_text"
-            android:paddingTop="7dp"
-            android:paddingBottom="7dp"
-            android:textSize="@dimen/font_minute"
-            android:paddingStart="@dimen/spacing_normal"
-            android:paddingEnd="@dimen/spacing_normal"
-            android:onClick="@{() -> walletListenerBinding.transactionHistoryBtnClick()}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <include
-            android:id="@+id/walletHeaderLayoutInclude"
-            layout="@layout/layout_wallet_header"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_normal"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="@dimen/spacing_normal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/wallet_transaction_history_btn" />
+            android:paddingBottom="@dimen/spacing_small">
 
-        <include
-            android:id="@+id/walletHeaderShimmerLayoutInclude"
-            layout="@layout/layout_wallet_header_shimmer"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="@+id/walletHeaderLayoutInclude"
-            app:layout_constraintStart_toStartOf="@+id/walletHeaderLayoutInclude"
-            app:layout_constraintTop_toTopOf="@+id/walletHeaderLayoutInclude" />
+            <TextView
+                android:id="@+id/wallet_transaction_history_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_normal"
+                android:background="@drawable/bg_rectangle_outlined_btn"
+                android:onClick="@{() -> walletListenerBinding.transactionHistoryBtnClick()}"
+                android:paddingStart="@dimen/spacing_normal"
+                android:paddingTop="7dp"
+                android:paddingEnd="@dimen/spacing_normal"
+                android:paddingBottom="7dp"
+                android:text="@string/wallet_transaction_history"
+                android:textColor="@color/common_outlined_btn_text"
+                android:textSize="@dimen/font_minute"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/walletActionsRecycler"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_normal"
-            android:overScrollMode="never"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/walletHeaderLayoutInclude" />
+            <include
+                android:id="@+id/walletHeaderLayoutInclude"
+                layout="@layout/layout_wallet_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="@dimen/spacing_normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/wallet_transaction_history_btn" />
 
-        <include
-            android:id="@+id/walletWalletLayoutInclude"
-            layout="@layout/layout_wallet_wallet"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/spacing_normal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/walletActionsRecycler" />
+            <include
+                android:id="@+id/walletHeaderShimmerLayoutInclude"
+                layout="@layout/layout_wallet_header_shimmer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@+id/walletHeaderLayoutInclude"
+                app:layout_constraintStart_toStartOf="@+id/walletHeaderLayoutInclude"
+                app:layout_constraintTop_toTopOf="@+id/walletHeaderLayoutInclude" />
 
-        <include
-            android:id="@+id/walletWalletShimmerLayoutInclude"
-            layout="@layout/layout_wallet_wallet_shimmer"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@+id/walletWalletLayoutInclude"
-            app:layout_constraintEnd_toEndOf="@+id/walletWalletLayoutInclude"
-            app:layout_constraintStart_toStartOf="@+id/walletWalletLayoutInclude"
-            app:layout_constraintTop_toTopOf="@+id/walletWalletLayoutInclude" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/walletActionsRecycler"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:overScrollMode="never"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/walletHeaderLayoutInclude" />
 
-        <include
-            android:id="@+id/walletWalletTradingAccountInclude"
-            layout="@layout/layout_wallet_trading_account"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_margin="@dimen/spacing_normal"
-            app:layout_constraintTop_toBottomOf="@+id/walletWalletLayoutInclude" />
+            <include
+                android:id="@+id/walletWalletLayoutInclude"
+                layout="@layout/layout_wallet_wallet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/walletActionsRecycler" />
 
-        <include
-            layout="@layout/layout_wallet_trading_account_shimmer"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="@+id/walletWalletTradingAccountInclude"
-            app:layout_constraintStart_toStartOf="@+id/walletWalletTradingAccountInclude"
-            app:layout_constraintTop_toTopOf="@+id/walletWalletTradingAccountInclude"/>
+            <include
+                android:id="@+id/walletWalletShimmerLayoutInclude"
+                layout="@layout/layout_wallet_wallet_shimmer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/walletWalletLayoutInclude"
+                app:layout_constraintEnd_toEndOf="@+id/walletWalletLayoutInclude"
+                app:layout_constraintStart_toStartOf="@+id/walletWalletLayoutInclude"
+                app:layout_constraintTop_toTopOf="@+id/walletWalletLayoutInclude" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <include
+                android:id="@+id/walletWalletTradingAccountInclude"
+                layout="@layout/layout_wallet_trading_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/walletWalletLayoutInclude" />
+
+            <include
+                layout="@layout/layout_wallet_trading_account_shimmer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@+id/walletWalletTradingAccountInclude"
+                app:layout_constraintStart_toStartOf="@+id/walletWalletTradingAccountInclude"
+                app:layout_constraintTop_toTopOf="@+id/walletWalletTradingAccountInclude" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
 

@@ -67,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_balance_hidden_small"
-            show="@{walletViewModelBinding.showBalance}"
+            show="@{!walletViewModelBinding.showBalance}"
             app:layout_constraintBottom_toBottomOf="@+id/walletTradingAccountTotalText"
             app:layout_constraintStart_toStartOf="@+id/walletTradingAccountTotalText"
             app:layout_constraintTop_toTopOf="@+id/walletTradingAccountTotalText" />
@@ -103,7 +103,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_balance_hidden_small"
-            show="@{walletViewModelBinding.showBalance}"
+            show="@{!walletViewModelBinding.showBalance}"
             app:layout_constraintBottom_toBottomOf="@+id/walletTradingAccountAvailableText"
             app:layout_constraintStart_toStartOf="@+id/walletTradingAccountAvailableText"
             app:layout_constraintTop_toTopOf="@+id/walletTradingAccountAvailableText" />
@@ -131,6 +131,7 @@
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="@dimen/spacing_normal"
                 android:background="@drawable/bg_tab_layout"
+                app:tabBackground="@drawable/selector_wallet_trading_account_tab_layout"
                 app:tabGravity="fill"
                 app:tabIndicatorHeight="0dp"
                 app:tabMode="fixed"

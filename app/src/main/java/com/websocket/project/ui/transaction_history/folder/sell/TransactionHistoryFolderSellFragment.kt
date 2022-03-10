@@ -11,6 +11,7 @@ class TransactionHistoryFolderSellFragment : BaseFragment<FragmentTransactionHis
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.showContent = false
     }
 
     override fun initViewBinding(): FragmentTransactionHistoryFolderSellBinding =

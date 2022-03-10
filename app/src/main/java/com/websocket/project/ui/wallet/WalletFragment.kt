@@ -4,11 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.viewpager2.widget.ViewPager2
 import com.google.android.flexbox.AlignItems
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexboxLayoutManager
@@ -17,8 +15,9 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.websocket.project.R
 import com.websocket.project.databinding.FragmentWalletBinding
 import com.websocket.project.ui.base.TabFragmentAdapter
-import com.websocket.project.ui.base.convertDpToPixel
 import com.websocket.project.ui.main.MainActivity
+import com.websocket.project.ui.wallet.position_history.WalletPositionHistoryFragment
+import com.websocket.project.ui.wallet.positions.WalletPositionsFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -91,36 +90,6 @@ class WalletFragment : Fragment(),
                 if (position == 0) tab.text = getString(R.string.wallet_positions)
                 if (position == 1) tab.text = getString(R.string.wallet_position_history)
             }.attach()
-            walletTradingAccountTabLayout.post {
-                indicatorWidth = walletTradingAccountTabLayout.width / 2
-
-                val indicatorParams =
-                    walletTradingAccountIndicatorView.layoutParams as FrameLayout.LayoutParams
-                indicatorParams.width = indicatorWidth
-                walletTradingAccountIndicatorView.layoutParams = indicatorParams
-            }
-
-
-            walletTradingAccountViewPager.registerOnPageChangeCallback(
-                object : ViewPager2.OnPageChangeCallback() {
-                    override fun onPageScrolled(
-                        i: Int,
-                        positionOffset: Float,
-                        positionOffsetPx: Int
-                    ) {
-                        val params =
-                            walletTradingAccountIndicatorView.layoutParams as FrameLayout.LayoutParams
-
-                        val translationOffset: Float = (positionOffset + i) * indicatorWidth
-                        params.leftMargin =
-                            translationOffset.toInt() + convertDpToPixel(16f, requireContext())
-                        params.topMargin = convertDpToPixel(12f, requireContext())
-                        walletTradingAccountIndicatorView.layoutParams = params
-                    }
-
-                    override fun onPageSelected(i: Int) {}
-                    override fun onPageScrollStateChanged(i: Int) {}
-                })
         }
     }
 

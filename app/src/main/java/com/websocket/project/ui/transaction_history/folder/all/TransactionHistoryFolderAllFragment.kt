@@ -20,7 +20,8 @@ class TransactionHistoryFolderAllFragment : BaseFragment<FragmentTransactionHist
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.showEmptyBinding = false
+        //variable to show/hide recycler and empty state
+        binding.showContent = true
         initRecycler()
     }
 
@@ -36,9 +37,9 @@ class TransactionHistoryFolderAllFragment : BaseFragment<FragmentTransactionHist
                 nameFull = "Tether",
                 date = time,
                 time = time,
-                type = TransactionType.SELL,
+                type = TransactionType.WITHDRAWAL,
                 status = TransactionStatus.CLOSED,
-                amount = -5.00f,
+                amount = -5000000.00f,
                 fee = "3.30f"
             ),
             TransactionHistoryModel(
@@ -59,6 +60,56 @@ class TransactionHistoryFolderAllFragment : BaseFragment<FragmentTransactionHist
                 type = TransactionType.BUY,
                 status = TransactionStatus.CLOSED,
                 amount = 10.00f,
+                fee = "no fee"
+            ),
+            TransactionHistoryModel(
+                name = "USDT",
+                nameFull = "Tether",
+                date = time,
+                time = time,
+                type = TransactionType.DEPOSIT,
+                status = TransactionStatus.CLOSED,
+                amount = 5.00f,
+                fee = "no fee"
+            ),
+            TransactionHistoryModel(
+                name = "USDT",
+                nameFull = "Tether",
+                date = time,
+                time = time,
+                type = TransactionType.WITHDRAWAL,
+                status = TransactionStatus.CLOSED,
+                amount = -5000000.00f,
+                fee = "3.30f"
+            ),
+            TransactionHistoryModel(
+                name = "USDT",
+                nameFull = "Tether",
+                date = time,
+                time = time,
+                type = TransactionType.WITHDRAWAL,
+                status = TransactionStatus.CLOSED,
+                amount = -20.00f,
+                fee = "3.30f"
+            ),
+            TransactionHistoryModel(
+                name = "USDT",
+                nameFull = "Tether",
+                date = time,
+                time = time,
+                type = TransactionType.BUY,
+                status = TransactionStatus.CLOSED,
+                amount = 10.00f,
+                fee = "no fee"
+            ),
+            TransactionHistoryModel(
+                name = "USDT",
+                nameFull = "Tether",
+                date = time,
+                time = time,
+                type = TransactionType.DEPOSIT,
+                status = TransactionStatus.CLOSED,
+                amount = 5.00f,
                 fee = "no fee"
             ),
             TransactionHistoryModel(

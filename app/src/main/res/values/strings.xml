@@ -97,7 +97,25 @@
     <string name="wallet_position_history_profit_side">Profit/Side</string>
     <string name="wallet_position_name_leverage">%s %s</string>
 
+    <string name="position_history_detail_position_id">Position ID</string>
+    <string name="position_history_detail_side">Side</string>
+    <string name="position_history_detail_status">Status</string>
+    <string name="position_history_detail_opening_date">Opening Date</string>
+    <string name="position_history_detail_opening_time">Opening Time</string>
+    <string name="position_history_detail_average_sell_price">Average Sell Price</string>
+    <string name="position_history_detail_amount_sell_crypto">Amount (%s)</string>
+    <string name="position_history_detail_amount_sell_usdt">Amount (USDT)</string>
+    <string name="position_history_detail_closing_date">Closing Date</string>
+    <string name="position_history_detail_closingTime">Closing Time</string>
+    <string name="position_history_detail_average_buy_price">Average Buy Price</string>
+    <string name="position_history_detail_amount_buy_crypto">Amount (%s)</string>
+    <string name="position_history_detail_amount_buy_usdt">Amount (USDT)</string>
+    <string name="position_history_detail_profit">Profit</string>
+    <string name="position_history_detail_fee">Fee</string>
+
     <string name="side_long">Long</string>
     <string name="side_short">Short</string>
+
+    <string name="common_close">Close</string>
 
 </resources>

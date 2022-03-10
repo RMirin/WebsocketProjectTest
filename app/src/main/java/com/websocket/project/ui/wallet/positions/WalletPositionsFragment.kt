@@ -1,4 +1,4 @@
-package com.websocket.project.ui.wallet
+package com.websocket.project.ui.wallet.positions
 
 import android.os.Bundle
 import android.view.View
@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.websocket.project.R
 import com.websocket.project.databinding.FragmentWalletPositionsBinding
 import com.websocket.project.ui.base.BaseFragment
+import com.websocket.project.ui.wallet.WalletSideModel
 
 class WalletPositionsFragment : BaseFragment<FragmentWalletPositionsBinding>() {
 
@@ -66,15 +67,22 @@ class WalletPositionsFragment : BaseFragment<FragmentWalletPositionsBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //variable to show/hide recycler and empty state
+        binding.showContent = true
+        initRecycler()
+    }
 
-        binding.walletPositionsRecycler.layoutManager =
-            object : LinearLayoutManager(requireContext()) {
-                override fun canScrollVertically(): Boolean {
-                    return false
+    private fun initRecycler() {
+        with(binding.walletPositionsRecycler) {
+            layoutManager =
+                object : LinearLayoutManager(requireContext()) {
+                    override fun canScrollVertically(): Boolean {
+                        return false
+                    }
                 }
-            }
 
-        binding.walletPositionsRecycler.adapter = walletPositionsAdapter
+            adapter = walletPositionsAdapter
+        }
     }
 
     fun showBalance(show: Boolean) {
