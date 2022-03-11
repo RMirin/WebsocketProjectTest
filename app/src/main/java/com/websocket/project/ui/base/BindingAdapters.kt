@@ -56,3 +56,12 @@ fun TextView.bindPrice(price: Float) {
     text = context.getString(R.string.main_price_format_with_currency, price.toString())
 }
 
+@BindingAdapter("fee")
+fun TextView.bindFee(fee: Float) {
+    text = if (fee == 0f) {
+        context.getString(R.string.common_no_fee)
+    } else {
+        context.getString(R.string.main_price_format_with_currency, fee.toString())
+    }
+}
+

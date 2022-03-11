@@ -3,6 +3,7 @@ package com.websocket.project.ui.transaction_history
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.websocket.project.R
 import com.websocket.project.databinding.FragmentTransactionHistoryBinding
 import com.websocket.project.ui.base.BaseFragment
 import com.websocket.project.ui.base.TabFragmentAdapter
@@ -49,7 +50,11 @@ class TransactionHistoryFragment : BaseFragment<FragmentTransactionHistoryBindin
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initFolders()
         with(binding) {
-            fragmentTransactionHistoryListener = this@TransactionHistoryFragment
+            transactionHistoryTopbarLayoutInclude.backClick = View.OnClickListener {
+                (activity as MainActivity).onBackPressed()
+            }
+            transactionHistoryTopbarLayoutInclude.title.text =
+                requireContext().getString(R.string.transaction_history_title)
         }
     }
 
@@ -60,7 +65,8 @@ class TransactionHistoryFragment : BaseFragment<FragmentTransactionHistoryBindin
         )
 
         with(binding) {
-            transactionHistoryRecycler.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            transactionHistoryRecycler.layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             transactionHistoryRecycler.adapter = transactionHistoryFolderAdapter
 
             transactionHistoryViewPager.offscreenPageLimit = 5

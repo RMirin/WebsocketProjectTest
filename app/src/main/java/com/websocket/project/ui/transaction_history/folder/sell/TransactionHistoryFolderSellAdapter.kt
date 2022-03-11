@@ -5,18 +5,21 @@ import android.util.TypedValue
 import android.view.ViewGroup
 import androidx.core.widget.TextViewCompat
 import com.websocket.project.R
-import com.websocket.project.databinding.ItemTransactionHistoryBinding
+import com.websocket.project.databinding.ItemTransactionHistoryFolderSellBinding
 import com.websocket.project.ui.base.BaseRecyclerViewAdapter
 import com.websocket.project.ui.base.BaseViewHolder
 import com.websocket.project.ui.base.inflateWithBinding
 import com.websocket.project.ui.transaction_history.TransactionHistoryModel
+import com.websocket.project.ui.transaction_history.folder.buy.TransactionHistoryFolderBuyActionListener
 
-class TransactionHistoryFolderSellAdapter() : BaseRecyclerViewAdapter() {
+class TransactionHistoryFolderSellAdapter(
+    val transactionHistoryFolderSellActionListener: TransactionHistoryFolderSellActionListener
+) : BaseRecyclerViewAdapter() {
 
     private val transactionHistoryFolderSellList = mutableListOf<TransactionHistoryModel>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
-        return TransactionHistoryFolderSellViewHolder(parent.inflateWithBinding(R.layout.item_transaction_history))
+        return TransactionHistoryFolderSellViewHolder(parent.inflateWithBinding(R.layout.item_transaction_history_folder_sell))
     }
 
     fun setData(dataList: List<TransactionHistoryModel>) {
@@ -27,24 +30,24 @@ class TransactionHistoryFolderSellAdapter() : BaseRecyclerViewAdapter() {
     override fun getItemCount(): Int = transactionHistoryFolderSellList.size
 
     private inner class TransactionHistoryFolderSellViewHolder(
-        private val itemTransactionHistoryBinding: ItemTransactionHistoryBinding
-    ) : BaseViewHolder(itemTransactionHistoryBinding) {
+        private val itemTransactionHistoryFolderSellBinding: ItemTransactionHistoryFolderSellBinding
+    ) : BaseViewHolder(itemTransactionHistoryFolderSellBinding) {
         override fun bind(position: Int) {
             val transactionHistoryItem = transactionHistoryFolderSellList[position]
-            with(itemTransactionHistoryBinding) {
+            with(itemTransactionHistoryFolderSellBinding) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    itemTransactionHistoryDateText.setAutoSizeTextTypeUniformWithConfiguration(
+                    itemTransactionHistoryFolderSellDateText.setAutoSizeTextTypeUniformWithConfiguration(
                         12, 16, 2, TypedValue.COMPLEX_UNIT_DIP)
-                    itemTransactionHistoryAmountText.setAutoSizeTextTypeUniformWithConfiguration(
+                    itemTransactionHistoryFolderSellAmountText.setAutoSizeTextTypeUniformWithConfiguration(
                         12, 16, 2, TypedValue.COMPLEX_UNIT_DIP)
-                    itemTransactionHistoryFeeText.setAutoSizeTextTypeUniformWithConfiguration(
+                    itemTransactionHistoryFolderSellFeeText.setAutoSizeTextTypeUniformWithConfiguration(
                         12, 16, 2, TypedValue.COMPLEX_UNIT_DIP)
                 } else {
-                    TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(itemTransactionHistoryDateText, 12, 16, 1,
+                    TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(itemTransactionHistoryFolderSellDateText, 12, 16, 1,
                         TypedValue.COMPLEX_UNIT_DIP)
-                    TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(itemTransactionHistoryAmountText, 12, 16, 1,
+                    TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(itemTransactionHistoryFolderSellAmountText, 12, 16, 1,
                         TypedValue.COMPLEX_UNIT_DIP)
-                    TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(itemTransactionHistoryFeeText, 12, 16, 1,
+                    TextViewCompat.setAutoSizeTextTypeUniformWithConfiguration(itemTransactionHistoryFolderSellFeeText, 12, 16, 1,
                         TypedValue.COMPLEX_UNIT_DIP)
                 }
 

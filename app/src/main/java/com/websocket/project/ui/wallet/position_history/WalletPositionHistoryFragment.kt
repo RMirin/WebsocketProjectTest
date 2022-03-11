@@ -75,7 +75,7 @@ class WalletPositionHistoryFragment : BaseFragment<FragmentWalletPositionHistory
             walletPositionHistoryModel
         ).show(
             (activity as MainActivity).supportFragmentManager,
-            KEY_DIALOG
+            KEY_DIALOG_POSITION_HISTORY_DETAIL
         )
     }
 
@@ -84,6 +84,6 @@ class WalletPositionHistoryFragment : BaseFragment<FragmentWalletPositionHistory
             return WalletPositionHistoryFragment()
         }
 
-        private const val KEY_DIALOG = "DialogFragmentPositionHistoryDetail"
+        private const val KEY_DIALOG_POSITION_HISTORY_DETAIL = "DialogFragmentPositionHistoryDetail"
     }
 }

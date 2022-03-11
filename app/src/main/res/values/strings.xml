@@ -113,9 +113,21 @@
     <string name="position_history_detail_profit">Profit</string>
     <string name="position_history_detail_fee">Fee</string>
 
+    <string name="transaction_history_detail_date">Date</string>
+    <string name="transaction_history_detail_time">Time</string>
+    <string name="transaction_history_detail_amount">Amount (USDT)</string>
+    <string name="transaction_history_detail_fee">Fee (USDT)</string>
+    <string name="transaction_history_detail_type">Type</string>
+    <string name="transaction_history_detail_status">Status</string>
+    <string name="transaction_history_detail_address">Address</string>
+    <string name="transaction_history_detail_tx_hash">TxHash</string>
+    <string name="transaction_history_detail_transaction_id">Transaction ID</string>
+    <string name="transaction_history_detail_copied">%s copied</string>
+
     <string name="side_long">Long</string>
     <string name="side_short">Short</string>
 
     <string name="common_close">Close</string>
+    <string name="common_no_fee">No fee</string>
 
 </resources>

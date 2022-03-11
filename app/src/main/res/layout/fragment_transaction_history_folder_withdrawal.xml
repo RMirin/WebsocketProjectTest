@@ -37,21 +37,21 @@
             android:layout_height="match_parent">
 
             <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/transactionHistoryFolderAllVertical02Guideline"
+                android:id="@+id/transactionHistoryFolderWithdrawalVertical02Guideline"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 app:layout_constraintGuide_percent="0.2" />
 
             <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/transactionHistoryFolderAllVertical05Guideline"
+                android:id="@+id/transactionHistoryFolderWithdrawalVertical05Guideline"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 app:layout_constraintGuide_percent="0.5" />
 
             <TextView
-                android:id="@+id/transactionHistoryFolderAllColumnCoinTitleText"
+                android:id="@+id/transactionHistoryFolderWithdrawalColumnCoinTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/spacing_normal"
@@ -69,7 +69,7 @@
                 android:text="@string/transaction_history_column_date_time"
                 android:textColor="@color/white_opacity_30"
                 android:textSize="@dimen/font_small"
-                app:layout_constraintStart_toStartOf="@+id/transactionHistoryFolderAllVertical02Guideline"
+                app:layout_constraintStart_toStartOf="@+id/transactionHistoryFolderWithdrawalVertical02Guideline"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -80,7 +80,7 @@
                 android:text="@string/transaction_history_column_type_status"
                 android:textColor="@color/white_opacity_30"
                 android:textSize="@dimen/font_small"
-                app:layout_constraintStart_toStartOf="@+id/transactionHistoryFolderAllVertical05Guideline"
+                app:layout_constraintStart_toStartOf="@+id/transactionHistoryFolderWithdrawalVertical05Guideline"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -94,25 +94,27 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <include
-                android:id="@+id/transactionHistoryFolderAllShimmerInclude"
+                android:id="@+id/transactionHistoryFolderWithdrawalShimmerInclude"
                 layout="@layout/layout_transaction_history_shimmer"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/transactionHistoryFolderAllColumnCoinTitleText" />
+                app:layout_constraintTop_toBottomOf="@+id/transactionHistoryFolderWithdrawalColumnCoinTitleText" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/transactionHistoryFolderAllRecycler"
+                android:id="@+id/transactionHistoryFolderWithdrawalRecycler"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:overScrollMode="never"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_marginEnd="@dimen/spacing_normal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/transactionHistoryFolderAllColumnCoinTitleText"
-                tools:listitem="@layout/item_transaction_history" />
+                app:layout_constraintTop_toBottomOf="@+id/transactionHistoryFolderWithdrawalColumnCoinTitleText"
+                tools:listitem="@layout/item_transaction_history_folder_withdrawal" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

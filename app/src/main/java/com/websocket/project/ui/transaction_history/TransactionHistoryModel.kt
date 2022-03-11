@@ -8,5 +8,8 @@ data class TransactionHistoryModel(
     var type: TransactionType?,
     var status: TransactionStatus?,
     var amount: Float,
-    var fee: String
+    var fee: Float,
+    var address: String,
+    var txHash: String,
+    var transactionId: String
 )
