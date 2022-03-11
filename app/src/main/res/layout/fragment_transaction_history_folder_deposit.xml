@@ -33,6 +33,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             isInvisible="@{false}"
             show="@{showContent}"
+            android:paddingStart="@dimen/spacing_normal"
+            android:paddingEnd="@dimen/spacing_normal"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -54,7 +56,7 @@
                 android:id="@+id/transactionHistoryFolderDepositColumnCoinTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/spacing_normal"
+                android:layout_marginTop="@dimen/spacing_normal"
                 android:text="@string/transaction_history_column_coin"
                 android:textColor="@color/white_opacity_30"
                 android:textSize="@dimen/font_small"
@@ -64,7 +66,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_small"
                 android:layout_marginTop="@dimen/spacing_normal"
                 android:text="@string/transaction_history_column_date_time"
                 android:textColor="@color/white_opacity_30"
@@ -75,7 +76,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_small"
                 android:layout_marginTop="@dimen/spacing_normal"
                 android:text="@string/transaction_history_column_type_status"
                 android:textColor="@color/white_opacity_30"
@@ -86,7 +86,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/spacing_normal"
+                android:layout_marginTop="@dimen/spacing_normal"
                 android:text="@string/transaction_history_column_amount_fee"
                 android:textColor="@color/white_opacity_30"
                 android:textSize="@dimen/font_small"
@@ -98,8 +98,6 @@
                 layout="@layout/layout_transaction_history_shimmer"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginStart="@dimen/spacing_normal"
-                android:layout_marginEnd="@dimen/spacing_normal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -110,8 +108,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:overScrollMode="never"
-                android:layout_marginStart="@dimen/spacing_normal"
-                android:layout_marginEnd="@dimen/spacing_normal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
