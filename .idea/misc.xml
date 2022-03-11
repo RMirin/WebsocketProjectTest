@@ -166,11 +166,11 @@
         <entry key="app/src/main/res/layout/fragment_support.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_transaction_history.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_transaction_history_folder.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_transaction_history_folder_all.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_transaction_history_folder_buy.xml" value="0.18" />
-        <entry key="app/src/main/res/layout/fragment_transaction_history_folder_deposit.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/fragment_transaction_history_folder_all.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_transaction_history_folder_buy.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/fragment_transaction_history_folder_deposit.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_transaction_history_folder_sell.xml" value="0.20308250226654578" />
-        <entry key="app/src/main/res/layout/fragment_transaction_history_folder_withdrawal.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/fragment_transaction_history_folder_withdrawal.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_wallet.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_wallet_position_history.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_wallet_positions.xml" value="0.22" />

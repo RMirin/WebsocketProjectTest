@@ -46,8 +46,8 @@ fun TextView.bindTime(dateTime: Long) {
     text = format.format(date)
 }
 
-@BindingAdapter("price")
-fun TextView.bindPrice(price: Float) {
+@BindingAdapter("priceColored")
+fun TextView.bindPriceColored(price: Float) {
     if (price < 0f) {
         setTextColor(ContextCompat.getColor(context, R.color.common_price_down))
     } else {
@@ -56,12 +56,12 @@ fun TextView.bindPrice(price: Float) {
     text = context.getString(R.string.main_price_format_with_currency, price.toString())
 }
 
-@BindingAdapter("fee")
-fun TextView.bindFee(fee: Float) {
-    text = if (fee == 0f) {
+@BindingAdapter(value = ["price", "canBeEmpty"], requireAll = false)
+fun TextView.bindPriceIsEmpty(price: Float, canBeEmpty: Boolean) {
+    text = if (canBeEmpty) {
         context.getString(R.string.common_no_fee)
     } else {
-        context.getString(R.string.main_price_format_with_currency, fee.toString())
+        context.getString(R.string.main_price_format_with_currency, price.toString())
     }
 }
 

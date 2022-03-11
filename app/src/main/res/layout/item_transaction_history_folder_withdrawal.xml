@@ -134,7 +134,7 @@
 
         <TextView
             android:id="@+id/itemTransactionHistoryFolderWithdrawalAmountText"
-            price="@{transactionHistoryModelBinding.amount}"
+            priceColored="@{transactionHistoryModelBinding.amount}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_small"
@@ -151,7 +151,8 @@
 
         <TextView
             android:id="@+id/itemTransactionHistoryFolderWithdrawalFeeText"
-            fee="@{transactionHistoryModelBinding.fee}"
+            price="@{transactionHistoryModelBinding.fee}"
+            canBeEmpty="@{true}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_small"
