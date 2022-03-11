@@ -7,6 +7,6 @@ data class WalletPositionsModel(
     var name: String?,
     var leverage: String?,
     var walletSideModel: WalletSideModel?,
-    var totalEx: String?,
-    var profit: String?
+    var totalEx: Float,
+    var profit: Float
 )

@@ -6,16 +6,8 @@
     <data>
 
         <variable
-            name="imageBinding"
-            type="Integer" />
-
-        <variable
-            name="nameBinding"
-            type="String" />
-
-        <variable
-            name="leverageBinding"
-            type="String" />
+            name="walletPositionsModelBinding"
+            type="com.websocket.project.ui.wallet.positions.WalletPositionsModel" />
 
         <variable
             name="showBalanceBinding"
@@ -51,7 +43,7 @@
 
         <ImageView
             android:id="@+id/itemWalletPositionsCryptoImg"
-            imgId="@{imageBinding}"
+            imgId="@{walletPositionsModelBinding.icon}"
             android:layout_width="@dimen/image_in_list_size"
             android:layout_height="@dimen/image_in_list_size"
             android:layout_marginTop="6dp"
@@ -68,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_small"
             android:layout_marginEnd="@dimen/spacing_small"
-            android:text="@{nameBinding}"
+            android:text="@{walletPositionsModelBinding.name}"
             android:textAllCaps="true"
             android:textColor="@android:color/white"
             android:textSize="@dimen/font_normal"
@@ -82,7 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:text="@{leverageBinding}"
+            android:text="@{walletPositionsModelBinding.leverage}"
             android:textColor="@color/wallet_leverage_text"
             android:textSize="@dimen/font_small"
             app:layout_constraintBottom_toBottomOf="@+id/itemWalletPositionsCryptoName"
@@ -95,10 +87,10 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
             android:textSize="@dimen/font_normal"
+            android:text="@{walletPositionsModelBinding.walletSideModel.sideName}"
             app:layout_constraintBottom_toTopOf="@+id/itemWalletTradingAccountPosition05HorizontalGuideline"
             app:layout_constraintStart_toStartOf="@+id/itemWalletPositions04VerticalGuideline"
-            app:layout_constraintTop_toTopOf="@+id/itemWalletTradingAccountPosition05HorizontalGuideline"
-            tools:text="Long" />
+            app:layout_constraintTop_toTopOf="@+id/itemWalletTradingAccountPosition05HorizontalGuideline" />
 
         <TextView
             android:id="@+id/itemWalletPositionsTotalExText"
@@ -110,9 +102,10 @@
             android:visibility="visible"
             show="@{showBalanceBinding}"
             isInvisible="@{true}"
+            price="@{walletPositionsModelBinding.totalEx}"
+            canBeEmpty="@{false}"
             app:layout_constraintBottom_toTopOf="@+id/itemWalletTradingAccountPosition05HorizontalGuideline"
-            app:layout_constraintEnd_toStartOf="@+id/itemWalletPositions088VerticalGuideline"
-            android:text="2 060.00 $" />
+            app:layout_constraintEnd_toStartOf="@+id/itemWalletPositions088VerticalGuideline" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -129,10 +122,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:textColor="@android:color/white"
             android:textSize="@dimen/font_minute"
             show="@{showBalanceBinding}"
             isInvisible="@{true}"
+            priceColored="@{walletPositionsModelBinding.profit}"
             app:layout_constraintEnd_toStartOf="@+id/itemWalletPositions088VerticalGuideline"
             app:layout_constraintTop_toBottomOf="@+id/itemWalletTradingAccountPosition05HorizontalGuideline"
             tools:text="+24.00 $" />

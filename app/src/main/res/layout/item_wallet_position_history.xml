@@ -22,8 +22,6 @@
         android:id="@+id/itemWalletPositionHistoryLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/spacing_normal"
-        android:layout_marginEnd="@dimen/spacing_normal"
         android:layout_marginBottom="@dimen/spacing_normal"
         android:onClick="@{() -> walletPositionHistoryFragmentListenerBinding.onWalletPositionHistoryItemClick(walletPositionHistoryModelBinding)}">
 
@@ -47,6 +45,7 @@
             android:layout_height="@dimen/image_in_list_size"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"
+            android:layout_marginStart="@dimen/spacing_normal"
             android:background="@drawable/bg_item_main_crypto_img"
             imgId="@{walletPositionHistoryModelBinding.icon}"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -103,9 +102,9 @@
             android:textColor="@android:color/white"
             android:layout_marginBottom="2dp"
             android:textSize="@dimen/font_normal"
+            date="@{walletPositionHistoryModelBinding.closingDate}"
             app:layout_constraintBottom_toTopOf="@+id/itemWalletTradingAccountPositionHistory05HorizontalGuideline"
-            app:layout_constraintStart_toStartOf="@+id/itemWalletPositionHistory04Guideline"
-            tools:text="06 Feb 2021" />
+            app:layout_constraintStart_toStartOf="@+id/itemWalletPositionHistory04Guideline" />
 
         <TextView
             android:id="@+id/itemWalletPositionHistoryTimeText"
@@ -114,23 +113,24 @@
             android:textColor="@color/white_opacity_50"
             android:layout_marginTop="2dp"
             android:textSize="@dimen/font_minute"
+            time="@{walletPositionHistoryModelBinding.closingTime}"
             app:layout_constraintStart_toStartOf="@+id/itemWalletPositionHistory04Guideline"
-            app:layout_constraintTop_toTopOf="@+id/itemWalletTradingAccountPositionHistory05HorizontalGuideline"
-            tools:text="15:30:57" />
+            app:layout_constraintTop_toTopOf="@+id/itemWalletTradingAccountPositionHistory05HorizontalGuideline" />
 
         <TextView
             android:id="@+id/itemWalletPositionHistoryTotalEx"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="2dp"
+            android:layout_marginEnd="@dimen/spacing_normal"
             android:textColor="@android:color/white"
             android:textSize="@dimen/font_normal"
             android:visibility="visible"
             show="@{showBalanceBinding}"
             isInvisible="@{true}"
+            priceColored="@{walletPositionHistoryModelBinding.profit}"
             app:layout_constraintBottom_toTopOf="@+id/itemWalletTradingAccountPositionHistory05HorizontalGuideline"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="+5.00 $" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -147,14 +147,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
+            android:layout_marginEnd="@dimen/spacing_normal"
             android:textColor="@color/white_opacity_50"
             android:textSize="@dimen/font_minute"
             show="@{showBalanceBinding}"
             isInvisible="@{true}"
             android:text="@{walletPositionHistoryModelBinding.side.sideName}"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/itemWalletTradingAccountPositionHistory05HorizontalGuideline"
-            tools:text="Long" />
+            app:layout_constraintTop_toBottomOf="@+id/itemWalletTradingAccountPositionHistory05HorizontalGuideline" />
 
         <ImageView
             android:layout_width="wrap_content"

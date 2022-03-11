@@ -29,13 +29,13 @@ class WalletPositionHistoryFragment : BaseFragment<FragmentWalletPositionHistory
                     openingDate = System.currentTimeMillis(),
                     openingTime = System.currentTimeMillis(),
                     averageSellPrice = 3070.071f,
-                    amountBuyCrypto = "0.488",
-                    amountSellUsdt = "1 498.195",
+                    amountBuyCrypto = 0.488f,
+                    amountSellUsdt = 1498.195f,
                     closingDate = System.currentTimeMillis(),
                     closingTime = System.currentTimeMillis(),
                     averageBuyPrice = 3039.370f,
-                    amountSellCrypto = "0.488",
-                    amountBuyUsdt = "1 483.213",
+                    amountSellCrypto = 0.488f,
+                    amountBuyUsdt = 1483.213f,
                     profit = 14.982f,
                     fee = 2.98140735f
                 )

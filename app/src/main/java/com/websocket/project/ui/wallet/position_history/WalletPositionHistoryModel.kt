@@ -13,14 +13,14 @@ data class WalletPositionHistoryModel(
     var status: TransactionStatus?,
     var openingDate: Long? = 0L,
     var openingTime: Long? = 0L,
-    var averageSellPrice: Float? = 0f,
-    var amountSellCrypto: String? = "",
-    var amountSellUsdt: String? = "",
+    var averageSellPrice: Float,
+    var amountSellCrypto: Float,
+    var amountSellUsdt: Float,
     var closingDate: Long? = 0L,
     var closingTime: Long? = 0L,
-    var averageBuyPrice: Float? = 0f,
-    var amountBuyCrypto: String? = "",
-    var amountBuyUsdt: String? = "",
-    var profit: Float? = 0f,
-    var fee: Float? = 0f
+    var averageBuyPrice: Float,
+    var amountBuyCrypto: Float,
+    var amountBuyUsdt: Float,
+    var profit: Float,
+    var fee: Float
 )

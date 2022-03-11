@@ -18,48 +18,48 @@ class WalletPositionsFragment : BaseFragment<FragmentWalletPositionsBinding>() {
                     "Btc",
                     "x100",
                     WalletSideModel.LONG,
-                    "2 060.00 \$",
-                    "+24.00 \$"
+                    2060.00f,
+                    24.00f
                 ),
                 WalletPositionsModel(
                     R.drawable.ic_crypto_btc,
                     "Btc",
                     "x100",
                     WalletSideModel.LONG,
-                    "2 060.00 \$",
-                    "+24.00 \$"
+                    2060.00f,
+                    24.00f
                 ),
                 WalletPositionsModel(
                     R.drawable.ic_crypto_btc,
                     "Btc",
                     "x100",
                     WalletSideModel.LONG,
-                    "2 060.00 \$",
-                    "+24.00 \$"
+                    2060.00f,
+                    24.00f
                 ),
                 WalletPositionsModel(
                     R.drawable.ic_crypto_btc,
                     "Btc",
                     "x100",
                     WalletSideModel.LONG,
-                    "2 060.00 \$",
-                    "+24.00 \$"
+                    2060.00f,
+                    24.00f
                 ),
                 WalletPositionsModel(
                     R.drawable.ic_crypto_btc,
                     "Btc",
                     "x100",
                     WalletSideModel.LONG,
-                    "2 060.00 \$",
-                    "+24.00 \$"
+                    2060.00f,
+                    24.00f
                 ),
                 WalletPositionsModel(
                     R.drawable.ic_crypto_btc,
                     "Btc",
                     "x100",
                     WalletSideModel.LONG,
-                    "2 060.00 \$",
-                    "+24.00 \$"
+                    2060.00f,
+                    24.00f
                 )
             )
         )

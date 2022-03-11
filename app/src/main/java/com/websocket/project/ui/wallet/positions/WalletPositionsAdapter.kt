@@ -31,9 +31,7 @@ class WalletPositionsAdapter(
             val walletPositionItem = walletPositionsList[position]
             with(itemWalletPositionsBinding) {
                 showBalanceBinding = showBalance
-                nameBinding = walletPositionItem.name
-                leverageBinding = walletPositionItem.leverage
-                imageBinding = walletPositionItem.icon
+                walletPositionsModelBinding = walletPositionItem
             }
         }
     }
