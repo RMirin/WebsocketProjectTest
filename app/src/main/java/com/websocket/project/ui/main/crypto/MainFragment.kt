@@ -183,13 +183,13 @@ class MainFragment: BaseFragment<FragmentMainBinding>(), AttachFileBottomSheetLi
         observe(viewModel.balanceShown) { balanceShown ->
             with(binding.mainHeaderInclude) {
                 if (balanceShown) {
-                    mainHeaderHidePriceBtn.setImageResource(R.drawable.ic_main_header_total_balance_hide)
+                    mainHeaderHidePriceBtn.setImageResource(R.drawable.ic_visibility_hide)
                     mainHeaderProfitHideImg.visibility = View.GONE
                     mainHeaderProfitText.visibility = View.VISIBLE
                     mainHeaderTotalBalanceHiddenImg.visibility = View.GONE
                     mainHeaderTotalBalanceText.visibility = View.VISIBLE
                 } else {
-                    mainHeaderHidePriceBtn.setImageResource(R.drawable.ic_main_header_total_balance_show)
+                    mainHeaderHidePriceBtn.setImageResource(R.drawable.ic_visibility_show)
                     mainHeaderProfitHideImg.visibility = View.VISIBLE
                     mainHeaderProfitText.visibility = View.GONE
                     mainHeaderTotalBalanceHiddenImg.visibility = View.VISIBLE

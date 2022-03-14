@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="addressShownBinding"
+            type="Boolean" />
+
+        <variable
+            name="txHashShownBinding"
+            type="Boolean" />
+
+        <variable
+            name="transactionIdShownBinding"
+            type="Boolean" />
+
+        <variable
+            name="transactionHistoryModelBinding"
+            type="com.websocket.project.ui.transaction_history.TransactionHistoryModel" />
+
+        <variable
+            name="dialogFragmentTransactionHistoryDetailListenerBinding"
+            type="com.websocket.project.ui.transaction_history.detail.DialogFragmentTransactionHistoryDetailListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_large"
+        android:background="@drawable/bg_rectangle_gradient_dialog_view">
+
+        <TextView
+            android:id="@+id/transactionHistoryDetailDateTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/transaction_history_detail_date"
+            android:textColor="@color/white_opacity_50"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/transactionHistoryDetailDateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            date="@{transactionHistoryModelBinding.date}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/transactionHistoryDetailDateTitleText" />
+
+        <TextView
+            android:id="@+id/transactionHistoryDetailTimeTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:text="@string/transaction_history_detail_time"
+            android:textColor="@color/white_opacity_50"
+            android:textSize="@dimen/font_normal"
+            time="@{transactionHistoryModelBinding.time}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/transactionHistoryDetailDateTitleText" />
+
+        <TextView
+            android:id="@+id/transactionHistoryDetailTimeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            time="@{transactionHistoryModelBinding.time}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/transactionHistoryDetailTimeTitleText" />
+
+        <TextView
+            android:id="@+id/transactionHistoryDetailAmountTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/transaction_history_detail_amount"
+            android:textColor="@color/white_opacity_50"
+            android:textSize="@dimen/font_normal"
+            android:layout_marginTop="@dimen/spacing_large"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/transactionHistoryDetailTimeTitleText" />
+
+        <TextView
+            android:id="@+id/transactionHistoryDetailAmountText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            canBeText="@{false}"
+            price="@{transactionHistoryModelBinding.amount}"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/transactionHistoryDetailAmountTitleText" />
+
+        <TextView
+            android:id="@+id/transactionHistoryDetailFeeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            canBeText="@{true}"
+            price="@{transactionHistoryModelBinding.fee}"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/transactionHistoryDetailFeeTitleText" />
+
+        <TextView
+            android:id="@+id/transactionHistoryDetailFeeTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:text="@string/transaction_history_detail_fee"
+            android:textColor="@color/white_opacity_50"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/transactionHistoryDetailAmountTitleText" />
+
+        <TextView
+            android:id="@+id/transactionHistoryDetailTypeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/transaction_history_detail_type"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/transactionHistoryDetailTypeTitleText" />
+
+        <TextView
+            android:id="@+id/transactionHistoryDetailTypeTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/transaction_history_detail_type"
+            android:textColor="@color/white_opacity_50"
+            android:textSize="@dimen/font_normal"
+            android:layout_marginTop="@dimen/spacing_large"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/transactionHistoryDetailFeeTitleText" />
+
+        <TextView
+            android:id="@+id/transactionHistoryDetailStatusText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/transaction_history_detail_status"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/transactionHistoryDetailStatusTitleText" />
+
+
+        <TextView
+            android:id="@+id/transactionHistoryDetailStatusTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:text="@string/transaction_history_detail_status"
+            android:textColor="@color/white_opacity_50"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/transactionHistoryDetailTypeTitleText" />
+
+        <LinearLayout
+            android:id="@+id/transactionHistoryDetailAddressLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/spacing_normal"
+            app:layout_constraintTop_toBottomOf="@+id/transactionHistoryDetailStatusTitleText"
+            tools:layout_editor_absoluteX="20dp">
+
+            <TextView
+                android:id="@+id/transactionHistoryDetailAddressTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="100dp"
+                android:layout_weight="0"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:text="@string/transaction_history_detail_address"
+                android:textColor="@color/white_opacity_50"
+                android:textSize="@dimen/font_normal"
+                show="@{addressShownBinding}"
+                isInvisible="@{false}"
+                app:layout_constraintBottom_toBottomOf="@+id/transactionHistoryDetailCopyAddressBtn"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/transactionHistoryDetailCopyAddressBtn" />
+
+            <TextView
+                android:id="@+id/transactionHistoryDetailAddressDataText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/spacing_normal"
+                android:layout_weight="1"
+                android:text="@{transactionHistoryModelBinding.address}"
+                android:ellipsize="middle"
+                android:singleLine="true"
+                app:layout_constraintBottom_toBottomOf="@+id/transactionHistoryDetailTransactionIdTitleText"
+                app:layout_constraintEnd_toStartOf="@+id/transactionHistoryDetailHideTransactionIdBtn"
+                app:layout_constraintStart_toEndOf="@+id/transactionHistoryDetailTransactionIdTitleText"
+                app:layout_constraintTop_toTopOf="@+id/transactionHistoryDetailTransactionIdTitleText" />
+
+
+            <ImageView
+                android:id="@+id/transactionHistoryDetailHideAddressBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:foreground="@drawable/bg_transparent_btn_oval"
+                android:onClick="@{() -> dialogFragmentTransactionHistoryDetailListenerBinding.onHideAddressClick()}"
+                android:paddingStart="@dimen/spacing_small"
+                android:paddingEnd="@dimen/spacing_small"
+                android:src="@drawable/ic_visibility_show"
+                app:layout_constraintEnd_toStartOf="@+id/transactionHistoryDetailCopyAddressBtn"
+                app:layout_constraintTop_toBottomOf="@+id/transactionHistoryDetailStatusTitleText"
+                app:layout_constraintTop_toTopOf="@+id/transactionHistoryDetailCopyAddressBtn" />
+
+            <ImageView
+                android:id="@+id/transactionHistoryDetailCopyAddressBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:foreground="@drawable/bg_transparent_btn_oval"
+                android:onClick="@{() -> dialogFragmentTransactionHistoryDetailListenerBinding.onCopyAddressClick()}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/transactionHistoryDetailStatusTitleText"
+                app:srcCompat="@drawable/ic_copy" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/transactionHistoryDetailTxHashLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/spacing_small"
+            app:layout_constraintTop_toBottomOf="@+id/transactionHistoryDetailAddressLayout"
+            tools:layout_editor_absoluteX="20dp">
+
+            <TextView
+                android:id="@+id/transactionHistoryDetailTxHashTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:minWidth="100dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:text="@string/transaction_history_detail_tx_hash"
+                android:textColor="@color/white_opacity_50"
+                android:textSize="@dimen/font_normal"
+                show="@{txHashShownBinding}"
+                isInvisible="@{false}"
+                app:layout_constraintBottom_toBottomOf="@+id/transactionHistoryDetailCopyTxHashBtn"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/transactionHistoryDetailTxHashDataText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/spacing_normal"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:ellipsize="middle"
+                android:singleLine="true"
+                android:text="@{transactionHistoryModelBinding.txHash}"
+                app:layout_constraintBottom_toBottomOf="@+id/transactionHistoryDetailCopyTxHashBtn" />
+
+            <ImageView
+                android:id="@+id/transactionHistoryDetailHideTxHashBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:foreground="@drawable/bg_transparent_btn_oval"
+                android:onClick="@{() -> dialogFragmentTransactionHistoryDetailListenerBinding.onHideTxHashClick()}"
+                android:paddingStart="@dimen/spacing_small"
+                android:paddingEnd="@dimen/spacing_small"
+                android:src="@drawable/ic_visibility_show"
+                app:layout_constraintBottom_toBottomOf="@+id/transactionHistoryDetailCopyTxHashBtn"
+                app:layout_constraintEnd_toStartOf="@+id/transactionHistoryDetailCopyTxHashBtn"
+                app:layout_constraintTop_toTopOf="@+id/transactionHistoryDetailCopyTxHashBtn" />
+
+            <ImageView
+                android:id="@+id/transactionHistoryDetailCopyTxHashBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:foreground="@drawable/bg_transparent_btn_oval"
+                android:onClick="@{() -> dialogFragmentTransactionHistoryDetailListenerBinding.onCopyTxHashClick()}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_copy" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/transactionHistoryDetailTransactionIdLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/spacing_small"
+            app:layout_constraintTop_toBottomOf="@+id/transactionHistoryDetailTxHashLayout"
+            tools:layout_editor_absoluteX="20dp">
+
+            <TextView
+                android:id="@+id/transactionHistoryDetailTransactionIdTitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="100dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:layout_weight="0"
+                android:visibility="visible"
+                android:text="@string/transaction_history_detail_transaction_id"
+                android:textColor="@color/white_opacity_50"
+                android:textSize="@dimen/font_normal"
+                show="@{transactionIdShownBinding}"
+                isInvisible="@{false}"
+                app:layout_constraintBottom_toBottomOf="@+id/transactionHistoryDetailCopyTransactionIdBtn"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/transactionHistoryDetailCopyTxHashBtn" />
+
+            <TextView
+                android:id="@+id/transactionHistoryDetailTransactionIdDataText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/spacing_normal"
+                android:layout_weight="1"
+                android:ellipsize="middle"
+                android:singleLine="true"
+                android:text="@{transactionHistoryModelBinding.transactionId}"
+                app:layout_constraintBottom_toBottomOf="@+id/transactionHistoryDetailTransactionIdTitleText"
+                app:layout_constraintEnd_toStartOf="@+id/transactionHistoryDetailHideTransactionIdBtn"
+                app:layout_constraintStart_toEndOf="@+id/transactionHistoryDetailTransactionIdTitleText"
+                app:layout_constraintTop_toTopOf="@+id/transactionHistoryDetailTransactionIdTitleText" />
+
+            <ImageView
+                android:id="@+id/transactionHistoryDetailHideTransactionIdBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:foreground="@drawable/bg_transparent_btn_oval"
+                android:onClick="@{() -> dialogFragmentTransactionHistoryDetailListenerBinding.onHideTransactionIdClick()}"
+                android:paddingStart="@dimen/spacing_small"
+                android:paddingEnd="@dimen/spacing_small"
+                android:src="@drawable/ic_visibility_show"
+                app:layout_constraintBottom_toBottomOf="@+id/transactionHistoryDetailCopyTransactionIdBtn"
+                app:layout_constraintEnd_toStartOf="@+id/transactionHistoryDetailCopyTransactionIdBtn"
+                app:layout_constraintTop_toTopOf="@+id/transactionHistoryDetailCopyTransactionIdBtn" />
+
+            <ImageView
+                android:id="@+id/transactionHistoryDetailCopyTransactionIdBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:foreground="@drawable/bg_transparent_btn_oval"
+                android:onClick="@{() -> dialogFragmentTransactionHistoryDetailListenerBinding.onCopyTransactionIdClick()}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/transactionHistoryDetailCopyTxHashBtn"
+                app:srcCompat="@drawable/ic_copy" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_rectangle_accent_btn"
+            android:gravity="center"
+            android:onClick="@{() -> dialogFragmentTransactionHistoryDetailListenerBinding.onCloseClick()}"
+            android:text="@string/common_close"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            android:layout_marginTop="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/transactionHistoryDetailTransactionIdLayout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

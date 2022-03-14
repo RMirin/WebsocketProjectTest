@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="walletViewModelBinding"
+            type="com.websocket.project.ui.wallet.WalletViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_rectangle_gradient_view">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/walletTradingAccount05Guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <TextView
+            android:id="@+id/walletTradingAccountTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_normal"
+            android:text="@string/wallet_trading_account_title"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/walletTradingAccountTotalTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_normal"
+            android:text="@string/wallet_total"
+            android:textColor="@color/grey_opacity_80"
+            android:textSize="@dimen/font_small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/walletTradingAccountTitleText" />
+
+        <TextView
+            android:id="@+id/walletTradingAccountTotalText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:layout_marginBottom="@dimen/spacing_normal"
+            android:maxLines="1"
+            android:textColor="@color/grey_opacity_80"
+            android:textSize="@dimen/font_small"
+            app:layout_constraintEnd_toStartOf="@+id/walletTradingAccount05Guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/walletTradingAccountTotalTitleText" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_balance_hidden_small"
+            show="@{!walletViewModelBinding.showBalance}"
+            app:layout_constraintBottom_toBottomOf="@+id/walletTradingAccountTotalText"
+            app:layout_constraintStart_toStartOf="@+id/walletTradingAccountTotalText"
+            app:layout_constraintTop_toTopOf="@+id/walletTradingAccountTotalText" />
+
+        <TextView
+            android:id="@+id/walletTradingAccountAvailableTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:text="@string/wallet_available"
+            android:textColor="@color/grey_opacity_80"
+            android:textSize="@dimen/font_small"
+            app:layout_constraintStart_toStartOf="@+id/walletTradingAccount05Guideline"
+            app:layout_constraintTop_toBottomOf="@+id/walletTradingAccountTitleText" />
+
+        <TextView
+            android:id="@+id/walletTradingAccountAvailableText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:layout_marginBottom="@dimen/spacing_normal"
+            android:maxLines="1"
+            android:textColor="@color/grey_opacity_80"
+            android:textSize="@dimen/font_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/walletTradingAccount05Guideline"
+            app:layout_constraintTop_toBottomOf="@+id/walletTradingAccountAvailableTitleText" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_balance_hidden_small"
+            show="@{!walletViewModelBinding.showBalance}"
+            app:layout_constraintBottom_toBottomOf="@+id/walletTradingAccountAvailableText"
+            app:layout_constraintStart_toStartOf="@+id/walletTradingAccountAvailableText"
+            app:layout_constraintTop_toTopOf="@+id/walletTradingAccountAvailableText" />
+
+        <FrameLayout
+            android:id="@+id/walletTradingAccountTabsFrameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/walletTradingAccountTotalText">
+
+            <View
+                android:id="@+id/walletTradingAccountIndicatorView"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:background="@drawable/bg_tab_active" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/walletTradingAccountTabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="@dimen/spacing_normal"
+                android:background="@drawable/bg_tab_layout"
+                app:tabBackground="@drawable/selector_wallet_trading_account_tab_layout"
+                app:tabGravity="fill"
+                app:tabIndicatorHeight="0dp"
+                app:tabMode="fixed"
+                app:tabRippleColor="@null"
+                app:tabSelectedTextColor="@android:color/white"
+                app:tabTextAppearance="@style/TabCustomTextAppearance"
+                app:tabTextColor="@color/white_opacity_50" />
+
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/walletTradingAccountViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</layout>

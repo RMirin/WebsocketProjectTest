@@ -1,9 +1,9 @@
 package com.websocket.project.data.remote
 
-import com.websocket.project.request.SubscribeTickerRequest
 import com.tinder.scarlet.WebSocket
 import com.tinder.scarlet.ws.Receive
 import com.tinder.scarlet.ws.Send
+import com.websocket.project.request.SubscribeTickerRequest
 import com.websocket.project.response.CryptoResponse
 import io.reactivex.Flowable
 

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="walletPositionsModelBinding"
+            type="com.websocket.project.ui.wallet.positions.WalletPositionsModel" />
+
+        <variable
+            name="showBalanceBinding"
+            type="Boolean" />
+
+        <variable
+            name="walletPositionsFragmentListenerBinding"
+            type="com.websocket.project.ui.wallet.positions.WalletPositionsFragmentListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/itemWalletPositionsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/spacing_normal">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/itemWalletPositions04VerticalGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.4" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/itemWalletPositions088VerticalGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.88" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/itemWalletTradingAccountPosition05HorizontalGuideline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <ImageView
+            android:id="@+id/itemWalletPositionsCryptoImg"
+            imgId="@{walletPositionsModelBinding.icon}"
+            android:layout_width="@dimen/image_in_list_size"
+            android:layout_height="@dimen/image_in_list_size"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:background="@drawable/bg_item_main_crypto_img"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/itemWalletPositionsCryptoName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:text="@{walletPositionsModelBinding.name}"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintBottom_toTopOf="@+id/itemWalletTradingAccountPosition05HorizontalGuideline"
+            app:layout_constraintStart_toEndOf="@+id/itemWalletPositionsCryptoImg"
+            app:layout_constraintTop_toTopOf="@+id/itemWalletTradingAccountPosition05HorizontalGuideline"
+            tools:text="AAPL" />
+
+        <TextView
+            android:id="@+id/itemWalletPositionsLeverage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="@{walletPositionsModelBinding.leverage}"
+            android:textColor="@color/wallet_leverage_text"
+            android:textSize="@dimen/font_small"
+            app:layout_constraintBottom_toBottomOf="@+id/itemWalletPositionsCryptoName"
+            app:layout_constraintStart_toEndOf="@+id/itemWalletPositionsCryptoName"
+            tools:text="x100" />
+
+        <TextView
+            android:id="@+id/itemWalletPositionsSideText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            android:text="@{walletPositionsModelBinding.walletSideModel.sideName}"
+            app:layout_constraintBottom_toTopOf="@+id/itemWalletTradingAccountPosition05HorizontalGuideline"
+            app:layout_constraintStart_toStartOf="@+id/itemWalletPositions04VerticalGuideline"
+            app:layout_constraintTop_toTopOf="@+id/itemWalletTradingAccountPosition05HorizontalGuideline" />
+
+        <TextView
+            android:id="@+id/itemWalletPositionsTotalExText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            android:visibility="visible"
+            show="@{showBalanceBinding}"
+            isInvisible="@{true}"
+            price="@{walletPositionsModelBinding.totalEx}"
+            app:layout_constraintBottom_toTopOf="@+id/itemWalletTradingAccountPosition05HorizontalGuideline"
+            app:layout_constraintEnd_toStartOf="@+id/itemWalletPositions088VerticalGuideline" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_profit_hidden_small"
+            show="@{!showBalanceBinding}"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/itemWalletPositionsTotalExText"
+            app:layout_constraintBottom_toBottomOf="@+id/itemWalletPositionsTotalExText"
+            app:layout_constraintTop_toTopOf="@+id/itemWalletPositionsTotalExText" />
+
+        <TextView
+            android:id="@+id/itemWalletPositionsProfit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textSize="@dimen/font_minute"
+            show="@{showBalanceBinding}"
+            isInvisible="@{true}"
+            priceColored="@{walletPositionsModelBinding.profit}"
+            app:layout_constraintEnd_toStartOf="@+id/itemWalletPositions088VerticalGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/itemWalletTradingAccountPosition05HorizontalGuideline"
+            tools:text="+24.00 $" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_profit_hidden_minute"
+            show="@{!showBalanceBinding}"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/itemWalletPositionsProfit"
+            app:layout_constraintBottom_toBottomOf="@+id/itemWalletPositionsProfit"
+            app:layout_constraintTop_toTopOf="@+id/itemWalletPositionsProfit" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/itemWalletPositionsCloseBtn"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="0dp"
+            app:icon="@drawable/ic_close_small"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            android:onClick="@{() -> walletPositionsFragmentListenerBinding.closePositionClick(walletPositionsModelBinding)}"
+            app:iconTint="@color/common_back"
+            app:layout_constraintBottom_toTopOf="@+id/itemWalletTradingAccountPosition05HorizontalGuideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/itemWalletPositions088VerticalGuideline"
+            app:layout_constraintTop_toTopOf="@+id/itemWalletTradingAccountPosition05HorizontalGuideline"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button"
+            app:strokeColor="@android:color/transparent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

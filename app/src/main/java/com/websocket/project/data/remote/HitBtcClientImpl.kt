@@ -1,7 +1,6 @@
 package com.websocket.project.data.remote
 
 import android.annotation.SuppressLint
-import com.tinder.scarlet.WebSocket
 import com.websocket.project.request.SubscribeTickerRequest
 import com.websocket.project.response.CryptoResponse
 import io.reactivex.Flowable

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="walletViewModelBinding"
+            type="com.websocket.project.ui.wallet.WalletViewModel" />
+
+        <variable
+            name="walletListenerBinding"
+            type="com.websocket.project.ui.wallet.WalletListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_rectangle_gradient_view">
+
+        <TextView
+            android:id="@+id/walletHeaderBalanceHeaderText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_normal"
+            android:text="@string/wallet_balance_title"
+            android:textColor="@color/grey_opacity_80"
+            android:textSize="@dimen/font_small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/walletHeaderBalanceLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:layout_marginBottom="14dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/walletHeaderBalanceHeaderText">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/mainHeaderBalanceText"
+                isInvisible="@{false}"
+                show="@{walletViewModelBinding.showBalance}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="5 260 $"
+                android:textColor="@android:color/white"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/walletHeaderBalanceHiddenImg"
+                isInvisible="@{false}"
+                show="@{!walletViewModelBinding.showBalance}"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_balance_hidden_normal" />
+
+            <ImageView
+                android:id="@+id/walletHeaderHideBalanceBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:foreground="@drawable/bg_transparent_btn_oval"
+                android:onClick="@{() -> walletListenerBinding.showBalanceClick()}"
+                android:paddingStart="@dimen/spacing_small"
+                android:paddingEnd="@dimen/spacing_small"
+                android:src="@drawable/ic_visibility_show" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/walletHeaderProfitText"
+            isInvisible="@{true}"
+            show="@{walletViewModelBinding.showBalance}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:gravity="center"
+            android:maxLines="1"
+            android:minWidth="80dp"
+            android:padding="4dp"
+            android:text="5 230.00 $"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/walletHeaderBalanceLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/walletHeaderBalanceLayout" />
+
+        <ImageView
+            android:id="@+id/walletHeaderProfitHideImg"
+            show="@{!walletViewModelBinding.showBalance}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacing_small"
+            android:src="@drawable/ic_profit_hidden_normal"
+            app:layout_constraintBottom_toBottomOf="@+id/walletHeaderProfitText"
+            app:layout_constraintStart_toStartOf="@+id/walletHeaderProfitText"
+            app:layout_constraintTop_toTopOf="@+id/walletHeaderProfitText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

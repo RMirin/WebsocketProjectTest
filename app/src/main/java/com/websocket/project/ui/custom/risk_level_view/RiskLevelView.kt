@@ -10,7 +10,6 @@ import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.widget.TextViewCompat
 import com.websocket.project.R
-import java.lang.RuntimeException
 
 class RiskLevelView @JvmOverloads constructor(
     context: Context,
