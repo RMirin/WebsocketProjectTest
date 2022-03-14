@@ -8,7 +8,8 @@ import com.websocket.project.ui.base.BaseViewHolder
 import com.websocket.project.ui.base.inflateWithBinding
 
 class WalletPositionsAdapter(
-    private val walletPositionsList: MutableList<WalletPositionsModel>
+    private val walletPositionsList: MutableList<WalletPositionsModel>,
+    private val walletPositionsFragmentListener: WalletPositionsFragmentListener
 ) : BaseRecyclerViewAdapter() {
 
     private var showBalance = true
@@ -32,6 +33,7 @@ class WalletPositionsAdapter(
             with(itemWalletPositionsBinding) {
                 showBalanceBinding = showBalance
                 walletPositionsModelBinding = walletPositionItem
+                walletPositionsFragmentListenerBinding = walletPositionsFragmentListener
             }
         }
     }

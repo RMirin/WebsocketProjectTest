@@ -11,41 +11,28 @@ import android.view.WindowManager
 import androidx.fragment.app.DialogFragment
 import com.websocket.project.R
 import com.websocket.project.databinding.DialogFragmentPositionHistoryDetailBinding
+import com.websocket.project.databinding.FragmentTransactionHistoryBinding
+import com.websocket.project.ui.base.BaseDialogFragment
 import com.websocket.project.ui.base.convertDpToPixel
 import com.websocket.project.ui.main.MainActivity
 import com.websocket.project.ui.wallet.position_history.WalletPositionHistoryModel
 
 class DialogFragmentPositionHistoryDetail(
     private val walletPositionHistoryModel: WalletPositionHistoryModel
-) : DialogFragment(), DialogFragmentPositionHistoryDetailListener {
+) : BaseDialogFragment<DialogFragmentPositionHistoryDetailBinding>(), DialogFragmentPositionHistoryDetailListener {
 
-    lateinit var binding: DialogFragmentPositionHistoryDetailBinding
-
-    override fun onStart() {
-        super.onStart()
-        val dialog = dialog
-        val param: WindowManager.LayoutParams? = dialog?.window?.attributes
-        param?.height = ViewGroup.LayoutParams.WRAP_CONTENT
-        param?.width = ViewGroup.LayoutParams.MATCH_PARENT
-        val back = ColorDrawable(Color.TRANSPARENT)
-        val insetFloat = convertDpToPixel(16f, activity as MainActivity)
-        val inset = InsetDrawable(back, insetFloat)
-
-        dialog?.window?.setBackgroundDrawable(inset)
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding = DialogFragmentPositionHistoryDetailBinding.bind(inflater.inflate(R.layout.dialog_fragment_position_history_detail, container))
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         with(binding) {
             listener = this@DialogFragmentPositionHistoryDetail
             positionHistoryModelBinding = walletPositionHistoryModel
         }
-
-        return binding.root
     }
 
     override fun onCloseBtnClick() {
         dismiss()
     }
+
+    override fun initViewBinding(): DialogFragmentPositionHistoryDetailBinding =
+        DialogFragmentPositionHistoryDetailBinding.inflate(layoutInflater)
 }

@@ -56,9 +56,9 @@ fun TextView.bindPriceColored(price: Float) {
     text = context.getString(R.string.main_price_format_with_currency, price.toString())
 }
 
-@BindingAdapter(value = ["price", "canBeEmpty"], requireAll = false)
-fun TextView.bindPriceIsEmpty(price: Float, canBeEmpty: Boolean) {
-    text = if (canBeEmpty) {
+@BindingAdapter(value = ["price", "canBeText"], requireAll = false)
+fun TextView.bindPriceIsText(price: Float, canBeText: Boolean) {
+    text = if (canBeText) {
         context.getString(R.string.common_no_fee)
     } else {
         context.getString(R.string.main_price_format_with_currency, price.toString())

@@ -124,6 +124,10 @@
     <string name="transaction_history_detail_transaction_id">Transaction ID</string>
     <string name="transaction_history_detail_copied">%s copied</string>
 
+    <string name="close_position_title">Do you really want\nto close the position?</string>
+    <string name="close_position_close">Close</string>
+    <string name="close_position_cancel">Cancel</string>
+
     <string name="side_long">Long</string>
     <string name="side_short">Short</string>
 

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="walletPositionsModelBinding"
+            type="com.websocket.project.ui.wallet.positions.WalletPositionsModel" />
+
+        <variable
+            name="dialogFragmentClosePositionListenerBinding"
+            type="com.websocket.project.ui.wallet.positions.close.DialogFragmentClosePositionListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_rectangle_gradient_dialog_view">
+
+        <TextView
+            android:id="@+id/closePositionTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:text="@string/close_position_title"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/closePositionCryptoLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/closePositionTitleText">
+
+            <ImageView
+                imgId="@{walletPositionsModelBinding.icon}"
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:text="@{walletPositionsModelBinding.name}"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_normal"
+                tools:text="ETH" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="4dp"
+                android:text="@{walletPositionsModelBinding.leverage}"
+                android:textColor="@color/wallet_leverage_text"
+                android:textSize="@dimen/font_small"
+                app:layout_constraintBottom_toBottomOf="@+id/itemWalletPositionHistoryCryptoName"
+                app:layout_constraintStart_toEndOf="@+id/itemWalletPositionHistoryCryptoName"
+                tools:text="x100" />
+
+            <TextView
+                canBeText="@{false}"
+                price="@{walletPositionsModelBinding.profit}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="12dp"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_normal"
+                tools:text="3 170.00 $" />
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/closePosition05VerticalGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="22dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/bg_rectangle_accent_btn"
+            android:gravity="center"
+            android:onClick="@{() -> dialogFragmentClosePositionListenerBinding.onCancelBtnClick()}"
+            android:text="@string/close_position_cancel"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/closePosition05VerticalGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/closePositionCryptoLayout" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/bg_transparent_ok_btn"
+            android:gravity="center"
+            android:onClick="@{() -> dialogFragmentClosePositionListenerBinding.onCloseBtnClick(walletPositionsModelBinding)}"
+            android:text="@string/close_position_close"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/closePosition05VerticalGuideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/closePositionCryptoLayout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

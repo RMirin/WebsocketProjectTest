@@ -41,6 +41,7 @@
     <color name="common_outlined_btn_text">#6965F3</color>
     <color name="common_field_gradient_end">#804223C1</color>
     <color name="common_field_gradient_start">#804A67D9</color>
+    <color name="common_stroke">#6965F3</color>
 
     <color name="transaction_history_folder_selected">#4B47CD</color>
     <color name="transaction_history_folder_not_selected">#322F8C</color>

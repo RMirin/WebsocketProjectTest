@@ -12,6 +12,10 @@
         <variable
             name="showBalanceBinding"
             type="Boolean" />
+
+        <variable
+            name="walletPositionsFragmentListenerBinding"
+            type="com.websocket.project.ui.wallet.positions.WalletPositionsFragmentListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -103,7 +107,6 @@
             show="@{showBalanceBinding}"
             isInvisible="@{true}"
             price="@{walletPositionsModelBinding.totalEx}"
-            canBeEmpty="@{false}"
             app:layout_constraintBottom_toTopOf="@+id/itemWalletTradingAccountPosition05HorizontalGuideline"
             app:layout_constraintEnd_toStartOf="@+id/itemWalletPositions088VerticalGuideline" />
 
@@ -149,6 +152,7 @@
             app:icon="@drawable/ic_close_small"
             app:iconGravity="textStart"
             app:iconPadding="0dp"
+            android:onClick="@{() -> walletPositionsFragmentListenerBinding.closePositionClick(walletPositionsModelBinding)}"
             app:iconTint="@color/common_back"
             app:layout_constraintBottom_toTopOf="@+id/itemWalletTradingAccountPosition05HorizontalGuideline"
             app:layout_constraintEnd_toEndOf="parent"
