@@ -128,6 +128,15 @@
     <string name="close_position_close">Close</string>
     <string name="close_position_cancel">Cancel</string>
 
+    <string name="withdraw_title">Withdraw</string>
+    <string name="withdraw_network_title">Network</string>
+    <string name="withdraw_address_to_send_title">Address to send %s</string>
+    <string name="withdraw_amount_crypto_title">Amount %s</string>
+    <string name="withdraw_available_with_count">Available %d %s</string>
+    <string name="withdraw_transaction_fee_network">Transaction fee (network)</string>
+    <string name="withdraw_transaction_fee_total">Total</string>
+    <string name="withdraw_send">Send</string>
+
     <string name="side_long">Long</string>
     <string name="side_short">Short</string>
 
