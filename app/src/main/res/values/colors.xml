@@ -10,15 +10,13 @@
 
     <color name="white_opacity_30">#4DFFFFFF</color>
     <color name="white_opacity_50">#80FFFFFF</color>
+    <color name="white_opacity_80">#32FFFFFF</color>
 
-    <color name="grey_opacity_80">#CC817E8C</color>
+    <color name="black_opacity_50">#80000000</color>
 
-    <color name="common_price_down">#C32B57</color>
-    <color name="common_price_up">#57B993</color>
-
-    <color name="main_header_price_down">@color/common_price_down</color>
-    <color name="main_header_price_up">@color/common_price_up</color>
-
+    <color name="price_down">#e57373</color>
+    <color name="price_up">#81c784</color>
+    
     <color name="actively_sell">#B40404</color>
     <color name="sell">#DA6511</color>
     <color name="neutral">#533DD6</color>
@@ -31,27 +29,19 @@
     <color name="risk_level_medium">#026B84</color>
     <color name="risk_level_high">#01637A</color>
 
-    <color name="main_title">#CC817E8C</color>
-    <color name="bg_main_crypto_img">#202942</color>
-
     <color name="common_ripple">@color/white_opacity_30</color>
-    <color name="common_shimmer">#4223C1</color>
-    <color name="common_shimmer_highlight">#4A67D9</color>
     <color name="common_back">#999EA8</color>
-    <color name="common_outlined_btn_text">#6965F3</color>
+    <color name="common_error">#CF202C</color>
+    <color name="common_btn">#262768</color>
+
+    <color name="support_attach_icon">#6965F3</color>
+    <color name="support_text">#6965F3</color>
+    <color name="support_attach_file">#202942</color>
+    <color name="support_stroke">#6965F3</color>
+    
     <color name="common_field_gradient_end">#804223C1</color>
     <color name="common_field_gradient_start">#804A67D9</color>
-    <color name="common_stroke">#6965F3</color>
-
-    <color name="transaction_history_folder_selected">#4B47CD</color>
-    <color name="transaction_history_folder_not_selected">#322F8C</color>
-
-    <color name="wallet_tab_layout_active_tab">#6965F3</color>
-    <color name="wallet_leverage_text">#6965F3</color>
 
     <color name="dialog_view_gradient_start">#28206B</color>
     <color name="dialog_view_gradient_end">#363B9C</color>
-    <color name="dialog_view_accent_text">#7B88FB</color>
-
-    <color name="support_attach_icon">#6965F3</color>
 </resources>

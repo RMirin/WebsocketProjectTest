@@ -1,4 +1,4 @@
-package com.websocket.project.ui.main.attach_file
+package com.websocket.project.ui.support.attach_file
 
 import android.view.ViewGroup
 import com.websocket.project.R
@@ -11,30 +11,27 @@ class AttachFileBottomSheetAdapter(
     val attachFileBottomSheetListener: AttachFileBottomSheetListener
 ): BaseRecyclerViewAdapter() {
 
-    val filterActionsList = mutableListOf<AttachFileAction>()
-
-    fun setFilterActions(filterActions: Array<AttachFileAction>) {
-        this.filterActionsList.apply {
-            addAll(filterActions)
-        }
-    }
+    val attachFileActionsList = AttachFileAction.values()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         return CharacterNewItemViewHolder(parent.inflateWithBinding(R.layout.item_attach_file_action))
     }
 
-    override fun getItemCount(): Int = filterActionsList.size
+    override fun getItemCount(): Int = attachFileActionsList.size
 
     private inner class CharacterNewItemViewHolder(private val itemAttachFileActionBinding: ItemAttachFileActionBinding) : BaseViewHolder(itemAttachFileActionBinding) {
         override fun bind(position: Int) {
 
-            val itemFilterAction = filterActionsList[position]
+            val attackFileAction = attachFileActionsList[position]
             with(itemAttachFileActionBinding) {
-                itemFilterActionText.text =
-                    itemFilterActionText.context.getText(itemFilterAction.title)
 
-                itemFilterActionLayout.setOnClickListener {
-                    attachFileBottomSheetListener.onAttachFileClick(itemFilterAction)
+                itemAttachFileActionImg.setImageResource(attackFileAction.icon)
+
+                itemAttachFileActionText.text =
+                    itemAttachFileActionText.context.getText(attackFileAction.title)
+
+                itemAttachFileActionLayout.setOnClickListener {
+                    attachFileBottomSheetListener.onAttachFileClick(attackFileAction)
                 }
             }
         }

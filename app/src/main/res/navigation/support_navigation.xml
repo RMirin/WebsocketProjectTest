@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/support_navigation"
+    app:startDestination="@id/supportFragment">
+
+    <fragment
+        android:name="com.websocket.project.ui.support.SupportFragment"
+        android:id="@+id/supportFragment">
+        <action
+            android:id="@+id/action_supportFragment_to_appealCategoryFragment"
+            app:destination="@id/appealCategoryFragment" />
+    </fragment>
+
+    <fragment
+        android:name="com.websocket.project.ui.support.appeal_category.AppealCategoryFragment"
+        android:id="@+id/appealCategoryFragment">
+        <argument
+            android:name="position"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+
+</navigation>

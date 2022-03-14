@@ -1,7 +1,11 @@
 package com.websocket.project.ui.base
 
 import android.content.Context
-import android.graphics.Rect
+import android.database.Cursor
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.net.Uri
+import android.provider.OpenableColumns
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.CharacterStyle
@@ -15,11 +19,13 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ItemDecoration
-import com.facebook.shimmer.ShimmerFrameLayout
+import androidx.test.core.app.ApplicationProvider.getApplicationContext
 import java.math.RoundingMode
+import java.text.CharacterIterator
 import java.text.DecimalFormat
+import java.text.StringCharacterIterator
+import java.util.*
+import kotlin.math.roundToInt
 
 
 fun <T : Any, L : LiveData<T>> LifecycleOwner.observe(liveData: L, body: (T) -> Unit) {
@@ -43,7 +49,7 @@ inline fun <reified T : ViewDataBinding> LayoutInflater.inflateBinding(
 
 inline fun <S : CharacterStyle> TextView.spanAll(characterStyle: S, stringToSpan: String) {
     if (stringToSpan.isEmpty()) return
-//val style: CharacterStyle = ForegroundColorSpan(Color.BLUE)
+
     var startSpanIndex = text.indexOf(stringToSpan).takeUnless { it == -1 } ?: return
     var endSpanIndex = startSpanIndex + stringToSpan.length
 
@@ -84,37 +90,52 @@ fun roundOffDecimal(number: Double): String {
     return df.format(number)
 }
 
-fun ShimmerFrameLayout.shimmerShow() {
-    this.apply {
-        startShimmer()
-        visibility = View.VISIBLE
-    }
+fun getScaledBitmap(picturePath: String, width: Int, height: Int): Bitmap? {
+    val sizeOptions = BitmapFactory.Options()
+    sizeOptions.inJustDecodeBounds = true
+    BitmapFactory.decodeFile(picturePath, sizeOptions)
+    val inSampleSize = calculateInSampleSize(sizeOptions, width, height)
+    sizeOptions.inJustDecodeBounds = false
+    sizeOptions.inSampleSize = inSampleSize
+    return BitmapFactory.decodeFile(picturePath, sizeOptions)
 }
 
-fun ShimmerFrameLayout.shimmerHide() {
-    this.apply {
-        stopShimmer()
-        visibility = View.GONE
+private fun calculateInSampleSize(
+    options: BitmapFactory.Options,
+    reqWidth: Int,
+    reqHeight: Int
+): Int {
+    // Raw height and width of image
+    val height = options.outHeight
+    val width = options.outWidth
+    var inSampleSize = 1
+    if (height > reqHeight || width > reqWidth) {
+
+        // Calculate ratios of height and width to requested height and
+        // width
+        val heightRatio = (height.toFloat() / reqHeight.toFloat()).roundToInt()
+        val widthRatio = (width.toFloat() / reqWidth.toFloat()).roundToInt()
+
+        // Choose the smallest ratio as inSampleSize value, this will
+        // guarantee
+        // a final image with both dimensions larger than or equal to the
+        // requested height and width.
+        inSampleSize = if (heightRatio < widthRatio) heightRatio else widthRatio
     }
+    return inSampleSize
 }
 
-class MainActionsRecyclerItemDecoration(private val space: Int) : ItemDecoration() {
-    override fun getItemOffsets(
-        outRect: Rect,
-        view: View,
-        parent: RecyclerView,
-        state: RecyclerView.State
-    ) {
-        super.getItemOffsets(outRect, view, parent, state)
-
-        outRect.bottom = space
-
-        if (parent.getChildLayoutPosition(view) % 2 == 0) {
-            outRect.right = space
-        } else {
-            outRect.left = space
-        }
+fun humanReadableByteCountSI(bytesToConvert: Int): String? {
+    var bytes = bytesToConvert
+    if (-1000 < bytes && bytes < 1000) {
+        return "$bytes B"
     }
+    val ci: CharacterIterator = StringCharacterIterator("kMGTPE")
+    while (bytes <= -999950 || bytes >= 999950) {
+        bytes /= 1000
+        ci.next()
+    }
+    return java.lang.String.format(Locale.US, "%.1f %cB", bytes / 1000.0, ci.current())
 }
 
 fun View.show(visible: Boolean = false) {
@@ -141,4 +162,17 @@ fun convertDpToPixel(dp: Float, context: Context): Int {
 fun convertPixelsToDp(px: Float, context: Context): Int {
     return (px / (context.resources
         .displayMetrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)).toInt()
+}
+
+fun displayName(uri: Uri): String {
+    var filename = ""
+    val mCursor: Cursor? =
+        getApplicationContext<Context>().contentResolver.query(uri, null, null, null, null)
+    if (mCursor != null) {
+        val indexedname: Int = mCursor.getColumnIndex(OpenableColumns.DISPLAY_NAME)
+        mCursor.moveToFirst()
+        filename = mCursor.getString(indexedname)
+        mCursor.close()
+    }
+    return filename
 }

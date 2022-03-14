@@ -1,0 +1,86 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="dialogSupportFragmentActionListenerBinding"
+            type="com.websocket.project.ui.support.DialogFragmentSupportActionListener" />
+
+        <variable
+            name="dialogSupportFragmentMessageBinding"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_normal"
+        android:layout_marginEnd="@dimen/spacing_normal"
+        android:background="@drawable/bg_rectangle_gradient_dialog_view">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/support_fragment_action_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:layout_marginTop="36dp"
+            android:layout_marginBottom="36dp"
+            android:text="@{dialogSupportFragmentMessageBinding}"
+            tools:text="@string/support_dialog_delete_file"
+            app:layout_constraintBottom_toTopOf="@+id/dialogSupportFragmentActionOkBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/dialogSupportFragmentActionCancelBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/bg_rectangle_accent_btn"
+            android:gravity="center"
+            android:paddingTop="22dp"
+            android:paddingBottom="22sp"
+            android:text="@string/common_cancel"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/support_fragment_action_guideline" />
+
+        <TextView
+            android:id="@+id/dialogSupportFragmentActionOkBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/bg_action_ok_btn"
+            android:gravity="center"
+            android:paddingTop="22dp"
+            android:paddingBottom="22sp"
+            android:text="@string/common_remove"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/support_fragment_action_guideline"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
