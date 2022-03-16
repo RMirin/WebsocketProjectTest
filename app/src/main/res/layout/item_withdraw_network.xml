@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="withdrawNetworkItemBinding"
+            type="com.websocket.project.ui.withdraw.network.WithdrawNetwork" />
+
+        <variable
+            name="withdrawNetworkItemText"
+            type="String" />
+
+        <variable
+            name="withdrawNetworkBottomSheetActionListenerBinding"
+            type="com.websocket.project.ui.withdraw.network.WithdrawNetworkBottomSheetActionListener" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:onClick="@{() -> withdrawNetworkBottomSheetActionListenerBinding.onNetworkActionClicked(withdrawNetworkItemBinding)}"
+    android:background="@drawable/bg_transparent_btn_rectangle">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@{withdrawNetworkItemText}"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:textSize="@dimen/font_normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Ethereum (ERC-20)" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

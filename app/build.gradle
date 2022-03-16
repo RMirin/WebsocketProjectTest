@@ -96,4 +96,10 @@ dependencies {
     //Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:2.4.1"
     implementation "androidx.navigation:navigation-ui-ktx:2.4.1"
+
+    //Progress
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+
+    //Recycler
+    implementation 'com.google.android.flexbox:flexbox:3.0.0'
 }

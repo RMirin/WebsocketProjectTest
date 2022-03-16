@@ -1,4 +1,4 @@
-package com.websocket.project.ui.main
+package com.websocket.project.ui.main.crypto
 
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.websocket.project.databinding.FragmentCryptoPairBinding
 import com.websocket.project.ui.base.BaseFragment
+import com.websocket.project.ui.main.MainActivityViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -16,7 +17,7 @@ class CryptoPairFragment: BaseFragment<FragmentCryptoPairBinding>() {
     private val viewModel: MainActivityViewModel by viewModels()
 
     private val cryptoPairAdapter by lazy(LazyThreadSafetyMode.NONE) {
-        CryptoPairAdapter()
+        MainFragmentCryptoAdapter()
     }
 
     override fun initViewBinding(): FragmentCryptoPairBinding =

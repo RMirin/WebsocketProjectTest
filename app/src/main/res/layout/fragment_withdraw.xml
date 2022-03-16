@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="withdrawViewModelBinding"
+            type="com.websocket.project.ui.withdraw.WithdrawViewModel" />
+
+        <variable
+            name="withdrawFragmentActionListenerBinding"
+            type="com.websocket.project.ui.withdraw.WithdrawFragmentActionListener" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,41 +28,319 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/supportSendBtn"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/withdrawTopbarLayoutInclude">
+            app:layout_constraintTop_toBottomOf="@+id/withdrawTopbarLayoutInclude"
+            app:layout_constraintVertical_bias="0.0">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_marginEnd="@dimen/spacing_normal"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
                     android:text="@string/withdraw_network_title"
                     android:textColor="@color/white_opacity_50"
                     android:textSize="@dimen/font_normal" />
 
+                <TextView
+                    android:id="@+id/withdrawNetworkBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:background="@drawable/bg_rectangle_gradient_view"
+                    android:gravity="start|center_vertical"
+                    android:onClick="@{() -> withdrawFragmentActionListenerBinding.onWithdrawNetworkBtnClicked()}"
+                    android:paddingStart="@dimen/spacing_normal"
+                    android:paddingEnd="@dimen/spacing_normal"
+                    android:text="@string/withdraw_network_hint"
+                    android:textColor="@color/white_opacity_50"
+                    android:textSize="@dimen/font_small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/supportCategoryOfAppealTitleText" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:text="@string/withdraw_address_to_send_usdt_title"
+                    android:textColor="@color/white_opacity_50"
+                    android:textSize="@dimen/font_normal" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:background="@drawable/bg_rectangle_gradient_view"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/supportCategoryOfAppealTitleText">
+
+                    <EditText
+                        android:id="@+id/withdrawAddressToSendEditText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:hint="@string/withdraw_address_to_send_usdt_hint"
+                        android:inputType="textMultiLine"
+                        android:lines="2"
+                        android:paddingStart="@dimen/spacing_normal"
+                        android:paddingEnd="@dimen/spacing_normal"
+                        android:scrollbars="none"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@color/white_opacity_50"
+                        android:textSize="@dimen/font_small" />
+
+                    <com.google.android.material.button.MaterialButton
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+                        isInvisible="@{false}"
+                        show="@{withdrawViewModelBinding.addressToSendCleanVisible}"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical"
+                        android:onClick="@{() -> withdrawFragmentActionListenerBinding.onAddressClearBtnClicked()}"
+                        android:padding="0dp"
+                        app:icon="@drawable/ic_close_small"
+                        app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:iconTint="@color/common_back"
+                        app:layout_constraintBottom_toTopOf="@+id/itemWalletTradingAccountPosition05HorizontalGuideline"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/itemWalletPositions088VerticalGuideline"
+                        app:layout_constraintTop_toTopOf="@+id/itemWalletTradingAccountPosition05HorizontalGuideline"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button"
+                        app:strokeColor="@android:color/transparent" />
+
+                    <com.google.android.material.button.MaterialButton
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="@dimen/spacing_small"
+                        android:padding="0dp"
+                        app:icon="@drawable/ic_scan"
+                        app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:iconTint="@color/common_back"
+                        app:layout_constraintBottom_toTopOf="@+id/itemWalletTradingAccountPosition05HorizontalGuideline"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/itemWalletPositions088VerticalGuideline"
+                        app:layout_constraintTop_toTopOf="@+id/itemWalletTradingAccountPosition05HorizontalGuideline"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button"
+                        app:strokeColor="@android:color/transparent" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:text="@string/withdraw_amount_usdt_title"
+                    android:textColor="@color/white_opacity_50"
+                    android:textSize="@dimen/font_normal" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:orientation="horizontal"
+                    app:isErrorText="@{withdrawViewModelBinding.amountErrorVisible}">
+
+                    <EditText
+                        android:id="@+id/withdrawAmountEditText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:gravity="start|center_vertical"
+                        android:hint="@string/withdraw_amount_hint"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:paddingStart="@dimen/spacing_normal"
+                        android:paddingEnd="@dimen/spacing_normal"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@color/white_opacity_50"
+                        android:textSize="@dimen/font_small" />
+
+                    <com.google.android.material.button.MaterialButton
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+                        isInvisible="@{false}"
+                        show="@{withdrawViewModelBinding.amountCleanVisible}"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical"
+                        android:onClick="@{() -> withdrawFragmentActionListenerBinding.onAmountClearBtnClicked()}"
+                        android:padding="0dp"
+                        app:icon="@drawable/ic_close_small"
+                        app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:iconTint="@color/common_back"
+                        app:layout_constraintBottom_toTopOf="@+id/itemWalletTradingAccountPosition05HorizontalGuideline"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/itemWalletPositions088VerticalGuideline"
+                        app:layout_constraintTop_toTopOf="@+id/itemWalletTradingAccountPosition05HorizontalGuideline"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button"
+                        app:strokeColor="@android:color/transparent" />
+
+                    <com.google.android.material.button.MaterialButton
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="@dimen/spacing_small"
+                        android:onClick="@{() -> withdrawFragmentActionListenerBinding.onAmountMaxBtnClicked()}"
+                        android:padding="0dp"
+                        app:icon="@drawable/ic_max"
+                        app:iconGravity="textStart"
+                        app:iconPadding="0dp"
+                        app:iconTint="@color/common_back"
+                        app:layout_constraintBottom_toTopOf="@+id/itemWalletTradingAccountPosition05HorizontalGuideline"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/itemWalletPositions088VerticalGuideline"
+                        app:layout_constraintTop_toTopOf="@+id/itemWalletTradingAccountPosition05HorizontalGuideline"
+                        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.Button"
+                        app:strokeColor="@android:color/transparent" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/supportSubjectOfAppealErrorText"
+                    isInvisible="@{false}"
+                    show="@{withdrawViewModelBinding.amountErrorVisible}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:text="@string/withdraw_amount_usdt_error"
+                    android:textColor="@color/common_error"
+                    android:textSize="@dimen/font_minute"
+                    app:layout_constraintStart_toStartOf="@+id/supportSubjectOfAppealEditText"
+                    app:layout_constraintTop_toBottomOf="@+id/supportSubjectOfAppealEditText" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_marginEnd="@dimen/spacing_normal"
+                    android:text="@{@string/withdraw_available_usdt(withdrawViewModelBinding.availableUsdt)}"
+                    android:textColor="@color/white_opacity_50"
+                    android:textSize="@dimen/font_normal"
+                    tools:text="Available 500 USDT" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp">
+
+                    <TextView
+                        android:id="@+id/withdrawTransactionFeeNetworkTitleText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/withdraw_transaction_fee_network"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/withdrawTransactionFeeNetworkText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@{@string/withdraw_usdt(withdrawViewModelBinding.transactionFeeNetwork)}"
+                        android:textAlignment="textEnd"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/withdrawTransactionFeeNetworkTitleText"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="50 USDT" />
+
+                    <TextView
+                        android:id="@+id/withdrawTransactionFeeTotalTitleText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small"
+                        android:text="@string/withdraw_transaction_fee_total"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/withdrawTransactionFeeNetworkTitleText" />
+
+                    <TextView
+                        android:id="@+id/withdrawTransactionFeeTotalText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="textEnd"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/withdrawTransactionFeeTotalTitleText"
+                        app:layout_constraintTop_toTopOf="@+id/withdrawTransactionFeeTotalTitleText"
+                        tools:text="500 USDT" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/withdrawAttentionMsgText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:textColor="@color/white_opacity_50"
+                    android:textSize="@dimen/font_normal" />
+
+                <TextView
+                    android:id="@+id/withdrawArriveMsgText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:textColor="@color/white_opacity_50"
+                    android:textSize="@dimen/font_normal" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:text="@string/withdraw_depends"
+                    android:textColor="@color/white_opacity_50"
+                    android:textSize="@dimen/font_normal" />
+
+                <TextView
+                    android:id="@+id/withdrawSendBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="@dimen/spacing_big"
+                    android:layout_marginBottom="@dimen/spacing_normal"
+                    android:background="@drawable/bg_rectangle_accent_btn"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:text="@string/withdraw_send"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
             </LinearLayout>
 
         </ScrollView>
-
-        <TextView
-            android:id="@+id/supportSendBtn"
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:layout_margin="@dimen/spacing_normal"
-            android:background="@drawable/bg_rectangle_accent_btn"
-            android:enabled="false"
-            android:gravity="center"
-            android:text="@string/withdraw_send"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

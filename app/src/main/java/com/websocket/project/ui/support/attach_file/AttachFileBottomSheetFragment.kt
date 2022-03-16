@@ -7,21 +7,23 @@ import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.websocket.project.R
 import com.websocket.project.databinding.AttachFileBottomSheetLayoutBinding
+import com.websocket.project.databinding.BottomSheetLayoutWithdrawNetworkBinding
+import com.websocket.project.ui.base.BaseBottomSheetDialogFragment
 
 class AttachFileBottomSheetFragment(
     private val listener: AttachFileBottomSheetListener
-) : BottomSheetDialogFragment() {
-
-    lateinit var binding: AttachFileBottomSheetLayoutBinding
+) : BaseBottomSheetDialogFragment<AttachFileBottomSheetLayoutBinding>() {
 
     override fun getTheme() = R.style.BottomSheetDialogTheme
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding = AttachFileBottomSheetLayoutBinding.bind(inflater.inflate(R.layout.attach_file_bottom_sheet_layout, container))
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val adapter = AttachFileBottomSheetAdapter(listener)
-        binding.attachFileBottomSheetLayoutRecycler.adapter = adapter
-
-        return binding.root
+        with(binding) {
+            attachFileBottomSheetLayoutRecycler.adapter = adapter
+        }
     }
+
+    override fun initViewBinding(): AttachFileBottomSheetLayoutBinding =
+        AttachFileBottomSheetLayoutBinding.inflate(layoutInflater)
 }

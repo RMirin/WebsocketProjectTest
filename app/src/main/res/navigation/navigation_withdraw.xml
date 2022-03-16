@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_withdraw"
+    app:startDestination="@id/withdrawFragment">
+
+    <fragment
+        android:id="@+id/withdrawFragment"
+        android:name="com.websocket.project.ui.withdraw.WithdrawFragment"
+        android:label="WithdrawFragment" >
+        <action
+            android:id="@+id/action_withdrawFragment_to_withdrawNetworkBottomSheetFragment"
+            app:destination="@id/withdrawNetworkBottomSheetFragment" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/withdrawNetworkBottomSheetFragment"
+        android:name="com.websocket.project.ui.withdraw.network.WithdrawNetworkBottomSheetFragment"
+        android:label="WithdrawNetworkBottomSheetFragment">
+    </dialog>
+</navigation>
