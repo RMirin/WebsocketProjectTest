@@ -151,7 +151,7 @@
                     tools:background="@drawable/bg_rectangle_gradient_view" />
 
                 <TextView
-                    android:id="@+id/supportSubjectOfAppealErrorText"
+                    android:id="@+id/withdrawAmountUsdtErrorText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/spacing_normal"
@@ -171,7 +171,7 @@
                     android:layout_marginTop="@dimen/spacing_small"
                     android:text="@string/support_text_of_appeal_title"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/supportSubjectOfAppealErrorText" />
+                    app:layout_constraintTop_toBottomOf="@+id/withdrawAmountUsdtErrorText" />
 
                 <TextView
                     android:id="@+id/supportTextOfAppealMaxSymbolsText"
@@ -181,7 +181,7 @@
                     android:layout_marginEnd="30dp"
                     android:text="@{supportViewModelBinding.textOfAppealMaxSymbolsCount}"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/supportSubjectOfAppealErrorText"
+                    app:layout_constraintTop_toBottomOf="@+id/withdrawAmountUsdtErrorText"
                     tools:text="0/1000" />
 
                 <RelativeLayout

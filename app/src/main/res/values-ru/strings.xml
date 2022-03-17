@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">WebsocketProjectTest</string>
+    <string name="name_format_with_percent">%s(%s%%)</string>
+
+    <string name="image_name_prefix">JPEG_%s_</string>
+
+    <string name="attach_file_bottom_sheet_camera">Камера</string>
+    <string name="attach_file_bottom_sheet_gallery">Фотогалерея</string>
+    <string name="attach_file_bottom_sheet_document">Документ</string>
+
+    <string name="actively_sell">Actively sell</string>
+    <string name="sell">Sell</string>
+    <string name="neutral">Neutral</string>
+    <string name="buy">Buy</string>
+    <string name="actively_buy">Actively buy</string>
+
+    <string name="risk_level_low">Low</string>
+    <string name="risk_level_medium">Medium</string>
+    <string name="risk_level_high">High</string>
+
+    <string name="support_attach">Прикрепить файл %d/12</string>
+    <string name="support_attach_file_span">Прикрепить файл</string>
+    <string name="support_format">Формат файлов: .jpg, .png, .pdf до 10 мб</string>
+    <string name="support_files_file_format">pdf</string>
+    <string name="support_file_too_large_msg">File is too large!</string>
+    <string name="support_storage_access_msg">Allow permission for storage access!</string>
+
+    <string name="support_title">Support center</string>
+    <string name="support_category_of_appeal_title">Category of appeal</string>
+    <string name="support_category_of_appeal_hint">Select a category</string>
+    <string name="support_category_of_appeal_error">No category selected</string>
+    <string name="support_subject_of_appeal_title">Subject of the appeal</string>
+    <string name="support_subject_of_appeal_hint">Enter a subject</string>
+    <string name="support_subject_of_appeal_error">No topic entered</string>
+    <string name="support_subject_of_appeal_max_symbols">%d/50</string>
+    <string name="support_text_of_appeal_title">The text of the appeal</string>
+    <string name="support_text_of_appeal_hint">Enter the text</string>
+    <string name="support_text_of_appeal_error">No text entered</string>
+    <string name="support_text_of_appeal_max_symbols">%d/1000</string>
+    <string name="support_delete_all_btn">Delete All</string>
+    <string name="support_send_btn">Send</string>
+
+    <string name="support_dialog_delete_all_files">Do you really want\nto delete all the files?</string>
+    <string name="support_dialog_delete_text">Do you really want\nto delete the text?</string>
+    <string name="support_dialog_delete_file">Do you really want\nto delete the file?\n\n%s, %s</string>
+
+    <string name="support_appeal_category_title">Choosing a category</string>
+    <string name="support_appeal_category_fiat_withdrawal">Fiat Withdrawal</string>
+    <string name="support_appeal_category_deposit_in_cryptocurrency">Deposit in cryptocurrency</string>
+    <string name="support_appeal_category_fiat_deposit">Fiat deposit</string>
+    <string name="support_appeal_category_withdrawal_in_cryptocurrency">Withdrawal in cryptocurrency</string>
+    <string name="support_appeal_category_trade_problem">Trade Problem</string>
+    <string name="support_appeal_category_trade_issue">Trade issue</string>
+    <string name="support_appeal_category_reset_2fa">Reset 2FA</string>
+    <string name="support_appeal_category_change_email">Change e-mail</string>
+    <string name="support_appeal_category_proof_of_identity">Proof of identity</string>
+    <string name="support_appeal_category_technical_issue">Technical issue</string>
+    <string name="support_appeal_category_closing_an_account">Closing an account</string>
+    <string name="support_appeal_category_other">Other</string>
+
+    <string name="main_portfolio">Portfolio</string>
+    <string name="main_coin">Coin</string>
+    <string name="main_price">Price</string>
+    <string name="main_balance">Balance</string>
+    <string name="main_actions">Actions</string>
+
+    <string name="main_header_total_balance">Total balance</string>
+    <string name="main_header_profit">Profit 24h</string>
+
+    <string name="main_complete_verification_title">Complete\nVerification</string>
+
+    <string name="main_action_buy">Buy</string>
+    <string name="main_action_deposit">Deposit</string>
+    <string name="main_action_sell">Sell</string>
+    <string name="main_action_withdraw">Вывод</string>
+
+    <string name="main_price_format_with_currency">%s $</string>
+
+    <string name="crypto_aave">AAVEUSDT</string>
+    <string name="crypto_ada">ADAUSDT</string>
+    <string name="crypto_avax">AVAXUSDT</string>
+    <string name="crypto_bch">BCHUSDT</string>
+    <string name="crypto_bnb">BNBUSDT</string>
+    <string name="crypto_btc">BTCUSDT</string>
+    <string name="crypto_dot">DOTUSDT</string>
+    <string name="crypto_eos">EOSUSDT</string>
+    <string name="crypto_eth">ETHUSDT</string>
+    <string name="crypto_link">Link</string>
+    <string name="crypto_ltc">LTCUSDT</string>
+    <string name="crypto_luna">Luna</string>
+    <string name="crypto_mana">MANAUSDT</string>
+    <string name="crypto_matik">Matik</string>
+    <string name="crypto_shib">SHIBUSDT</string>
+    <string name="crypto_sol">Sol</string>
+    <string name="crypto_trx">TRXUSDT</string>
+    <string name="crypto_uni">UNIUSDT</string>
+    <string name="crypto_usdt">USDT</string>
+    <string name="crypto_xlm">XLMUSDT</string>
+    <string name="crypto_xrp">XRPUSDT</string>
+    <string name="crypto_zec">ZECUSDT</string>
+
+    <string name="transaction_history_title">Transaction history</string>
+    <string name="transaction_history_folder_all">All</string>
+    <string name="transaction_history_folder_deposit">Deposit</string>
+    <string name="transaction_history_folder_withdrawal">Withdrawal</string>
+    <string name="transaction_history_folder_buy">Buy</string>
+    <string name="transaction_history_folder_sell">Sell</string>
+    <string name="transaction_history_column_coin">Coin</string>
+    <string name="transaction_history_column_date_time">Date/Time</string>
+    <string name="transaction_history_column_type_status">Type/Status</string>
+    <string name="transaction_history_column_amount_fee">Amount/Fee</string>
+
+    <string name="transaction_status_closed">Closed</string>
+
+    <string name="transaction_history_type_sell">Sell</string>
+    <string name="transaction_history_type_withdrawal">Withdrawal</string>
+    <string name="transaction_history_type_buy">Buy</string>
+    <string name="transaction_history_type_deposit">Deposit</string>
+
+    <string name="transaction_history_empty">Nothing found</string>
+
+    <string name="wallet_action_deposit">Deposit</string>
+    <string name="wallet_action_buy">Buy</string>
+    <string name="wallet_action_withdraw">Withdraw</string>
+    <string name="wallet_action_sell">Sell</string>
+    <string name="wallet_transaction_history">Transaction history</string>
+    <string name="wallet_balance_title">Balance</string>
+    <string name="wallet_wallet_title">Wallet</string>
+    <string name="wallet_total">Total, USDT</string>
+    <string name="wallet_available">Available, USDT</string>
+    <string name="wallet_trading_account_title">Trading Account</string>
+    <string name="wallet_positions">Positions</string>
+    <string name="wallet_position_history">Position history</string>
+    <string name="wallet_coin">Coin</string>
+    <string name="wallet_positions_side">Side</string>
+    <string name="wallet_positions_total_ex_profit">Total Ex/Profit</string>
+    <string name="wallet_position_history_profit_side">Profit/Side</string>
+    <string name="wallet_position_name_leverage">%s %s</string>
+
+    <string name="position_history_detail_position_id">Position ID</string>
+    <string name="position_history_detail_side">Side</string>
+    <string name="position_history_detail_status">Status</string>
+    <string name="position_history_detail_opening_date">Opening Date</string>
+    <string name="position_history_detail_opening_time">Opening Time</string>
+    <string name="position_history_detail_average_sell_price">Average Sell Price</string>
+    <string name="position_history_detail_amount_sell_crypto">Amount (%s)</string>
+    <string name="position_history_detail_amount_sell_usdt">Amount (USDT)</string>
+    <string name="position_history_detail_closing_date">Closing Date</string>
+    <string name="position_history_detail_closingTime">Closing Time</string>
+    <string name="position_history_detail_average_buy_price">Average Buy Price</string>
+    <string name="position_history_detail_amount_buy_crypto">Amount (%s)</string>
+    <string name="position_history_detail_amount_buy_usdt">Amount (USDT)</string>
+    <string name="position_history_detail_profit">Profit</string>
+    <string name="position_history_detail_fee">Fee</string>
+
+    <string name="transaction_history_detail_date">Date</string>
+    <string name="transaction_history_detail_time">Time</string>
+    <string name="transaction_history_detail_amount">Amount (USDT)</string>
+    <string name="transaction_history_detail_fee">Fee (USDT)</string>
+    <string name="transaction_history_detail_type">Type</string>
+    <string name="transaction_history_detail_status">Status</string>
+    <string name="transaction_history_detail_address">Address</string>
+    <string name="transaction_history_detail_tx_hash">TxHash</string>
+    <string name="transaction_history_detail_transaction_id">Transaction ID</string>
+    <string name="transaction_history_detail_copied">%s copied</string>
+
+    <string name="close_position_title">Do you really want\nto close the position?</string>
+    <string name="close_position_close">Close</string>
+    <string name="close_position_cancel">Cancel</string>
+
+    <string name="withdraw_title">Вывод</string>
+    <string name="withdraw_network_title">Network</string>
+    <string name="withdraw_address_to_send_usdt_title">Address to send USDT</string>
+    <string name="withdraw_amount_usdt_title">Amount USDT</string>
+    <string name="withdraw_available_with_count">Available %d %s</string>
+    <string name="withdraw_transaction_fee_network">Transaction fee (network)</string>
+    <string name="withdraw_transaction_fee_total">Total</string>
+    <string name="withdraw_send">Send</string>
+    <string name="withdraw_amount_usdt_error">The entered amount including fees exceeds your account withdrawal limits</string>
+    <string name="withdraw_attention_msg">Внимание: This address is for withdrawing %s USDT tokens on %s blockchain. Do not transfer tokens to another network. Otherwise your withdrawal will be lost.</string>
+    <string name="withdraw_arrive_msg">Your USDT (%s) withdrawal will arrive after 5 network confirmation(s).</string>
+    <string name="withdraw_depends">Transaction fee depends on the selected network.</string>
+    <string name="withdraw_network_name">%s (%s)</string>
+    <string name="withdraw_address_to_send_usdt_hint">Input the address or scan it</string>
+    <string name="withdraw_network_hint">Choose network for transaction</string>
+    <string name="withdraw_amount_hint">Input the amount</string>
+    <string name="withdraw_available_usdt">Available %d USDT</string>
+    <string name="withdraw_usdt">%d USDT</string>
+
+    <string name="network_ethereum_name">Ethereum</string>
+    <string name="network_ethereum_code">ERC-20</string>
+    <string name="network_tron_name">Tron</string>
+    <string name="network_tron_code">TRC-20</string>
+    <string name="network_bitcoin_name">Bitcoin</string>
+    <string name="network_bitcoin_code">OMNI</string>
+
+    <string name="side_long">Long</string>
+    <string name="side_short">Short</string>
+
+    <string name="common_close">Close</string>
+    <string name="common_no_fee">No fee</string>
+
+    <string name="common_remove">Remove</string>
+    <string name="common_cancel">Cancel</string>
+</resources>

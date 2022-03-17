@@ -44,10 +44,10 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/withdrawNetworkTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/spacing_normal"
-                    android:text="@string/withdraw_network_title"
                     android:textColor="@color/white_opacity_50"
                     android:textSize="@dimen/font_normal" />
 
@@ -61,7 +61,6 @@
                     android:onClick="@{() -> withdrawFragmentActionListenerBinding.onWithdrawNetworkBtnClicked()}"
                     android:paddingStart="@dimen/spacing_normal"
                     android:paddingEnd="@dimen/spacing_normal"
-                    android:text="@string/withdraw_network_hint"
                     android:textColor="@color/white_opacity_50"
                     android:textSize="@dimen/font_small"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -69,11 +68,11 @@
                     app:layout_constraintTop_toBottomOf="@+id/supportCategoryOfAppealTitleText" />
 
                 <TextView
+                    android:id="@+id/withdrawAddressToSendUsdtTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/spacing_normal"
                     android:layout_marginTop="@dimen/spacing_normal"
-                    android:text="@string/withdraw_address_to_send_usdt_title"
                     android:textColor="@color/white_opacity_50"
                     android:textSize="@dimen/font_normal" />
 
@@ -95,7 +94,6 @@
                         android:layout_weight="1"
                         android:background="@null"
                         android:gravity="center_vertical"
-                        android:hint="@string/withdraw_address_to_send_usdt_hint"
                         android:inputType="textMultiLine"
                         android:lines="2"
                         android:paddingStart="@dimen/spacing_normal"
@@ -131,6 +129,7 @@
                         android:layout_height="40dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginEnd="@dimen/spacing_small"
+                        android:onClick="@{() -> withdrawFragmentActionListenerBinding.onAddressScanBtnClicked()}"
                         android:padding="0dp"
                         app:icon="@drawable/ic_scan"
                         app:iconGravity="textStart"
@@ -146,11 +145,11 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/withdrawAmountUsdtTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/spacing_normal"
                     android:layout_marginTop="@dimen/spacing_normal"
-                    android:text="@string/withdraw_amount_usdt_title"
                     android:textColor="@color/white_opacity_50"
                     android:textSize="@dimen/font_normal" />
 
@@ -169,7 +168,6 @@
                         android:layout_weight="1"
                         android:background="@null"
                         android:gravity="start|center_vertical"
-                        android:hint="@string/withdraw_amount_hint"
                         android:inputType="number"
                         android:maxLines="1"
                         android:paddingStart="@dimen/spacing_normal"
@@ -220,7 +218,7 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/supportSubjectOfAppealErrorText"
+                    android:id="@+id/withdrawAmountUsdtErrorText"
                     isInvisible="@{false}"
                     show="@{withdrawViewModelBinding.amountErrorVisible}"
                     android:layout_width="match_parent"
@@ -228,22 +226,20 @@
                     android:layout_marginStart="@dimen/spacing_normal"
                     android:layout_marginTop="@dimen/spacing_small"
                     android:layout_marginEnd="@dimen/spacing_normal"
-                    android:text="@string/withdraw_amount_usdt_error"
                     android:textColor="@color/common_error"
                     android:textSize="@dimen/font_minute"
                     app:layout_constraintStart_toStartOf="@+id/supportSubjectOfAppealEditText"
                     app:layout_constraintTop_toBottomOf="@+id/supportSubjectOfAppealEditText" />
 
                 <TextView
+                    android:id="@+id/withdrawAvailableUsdtText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/spacing_normal"
                     android:layout_marginTop="@dimen/spacing_small"
                     android:layout_marginEnd="@dimen/spacing_normal"
-                    android:text="@{@string/withdraw_available_usdt(withdrawViewModelBinding.availableUsdt)}"
                     android:textColor="@color/white_opacity_50"
-                    android:textSize="@dimen/font_normal"
-                    tools:text="Available 500 USDT" />
+                    android:textSize="@dimen/font_normal" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -254,7 +250,7 @@
                         android:id="@+id/withdrawTransactionFeeNetworkTitleText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/withdraw_transaction_fee_network"
+                        android:paddingEnd="@dimen/spacing_small"
                         android:textColor="@android:color/white"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -278,7 +274,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_small"
-                        android:text="@string/withdraw_transaction_fee_total"
+                        android:paddingEnd="@dimen/spacing_small"
                         android:textColor="@android:color/white"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -299,7 +295,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <TextView
-                    android:id="@+id/withdrawAttentionMsgText"
+                    android:id="@+id/withdrawAttentionText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_small"
@@ -307,7 +303,7 @@
                     android:textSize="@dimen/font_normal" />
 
                 <TextView
-                    android:id="@+id/withdrawArriveMsgText"
+                    android:id="@+id/withdrawArriveText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_small"
@@ -315,10 +311,10 @@
                     android:textSize="@dimen/font_normal" />
 
                 <TextView
+                    android:id="@+id/withdrawDependsText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/spacing_small"
-                    android:text="@string/withdraw_depends"
                     android:textColor="@color/white_opacity_50"
                     android:textSize="@dimen/font_normal" />
 
@@ -331,7 +327,6 @@
                     android:background="@drawable/bg_rectangle_accent_btn"
                     android:enabled="false"
                     android:gravity="center"
-                    android:text="@string/withdraw_send"
                     android:textColor="@android:color/white"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"

@@ -145,6 +145,8 @@
         <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.12" />
         <entry key="app/src/main/res/layout/fragment_support.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_transaction_history.xml" value="0.17135416666666667" />
+        <entry key="app/src/main/res/layout/fragment_wallet.xml" value="0.21014492753623187" />
+        <entry key="app/src/main/res/layout/fragment_wallet_position_history.xml" value="0.21014492753623187" />
         <entry key="app/src/main/res/layout/fragment_withdraw.xml" value="0.33" />
         <entry key="app/src/main/res/layout/itam_validation.xml" value="0.15472972972972973" />
         <entry key="app/src/main/res/layout/item_appeal_category.xml" value="0.1331081081081081" />
@@ -163,6 +165,7 @@
         <entry key="app/src/main/res/layout/item_wallet_position_history.xml" value="0.17135416666666667" />
         <entry key="app/src/main/res/layout/item_wallet_positions.xml" value="0.6113416320885201" />
         <entry key="app/src/main/res/layout/item_withdraw_network.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/layout.xml" value="0.33" />
         <entry key="app/src/main/res/layout/layout_main_complete_verification.xml" value="0.33" />
         <entry key="app/src/main/res/layout/layout_main_crypto_shimmer.xml" value="0.12432432432432433" />
         <entry key="app/src/main/res/layout/layout_main_header.xml" value="0.33" />

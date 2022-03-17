@@ -10,10 +10,12 @@ import androidx.navigation.fragment.findNavController
 import com.websocket.project.R
 import com.websocket.project.databinding.FragmentWithdrawBinding
 import com.websocket.project.ui.base.BaseFragment
+import com.websocket.project.ui.base.getLocalizedResources
 import com.websocket.project.ui.base.observe
 import com.websocket.project.ui.main.MainActivity
 import com.websocket.project.ui.withdraw.network.WithdrawNetwork
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.*
 
 @AndroidEntryPoint
 class WithdrawFragment :
@@ -29,12 +31,27 @@ class WithdrawFragment :
             viewModel.setSelectedNetwork(result)
         }
 
+        val localizedResources = getLocalizedResources(requireContext(), Locale("ru"))
+
         with(binding) {
             withdrawTopbarLayoutInclude.backClick = View.OnClickListener {
                 (activity as MainActivity).onBackPressed()
             }
+
             withdrawTopbarLayoutInclude.title.text =
-                requireContext().getString(R.string.withdraw_title)
+                localizedResources?.getString(R.string.withdraw_title)
+            withdrawNetworkTitleText.text = localizedResources?.getString(R.string.withdraw_network_title)
+            withdrawNetworkBtn.text = localizedResources?.getString(R.string.withdraw_network_hint)
+            withdrawAddressToSendUsdtTitleText.text = localizedResources?.getString(R.string.withdraw_address_to_send_usdt_title)
+            withdrawAddressToSendEditText.hint = localizedResources?.getString(R.string.withdraw_address_to_send_usdt_hint)
+            withdrawAmountEditText.hint = localizedResources?.getString(R.string.withdraw_amount_hint)
+            withdrawAmountUsdtTitleText.text = localizedResources?.getString(R.string.withdraw_amount_usdt_title)
+            withdrawAmountUsdtErrorText.text = localizedResources?.getString(R.string.withdraw_amount_usdt_error)
+            withdrawAvailableUsdtText.text =  localizedResources?.getString(R.string.withdraw_available_usdt, viewModel.getAvailableUsdt())
+            withdrawTransactionFeeNetworkTitleText.text = localizedResources?.getString(R.string.withdraw_transaction_fee_network)
+            withdrawTransactionFeeTotalTitleText.text = localizedResources?.getString(R.string.withdraw_transaction_fee_total)
+            withdrawDependsText.text = localizedResources?.getString(R.string.withdraw_depends)
+            withdrawSendBtn.text = localizedResources?.getString(R.string.withdraw_send)
 
             withdrawViewModelBinding = viewModel
             withdrawFragmentActionListenerBinding = this@WithdrawFragment
@@ -64,7 +81,7 @@ class WithdrawFragment :
     }
 
     override fun onAddressScanBtnClicked() {
-
+        //Todo: scan address QR
     }
 
     override fun onAddressClearBtnClicked() {
@@ -84,6 +101,7 @@ class WithdrawFragment :
     }
 
     private fun observeLiveData() {
+        val localizedResources = getLocalizedResources(requireContext(), Locale("ru"))
         with(viewModel) {
             observe(networkChosenPosition) { networkChosenPosition ->
                 if (networkChosenPosition != -1) {
@@ -91,10 +109,10 @@ class WithdrawFragment :
                     val name = requireContext().getString(withdrawNetwork.networkName)
                     val code = requireContext().getString(withdrawNetwork.networkCode)
                     with(binding) {
-                        withdrawNetworkBtn.text = requireContext().getString(R.string.withdraw_network_name, name, code)
+                        withdrawNetworkBtn.text = localizedResources?.getString(R.string.withdraw_network_name, name, code)
                         withdrawNetworkBtn.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
-                        withdrawAttentionMsgText.text = requireContext().getString(R.string.withdraw_attention_msg, code, name)
-                        withdrawArriveMsgText.text = requireContext().getString(R.string.withdraw_arrive_msg, code)
+                        withdrawAttentionText.text =  localizedResources?.getString(R.string.withdraw_attention_msg, code, name)
+                        withdrawArriveText.text = localizedResources?.getString(R.string.withdraw_arrive_msg, code)
                     }
                 }
             }

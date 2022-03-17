@@ -1,6 +1,8 @@
 package com.websocket.project.ui.base
 
 import android.content.Context
+import android.content.res.Configuration
+import android.content.res.Resources
 import android.database.Cursor
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -14,6 +16,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.annotation.NonNull
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.LifecycleOwner
@@ -175,4 +178,13 @@ fun displayName(uri: Uri): String {
         mCursor.close()
     }
     return filename
+}
+
+@NonNull
+fun getLocalizedResources(context: Context, desiredLocale: Locale?): Resources? {
+    var conf: Configuration = context.resources.configuration
+    conf = Configuration(conf)
+    conf.setLocale(desiredLocale)
+    val localizedContext: Context = context.createConfigurationContext(conf)
+    return localizedContext.resources
 }

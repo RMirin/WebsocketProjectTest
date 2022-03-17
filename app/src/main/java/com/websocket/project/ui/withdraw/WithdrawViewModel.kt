@@ -20,13 +20,13 @@ class WithdrawViewModel @Inject constructor(): ViewModel() {
         get() = _networkChosenPosition
 
     private val _transactionFeeTotal = MutableLiveData(0)
+    private val availableUsdt = ObservableInt(500)
     val transactionFeeTotal: LiveData<Int>
         get() = _transactionFeeTotal
 
     var network = MutableStateFlow<String?>(null)
 
     val transactionFeeNetwork = ObservableInt(50)
-    val availableUsdt = ObservableInt(500)
     val amountErrorVisible = ObservableBoolean(false)
     val amountCleanVisible = ObservableBoolean(false)
 
@@ -57,5 +57,9 @@ class WithdrawViewModel @Inject constructor(): ViewModel() {
             _transactionFeeTotal.postValue(0)
         }
         amountErrorVisible.set(availableUsdt.get() < transactionFeeNetwork.get() + inputUsdt)
+    }
+
+    fun getAvailableUsdt(): Int {
+        return availableUsdt.get()
     }
 }
