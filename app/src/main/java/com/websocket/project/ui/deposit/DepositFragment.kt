@@ -19,6 +19,7 @@ import androidx.navigation.fragment.findNavController
 import com.websocket.project.R
 import com.websocket.project.databinding.FragmentDepositBinding
 import com.websocket.project.ui.base.BaseFragment
+import com.websocket.project.ui.base.getBitmapFromView
 import com.websocket.project.ui.base.getLocalizedResources
 import com.websocket.project.ui.base.observe
 import com.websocket.project.ui.main.MainActivity
@@ -61,6 +62,7 @@ class DepositFragment: BaseFragment<FragmentDepositBinding>(), DepositFragmentAc
                 localizedResources?.getString(R.string.deposit_usdt_address_title)
             depositSaveImageBtn.text = localizedResources?.getString(R.string.deposit_save_image)
 
+            depositViewModelBinding = viewModel
             depositFragmentActionListenerBinding = this@DepositFragment
         }
 
@@ -118,25 +120,17 @@ class DepositFragment: BaseFragment<FragmentDepositBinding>(), DepositFragmentAc
 
     private fun takeScreenshot() {
         val date = Date()
-        DateFormat.format("yyyy-MM-dd_hh:mm:ss", date)
+        DateFormat.format(SCREENSHOT_NAME_DATE_FORMAT, date)
         val currentDate = date.toString().replace(":", ".")
         try {
-            // image naming and path  to include sd card  appending name you choose for file
             val mPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString() + "/" + currentDate + ".jpg"
 
-            // create bitmap screen capture
-            val v1: View? = activity?.window?.decorView?.rootView
-            if (v1 != null) {
-                v1.isDrawingCacheEnabled = true
-            }
-            val bitmap = v1?.drawingCache?.let { Bitmap.createBitmap(it) }
-            if (v1 != null) {
-                v1.isDrawingCacheEnabled = false
-            }
+            val viewForBitmap: View? = activity?.window?.decorView?.rootView
+            val bitmapFromView = viewForBitmap?.let { getBitmapFromView(it) }
             val imageFile = File(mPath)
             val outputStream = FileOutputStream(imageFile)
             val quality = 100
-            bitmap?.compress(Bitmap.CompressFormat.JPEG, quality, outputStream)
+            bitmapFromView?.compress(Bitmap.CompressFormat.JPEG, quality, outputStream)
 
             Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE).also { mediaScanIntent ->
                 val f = File(mPath)
@@ -179,5 +173,7 @@ class DepositFragment: BaseFragment<FragmentDepositBinding>(), DepositFragmentAc
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE
         )
+
+        private const val SCREENSHOT_NAME_DATE_FORMAT = "yyyy-MM-dd_hh:mm:ss"
     }
 }

@@ -6,6 +6,10 @@
     <data>
 
         <variable
+            name="depositViewModelBinding"
+            type="com.websocket.project.ui.deposit.DepositViewModel" />
+
+        <variable
             name="depositFragmentActionListenerBinding"
             type="com.websocket.project.ui.deposit.DepositFragmentActionListener" />
     </data>
@@ -167,6 +171,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -176,11 +181,12 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginEnd="@dimen/spacing_small"
                         android:layout_weight="1"
-                        android:background="@drawable/bg_rectangle_accent_btn"
+                        android:background="@drawable/selector_rectangle_accent_btn"
                         android:drawablePadding="11dp"
                         android:ellipsize="end"
                         android:gravity="center_vertical|center_horizontal"
                         android:maxLines="1"
+                        android:enabled="@{depositViewModelBinding.isNetworkChosen()}"
                         android:onClick="@{() -> depositFragmentActionListenerBinding.onSaveImageClick()}"
                         android:paddingStart="25dp"
                         android:paddingTop="20dp"
@@ -198,11 +204,12 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="@dimen/spacing_small"
                         android:layout_weight="1"
-                        android:background="@drawable/bg_rectangle_accent_btn"
+                        android:background="@drawable/selector_rectangle_accent_btn"
                         android:drawablePadding="11dp"
                         android:ellipsize="end"
                         android:gravity="center_vertical"
                         android:maxLines="1"
+                        android:enabled="@{depositViewModelBinding.isNetworkChosen()}"
                         android:onClick="@{() -> depositFragmentActionListenerBinding.onShareAddressClick()}"
                         android:paddingStart="@dimen/spacing_normal"
                         android:paddingTop="20dp"

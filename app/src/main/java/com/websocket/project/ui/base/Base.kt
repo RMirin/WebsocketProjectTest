@@ -6,6 +6,7 @@ import android.content.res.Resources
 import android.database.Cursor
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Canvas
 import android.net.Uri
 import android.provider.OpenableColumns
 import android.text.SpannableString
@@ -187,4 +188,12 @@ fun getLocalizedResources(context: Context, desiredLocale: Locale?): Resources? 
     conf.setLocale(desiredLocale)
     val localizedContext: Context = context.createConfigurationContext(conf)
     return localizedContext.resources
+}
+
+fun getBitmapFromView(view: View): Bitmap? {
+    val bitmap =
+        Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
+    val canvas = Canvas(bitmap)
+    view.draw(canvas)
+    return bitmap
 }

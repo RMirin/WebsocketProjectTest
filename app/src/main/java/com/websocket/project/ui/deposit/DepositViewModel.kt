@@ -1,5 +1,7 @@
 package com.websocket.project.ui.deposit
 
+import androidx.databinding.ObservableBoolean
+import androidx.databinding.ObservableInt
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -23,7 +25,10 @@ class DepositViewModel @Inject constructor(): ViewModel() {
 
     var network = MutableStateFlow<String?>(null)
 
+    val isNetworkChosen = ObservableBoolean(false)
+
     fun setSelectedNetwork(position: Int) {
+        isNetworkChosen.set(true)
         viewModelScope.launch {
             network.emit(Network.values()[position].name)
         }

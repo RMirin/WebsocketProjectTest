@@ -46,7 +46,8 @@
     <color name="common_outlined_btn_text">#6965F3</color>
     <color name="common_back">#999EA8</color>
     <color name="common_error">#CF202C</color>
-    <color name="common_btn">#262768</color>
+    <color name="common_dark_btn">#262768</color>
+    <color name="common_light_btn">#6965F3</color>
     <color name="common_stroke">#6965F3</color>
 
     <color name="transaction_history_folder_selected">#4B47CD</color>
