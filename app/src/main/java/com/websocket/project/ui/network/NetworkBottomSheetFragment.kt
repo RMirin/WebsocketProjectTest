@@ -1,22 +1,17 @@
-package com.websocket.project.ui.withdraw.network
+package com.websocket.project.ui.network
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.websocket.project.databinding.BottomSheetLayoutWithdrawNetworkBinding
 import com.websocket.project.ui.base.BaseBottomSheetDialogFragment
-import com.websocket.project.ui.support.SupportFragment
-import com.websocket.project.ui.support.appeal_category.AppealCategory
-import com.websocket.project.ui.withdraw.WithdrawFragment.Companion.NETWORK_RESULT_KEY
 
-class WithdrawNetworkBottomSheetFragment :
+class NetworkBottomSheetFragment :
     BaseBottomSheetDialogFragment<BottomSheetLayoutWithdrawNetworkBinding>(),
-    WithdrawNetworkBottomSheetActionListener {
+    NetworkBottomSheetActionListener {
 
     private val withdrawNetworkAdapter by lazy(LazyThreadSafetyMode.NONE) {
-        WithdrawNetworkAdapter(this)
+        NetworkAdapter(Network.values(), this)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -29,12 +24,16 @@ class WithdrawNetworkBottomSheetFragment :
     override fun initViewBinding(): BottomSheetLayoutWithdrawNetworkBinding =
         BottomSheetLayoutWithdrawNetworkBinding.inflate(layoutInflater)
 
-    override fun onNetworkActionClicked(withdrawNetwork: WithdrawNetwork) {
-        val networkPosition = WithdrawNetwork.valueOf(withdrawNetwork.name).ordinal
+    override fun onNetworkActionClicked(network: Network) {
+        val networkPosition = Network.valueOf(network.name).ordinal
         findNavController().previousBackStackEntry?.savedStateHandle?.set(
             NETWORK_RESULT_KEY,
             networkPosition
         )
         dismiss()
+    }
+
+    companion object {
+        const val NETWORK_RESULT_KEY = "network"
     }
 }

@@ -6,27 +6,27 @@
     <data>
 
         <variable
-            name="withdrawNetworkItemBinding"
-            type="com.websocket.project.ui.withdraw.network.WithdrawNetwork" />
+            name="networkItemBinding"
+            type="com.websocket.project.ui.network.Network" />
 
         <variable
-            name="withdrawNetworkItemText"
+            name="networkItemText"
             type="String" />
 
         <variable
-            name="withdrawNetworkBottomSheetActionListenerBinding"
-            type="com.websocket.project.ui.withdraw.network.WithdrawNetworkBottomSheetActionListener" />
+            name="networkBottomSheetActionListenerBinding"
+            type="com.websocket.project.ui.network.NetworkBottomSheetActionListener" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:onClick="@{() -> withdrawNetworkBottomSheetActionListenerBinding.onNetworkActionClicked(withdrawNetworkItemBinding)}"
+    android:onClick="@{() -> networkBottomSheetActionListenerBinding.onNetworkActionClicked(networkItemBinding)}"
     android:background="@drawable/bg_transparent_btn_rectangle">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@{withdrawNetworkItemText}"
+        android:text="@{networkItemText}"
         android:textColor="@android:color/white"
         android:gravity="center"
         android:layout_marginTop="24dp"

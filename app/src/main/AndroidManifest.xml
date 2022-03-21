@@ -27,7 +27,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.WebsocketProjectTest">
+        android:theme="@style/Theme.WebsocketProjectTest"
+        android:requestLegacyExternalStorage="true">
 
         <activity
             android:name=".ui.main.MainActivity"

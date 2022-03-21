@@ -32,7 +32,7 @@
             android:layout_marginTop="@dimen/spacing_big"
             android:overScrollMode="never"
             android:orientation="vertical"
-            tools:listitem="@layout/item_withdraw_network"
+            tools:listitem="@layout/item_network"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

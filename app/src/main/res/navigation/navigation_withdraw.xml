@@ -10,12 +10,12 @@
         android:label="WithdrawFragment" >
         <action
             android:id="@+id/action_withdrawFragment_to_withdrawNetworkBottomSheetFragment"
-            app:destination="@id/withdrawNetworkBottomSheetFragment" />
+            app:destination="@id/networkBottomSheetFragment" />
     </fragment>
 
     <dialog
-        android:id="@+id/withdrawNetworkBottomSheetFragment"
-        android:name="com.websocket.project.ui.withdraw.network.WithdrawNetworkBottomSheetFragment"
-        android:label="WithdrawNetworkBottomSheetFragment">
+        android:id="@+id/networkBottomSheetFragment"
+        android:name="com.websocket.project.ui.network.NetworkBottomSheetFragment"
+        android:label="NetworkBottomSheetFragment">
     </dialog>
 </navigation>

@@ -179,14 +179,27 @@
     <string name="withdraw_amount_usdt_error">The entered amount including fees exceeds your account withdrawal limits</string>
     <string name="withdraw_attention_msg">Attention: This address is for withdrawing %s USDT tokens on %s blockchain. Do not transfer tokens to another network. Otherwise your withdrawal will be lost.</string>
     <string name="withdraw_arrive_msg">Your USDT (%s) withdrawal will arrive after 5 network confirmation(s).</string>
-    <string name="withdraw_depends">Transaction fee depends on the selected network.</string>
-    <string name="withdraw_network_name">%s (%s)</string>
+    <string name="withdraw_fee_msg">Transaction fee depends on the selected network.</string>
+    <string name="withdraw_network_btn">%s (%s)</string>
     <string name="withdraw_address_to_send_usdt_hint">Input the address or scan it</string>
     <string name="withdraw_network_hint">Choose network for transaction</string>
     <string name="withdraw_amount_hint">Input the amount</string>
     <string name="withdraw_available_usdt">Available %d USDT</string>
     <string name="withdraw_usdt">%d USDT</string>
 
+    <string name="deposit_title">Deposit</string>
+    <string name="deposit_network_title">Network</string>
+    <string name="deposit_network_btn">%s (%s)</string>
+    <string name="deposit_network_btn_hint">Choose network for transaction</string>
+    <string name="deposit_usdt_address_title">USDT Deposit address</string>
+    <string name="deposit_attention_msg">Attention: This address is for depositing %s USDT tokens on %s blockchain. Do not transfer tokens from another network. Otherwise your deposit will be lost. Send only USDT to this address. Other assets will be irretrievable.</string>
+    <string name="deposit_arrive_msg">Your USDT (%s) deposit will arrive after 5 network confirmation(s). </string>
+    <string name="deposit_fee_msg">Deposit Fee: %d%%.</string>
+    <string name="deposit_save_image">Save Image</string>
+    <string name="deposit_share_address">Share Address</string>
+    <string name="deposit_address_copied">Address copied</string>
+    <string name="deposit_image_saved_msg">The image is saved\nto the phone gallery</string>
+    
     <string name="network_ethereum_name">Ethereum</string>
     <string name="network_ethereum_code">ERC-20</string>
     <string name="network_tron_name">Tron</string>
@@ -197,6 +210,7 @@
     <string name="side_long">Long</string>
     <string name="side_short">Short</string>
 
+    <string name="common_ok">OK</string>
     <string name="common_close">Close</string>
     <string name="common_no_fee">No fee</string>
 

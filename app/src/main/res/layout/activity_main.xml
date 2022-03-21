@@ -18,7 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/navigation_withdraw" />
+        app:navGraph="@navigation/navigation_deposit" />
 
 <!--        <com.websocket.project.ui.custom.rsi_view.RsiView-->
 <!--            android:id="@+id/main_rsi_view"-->

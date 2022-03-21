@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.websocket.project.ui.withdraw.network.WithdrawNetwork
+import com.websocket.project.ui.network.Network
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
@@ -18,13 +18,12 @@ class WithdrawViewModel @Inject constructor(): ViewModel() {
     private val _networkChosenPosition = MutableLiveData(2)
     val networkChosenPosition: LiveData<Int>
         get() = _networkChosenPosition
+    var network = MutableStateFlow<String?>(null)
 
     private val _transactionFeeTotal = MutableLiveData(0)
     private val availableUsdt = ObservableInt(500)
     val transactionFeeTotal: LiveData<Int>
         get() = _transactionFeeTotal
-
-    var network = MutableStateFlow<String?>(null)
 
     val transactionFeeNetwork = ObservableInt(50)
     val amountErrorVisible = ObservableBoolean(false)
@@ -40,7 +39,7 @@ class WithdrawViewModel @Inject constructor(): ViewModel() {
 
     fun setSelectedNetwork(position: Int) {
         viewModelScope.launch {
-            network.emit(WithdrawNetwork.values()[position].name)
+            network.emit(Network.values()[position].name)
         }
         _networkChosenPosition.postValue(position)
     }

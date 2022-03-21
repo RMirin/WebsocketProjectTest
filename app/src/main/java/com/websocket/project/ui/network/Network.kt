@@ -1,12 +1,15 @@
-package com.websocket.project.ui.withdraw.network
+package com.websocket.project.ui.network
 
+import android.os.Parcelable
 import androidx.annotation.StringRes
 import com.websocket.project.R
+import kotlinx.parcelize.Parcelize
 
-enum class WithdrawNetwork(
+@Parcelize
+enum class Network(
     @StringRes val networkName: Int,
     @StringRes val networkCode: Int
-) {
+) : Parcelable {
     ETHEREUM(
         networkName = R.string.network_ethereum_name,
         networkCode = R.string.network_ethereum_code

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_withdraw"
+    app:startDestination="@id/depositFragment">
+
+    <fragment
+        android:id="@+id/depositFragment"
+        android:name="com.websocket.project.ui.deposit.DepositFragment"
+        android:label="DepositFragment" >
+        <action
+            android:id="@+id/action_depositFragment_to_withdrawNetworkBottomSheetFragment"
+            app:destination="@id/networkBottomSheetFragment" />
+        <action
+            android:id="@+id/action_depositFragment_to_dialogFragmentAlert"
+            app:destination="@id/dialogFragmentAlert" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/networkBottomSheetFragment"
+        android:name="com.websocket.project.ui.network.NetworkBottomSheetFragment"
+        android:label="NetworkBottomSheetFragment">
+        <argument
+            android:name="networkList"
+            app:argType="com.websocket.project.ui.network.Network[]" />
+    </dialog>
+    <dialog
+        android:id="@+id/dialogFragmentAlert"
+        android:name="com.websocket.project.ui.alert.DialogFragmentAlert"
+        android:label="DialogFragmentAlert" >
+        <argument
+            android:name="titleId"
+            app:argType="reference" />
+    </dialog>
+</navigation>
