@@ -5,9 +5,6 @@
     android:viewportWidth="50"
     android:viewportHeight="50">
   <path
-      android:pathData="M25.2705,25.3721m-24.5,0a24.5,24.5 0,1 1,49 0a24.5,24.5 0,1 1,-49 0"
-      android:fillColor="#202942"/>
-  <path
       android:pathData="M25.2705,40.3721C33.5548,40.3721 40.2705,33.6563 40.2705,25.3721C40.2705,17.0878 33.5548,10.3721 25.2705,10.3721C16.9862,10.3721 10.2705,17.0878 10.2705,25.3721C10.2705,33.6563 16.9862,40.3721 25.2705,40.3721Z">
     <aapt:attr name="android:fillColor">
       <gradient 

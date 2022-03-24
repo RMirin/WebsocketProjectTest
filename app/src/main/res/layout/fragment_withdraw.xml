@@ -227,7 +227,7 @@
                     android:layout_marginTop="@dimen/spacing_small"
                     android:layout_marginEnd="@dimen/spacing_normal"
                     android:textColor="@color/common_error"
-                    android:textSize="@dimen/font_minute"
+                    android:textSize="@dimen/font_very_small"
                     app:layout_constraintStart_toStartOf="@+id/supportSubjectOfAppealEditText"
                     app:layout_constraintTop_toBottomOf="@+id/supportSubjectOfAppealEditText" />
 

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="buyFiatDrawerFragmentActionListenerBinding"
+            type="com.websocket.project.ui.wallet.buy.fiat_drawer.BuyFiatDrawerFragmentActionListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_drawer_left"
+        android:paddingStart="@dimen/spacing_normal"
+        android:paddingTop="@dimen/spacing_normal"
+        android:paddingEnd="@dimen/spacing_normal">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/buyFiatSearchLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_search_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:id="@+id/buyFiatSearchEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="@dimen/spacing_normal"
+                android:layout_marginBottom="10dp"
+                android:background="@android:color/transparent"
+                tools:hint="@string/buy_fiat_search_hint"
+                android:inputType="textCapWords"
+                android:singleLine="true"
+                android:textAlignment="viewStart"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white_opacity_50"
+                android:textSize="@dimen/font_very_small"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/buyFiatSearchImg"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/buyFiatSearchImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/spacing_normal"
+                android:src="@drawable/ic_search"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/buyFiatClearBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/spacing_normal"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:onClick="@{() -> buyFiatDrawerFragmentActionListenerBinding.onClearSearchBtnClick()}"
+                android:src="@drawable/ic_search_clear"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/buyFiatRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buyFiatSearchLayout"
+            tools:listitem="@layout/item_buy_fiat" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

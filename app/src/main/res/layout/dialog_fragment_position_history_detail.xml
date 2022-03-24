@@ -54,7 +54,7 @@
                 android:layout_marginStart="@dimen/spacing_small"
                 android:text="@{positionHistoryModelBinding.nameFull}"
                 android:textColor="@color/white_opacity_50"
-                android:textSize="@dimen/font_minute"
+                android:textSize="@dimen/font_very_small"
                 app:layout_constraintBottom_toBottomOf="@+id/positionHistoryDetailImg"
                 app:layout_constraintStart_toEndOf="@+id/positionHistoryDetailImg"
                 tools:text="Etherium" />

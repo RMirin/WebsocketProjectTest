@@ -51,7 +51,7 @@
         android:layout_marginTop="2dp"
         android:layout_marginEnd="@dimen/spacing_small"
         android:background="@drawable/bg_item_main_shimmer_crypto_text"
-        android:textSize="@dimen/font_minute"
+        android:textSize="@dimen/font_very_small"
         app:layout_constraintEnd_toStartOf="@+id/itemWalletPositionHistoryPlaceholder04Guideline"
         app:layout_constraintStart_toEndOf="@+id/itemWalletPositionHistoryPlaceholderCryptoImg"
         app:layout_constraintTop_toTopOf="@+id/itemWalletTradingAccountPositionHistoryPlaceholder05HorizontalGuideline" />
@@ -70,7 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:background="@drawable/bg_item_main_shimmer_crypto_text"
-        android:textSize="@dimen/font_minute"
+        android:textSize="@dimen/font_very_small"
         app:layout_constraintStart_toStartOf="@+id/itemWalletPositionHistoryPlaceholder04Guideline"
         app:layout_constraintTop_toTopOf="@+id/itemWalletTradingAccountPositionHistoryPlaceholder05HorizontalGuideline" />
 
@@ -89,7 +89,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:background="@drawable/bg_item_main_shimmer_crypto_text"
-        android:textSize="@dimen/font_minute"
+        android:textSize="@dimen/font_very_small"
         android:layout_marginEnd="@dimen/spacing_normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/itemWalletTradingAccountPositionHistoryPlaceholder05HorizontalGuideline" />

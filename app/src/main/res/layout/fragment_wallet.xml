@@ -34,7 +34,7 @@
                 android:paddingBottom="7dp"
                 android:text="@string/wallet_transaction_history"
                 android:textColor="@color/common_outlined_btn_text"
-                android:textSize="@dimen/font_minute"
+                android:textSize="@dimen/font_very_small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

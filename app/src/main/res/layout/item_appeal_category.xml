@@ -10,7 +10,7 @@
             android:id="@+id/appealCategoryText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textColor="@drawable/selector_appeal_category_text"
+            android:textColor="@drawable/selector_checked_text"
             android:padding="@dimen/spacing_normal"
             android:textSize="@dimen/font_small"
             app:layout_constraintEnd_toEndOf="parent"

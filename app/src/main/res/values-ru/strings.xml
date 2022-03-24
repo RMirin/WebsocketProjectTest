@@ -101,6 +101,44 @@
     <string name="crypto_xrp">XRPUSDT</string>
     <string name="crypto_zec">ZECUSDT</string>
 
+    <string name="fiat_code_ars">ARS</string>
+    <string name="fiat_code_byn">BYN</string>
+    <string name="fiat_code_clp">CLP</string>
+    <string name="fiat_code_cop">COP</string>
+    <string name="fiat_code_eur">EUR</string>
+    <string name="fiat_code_idr">IDR</string>
+    <string name="fiat_code_inr">INR</string>
+    <string name="fiat_code_kzt">KZT</string>
+    <string name="fiat_code_mxn">MXN</string>
+    <string name="fiat_code_myr">MYR</string>
+    <string name="fiat_code_pen">PEN</string>
+    <string name="fiat_code_php">PHP</string>
+    <string name="fiat_code_rub">RUB</string>
+    <string name="fiat_code_thb">THB</string>
+    <string name="fiat_code_uah">UAH</string>
+    <string name="fiat_code_usd">USD</string>
+    <string name="fiat_code_vef">VEF</string>
+    <string name="fiat_code_vnd">VND</string>
+
+    <string name="fiat_name_ars">Argentine Peso</string>
+    <string name="fiat_name_byn">Белорусский Рубль</string>
+    <string name="fiat_name_clp">Chilean Peso</string>
+    <string name="fiat_name_cop">Colombian Peso</string>
+    <string name="fiat_name_eur">Европеский Евро</string>
+    <string name="fiat_name_idr">Индонезийская Рупия</string>
+    <string name="fiat_name_inr">Индийская Рупия</string>
+    <string name="fiat_name_kzt">Казахстанский Тенге</string>
+    <string name="fiat_name_mxn">Mexican Peso</string>
+    <string name="fiat_name_myr">Malaysian Ringgit</string>
+    <string name="fiat_name_pen">Peruvian New Sol</string>
+    <string name="fiat_name_php">Philippine Peso</string>
+    <string name="fiat_name_rub">Российский Рубль</string>
+    <string name="fiat_name_thb">Thai Baht</string>
+    <string name="fiat_name_uah">Украинская Гривна</string>
+    <string name="fiat_name_usd">Доллар США</string>
+    <string name="fiat_name_vef">Venezuelan Bolivar</string>
+    <string name="fiat_name_vnd">Vietnamese Dong</string>
+
     <string name="transaction_history_title">Transaction history</string>
     <string name="transaction_history_folder_all">All</string>
     <string name="transaction_history_folder_deposit">Deposit</string>
@@ -208,6 +246,25 @@
     <string name="network_tron_code">TRC-20</string>
     <string name="network_bitcoin_name">Bitcoin</string>
     <string name="network_bitcoin_code">OMNI</string>
+
+    <string name="buy_title">Buy</string>
+    <string name="buy_pay_title">You pay</string>
+    <string name="buy_receive_title">You receive</string>
+    <string name="buy_best_price_title">Best Price\n≈ %s %s</string>
+    <string name="buy_partners_title">Choose Partners</string>
+    <string name="buy_partners_partners_title">Partners</string>
+    <string name="buy_partners_price_title">Price</string>
+    <string name="buy_partners_you_receive_title">You receive</string>
+    <string name="buy_fiat_search_hint">Fiat search</string>
+    <string name="buy_min_pay">Min %s</string>
+    <string name="buy_min_receive">Min %s</string>
+    <string name="buy_partners_item_type_bank_card">Bank card</string>
+    <string name="buy_partners_item_type_apple_pay">Apple Pay</string>
+    <string name="buy_partners_item_name_simplex">Simplex</string>
+    <string name="buy_partners_item_name_xanpool">Xanpool</string>
+    <string name="buy_partners_item_name_moonpay">Moonpay</string>
+    <string name="buy_partners_item_name_banxa">Banxa</string>
+    <string name="buy_partners_item_name_mercuryo">Mercuryo</string>
 
     <string name="side_long">Long</string>
     <string name="side_short">Short</string>

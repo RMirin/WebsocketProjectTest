@@ -102,7 +102,7 @@
                     android:layout_marginTop="@dimen/spacing_small"
                     android:text="@string/support_category_of_appeal_error"
                     android:textColor="@color/common_error"
-                    android:textSize="@dimen/font_minute"
+                    android:textSize="@dimen/font_very_small"
                     app:isVisible="@{supportViewModelBinding.categoryError}"
                     app:layout_constraintStart_toStartOf="@+id/supportCategoryOfAppealBtn"
                     app:layout_constraintTop_toBottomOf="@+id/supportCategoryOfAppealBtn" />
@@ -158,7 +158,7 @@
                     android:layout_marginTop="@dimen/spacing_small"
                     android:text="@string/support_subject_of_appeal_error"
                     android:textColor="@color/common_error"
-                    android:textSize="@dimen/font_minute"
+                    android:textSize="@dimen/font_very_small"
                     app:isVisible="@{supportViewModelBinding.subjectError}"
                     app:layout_constraintStart_toStartOf="@+id/supportSubjectOfAppealEditText"
                     app:layout_constraintTop_toBottomOf="@+id/supportSubjectOfAppealEditText" />
@@ -250,7 +250,7 @@
                     android:layout_marginTop="@dimen/spacing_small"
                     android:text="@string/support_text_of_appeal_error"
                     android:textColor="@color/common_error"
-                    android:textSize="@dimen/font_minute"
+                    android:textSize="@dimen/font_very_small"
                     app:layout_constraintStart_toStartOf="@+id/linearLayout2"
                     app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
@@ -299,7 +299,7 @@
                         android:layout_marginStart="@dimen/spacing_small"
                         android:text="@string/support_format"
                         android:textColor="@color/white_opacity_50"
-                        android:textSize="@dimen/font_minute"
+                        android:textSize="@dimen/font_very_small"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/supportAttachBtn" />
 

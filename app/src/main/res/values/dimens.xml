@@ -6,7 +6,7 @@
     <dimen name="spacing_large">20dp</dimen>
     <dimen name="spacing_big">24dp</dimen>
 
-    <dimen name="font_minute">12sp</dimen>
+    <dimen name="font_very_small">12sp</dimen>
     <dimen name="font_small">14sp</dimen>
     <dimen name="font_normal">16sp</dimen>
     <dimen name="font_default">18sp</dimen>

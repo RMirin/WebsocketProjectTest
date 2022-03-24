@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_buy"
+    app:startDestination="@id/buyFragment">
+
+    <fragment
+        android:id="@+id/buyFragment"
+        android:name="com.websocket.project.ui.wallet.buy.BuyFragment"
+        android:label="BuyFragment" />
+</navigation>

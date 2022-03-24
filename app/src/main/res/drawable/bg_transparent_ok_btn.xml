@@ -2,5 +2,5 @@
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
     android:color="@color/common_ripple">
     <item
-        android:drawable="@drawable/ic_transparent_ok_btn"/>
+        android:drawable="@drawable/ic_transparent_stroke"/>
 </ripple>

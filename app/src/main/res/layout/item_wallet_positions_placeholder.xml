@@ -74,7 +74,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:background="@drawable/bg_item_main_shimmer_crypto_text"
-        android:textSize="@dimen/font_minute"
+        android:textSize="@dimen/font_very_small"
         app:layout_constraintEnd_toStartOf="@+id/itemWalletPositionsPlaceholder088VerticalGuideline"
         app:layout_constraintTop_toBottomOf="@+id/itemWalletTradingAccountPositionsPlaceholder05HorizontalGuideline" />
 

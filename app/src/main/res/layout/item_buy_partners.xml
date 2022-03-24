@@ -1,0 +1,104 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="buyPartnersItemBinding"
+            type="com.websocket.project.ui.wallet.buy.BuyPartnersItem" />
+
+        <variable
+            name="buyFragmentActionListenerBinding"
+            type="com.websocket.project.ui.wallet.buy.BuyFragmentActionListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/itemBuyPartnersLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:onClick="@{() -> buyFragmentActionListenerBinding.onPartnersItemClick(buyPartnersItemBinding)}">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/itemBuyPartnersVertical07Guideline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.7" />
+
+        <ImageView
+            android:id="@+id/itemBuyPartnersImg"
+            android:layout_width="@dimen/image_in_list_size"
+            android:layout_height="@dimen/image_in_list_size"
+            android:background="@drawable/bg_buy_partners"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_partners_simplex" />
+
+        <TextView
+            android:id="@+id/itemBuyPartnersTitleCodeText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="4dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintBottom_toTopOf="@+id/itemBuyPartnersTitleNameText"
+            app:layout_constraintEnd_toStartOf="@+id/itemBuyPartnersPriceText"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/itemBuyPartnersImg"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="USDTUSDTUSDTUSDTUSDT" />
+
+        <TextView
+            android:id="@+id/itemBuyPartnersTitleNameText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="4dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/font_very_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/itemBuyPartnersPriceText"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/itemBuyPartnersImg"
+            app:layout_constraintTop_toBottomOf="@+id/itemBuyPartnersTitleCodeText"
+            tools:text="Tether USDTether USDTether USD" />
+
+        <TextView
+            android:id="@+id/itemBuyPartnersYouReceiveText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:textAlignment="textEnd"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/itemBuyPartnersVertical07Guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="4.8K $" />
+
+        <TextView
+            android:id="@+id/itemBuyPartnersPriceText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="textEnd"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/itemBuyPartnersVertical07Guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="1000.00 $" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

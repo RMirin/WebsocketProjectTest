@@ -125,7 +125,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:textSize="@dimen/font_minute"
+            android:textSize="@dimen/font_very_small"
             show="@{showBalanceBinding}"
             isInvisible="@{true}"
             priceColored="@{walletPositionsModelBinding.profit}"

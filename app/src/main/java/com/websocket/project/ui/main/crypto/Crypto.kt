@@ -75,5 +75,9 @@ enum class Crypto(
     ZEC(
         icon = R.drawable.ic_crypto_zec,
         title = R.string.crypto_zec
+    ),
+    USDT(
+        icon = R.drawable.ic_crypto_usdt,
+        title = R.string.crypto_usdt
     );
 }

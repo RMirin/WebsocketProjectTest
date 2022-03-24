@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bg_item_main_shimmer_crypto_text"
             android:layout_margin="@dimen/spacing_normal"
-            android:textSize="@dimen/font_minute"
+            android:textSize="@dimen/font_very_small"
             app:layout_constraintBottom_toBottomOf="@+id/itemMainCryptoPlaceholderImg"
             app:layout_constraintEnd_toStartOf="@+id/itemMainCryptoPlaceholderVertical05Guideline"
             app:layout_constraintStart_toEndOf="@+id/itemMainCryptoPlaceholderImg"
