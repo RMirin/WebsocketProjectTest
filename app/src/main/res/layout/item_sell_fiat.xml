@@ -17,7 +17,7 @@
         android:layout_marginBottom="@dimen/spacing_normal">
 
         <ImageView
-            android:id="@+id/buyExchangeFiatIconImg"
+            android:id="@+id/sellExchangeFiatIconImg"
             android:layout_width="40dp"
             android:layout_height="40dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -25,21 +25,21 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <CheckedTextView
-            android:id="@+id/buyExchangeFiatTitleCodeText"
+            android:id="@+id/sellExchangeFiatTitleCodeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_small"
             android:textSize="@dimen/font_normal"
             android:textColor="@drawable/selector_checked_text"
             android:checked="@{itemIsCheckedBinding}"
-            app:layout_constraintBottom_toTopOf="@+id/buyExchangeFiatTitleNameText"
-            app:layout_constraintStart_toEndOf="@+id/buyExchangeFiatIconImg"
+            app:layout_constraintBottom_toTopOf="@+id/sellExchangeFiatTitleNameText"
+            app:layout_constraintStart_toEndOf="@+id/sellExchangeFiatIconImg"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed"
             tools:text="ARS" />
 
         <CheckedTextView
-            android:id="@+id/buyExchangeFiatTitleNameText"
+            android:id="@+id/sellExchangeFiatTitleNameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_small"
@@ -47,8 +47,8 @@
             android:textColor="@drawable/selector_checked_text"
             android:checked="@{itemIsCheckedBinding}"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/buyExchangeFiatIconImg"
-            app:layout_constraintTop_toBottomOf="@id/buyExchangeFiatTitleCodeText"
+            app:layout_constraintStart_toEndOf="@+id/sellExchangeFiatIconImg"
+            app:layout_constraintTop_toBottomOf="@id/sellExchangeFiatTitleCodeText"
             tools:text="Argentine Peso" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

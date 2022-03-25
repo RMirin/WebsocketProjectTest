@@ -1,4 +1,4 @@
-package com.websocket.project.ui.wallet.buy
+package com.websocket.project.ui.wallet.buy.partners
 
 import android.content.res.Resources
 import android.view.ViewGroup
@@ -7,6 +7,7 @@ import com.websocket.project.databinding.ItemBuyPartnersBinding
 import com.websocket.project.ui.base.BaseRecyclerViewAdapter
 import com.websocket.project.ui.base.BaseViewHolder
 import com.websocket.project.ui.base.inflateWithBinding
+import com.websocket.project.ui.wallet.buy.BuyFragmentActionListener
 
 class BuyPartnersAdapter(
     val buyFragmentActionListener: BuyFragmentActionListener,

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="identityConfirmationTitleTextBinding"
+            type="String" />
+
+        <variable
+            name="dialogFragmentIdentityConfirmationListenerBinding"
+            type="com.websocket.project.ui.wallet.identity_confirmation.DialogFragmentIdentityConfirmationListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_rectangle_gradient_dialog_view">
+
+        <TextView
+            android:id="@+id/identityConfirmationTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="38dp"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="@{identityConfirmationTitleTextBinding}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/buy_identity_confirmation_title" />
+
+        <ImageView
+            android:id="@+id/identityConfirmationImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="42dp"
+            android:src="@drawable/ic_identity_confirmation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/identityConfirmationTitleText" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/identityConfirmation05VerticalGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="57dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginEnd="22dp"
+            android:background="@drawable/bg_rectangle_accent_btn"
+            android:gravity="center"
+            android:onClick="@{() -> dialogFragmentIdentityConfirmationListenerBinding.onOkBtnClick()}"
+            android:text="@string/close_position_cancel"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintBottom_toBottomOf="@+id/identityConfirmationCancelBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/identityConfirmation05VerticalGuideline"
+            app:layout_constraintTop_toTopOf="@+id/identityConfirmationCancelBtn"
+            tools:text="@string/common_ok" />
+
+        <TextView
+            android:id="@+id/identityConfirmationCancelBtn"
+            android:layout_width="0dp"
+            android:layout_height="57dp"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="74dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/bg_transparent_ok_btn"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/identityConfirmation05VerticalGuideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/identityConfirmationImg"
+            tools:text="@string/common_cancel" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

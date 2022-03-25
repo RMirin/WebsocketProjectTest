@@ -64,8 +64,8 @@
     <color name="support_attach_file">#202942</color>
     <color name="support_stroke">#6965F3</color>
 
-    <color name="buy_partners_bg">#202942</color>
-    <color name="buy_crypto_bg">#32348E</color>
+    <color name="wallet_partners_bg">#202942</color>
+    <color name="wallet_crypto_bg">#32348E</color>
 
     <color name="common_field_gradient_end">#404223C1</color>
     <color name="common_field_gradient_start">#40474FD1</color>

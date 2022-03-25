@@ -1,29 +1,30 @@
-package com.websocket.project.ui.wallet.buy.fiat_drawer
+package com.websocket.project.ui.wallet.sell.fiat_drawer
 
 import android.content.res.Resources
 import android.os.Bundle
+import android.util.Log
 import android.util.TypedValue
 import android.view.View
 import com.jakewharton.rxbinding4.view.focusChanges
 import com.jakewharton.rxbinding4.widget.textChanges
 import com.websocket.project.R
-import com.websocket.project.databinding.DrawerFragmentBuyFiatBinding
+import com.websocket.project.databinding.DrawerFragmentSellFiatBinding
 import com.websocket.project.ui.base.*
 import com.websocket.project.ui.main.fiat.Fiat
-import com.websocket.project.ui.wallet.buy.BuyFragmentActionListener
+import com.websocket.project.ui.wallet.sell.SellFragmentActionListener
+import com.websocket.project.ui.wallet.sell.SellViewModel
 import java.util.*
 
-class BuyFiatDrawerFragment(
-    private val buyFragmentActionListener: BuyFragmentActionListener,
+class SellFiatDrawerFragment(
+    private val sellFragmentActionListener: SellFragmentActionListener,
     checkedFiat: Fiat?,
     private val localizedResources: Resources?
-) :
-    BaseFragment<DrawerFragmentBuyFiatBinding>(), BuyFiatDrawerFragmentActionListener {
+) : BaseFragment<DrawerFragmentSellFiatBinding>(), SellFiatDrawerFragmentActionListener {
 
     private var currentCheckedFiat = checkedFiat
 
-    private val buyFiatDrawerAdapter: BuyFiatDrawerAdapter by lazy(LazyThreadSafetyMode.NONE) {
-        BuyFiatDrawerAdapter(buyFragmentActionListener, this, localizedResources)
+    private val sellFiatDrawerAdapter: SellFiatDrawerAdapter by lazy(LazyThreadSafetyMode.NONE) {
+        SellFiatDrawerAdapter(sellFragmentActionListener, this, localizedResources)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -32,16 +33,17 @@ class BuyFiatDrawerFragment(
         val localizedResources = getLocalizedResources(requireContext(), Locale("ru"))
 
         with(binding) {
-            buyFiatDrawerFragmentActionListenerBinding = this@BuyFiatDrawerFragment
+            showContent = true
+            sellFiatDrawerFragmentActionListenerBinding = this@SellFiatDrawerFragment
 
-            buyFiatSearchEditText.hint = localizedResources?.getString(R.string.buy_fiat_search_hint)
-            buyFiatSearchEditText.setTextSize(
+            sellFiatSearchEditText.hint = localizedResources?.getString(R.string.buy_fiat_search_hint)
+            sellFiatSearchEditText.setTextSize(
                 TypedValue.COMPLEX_UNIT_SP,
                 12f
             )
-            buyFiatNothingFoundText.text = localizedResources?.getString(R.string.common_empty)
+            sellFiatNothingFoundText.text = localizedResources?.getString(R.string.common_empty)
 
-            with(buyFiatRecycler) {
+            with(sellFiatRecycler) {
                 addItemDecoration(
                     BaseRecyclerItemDecoration(
                         convertDpToPixel(
@@ -51,50 +53,50 @@ class BuyFiatDrawerFragment(
                     )
                 )
                 itemAnimator = null
-                buyFiatDrawerAdapter.setInitCheckedFiat(currentCheckedFiat)
-                adapter = buyFiatDrawerAdapter
+                sellFiatDrawerAdapter.setInitCheckedFiat(currentCheckedFiat)
+                adapter = sellFiatDrawerAdapter
             }
         }
 
         observeSearchChanges()
     }
 
-    override fun initViewBinding(): DrawerFragmentBuyFiatBinding =
-        DrawerFragmentBuyFiatBinding.inflate(layoutInflater)
+    override fun initViewBinding(): DrawerFragmentSellFiatBinding =
+        DrawerFragmentSellFiatBinding.inflate(layoutInflater)
 
     private fun observeSearchChanges() {
         with(binding) {
-            buyFiatSearchEditText.focusChanges().subscribe { focus ->
+            sellFiatSearchEditText.focusChanges().subscribe { focus ->
                 if (focus) {
-                    buyFiatSearchImg.visibility = View.GONE
-                    buyFiatSearchEditText.textChanges()
+                    sellFiatSearchImg.visibility = View.GONE
+                    sellFiatSearchEditText.textChanges()
                         .subscribe { text ->
                             searchFromList(text.toString())
                             if (text.isEmpty()) {
-                                buyFiatSearchEditText.setTextSize(
+                                sellFiatSearchEditText.setTextSize(
                                     TypedValue.COMPLEX_UNIT_SP,
                                     12f
                                 )
-                                buyFiatClearBtn.visibility = View.GONE
+                                sellFiatClearBtn.visibility = View.GONE
                             } else {
-                                buyFiatSearchEditText.setTextSize(
+                                sellFiatSearchEditText.setTextSize(
                                     TypedValue.COMPLEX_UNIT_SP,
                                     14f
                                 )
-                                buyFiatClearBtn.visibility = View.VISIBLE
+                                sellFiatClearBtn.visibility = View.VISIBLE
                             }
                         }
                 } else {
-                    buyFiatSearchImg.visibility = View.VISIBLE
-                    buyFiatClearBtn.visibility = View.GONE
+                    sellFiatSearchImg.visibility = View.VISIBLE
+                    sellFiatClearBtn.visibility = View.GONE
                 }
             }
-            buyFiatClearBtn.accessibleTouchTarget()
+            sellFiatClearBtn.accessibleTouchTarget()
         }
     }
 
     private fun searchFromList(text: String) {
-        buyFiatDrawerAdapter.setNewSearchString(text)
+        sellFiatDrawerAdapter.setNewSearchString(text)
     }
 
     override fun currentFiatItemsCount(currentFiatItemsCount: Int) {
@@ -102,6 +104,6 @@ class BuyFiatDrawerFragment(
     }
 
     override fun onClearSearchBtnClick() {
-        binding.buyFiatSearchEditText.text.clear()
+        binding.sellFiatSearchEditText.text.clear()
     }
 }

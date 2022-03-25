@@ -6,61 +6,62 @@
     <data>
 
         <variable
-            name="buyFragmentActionListenerBinding"
-            type="com.websocket.project.ui.wallet.buy.BuyFragmentActionListener" />
+            name="sellFragmentActionListenerBinding"
+            type="com.websocket.project.ui.wallet.sell.SellFragmentActionListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/buyExchangeLayout"
+        android:id="@+id/sellExchangeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_rectangle_gradient_view"
         android:padding="@dimen/spacing_normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buyTopbarLayout">
+        app:layout_constraintTop_toBottomOf="@+id/sellTopbarLayout">
 
         <TextView
-            android:id="@+id/buyExchangePayTitleText"
+            android:id="@+id/sellExchangePayTitleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="@string/buy_pay_title"
+            tools:text="@string/sell_pay_title"
             android:textColor="@color/white_opacity_80"
             android:textSize="@dimen/font_small"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/buyExchangeVertical05Guideline"
+            android:id="@+id/sellExchangeVertical05Guideline"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.5" />
 
         <TextView
-            android:id="@+id/buyExchangeReceiveTitleText"
+            android:id="@+id/sellExchangeReceiveTitleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_small"
-            tools:text="@string/buy_receive_title"
+            tools:text="@string/sell_receive_title"
             android:textColor="@color/white_opacity_80"
             android:textSize="@dimen/font_small"
-            app:layout_constraintStart_toStartOf="@+id/buyExchangeVertical05Guideline"
+            app:layout_constraintStart_toStartOf="@+id/sellExchangeVertical05Guideline"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/buyExchangeFiatLayout"
+            android:id="@+id/sellExchangeFiatLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_normal"
-            android:onClick="@{() -> buyFragmentActionListenerBinding.onFiatBtnClick()}"
-            app:layout_constraintEnd_toStartOf="@+id/buyExchangeVertical05Guideline"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:onClick="@{() -> sellFragmentActionListenerBinding.onFiatBtnClick()}"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buyExchangePayTitleText">
+            app:layout_constraintStart_toStartOf="@+id/sellExchangeVertical05Guideline"
+            app:layout_constraintTop_toBottomOf="@+id/sellExchangePayTitleText">
 
             <ImageView
-                android:id="@+id/buyExchangeFiatIconImg"
+                android:id="@+id/sellExchangeFiatIconImg"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -69,14 +70,14 @@
                 tools:src="@drawable/ic_fiat_peso" />
 
             <TextView
-                android:id="@+id/buyExchangeFiatTitleCodeText"
+                android:id="@+id/sellExchangeFiatTitleCodeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/spacing_small"
                 android:textColor="@color/white_opacity_50"
                 android:textSize="@dimen/font_normal"
-                app:layout_constraintStart_toEndOf="@+id/buyExchangeFiatIconImg"
-                app:layout_constraintTop_toTopOf="@+id/buyExchangeFiatIconImg"
+                app:layout_constraintStart_toEndOf="@+id/sellExchangeFiatIconImg"
+                app:layout_constraintTop_toTopOf="@+id/sellExchangeFiatIconImg"
                 tools:text="PHP" />
 
             <ImageView
@@ -86,12 +87,12 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:padding="@dimen/spacing_small"
                 android:src="@drawable/ic_arrow_dropdown"
-                app:layout_constraintBottom_toBottomOf="@+id/buyExchangeFiatTitleCodeText"
-                app:layout_constraintStart_toEndOf="@+id/buyExchangeFiatTitleCodeText"
-                app:layout_constraintTop_toTopOf="@+id/buyExchangeFiatTitleCodeText" />
+                app:layout_constraintBottom_toBottomOf="@+id/sellExchangeFiatTitleCodeText"
+                app:layout_constraintStart_toEndOf="@+id/sellExchangeFiatTitleCodeText"
+                app:layout_constraintTop_toTopOf="@+id/sellExchangeFiatTitleCodeText" />
 
             <TextView
-                android:id="@+id/buyExchangeFiatTitleNameText"
+                android:id="@+id/sellExchangeFiatTitleNameText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/spacing_small"
@@ -99,48 +100,53 @@
                 android:maxLines="1"
                 android:textColor="@color/white_opacity_50"
                 android:textSize="@dimen/font_very_small"
-                app:layout_constraintBottom_toBottomOf="@+id/buyExchangeFiatIconImg"
+                app:layout_constraintBottom_toBottomOf="@+id/sellExchangeFiatIconImg"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/buyExchangeFiatIconImg"
+                app:layout_constraintStart_toEndOf="@+id/sellExchangeFiatIconImg"
                 tools:text="Philippine Peso" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageView
-            android:id="@+id/buyExchangeCryptoIconImg"
+            android:id="@+id/sellExchangeCryptoIconImg"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginStart="@dimen/spacing_small"
             android:layout_marginTop="@dimen/spacing_normal"
             android:background="@drawable/bg_wallet_crypto"
-            app:layout_constraintStart_toStartOf="@+id/buyExchangeVertical05Guideline"
-            app:layout_constraintTop_toBottomOf="@+id/buyExchangePayTitleText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sellExchangePayTitleText"
             tools:src="@drawable/ic_crypto_usdt" />
 
         <TextView
-            android:id="@+id/buyExchangeCryptoTitleCodeText"
-            android:layout_width="wrap_content"
+            android:id="@+id/sellExchangeCryptoTitleCodeText"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_small"
             android:textColor="@color/white_opacity_50"
             android:textSize="@dimen/font_normal"
-            app:layout_constraintStart_toEndOf="@+id/buyExchangeCryptoIconImg"
-            app:layout_constraintTop_toTopOf="@+id/buyExchangeCryptoIconImg"
+            app:layout_constraintEnd_toStartOf="@+id/sellExchangeVertical05Guideline"
+            app:layout_constraintStart_toEndOf="@+id/sellExchangeCryptoIconImg"
+            app:layout_constraintTop_toTopOf="@+id/sellExchangeCryptoIconImg"
             tools:text="USDT" />
 
         <TextView
-            android:id="@+id/buyExchangeCryptoTitleNameText"
-            android:layout_width="wrap_content"
+            android:id="@+id/sellExchangeCryptoTitleNameText"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_small"
             android:textColor="@color/white_opacity_50"
             android:textSize="@dimen/font_very_small"
-            app:layout_constraintBottom_toBottomOf="@+id/buyExchangeCryptoIconImg"
-            app:layout_constraintStart_toEndOf="@+id/buyExchangeCryptoIconImg"
+            android:ellipsize="end"
+            android:maxLines="1"
+            app:layout_constraintBottom_toBottomOf="@+id/sellExchangeCryptoIconImg"
+            app:layout_constraintEnd_toStartOf="@+id/sellExchangeVertical05Guideline"
+            app:layout_constraintStart_toEndOf="@+id/sellExchangeCryptoIconImg"
             tools:text="Tether USD" />
 
         <LinearLayout
-            android:id="@+id/buyExchangePaymentLayout"
+            android:id="@+id/sellExchangePaymentLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -151,22 +157,22 @@
             android:paddingTop="12dp"
             android:paddingEnd="@dimen/spacing_normal"
             android:paddingBottom="12dp"
-            app:layout_constraintEnd_toStartOf="@+id/buyExchangeVertical05Guideline"
+            app:layout_constraintEnd_toStartOf="@+id/sellExchangeVertical05Guideline"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buyExchangeFiatLayout">
+            app:layout_constraintTop_toBottomOf="@+id/sellExchangeFiatLayout">
 
             <TextView
-                android:id="@+id/buyExchangePayText"
+                android:id="@+id/sellExchangePayText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/buyExchangeFiatIconImg"
+                app:layout_constraintTop_toBottomOf="@+id/sellExchangeFiatIconImg"
                 tools:text="5 133.00" />
 
             <TextView
-                android:id="@+id/buyExchangeMinPayText"
+                android:id="@+id/sellExchangeMinPayText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white_opacity_80"
@@ -189,21 +195,21 @@
             android:paddingEnd="@dimen/spacing_normal"
             android:paddingBottom="12dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/buyExchangeVertical05Guideline"
-            app:layout_constraintTop_toBottomOf="@+id/buyExchangeFiatLayout">
+            app:layout_constraintStart_toStartOf="@+id/sellExchangeVertical05Guideline"
+            app:layout_constraintTop_toBottomOf="@+id/sellExchangeFiatLayout">
 
             <TextView
-                android:id="@+id/buyExchangeReceiveText"
+                android:id="@+id/sellExchangeReceiveText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/buyExchangeFiatIconImg"
+                app:layout_constraintTop_toBottomOf="@+id/sellExchangeFiatIconImg"
                 tools:text="100.00" />
 
             <TextView
-                android:id="@+id/buyExchangeMinReceiveText"
+                android:id="@+id/sellExchangeMinReceiveText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white_opacity_80"
@@ -215,14 +221,26 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/buyExchangeBestPriceText"
+            android:id="@+id/sellExchangeAvailableText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:textColor="@android:color/white"
             android:textSize="@dimen/font_normal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buyExchangePaymentLayout"
+            app:layout_constraintTop_toBottomOf="@+id/sellExchangePaymentLayout"
+            tools:text="Available\n500 USDT" />
+
+        <TextView
+            android:id="@+id/sellExchangeBestPriceText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginTop="12dp"
+            android:textSize="@dimen/font_normal"
+            app:layout_constraintStart_toStartOf="@+id/sellExchangeVertical05Guideline"
+            app:layout_constraintTop_toBottomOf="@+id/sellExchangePaymentLayout"
             tools:text="Best Price\n≈ 51.33 PHP" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

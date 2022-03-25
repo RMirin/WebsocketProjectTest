@@ -6,11 +6,13 @@ import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.content.res.Resources
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.text.format.DateFormat
+import android.util.TypedValue
 import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat
@@ -37,15 +39,18 @@ class DepositFragment: BaseFragment<FragmentDepositBinding>(), DepositFragmentAc
         (activity as MainActivity).getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?
     }
 
+    private lateinit var localizedResources: Resources
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        localizedResources = getLocalizedResources(requireContext(), Locale("ru"))
+
         findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Int>(
             NetworkBottomSheetFragment.NETWORK_RESULT_KEY
         )?.observe(viewLifecycleOwner) { result ->
             viewModel.setSelectedNetwork(result)
         }
-
-        val localizedResources = getLocalizedResources(requireContext(), Locale("ru"))
 
         with(binding) {
             depositTopbarLayoutInclude.backClick = View.OnClickListener {
@@ -53,20 +58,24 @@ class DepositFragment: BaseFragment<FragmentDepositBinding>(), DepositFragmentAc
             }
 
             depositTopbarLayoutInclude.title.text =
-                localizedResources?.getString(R.string.deposit_title)
+                localizedResources.getString(R.string.deposit_title)
             depositNetworkTitleText.text =
-                localizedResources?.getString(R.string.deposit_network_title)
+                localizedResources.getString(R.string.deposit_network_title)
             depositNetworkBtn.text =
-                localizedResources?.getString(R.string.deposit_network_btn_hint)
+                localizedResources.getString(R.string.deposit_network_btn_hint)
+            depositNetworkBtn.setTextSize(
+                TypedValue.COMPLEX_UNIT_SP,
+                12f
+            )
             depositUsdtAddressTitleText.text =
-                localizedResources?.getString(R.string.deposit_usdt_address_title)
-            depositSaveImageBtn.text = localizedResources?.getString(R.string.deposit_save_image)
+                localizedResources.getString(R.string.deposit_usdt_address_title)
+            depositSaveImageBtn.text = localizedResources.getString(R.string.deposit_save_image)
 
             depositViewModelBinding = viewModel
             depositFragmentActionListenerBinding = this@DepositFragment
         }
 
-        observeLiveData()
+        observeLiveData(localizedResources)
     }
 
     override fun initViewBinding(): FragmentDepositBinding =
@@ -79,7 +88,7 @@ class DepositFragment: BaseFragment<FragmentDepositBinding>(), DepositFragmentAc
     override fun onCopyAddressClick() {
         val clip = ClipData.newPlainText("", binding.depositUsdtAddressText.text)
         clipboard?.setPrimaryClip(clip)
-        Toast.makeText(activity as MainActivity, R.string.deposit_address_copied, Toast.LENGTH_SHORT).show()
+        Toast.makeText(activity as MainActivity, localizedResources.getString(R.string.deposit_address_copied), Toast.LENGTH_SHORT).show()
     }
 
     override fun onSaveImageClick() {
@@ -94,7 +103,7 @@ class DepositFragment: BaseFragment<FragmentDepositBinding>(), DepositFragmentAc
         val sendIntent: Intent = Intent().apply {
             action = Intent.ACTION_SEND
             putExtra(Intent.EXTRA_TEXT, binding.depositUsdtAddressText.text)
-            type = "text/plain"
+            type = SHARE_ADDRESS_INTENT_TYPE
         }
 
         val shareIntent = Intent.createChooser(sendIntent, null)
@@ -137,14 +146,13 @@ class DepositFragment: BaseFragment<FragmentDepositBinding>(), DepositFragmentAc
                 mediaScanIntent.data = Uri.fromFile(f)
                 activity?.sendBroadcast(mediaScanIntent)
             }
-            findNavController().navigate(DepositFragmentDirections.actionDepositFragmentToDialogFragmentAlert(R.string.deposit_image_saved_msg))
+            findNavController().navigate(DepositFragmentDirections.actionDepositFragmentToDialogFragmentAlert(localizedResources.getString(R.string.deposit_image_saved_msg)))
         } catch (e: Throwable) {
             e.printStackTrace()
         }
     }
 
-    private fun observeLiveData() {
-        val localizedResources = getLocalizedResources(requireContext(), Locale("ru"))
+    private fun observeLiveData(localizedResources: Resources) {
         with(viewModel) {
             observe(networkChosenPosition) { networkChosenPosition ->
                 if (networkChosenPosition != -1) {
@@ -152,16 +160,23 @@ class DepositFragment: BaseFragment<FragmentDepositBinding>(), DepositFragmentAc
                     val name = requireContext().getString(withdrawNetwork.networkName)
                     val code = requireContext().getString(withdrawNetwork.networkCode)
                     with(binding) {
-                        depositNetworkBtn.text = localizedResources?.getString(R.string.deposit_network_btn, name, code)
+                        depositNetworkBtn.text = getString(R.string.deposit_network_btn, name, code)
+                        depositNetworkBtn.setTextSize(
+                            TypedValue.COMPLEX_UNIT_SP,
+                            14f
+                        )
                         depositNetworkBtn.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
-                        depositAttentionText.text =  localizedResources?.getString(R.string.deposit_attention_msg, code, name)
-                        depositArriveText.text = localizedResources?.getString(R.string.deposit_arrive_msg, code)
+                        depositAttentionText.text =
+                            localizedResources.getString(R.string.deposit_attention_msg, code, name)
+                        depositArriveText.text =
+                            localizedResources.getString(R.string.deposit_arrive_msg, code)
                     }
                 }
             }
 
             observe(depositFee) { depositFee ->
-                binding.depositFeeText.text = localizedResources?.getString(R.string.deposit_fee_msg, depositFee)
+                binding.depositFeeText.text =
+                    localizedResources.getString(R.string.deposit_fee_msg, depositFee)
             }
         }
     }
@@ -175,5 +190,6 @@ class DepositFragment: BaseFragment<FragmentDepositBinding>(), DepositFragmentAc
         )
 
         private const val SCREENSHOT_NAME_DATE_FORMAT = "yyyy-MM-dd_hh:mm:ss"
+        private const val SHARE_ADDRESS_INTENT_TYPE = "text/plain"
     }
 }

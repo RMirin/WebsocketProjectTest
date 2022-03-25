@@ -29,7 +29,7 @@
         android:name="com.websocket.project.ui.alert.DialogFragmentAlert"
         android:label="DialogFragmentAlert" >
         <argument
-            android:name="titleId"
-            app:argType="reference" />
+            android:name="titleString"
+            app:argType="string" />
     </dialog>
 </navigation>

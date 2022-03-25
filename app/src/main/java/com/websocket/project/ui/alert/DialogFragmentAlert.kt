@@ -15,7 +15,7 @@ class DialogFragmentAlert : BaseDialogFragment<DialogFragmentAlertBinding>() {
 
         with(binding) {
 
-            titleTextIdBinding = args.titleId
+            titleTextBinding = args.titleString
 
             dialogFragmentAlertOkBtn.setOnClickListener {
                 dismiss()

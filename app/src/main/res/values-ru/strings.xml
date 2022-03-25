@@ -258,13 +258,28 @@
     <string name="buy_fiat_search_hint">Fiat search</string>
     <string name="buy_min_pay">Min %s</string>
     <string name="buy_min_receive">Min %s</string>
-    <string name="buy_partners_item_type_bank_card">Bank card</string>
-    <string name="buy_partners_item_type_apple_pay">Apple Pay</string>
-    <string name="buy_partners_item_name_simplex">Simplex</string>
-    <string name="buy_partners_item_name_xanpool">Xanpool</string>
-    <string name="buy_partners_item_name_moonpay">Moonpay</string>
-    <string name="buy_partners_item_name_banxa">Banxa</string>
-    <string name="buy_partners_item_name_mercuryo">Mercuryo</string>
+    <string name="buy_identity_confirmation_title">To purchase\nmore than 150 USD, you need\nto confirm your identity</string>
+
+    <string name="sell_title">Sell</string>
+    <string name="sell_pay_title">You pay</string>
+    <string name="sell_receive_title">You receive</string>
+    <string name="sell_available_title">Available\n%s %s</string>
+    <string name="sell_best_price_title">Best Price\n≈ %s %s</string>
+    <string name="sell_partners_title">Choose Partners</string>
+    <string name="sell_partners_partners_title">Partners</string>
+    <string name="sell_partners_price_title">Price</string>
+    <string name="sell_partners_you_receive_title">You receive</string>
+    <string name="sell_min_pay">Min %s</string>
+    <string name="sell_min_receive">Min %s</string>
+    <string name="sell_identity_confirmation">To sell, you need\nto confirm your identity</string>
+    
+    <string name="partners_item_type_bank_card">Bank card</string>
+    <string name="partners_item_type_apple_pay">Apple Pay</string>
+    <string name="partners_item_name_simplex">Simplex</string>
+    <string name="partners_item_name_xanpool">Xanpool</string>
+    <string name="partners_item_name_moonpay">Moonpay</string>
+    <string name="partners_item_name_banxa">Banxa</string>
+    <string name="partners_item_name_mercuryo">Mercuryo</string>
 
     <string name="side_long">Long</string>
     <string name="side_short">Short</string>
@@ -275,4 +290,5 @@
 
     <string name="common_remove">Remove</string>
     <string name="common_cancel">Cancel</string>
+    <string name="common_empty">Nothing found</string>
 </resources>

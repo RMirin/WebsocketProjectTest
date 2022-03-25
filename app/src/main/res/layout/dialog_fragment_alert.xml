@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="titleTextIdBinding"
-            type="Integer" />
+            name="titleTextBinding"
+            type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:gravity="center"
-            android:text="@{titleTextIdBinding}"
+            android:text="@{titleTextBinding}"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold"

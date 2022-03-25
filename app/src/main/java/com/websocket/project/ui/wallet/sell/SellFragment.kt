@@ -1,4 +1,4 @@
-package com.websocket.project.ui.wallet.buy
+package com.websocket.project.ui.wallet.sell
 
 import android.content.Context
 import android.content.res.Resources
@@ -10,32 +10,30 @@ import androidx.core.view.GravityCompat
 import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.viewModels
 import com.websocket.project.R
-import com.websocket.project.databinding.FragmentBuyBinding
+import com.websocket.project.databinding.FragmentSellBinding
 import com.websocket.project.ui.base.*
 import com.websocket.project.ui.main.MainActivity
 import com.websocket.project.ui.main.fiat.Fiat
-import com.websocket.project.ui.wallet.buy.fiat_drawer.BuyFiatDrawerFragment
-import com.websocket.project.ui.wallet.buy.partners.BuyPartnersAdapter
-import com.websocket.project.ui.wallet.buy.partners.BuyPartnersItem
-import dagger.hilt.android.AndroidEntryPoint
+import com.websocket.project.ui.wallet.sell.fiat_drawer.SellFiatDrawerFragment
+import com.websocket.project.ui.wallet.sell.partners.SellPartnersAdapter
+import com.websocket.project.ui.wallet.sell.partners.SellPartnersItem
 import java.util.*
 
-@AndroidEntryPoint
-class BuyFragment : BaseFragment<FragmentBuyBinding>(), BuyFragmentActionListener {
+class SellFragment : BaseFragment<FragmentSellBinding>(), SellFragmentActionListener {
 
     private lateinit var localizedResources: Resources
-    private val viewModel: BuyViewModel by viewModels()
+    private val viewModel: SellViewModel by viewModels()
 
-    private val buyFiatDrawerFragment: BuyFiatDrawerFragment by lazy(LazyThreadSafetyMode.NONE) {
-        BuyFiatDrawerFragment(this, viewModel.getFiatChosen(), localizedResources)
+    private val sellFiatDrawerFragment: SellFiatDrawerFragment by lazy(LazyThreadSafetyMode.NONE) {
+        SellFiatDrawerFragment(this, viewModel.getFiatChosen(), localizedResources)
     }
 
-    private val buyPartnersAdapter: BuyPartnersAdapter by lazy(LazyThreadSafetyMode.NONE) {
-        BuyPartnersAdapter(this@BuyFragment, localizedResources)
+    private val sellPartnersAdapter: SellPartnersAdapter by lazy(LazyThreadSafetyMode.NONE) {
+        SellPartnersAdapter(this@SellFragment, localizedResources)
     }
 
-    override fun initViewBinding(): FragmentBuyBinding =
-        FragmentBuyBinding.inflate(layoutInflater)
+    override fun initViewBinding(): FragmentSellBinding =
+        FragmentSellBinding.inflate(layoutInflater)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -44,86 +42,87 @@ class BuyFragment : BaseFragment<FragmentBuyBinding>(), BuyFragmentActionListene
 
         val fiatDrawerFragmentTransaction: FragmentTransaction =
             (activity as MainActivity).supportFragmentManager.beginTransaction()
-        fiatDrawerFragmentTransaction.replace(R.id.buyDrawer, buyFiatDrawerFragment)
+        fiatDrawerFragmentTransaction.replace(R.id.sellDrawer, sellFiatDrawerFragment)
         fiatDrawerFragmentTransaction.commit()
 
         with(binding) {
-            buyTopbarLayout.title.text = localizedResources.getString(R.string.buy_title)
-            with(buyExchangeLayoutInclude) {
-                buyExchangePayTitleText.text = localizedResources.getString(R.string.buy_pay_title)
-                buyExchangeReceiveTitleText.text = localizedResources.getString(R.string.buy_receive_title)
-                buyExchangePayText.text = "5 133.00"
-                buyExchangeReceiveText.text = "100.00"
-                buyExchangeMinPayText.text = localizedResources.getString(R.string.buy_min_pay, "513.30")
-                buyExchangeMinReceiveText.text = localizedResources.getString(R.string.buy_min_receive, "10.00")
-                buyExchangeBestPriceText.text = localizedResources.getString(R.string.buy_best_price_title)
+            sellTopbarLayout.title.text = localizedResources.getString(R.string.sell_title)
+            with(sellExchangeLayoutInclude) {
+                sellExchangePayTitleText.text = localizedResources.getString(R.string.sell_pay_title)
+                sellExchangeReceiveTitleText.text = localizedResources.getString(R.string.sell_receive_title)
+                sellExchangePayText.text = "5 133.00"
+                sellExchangeReceiveText.text = "100.00"
+                sellExchangeMinPayText.text = localizedResources.getString(R.string.sell_min_pay, "513.30")
+                sellExchangeMinReceiveText.text = localizedResources.getString(R.string.sell_min_receive, "10.00")
+                sellExchangeAvailableText.text = localizedResources.getString(R.string.sell_available_title)
+                sellExchangeBestPriceText.text = localizedResources.getString(R.string.sell_best_price_title)
             }
-            with(buyPartnersTitleLayoutInclude) {
-                buyPartnersTitle.text = localizedResources.getString(R.string.buy_partners_title)
-                buyPartnersPartnersTitle.text =
-                    localizedResources.getString(R.string.buy_partners_partners_title)
-                buyPartnersPriceTitle.text =
-                    localizedResources.getString(R.string.buy_partners_price_title)
-                buyPartnersYouReceiveTitle.text =
-                    localizedResources.getString(R.string.buy_partners_you_receive_title)
+            with(sellPartnersTitleLayoutInclude) {
+                sellPartnersTitle.text = localizedResources.getString(R.string.sell_partners_title)
+                sellPartnersPartnersTitle.text =
+                    localizedResources.getString(R.string.sell_partners_partners_title)
+                sellPartnersPriceTitle.text =
+                    localizedResources.getString(R.string.sell_partners_price_title)
+                sellPartnersYouReceiveTitle.text =
+                    localizedResources.getString(R.string.sell_partners_you_receive_title)
             }
-            with(buyExchangeLayoutInclude) {
-                buyFragmentActionListenerBinding = this@BuyFragment
+            with(sellExchangeLayoutInclude) {
+                sellFragmentActionListenerBinding = this@SellFragment
             }
 
-            buyPartnersAdapter.setPartners(mutableListOf(
-                BuyPartnersItem(
+            sellPartnersAdapter.setPartners(mutableListOf(
+                SellPartnersItem(
                     icon = R.drawable.ic_partners_simplex,
                     type = R.string.partners_item_type_bank_card,
                     namePartners = R.string.partners_item_name_simplex
                 ),
-                BuyPartnersItem(
+                SellPartnersItem(
                     icon = R.drawable.ic_partners_xanpool,
                     type = R.string.partners_item_type_bank_card,
                     namePartners = R.string.partners_item_name_xanpool
                 ),
-                BuyPartnersItem(
+                SellPartnersItem(
                     icon = R.drawable.ic_partners_moonpay,
                     type = R.string.partners_item_type_apple_pay,
                     namePartners = R.string.partners_item_name_moonpay
                 ),
-                BuyPartnersItem(
+                SellPartnersItem(
                     icon = R.drawable.ic_partners_banxa,
                     type = R.string.partners_item_type_bank_card,
                     namePartners = R.string.partners_item_name_banxa
                 ),
-                BuyPartnersItem(
+                SellPartnersItem(
                     icon = R.drawable.ic_partners_mercuryo,
                     type = R.string.partners_item_type_bank_card,
                     namePartners = R.string.partners_item_name_mercuryo
                 ),
-                BuyPartnersItem(
+                SellPartnersItem(
                     icon = R.drawable.ic_partners_simplex,
                     type = R.string.partners_item_type_bank_card,
                     namePartners = R.string.partners_item_name_simplex
                 ),
-                BuyPartnersItem(
+                SellPartnersItem(
                     icon = R.drawable.ic_partners_xanpool,
                     type = R.string.partners_item_type_bank_card,
                     namePartners = R.string.partners_item_name_xanpool
                 ),
-                BuyPartnersItem(
+                SellPartnersItem(
                     icon = R.drawable.ic_partners_moonpay,
                     type = R.string.partners_item_type_apple_pay,
                     namePartners = R.string.partners_item_name_moonpay
                 ),
-                BuyPartnersItem(
+                SellPartnersItem(
                     icon = R.drawable.ic_partners_banxa,
                     type = R.string.partners_item_type_bank_card,
                     namePartners = R.string.partners_item_name_banxa
                 ),
-                BuyPartnersItem(
+                SellPartnersItem(
                     icon = R.drawable.ic_partners_mercuryo,
                     type = R.string.partners_item_type_bank_card,
                     namePartners = R.string.partners_item_name_mercuryo
                 )
             ))
-            with(buyPartnersRecycler) {
+            with(sellPartnersRecycler) {
                 addItemDecoration(
                     BaseRecyclerItemDecoration(
                         convertDpToPixel(
@@ -132,10 +131,10 @@ class BuyFragment : BaseFragment<FragmentBuyBinding>(), BuyFragmentActionListene
                         )
                     )
                 )
-                adapter = buyPartnersAdapter
+                adapter = sellPartnersAdapter
             }
 
-            buyDrawerLayout.addDrawerListener(object : BaseDrawerListener() {
+            sellDrawerLayout.addDrawerListener(object : BaseDrawerListener() {
                 override fun onDrawerClosed(drawerView: View) {
                     val imm =
                         (activity as MainActivity).getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
@@ -148,27 +147,28 @@ class BuyFragment : BaseFragment<FragmentBuyBinding>(), BuyFragmentActionListene
     }
 
     override fun onFiatItemClick(fiat: Fiat) {
-        binding.buyDrawerLayout.closeDrawer(GravityCompat.START)
+        binding.sellDrawerLayout.closeDrawer(GravityCompat.END)
         viewModel.setFiatChosen(fiat)
     }
 
     override fun onFiatBtnClick() {
-        binding.buyDrawerLayout.openDrawer(GravityCompat.START)
+        binding.sellDrawerLayout.openDrawer(GravityCompat.END)
     }
 
-    override fun onPartnersItemClick(partnersItem: BuyPartnersItem) {
+    override fun onPartnersItemClick(partnersItem: SellPartnersItem) {
+
     }
 
     private fun observeLiveData() {
         with(viewModel) {
             observe(fiatChosen) { fiat ->
-                with(binding.buyExchangeLayoutInclude) {
-                    buyExchangeFiatIconImg.setImageResource(fiat.icon)
-                    buyExchangeFiatTitleCodeText.text = localizedResources.getString(fiat.titleCode)
-                    buyExchangeFiatTitleNameText.text =
+                with(binding.sellExchangeLayoutInclude) {
+                    sellExchangeFiatIconImg.setImageResource(fiat.icon)
+                    sellExchangeFiatTitleCodeText.text = localizedResources.getString(fiat.titleCode)
+                    sellExchangeFiatTitleNameText.text =
                         localizedResources.getString(fiat.titleName)
-                    buyExchangeBestPriceText.text = localizedResources.getString(
-                        R.string.buy_best_price_title,
+                    sellExchangeBestPriceText.text = localizedResources.getString(
+                        R.string.sell_best_price_title,
                         51.33.toString().format(2),
                         requireContext().getString(fiat.titleCode)
                     )
@@ -176,9 +176,9 @@ class BuyFragment : BaseFragment<FragmentBuyBinding>(), BuyFragmentActionListene
             }
 
             observe(crypto) { crypto ->
-                with(binding.buyExchangeLayoutInclude) {
-                    buyExchangeCryptoIconImg.setImageResource(crypto.icon)
-                    buyExchangeCryptoTitleCodeText.text = localizedResources.getString(crypto.title)
+                with(binding.sellExchangeLayoutInclude) {
+                    sellExchangeCryptoIconImg.setImageResource(crypto.icon)
+                    sellExchangeCryptoTitleCodeText.text = localizedResources.getString(crypto.title)
                 }
             }
         }

@@ -250,9 +250,11 @@
                         android:id="@+id/withdrawTransactionFeeNetworkTitleText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:paddingEnd="@dimen/spacing_small"
+                        android:layout_marginEnd="@dimen/spacing_small"
                         android:textColor="@android:color/white"
                         android:textSize="18sp"
+                        tools:text="Transaction fee (network)"
+                        app:layout_constraintEnd_toStartOf="@+id/withdrawTransactionFeeNetworkText"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -264,21 +266,23 @@
                         android:textAlignment="textEnd"
                         android:textColor="@android:color/white"
                         android:textSize="18sp"
+                        android:maxLines="1"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/withdrawTransactionFeeNetworkTitleText"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:text="50 USDT" />
+                        tools:text="500000000000000000 USDT" />
 
                     <TextView
                         android:id="@+id/withdrawTransactionFeeTotalTitleText"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_small"
-                        android:paddingEnd="@dimen/spacing_small"
+                        android:layout_marginEnd="@dimen/spacing_small"
                         android:textColor="@android:color/white"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/withdrawTransactionFeeNetworkTitleText" />
+                        app:layout_constraintEnd_toStartOf="@+id/withdrawTransactionFeeTotalText"
+                        app:layout_constraintTop_toBottomOf="@id/withdrawTransactionFeeNetworkTitleText"
+                        tools:text="Total"/>
 
                     <TextView
                         android:id="@+id/withdrawTransactionFeeTotalText"
@@ -288,9 +292,8 @@
                         android:textColor="@android:color/white"
                         android:textSize="18sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/withdrawTransactionFeeTotalTitleText"
                         app:layout_constraintTop_toTopOf="@+id/withdrawTransactionFeeTotalTitleText"
-                        tools:text="500 USDT" />
+                        tools:text="500000000000000000 USDT" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

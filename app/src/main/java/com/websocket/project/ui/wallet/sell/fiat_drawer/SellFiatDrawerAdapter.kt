@@ -1,4 +1,4 @@
-package com.websocket.project.ui.wallet.buy.fiat_drawer
+package com.websocket.project.ui.wallet.sell.fiat_drawer
 
 import android.content.res.Resources
 import android.text.Spannable
@@ -10,19 +10,18 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.websocket.project.R
-import com.websocket.project.databinding.ItemBuyFiatBinding
+import com.websocket.project.databinding.ItemSellFiatBinding
 import com.websocket.project.ui.main.fiat.Fiat
-import com.websocket.project.ui.wallet.buy.BuyFragmentActionListener
-import com.websocket.project.ui.wallet.sell.fiat_drawer.SellFiatDrawerFragmentActionListener
+import com.websocket.project.ui.wallet.sell.SellFragmentActionListener
 
-class BuyFiatDrawerAdapter(
-    private val buyFragmentActionListener: BuyFragmentActionListener,
-    private val buyFiatDrawerFragmentActionListener: BuyFiatDrawerFragmentActionListener,
+class SellFiatDrawerAdapter(
+    private val sellFragmentActionListener: SellFragmentActionListener,
+    private val sellFiatDrawerFragmentActionListener: SellFiatDrawerFragmentActionListener,
     val localizedResources: Resources?
-) : RecyclerView.Adapter<BuyFiatDrawerAdapter.BuyFiatViewHolder>() {
+) : RecyclerView.Adapter<SellFiatDrawerAdapter.SellFiatViewHolder>() {
 
-    private val buyFiatItems = Fiat.values()
-    private val searchBuyFiatItems = mutableListOf<Fiat>()
+    private val sellFiatItems = Fiat.values()
+    private val searchSellFiatItems = mutableListOf<Fiat>()
     private val searchCurrentFiatItems: MutableList<Fiat> =
         Fiat.values().toList() as MutableList<Fiat>
     private var searchText = ""
@@ -39,20 +38,20 @@ class BuyFiatDrawerAdapter(
 
     private fun searchFromList(): List<Fiat> {
         if (searchText.isNotEmpty()) {
-            searchBuyFiatItems.clear()
+            searchSellFiatItems.clear()
             if (localizedResources != null) {
-                searchBuyFiatItems.addAll(buyFiatItems.filter {
+                searchSellFiatItems.addAll(sellFiatItems.filter {
                     localizedResources.getString(it.titleCode).lowercase().contains(searchText) ||
                             localizedResources.getString(it.titleName).lowercase()
                                 .contains(searchText)
                 })
             }
 
-            buyFiatDrawerFragmentActionListener.currentFiatItemsCount(searchBuyFiatItems.size)
+            sellFiatDrawerFragmentActionListener.currentFiatItemsCount(searchSellFiatItems.size)
 
-            return searchBuyFiatItems
+            return searchSellFiatItems
         } else {
-            return buyFiatItems.asList()
+            return sellFiatItems.asList()
         }
     }
 
@@ -80,16 +79,16 @@ class BuyFiatDrawerAdapter(
         }
     }
 
-    inner class BuyFiatViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val binding = ItemBuyFiatBinding.bind(itemView)
+    inner class SellFiatViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val binding = ItemSellFiatBinding.bind(itemView)
         fun bind(fiatItem: Fiat) {
             with(binding) {
-                buyExchangeFiatIconImg.setImageResource(fiatItem.icon)
+                sellExchangeFiatIconImg.setImageResource(fiatItem.icon)
                 itemIsCheckedBinding = fiatItem.isChecked
                 localizedResources?.getString(fiatItem.titleCode)
-                    ?.let { setSpannableSearchText(buyExchangeFiatTitleCodeText, it) }
+                    ?.let { setSpannableSearchText(sellExchangeFiatTitleCodeText, it) }
                 localizedResources?.getString(fiatItem.titleName)
-                    ?.let { setSpannableSearchText(buyExchangeFiatTitleNameText, it) }
+                    ?.let { setSpannableSearchText(sellExchangeFiatTitleNameText, it) }
 
                 fiatItemLayout.setOnClickListener {
                     onFiatSelected(fiatItem)
@@ -98,20 +97,20 @@ class BuyFiatDrawerAdapter(
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BuyFiatViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SellFiatViewHolder {
         val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_buy_fiat, parent, false)
-        return BuyFiatViewHolder(itemView)
+            .inflate(R.layout.item_sell_fiat, parent, false)
+        return SellFiatViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: BuyFiatViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: SellFiatViewHolder, position: Int) {
         holder.bind(searchCurrentFiatItems[position])
     }
 
     fun setInitCheckedFiat(initCheckedFiat: Fiat?) {
         if (initCheckedFiat != null) {
             val checkedFiat =
-                buyFiatItems[getPositionFromListByName(buyFiatItems.asList(), initCheckedFiat)]
+                sellFiatItems[getPositionFromListByName(sellFiatItems.asList(), initCheckedFiat)]
             checkedFiat.isChecked = true
             currentCheckedFiat = checkedFiat
         }
@@ -123,14 +122,14 @@ class BuyFiatDrawerAdapter(
 
     private fun onFiatSelected(fiatItem: Fiat) {
         if (currentCheckedFiat != null) {
-            val pos = getPositionFromListByName(buyFiatItems.asList(), currentCheckedFiat!!)
+            val pos = getPositionFromListByName(sellFiatItems.asList(), currentCheckedFiat!!)
             if (pos != -1) {
-                buyFiatItems[pos].isChecked = false
+                sellFiatItems[pos].isChecked = false
             }
         }
         currentCheckedFiat = fiatItem
         fiatItem.isChecked = true
-        buyFragmentActionListener.onFiatItemClick(fiatItem)
+        sellFragmentActionListener.onFiatItemClick(fiatItem)
         notifyDataSetChanged()
     }
 }

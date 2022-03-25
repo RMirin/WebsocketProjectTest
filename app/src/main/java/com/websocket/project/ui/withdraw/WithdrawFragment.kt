@@ -1,6 +1,7 @@
 package com.websocket.project.ui.withdraw
 
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.View
 import android.widget.TextView
 import androidx.core.content.ContextCompat
@@ -40,39 +41,73 @@ class WithdrawFragment :
             }
 
             withdrawTopbarLayoutInclude.title.text =
-                localizedResources?.getString(R.string.withdraw_title)
+                localizedResources.getString(R.string.withdraw_title)
             withdrawNetworkTitleText.text =
-                localizedResources?.getString(R.string.withdraw_network_title)
-            withdrawNetworkBtn.text = localizedResources?.getString(R.string.withdraw_network_hint)
+                localizedResources.getString(R.string.withdraw_network_title)
+            withdrawNetworkBtn.text = localizedResources.getString(R.string.withdraw_network_hint)
+            withdrawNetworkBtn.setTextSize(
+                TypedValue.COMPLEX_UNIT_SP,
+                12f
+            )
             withdrawAddressToSendUsdtTitleText.text =
-                localizedResources?.getString(R.string.withdraw_address_to_send_usdt_title)
+                localizedResources.getString(R.string.withdraw_address_to_send_usdt_title)
             withdrawAddressToSendEditText.hint =
-                localizedResources?.getString(R.string.withdraw_address_to_send_usdt_hint)
+                localizedResources.getString(R.string.withdraw_address_to_send_usdt_hint)
             withdrawAmountEditText.hint =
-                localizedResources?.getString(R.string.withdraw_amount_hint)
+                localizedResources.getString(R.string.withdraw_amount_hint)
             withdrawAmountUsdtTitleText.text =
-                localizedResources?.getString(R.string.withdraw_amount_usdt_title)
+                localizedResources.getString(R.string.withdraw_amount_usdt_title)
             withdrawAmountUsdtErrorText.text =
-                localizedResources?.getString(R.string.withdraw_amount_usdt_error)
-            withdrawAvailableUsdtText.text = localizedResources?.getString(
+                localizedResources.getString(R.string.withdraw_amount_usdt_error)
+            withdrawAvailableUsdtText.text = localizedResources.getString(
                 R.string.withdraw_available_usdt,
                 viewModel.getAvailableUsdt()
             )
             withdrawTransactionFeeNetworkTitleText.text =
-                localizedResources?.getString(R.string.withdraw_transaction_fee_network)
+                localizedResources.getString(R.string.withdraw_transaction_fee_network)
             withdrawTransactionFeeTotalTitleText.text =
-                localizedResources?.getString(R.string.withdraw_transaction_fee_total)
-            withdrawFeeText.text = localizedResources?.getString(R.string.withdraw_fee_msg)
-            withdrawSendBtn.text = localizedResources?.getString(R.string.withdraw_send)
+                localizedResources.getString(R.string.withdraw_transaction_fee_total)
+            withdrawFeeText.text = localizedResources.getString(R.string.withdraw_fee_msg)
+            withdrawSendBtn.text = localizedResources.getString(R.string.withdraw_send)
 
             withdrawViewModelBinding = viewModel
             withdrawFragmentActionListenerBinding = this@WithdrawFragment
 
+            withdrawAddressToSendEditText.setTextSize(
+                TypedValue.COMPLEX_UNIT_SP,
+                12f
+            )
             withdrawAddressToSendEditText.doOnTextChanged { text, _, _, _ ->
                 viewModel.setAddress(text.toString())
+                if (text?.isEmpty() == true) {
+                    withdrawAddressToSendEditText.setTextSize(
+                        TypedValue.COMPLEX_UNIT_SP,
+                        12f
+                    )
+                } else {
+                    withdrawAddressToSendEditText.setTextSize(
+                        TypedValue.COMPLEX_UNIT_SP,
+                        14f
+                    )
+                }
             }
 
+            withdrawAmountEditText.setTextSize(
+                TypedValue.COMPLEX_UNIT_SP,
+                12f
+            )
             withdrawAmountEditText.doOnTextChanged { text, _, _, _ ->
+                if (text?.isEmpty() == true) {
+                    withdrawAmountEditText.setTextSize(
+                        TypedValue.COMPLEX_UNIT_SP,
+                        12f
+                    )
+                } else {
+                    withdrawAmountEditText.setTextSize(
+                        TypedValue.COMPLEX_UNIT_SP,
+                        14f
+                    )
+                }
                 val withdrawAmount: Int = if (text.isNullOrEmpty()) {
                     0
                 } else {
@@ -121,10 +156,14 @@ class WithdrawFragment :
                     val name = requireContext().getString(withdrawNetwork.networkName)
                     val code = requireContext().getString(withdrawNetwork.networkCode)
                     with(binding) {
-                        withdrawNetworkBtn.text = localizedResources?.getString(R.string.withdraw_network_btn, name, code)
+                        withdrawNetworkBtn.setTextSize(
+                            TypedValue.COMPLEX_UNIT_SP,
+                            14f
+                        )
+                        withdrawNetworkBtn.text = localizedResources.getString(R.string.withdraw_network_btn, name, code)
                         withdrawNetworkBtn.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
-                        withdrawAttentionText.text =  localizedResources?.getString(R.string.withdraw_attention_msg, code, name)
-                        withdrawArriveText.text = localizedResources?.getString(R.string.withdraw_arrive_msg, code)
+                        withdrawAttentionText.text =  localizedResources.getString(R.string.withdraw_attention_msg, code, name)
+                        withdrawArriveText.text = localizedResources.getString(R.string.withdraw_arrive_msg, code)
                     }
                 }
             }

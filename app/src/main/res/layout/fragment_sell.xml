@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.drawerlayout.widget.DrawerLayout
-        android:id="@+id/buyDrawerLayout"
+        android:id="@+id/sellDrawerLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/bg_main">
@@ -15,7 +15,7 @@
             tools:context=".ui.main.MainActivity">
 
             <include
-                android:id="@+id/buyTopbarLayout"
+                android:id="@+id/sellTopbarLayout"
                 layout="@layout/topbar_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -31,7 +31,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/buyTopbarLayout"
+                app:layout_constraintTop_toBottomOf="@+id/sellTopbarLayout"
                 app:layout_constraintVertical_bias="0.0">
 
                 <LinearLayout
@@ -40,16 +40,16 @@
                     android:orientation="vertical">
 
                     <include
-                        android:id="@+id/buyExchangeLayoutInclude"
-                        layout="@layout/layout_buy_exchange"
+                        android:id="@+id/sellExchangeLayoutInclude"
+                        layout="@layout/layout_sell_exchange"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/spacing_normal"
                         android:layout_marginEnd="@dimen/spacing_normal" />
 
                     <include
-                        android:id="@+id/buyPartnersTitleLayoutInclude"
-                        layout="@layout/layout_buy_partners_title"
+                        android:id="@+id/sellPartnersTitleLayoutInclude"
+                        layout="@layout/layout_sell_partners_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/spacing_normal"
@@ -57,14 +57,14 @@
                         android:layout_marginEnd="@dimen/spacing_normal" />
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/buyPartnersRecycler"
+                        android:id="@+id/sellPartnersRecycler"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/spacing_normal"
                         android:layout_marginEnd="@dimen/spacing_normal"
                         android:nestedScrollingEnabled="false"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        tools:listitem="@layout/item_buy_partners" />
+                        tools:listitem="@layout/item_sell_partners" />
 
                 </LinearLayout>
 
@@ -73,10 +73,10 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <FrameLayout
-            android:id="@+id/buyDrawer"
+            android:id="@+id/sellDrawer"
             android:layout_width="305dp"
             android:layout_height="match_parent"
-            android:layout_gravity="start"
+            android:layout_gravity="end"
             android:background="@android:color/transparent"
             android:choiceMode="singleChoice"
             android:dividerHeight="1dp" />

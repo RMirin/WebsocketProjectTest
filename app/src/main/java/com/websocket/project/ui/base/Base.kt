@@ -185,7 +185,7 @@ fun displayName(uri: Uri): String {
 }
 
 @NonNull
-fun getLocalizedResources(context: Context, desiredLocale: Locale?): Resources? {
+fun getLocalizedResources(context: Context, desiredLocale: Locale?): Resources {
     var conf: Configuration = context.resources.configuration
     conf = Configuration(conf)
     conf.setLocale(desiredLocale)
