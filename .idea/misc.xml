@@ -218,6 +218,9 @@
         <entry key="app/src/main/res/layout/item_buy_partners_layout.xml" value="0.21927083333333333" />
         <entry key="app/src/main/res/layout/item_buy_partners_title.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_crypto_pair.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_date_picker_day.xml" value="0.2928377153218495" />
+        <entry key="app/src/main/res/layout/item_date_picker_month.xml" value="0.2928377153218495" />
+        <entry key="app/src/main/res/layout/item_date_picker_year.xml" value="0.2928377153218495" />
         <entry key="app/src/main/res/layout/item_fiat.xml" value="0.35886349598517603" />
         <entry key="app/src/main/res/layout/item_main_action.xml" value="0.5" />
         <entry key="app/src/main/res/layout/item_main_crypto.xml" value="0.2" />
@@ -253,7 +256,8 @@
         <entry key="app/src/main/res/layout/rsi_view.xml" value="0.33" />
         <entry key="app/src/main/res/layout/text_input.xml" value="0.15472972972972973" />
         <entry key="app/src/main/res/layout/topbar_layout.xml" value="0.67" />
-        <entry key="app/src/main/res/layout/view_risk_level.xml" value="0.67" />
+        <entry key="app/src/main/res/layout/view_date_picker.xml" value="0.2928377153218495" />
+        <entry key="app/src/main/res/layout/view_risk_level.xml" value="0.33" />
         <entry key="app/src/main/res/layout/view_rsi.xml" value="0.25" />
         <entry key="app/src/main/res/layout/withdraw_network_bottom_sheet_layout.xml" value="0.17135416666666667" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.2125" />

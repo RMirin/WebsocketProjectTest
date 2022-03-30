@@ -47,6 +47,8 @@
 
     </declare-styleable>
 
+    <declare-styleable name="DatePickerView"/>
+
     <style name="TabCustomTextAppearance" parent="TextAppearance.Design.Tab">
         <item name="textAllCaps">false</item>
         <item name="android:textAllCaps">false</item>
@@ -63,5 +65,18 @@
         <item name="android:windowFullscreen">false</item>
         <item name="android:background">@android:color/transparent</item>
         <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="customtheme" parent="@android:style/Theme.Light">
+        <item name="android:spinnerItemStyle">@style/SpinnerItem</item>
+        <item name="android:spinnerDropDownItemStyle">@style/SpinnerDropDownItem</item>
+    </style>
+    <style name="SpinnerItem">
+        <item name="android:textColor">#993399</item>
+        <item name="android:background">@drawable/bg_rectangle_gradient_view</item>
+    </style>
+    <style name="SpinnerDropDownItem">
+        <item name="android:textColor">#993399</item>
+        <item name="android:background">@drawable/bg_rectangle_gradient_view</item>
     </style>
 </resources>

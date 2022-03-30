@@ -8,17 +8,17 @@
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="match_parent"/>-->
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/main_nav_host_container"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:defaultNavHost="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/navigation_buy" />
+<!--    <androidx.fragment.app.FragmentContainerView-->
+<!--        android:id="@+id/main_nav_host_container"-->
+<!--        android:name="androidx.navigation.fragment.NavHostFragment"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:defaultNavHost="true"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:navGraph="@navigation/navigation_buy" />-->
 
 <!--        <com.websocket.project.ui.custom.rsi_view.RsiView-->
 <!--            android:id="@+id/main_rsi_view"-->
@@ -41,5 +41,9 @@
 <!--            app:layout_constraintEnd_toEndOf="parent"-->
 <!--            app:layout_constraintStart_toStartOf="parent"-->
 <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+    <com.websocket.project.ui.custom.datepicker.DatePickerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </layout>
