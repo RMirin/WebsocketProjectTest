@@ -176,14 +176,16 @@
         <entry key="app/src/main/res/drawable/selector_view_risk_level_right_text.xml" value="0.18958333333333333" />
         <entry key="app/src/main/res/drawable/selector_view_risk_level_text.xml" value="0.32083333333333336" />
         <entry key="app/src/main/res/drawable/selector_wallet.xml" value="0.18333333333333332" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/attach_file_bottom_sheet_layout.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/bottom_sheet_kyc_date_picker.xml" value="0.14" />
         <entry key="app/src/main/res/layout/bottom_sheet_layout_withdraw_network.xml" value="0.18" />
         <entry key="app/src/main/res/layout/custom_layout.xml" value="0.18958333333333333" />
         <entry key="app/src/main/res/layout/dialog_fragment_alert.xml" value="0.25" />
         <entry key="app/src/main/res/layout/dialog_fragment_close_position.xml" value="0.22" />
         <entry key="app/src/main/res/layout/dialog_fragment_delete_text.xml" value="0.17443351859769132" />
         <entry key="app/src/main/res/layout/dialog_fragment_identity_confirmation.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/dialog_fragment_kyc_date_picker.xml" value="0.1" />
         <entry key="app/src/main/res/layout/dialog_fragment_position_history_detail.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/layout/dialog_fragment_transaction_history_detail.xml" value="0.17553191489361702" />
         <entry key="app/src/main/res/layout/dialog_support_fragment_action.xml" value="0.18" />
@@ -227,6 +229,7 @@
         <entry key="app/src/main/res/layout/item_main_crypto_placeholder.xml" value="0.33" />
         <entry key="app/src/main/res/layout/item_network.xml" value="0.2203125" />
         <entry key="app/src/main/res/layout/item_sell_fiat.xml" value="0.1675929884566054" />
+        <entry key="app/src/main/res/layout/item_sell_partners.xml" value="0.31297709923664124" />
         <entry key="app/src/main/res/layout/item_support_files_file.xml" value="0.9" />
         <entry key="app/src/main/res/layout/item_support_files_image.xml" value="0.75" />
         <entry key="app/src/main/res/layout/item_support_files_photo.xml" value="0.20662568306010928" />
@@ -256,7 +259,7 @@
         <entry key="app/src/main/res/layout/rsi_view.xml" value="0.33" />
         <entry key="app/src/main/res/layout/text_input.xml" value="0.15472972972972973" />
         <entry key="app/src/main/res/layout/topbar_layout.xml" value="0.67" />
-        <entry key="app/src/main/res/layout/view_date_picker.xml" value="0.2928377153218495" />
+        <entry key="app/src/main/res/layout/view_date_picker.xml" value="0.1" />
         <entry key="app/src/main/res/layout/view_risk_level.xml" value="0.33" />
         <entry key="app/src/main/res/layout/view_rsi.xml" value="0.25" />
         <entry key="app/src/main/res/layout/withdraw_network_bottom_sheet_layout.xml" value="0.17135416666666667" />

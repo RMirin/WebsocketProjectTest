@@ -25,4 +25,6 @@ abstract class BaseBottomSheetDialogFragment<VB : ViewBinding> : BottomSheetDial
     override fun getTheme() = R.style.BottomSheetDialogTheme
 
     abstract fun initViewBinding(): VB
+
+
 }

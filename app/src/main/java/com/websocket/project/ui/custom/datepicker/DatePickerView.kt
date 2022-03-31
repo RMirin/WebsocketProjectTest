@@ -2,7 +2,6 @@ package com.websocket.project.ui.custom.datepicker
 
 import android.content.Context
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,7 +15,8 @@ class DatePickerView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-) : ConstraintLayout(context, attrs, defStyleAttr), DayAdapterListener, MonthAdapterListener, YearAdapterListener {
+) : ConstraintLayout(context, attrs, defStyleAttr), DayAdapterListener, MonthAdapterListener,
+    YearAdapterListener {
 
     private val monthSnapHelper = LinearSnapHelper()
     private val yearSnapHelper = LinearSnapHelper()
@@ -25,9 +25,9 @@ class DatePickerView @JvmOverloads constructor(
     private var yearSnapPosition = RecyclerView.NO_POSITION
     private var daySnapPosition = RecyclerView.NO_POSITION
 
-    private var monthChosen: DatePickerMonth = DatePickerMonth.JANUARY
-    private var yearChosen: DatePickerYear = DatePickerYear(1982)
-    private var dayChosen: DatePickerDay = DatePickerDay(0)
+    var monthChosen: DatePickerMonth = DatePickerMonth.JANUARY
+    var yearChosen: DatePickerYear = DatePickerYear(1982)
+    var dayChosen: DatePickerDay = DatePickerDay(1)
 
     private lateinit var viewDatePickerDayRecycler: RecyclerView
     private lateinit var viewDatePickerMonthRecycler: RecyclerView
@@ -74,7 +74,10 @@ class DatePickerView @JvmOverloads constructor(
             viewDatePickerMonthRecycler.adapter = datePickerMonthAdapter
 
             val monthViewHolder: RecyclerView.ViewHolder? =
-                viewDatePickerMonthRecycler.adapter?.createViewHolder(viewDatePickerMonthRecycler, 0)
+                viewDatePickerMonthRecycler.adapter?.createViewHolder(
+                    viewDatePickerMonthRecycler,
+                    0
+                )
 
             if (monthViewHolder != null) {
                 viewDatePickerMonthRecycler.layoutManager
@@ -86,13 +89,14 @@ class DatePickerView @JvmOverloads constructor(
             }
 
             monthSnapHelper.attachToRecyclerView(viewDatePickerMonthRecycler)
-            viewDatePickerMonthRecycler.scrollToPosition(Integer.MAX_VALUE/2-5) //Scroll to January
+            viewDatePickerMonthRecycler.scrollToPosition(Integer.MAX_VALUE / 2 - 5) //Scroll to January
 
             val monthSnapView = monthSnapHelper.findSnapView(monthLayoutManager)
             if (monthSnapView != null) {
                 monthSnapPosition = monthLayoutManager.getPosition(monthSnapView)
             }
-            viewDatePickerMonthRecycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            viewDatePickerMonthRecycler.addOnScrollListener(object :
+                RecyclerView.OnScrollListener() {
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                     notifyMonthSnapPositionChange(recyclerView)
                 }
@@ -104,6 +108,7 @@ class DatePickerView @JvmOverloads constructor(
             val yearsOffset = 30
             val yearsList = mutableListOf<DatePickerYear>()
             val yearStart = currentYear - yearsOffset
+            yearChosen.number = yearStart
             for (year in yearStart..currentYear) {
                 yearsList.add(DatePickerYear(year))
             }
@@ -133,13 +138,14 @@ class DatePickerView @JvmOverloads constructor(
             }
 
             yearSnapHelper.attachToRecyclerView(viewDatePickerYearRecycler)
-            viewDatePickerYearRecycler.scrollToPosition(Integer.MAX_VALUE/2 + yearsOffset - 1)
+            viewDatePickerYearRecycler.scrollToPosition(Integer.MAX_VALUE / 2 + yearsOffset - 1)
 
             val yearSnapView = yearSnapHelper.findSnapView(yearLayoutManager)
             if (yearSnapView != null) {
                 yearSnapPosition = yearLayoutManager.getPosition(yearSnapView)
             }
-            viewDatePickerYearRecycler.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            viewDatePickerYearRecycler.addOnScrollListener(object :
+                RecyclerView.OnScrollListener() {
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                     notifyYearSnapPositionChange(recyclerView)
                 }
@@ -163,7 +169,6 @@ class DatePickerView @JvmOverloads constructor(
 
             viewDatePickerDayRecycler = findViewById(R.id.datePickerDayRecycler)
             viewDatePickerDayRecycler.adapter = datePickerDayAdapter
-            datePickerDayAdapter.setData(daysList)
 
             val dayViewHolder: RecyclerView.ViewHolder? =
                 viewDatePickerDayRecycler.adapter?.createViewHolder(viewDatePickerDayRecycler, 0)
@@ -226,11 +231,8 @@ class DatePickerView @JvmOverloads constructor(
 
     private fun notifyDaySnapPositionChange(recyclerView: RecyclerView) {
         val snapPosition = daySnapHelper.getSnapPosition(recyclerView)
-        val snapPositionChanged = daySnapPosition != snapPosition
-        if (snapPositionChanged) {
-            daySnapPosition = snapPosition
-            datePickerDayAdapter.setChosen(snapPosition)
-        }
+        daySnapPosition = snapPosition
+        datePickerDayAdapter.setChosen(snapPosition)
     }
 
     private fun SnapHelper.getSnapPosition(recyclerView: RecyclerView): Int {
@@ -241,28 +243,25 @@ class DatePickerView @JvmOverloads constructor(
 
     private fun calculateCountDaysInMonthOfYear(): Int {
         val calendar = Calendar.getInstance()
-        calendar.set(yearChosen.number, monthChosen.number-1, 1)
-        val days: Int = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
-
-        Log.e("TAG", "calculateCountDaysInMonthOfYear: year${yearChosen.number} month${monthChosen.number}")
-        return days
+        calendar.set(yearChosen.number, monthChosen.number - 1, 1)
+        return calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
     }
 
     private fun populateDaysList() {
         daysInYearsMonth = calculateCountDaysInMonthOfYear()
         val daysList = mutableListOf<DatePickerDay>()
         for (day in 1..daysInYearsMonth) {
-            daysList.add(DatePickerDay(
-                dayNumber = day
-            ))
+            daysList.add(
+                DatePickerDay(
+                    dayNumber = day
+                )
+            )
         }
-        Log.e("TAG", "populateDaysList: ${daysList.size} days in month $daysInYearsMonth chosen day ${dayChosen.dayNumber}")
         datePickerDayAdapter.setData(daysList)
     }
 
     override fun setChosenDay(datePickerDay: DatePickerDay, position: Int) {
         dayChosen = datePickerDay
-        Log.e("TAG", "setChosenDay: ${datePickerDay.dayNumber}")
     }
 
     override fun setChosenMonth(datePickerMonth: DatePickerMonth) {

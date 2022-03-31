@@ -284,6 +284,8 @@
     <string name="side_long">Long</string>
     <string name="side_short">Short</string>
 
+    <string name="kyc_dialog_ready_btn">Готово</string>
+
     <string name="month_january">January</string>
     <string name="month_february">February</string>
     <string name="month_march">March</string>

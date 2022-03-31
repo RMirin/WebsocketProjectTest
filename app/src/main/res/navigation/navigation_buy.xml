@@ -8,5 +8,14 @@
         android:id="@+id/sellFragment"
         android:name="com.websocket.project.ui.wallet.sell.SellFragment"
         android:label="SellFragment" >
+        <action
+            android:id="@+id/action_sellFragment_to_kycDatepickerBottomSheetFragment"
+            app:destination="@id/kycDatepickerBottomSheetFragment" />
     </fragment>
+
+    <dialog
+        android:id="@+id/kycDatepickerBottomSheetFragment"
+        android:name="com.websocket.project.ui.kyc.KycDatePickerBottomSheetFragment"
+        android:label="KycDatePickerBottomSheetFragment">
+    </dialog>
 </navigation>

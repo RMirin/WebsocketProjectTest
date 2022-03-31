@@ -1,12 +1,15 @@
 package com.websocket.project.ui.custom.datepicker
 
+import android.os.Parcelable
 import androidx.annotation.StringRes
 import com.websocket.project.R
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 enum class DatePickerMonth(
     val number: Int,
     @StringRes val monthName: Int
-) {
+) : Parcelable {
     JANUARY(
         number = 1,
         monthName = R.string.month_january

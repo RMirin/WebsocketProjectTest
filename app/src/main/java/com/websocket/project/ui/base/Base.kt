@@ -246,3 +246,4 @@ class BaseRecyclerItemDecoration(private val space: Int) : RecyclerView.ItemDeco
         }
     }
 }
+

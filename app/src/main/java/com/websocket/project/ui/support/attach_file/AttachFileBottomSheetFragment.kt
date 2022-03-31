@@ -14,8 +14,6 @@ class AttachFileBottomSheetFragment(
     private val listener: AttachFileBottomSheetListener
 ) : BaseBottomSheetDialogFragment<AttachFileBottomSheetLayoutBinding>() {
 
-    override fun getTheme() = R.style.BottomSheetDialogTheme
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val adapter = AttachFileBottomSheetAdapter(listener)

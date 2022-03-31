@@ -4,6 +4,8 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class DatePickerYear(
-    var number: Int
+data class DatePickerDate(
+    val chosenDay: DatePickerDay,
+    val chosenMonth: DatePickerMonth,
+    val chosenYear: DatePickerYear
 ) : Parcelable

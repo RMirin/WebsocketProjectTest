@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="kycDatePickerActionListenerBinding"
+            type="com.websocket.project.ui.kyc.KycDatePickerActionListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/bg_bottom_sheet_gradient"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="20dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_bottom_dialog_pin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.websocket.project.ui.custom.datepicker.DatePickerView
+            android:id="@+id/bottomSheetKycDatePicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_big"
+            app:layout_constraintBottom_toTopOf="@id/bottomSheetKycAcceptBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <TextView
+            android:id="@+id/bottomSheetKycAcceptBtn"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:textSize="@dimen/font_normal"
+            android:gravity="center"
+            android:layout_marginBottom="@dimen/spacing_normal"
+            android:layout_marginStart="@dimen/spacing_normal"
+            android:layout_marginEnd="@dimen/spacing_normal"
+            android:textColor="@color/white"
+            android:text="@string/kyc_dialog_ready_btn"
+            android:onClick="@{() -> kycDatePickerActionListenerBinding.readyBtnClick()}"
+            android:background="@drawable/bg_rectangle_accent_btn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Готово" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

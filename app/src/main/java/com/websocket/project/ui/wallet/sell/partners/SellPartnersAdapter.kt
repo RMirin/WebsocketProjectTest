@@ -40,6 +40,7 @@ class SellPartnersAdapter(
             val partnersItem = sellFragmentPartnersItems[position]
             with(itemSellPartnersBinding) {
                 sellPartnersItemBinding = partnersItem
+                sellFragmentActionListenerBinding = sellFragmentActionListener
                 itemSellPartnersImg.setImageResource(partnersItem.icon)
                 itemSellPartnersTitleCodeText.text = partnersItem.type?.let {
                     localizedResources?.getString(

@@ -3,17 +3,23 @@ package com.websocket.project.ui.wallet.sell
 import android.content.Context
 import android.content.res.Resources
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.websocket.project.R
 import com.websocket.project.databinding.FragmentSellBinding
 import com.websocket.project.ui.base.*
+import com.websocket.project.ui.custom.datepicker.DatePickerDate
+import com.websocket.project.ui.kyc.KycDatePickerBottomSheetFragment.Companion.DATE_PICKER_RESULT_KEY
 import com.websocket.project.ui.main.MainActivity
 import com.websocket.project.ui.main.fiat.Fiat
+import com.websocket.project.ui.network.NetworkBottomSheetFragment
 import com.websocket.project.ui.wallet.sell.fiat_drawer.SellFiatDrawerFragment
 import com.websocket.project.ui.wallet.sell.partners.SellPartnersAdapter
 import com.websocket.project.ui.wallet.sell.partners.SellPartnersItem
@@ -37,6 +43,12 @@ class SellFragment : BaseFragment<FragmentSellBinding>(), SellFragmentActionList
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<DatePickerDate>(
+            DATE_PICKER_RESULT_KEY
+        )?.observe(viewLifecycleOwner) { result ->
+            Toast.makeText(requireContext(), "${result.chosenDay.dayNumber}.${result.chosenMonth.number}.${result.chosenYear.number}", Toast.LENGTH_LONG).show()
+            Log.e("TAG", "onViewCreated: $result")
+        }
 
         localizedResources = getLocalizedResources(requireContext(), Locale("ru"))
 
@@ -156,7 +168,8 @@ class SellFragment : BaseFragment<FragmentSellBinding>(), SellFragmentActionList
     }
 
     override fun onPartnersItemClick(partnersItem: SellPartnersItem) {
-
+        Log.e("TAG", "onPartnersItemClick: ")
+        findNavController().navigate(SellFragmentDirections.actionSellFragmentToKycDatepickerBottomSheetFragment())
     }
 
     private fun observeLiveData() {
