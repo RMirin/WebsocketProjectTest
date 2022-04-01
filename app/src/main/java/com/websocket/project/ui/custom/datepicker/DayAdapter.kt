@@ -68,7 +68,7 @@ class DayAdapter(
                 if (viewDayItemDate == chosenDateDay) {
                     datePickerDayText.setTextColor(rootContext.getColor(R.color.white))
                 } else {
-                    datePickerDayText.setTextColor(rootContext.getColor(R.color.gray))
+                    datePickerDayText.setTextColor(rootContext.getColor(R.color.grey))
                 }
                 datePickerDayText.text = viewDayItemDate?.dayNumber.toString()
             }

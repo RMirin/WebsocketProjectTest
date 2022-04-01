@@ -2,7 +2,6 @@ package com.websocket.project.ui.custom.datepicker
 
 import android.content.Context
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -232,9 +231,8 @@ class DatePickerView @JvmOverloads constructor(
 
     private fun notifyDaySnapPositionChange(recyclerView: RecyclerView) {
         val snapPosition = daySnapHelper.getSnapPosition(recyclerView)
-        Log.e("TAG", "notifyDaySnapPositionChange: $snapPosition")
         daySnapPosition = snapPosition
-        datePickerDayAdapter.setChosen(daySnapPosition)
+        datePickerDayAdapter.setChosen(snapPosition)
     }
 
     private fun SnapHelper.getSnapPosition(recyclerView: RecyclerView): Int {
@@ -250,7 +248,6 @@ class DatePickerView @JvmOverloads constructor(
     }
 
     private fun populateDaysList() {
-        val days = daysInYearsMonth
         daysInYearsMonth = calculateCountDaysInMonthOfYear()
         val daysList = mutableListOf<DatePickerDay>()
         for (day in 1..daysInYearsMonth) {
@@ -259,10 +256,6 @@ class DatePickerView @JvmOverloads constructor(
                     dayNumber = day
                 )
             )
-        }
-        Log.e("TAG", "populateDaysList: days $days daysCurrent $daysInYearsMonth")
-        if (days > daysInYearsMonth) {
-            viewDatePickerDayRecycler.scrollToPosition(daysInYearsMonth - (days - daysInYearsMonth))
         }
         datePickerDayAdapter.setData(daysList)
     }

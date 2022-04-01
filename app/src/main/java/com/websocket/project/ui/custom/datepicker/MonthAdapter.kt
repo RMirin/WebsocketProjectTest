@@ -44,7 +44,7 @@ class MonthAdapter(
                 if (viewMonthItemDate == chosenDateMonth) {
                     datePickerMonthText.setTextColor(rootContext.getColor(R.color.white))
                 } else {
-                    datePickerMonthText.setTextColor(rootContext.getColor(R.color.gray))
+                    datePickerMonthText.setTextColor(rootContext.getColor(R.color.grey))
                 }
                 datePickerMonthText.text = viewMonthItemDate?.monthName?.let { rootContext.getString(it) }
             }

@@ -45,7 +45,7 @@ class YearAdapter(
                 if (viewYearItemDate == chosenDateYear) {
                     datePickerYearText.setTextColor(rootContext.getColor(R.color.white))
                 } else {
-                    datePickerYearText.setTextColor(rootContext.getColor(R.color.gray))
+                    datePickerYearText.setTextColor(rootContext.getColor(R.color.grey))
                 }
                 datePickerYearText.text = viewYearItemDate?.number.toString()
             }
