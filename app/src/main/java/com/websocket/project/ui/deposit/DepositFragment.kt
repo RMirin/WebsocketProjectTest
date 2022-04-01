@@ -170,6 +170,8 @@ class DepositFragment: BaseFragment<FragmentDepositBinding>(), DepositFragmentAc
                             localizedResources.getString(R.string.deposit_attention_msg, code, name)
                         depositArriveText.text =
                             localizedResources.getString(R.string.deposit_arrive_msg, code)
+                        depositSaveImageBtn.text = localizedResources.getString(R.string.deposit_save_image)
+                        depositShareAddressBtn.text = localizedResources.getString(R.string.deposit_share_address)
                     }
                 }
             }

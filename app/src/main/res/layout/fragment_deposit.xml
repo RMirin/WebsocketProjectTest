@@ -192,7 +192,6 @@
                         android:paddingTop="20dp"
                         android:paddingEnd="25dp"
                         android:paddingBottom="20dp"
-                        android:text="@string/deposit_save_image"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/font_normal"
                         app:drawableStartCompat="@drawable/ic_save" />
@@ -215,7 +214,6 @@
                         android:paddingTop="20dp"
                         android:paddingEnd="@dimen/spacing_normal"
                         android:paddingBottom="20dp"
-                        android:text="@string/deposit_share_address"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/font_normal"
                         app:drawableStartCompat="@drawable/ic_share" />
