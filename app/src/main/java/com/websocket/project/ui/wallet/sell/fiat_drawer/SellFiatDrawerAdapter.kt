@@ -4,6 +4,7 @@ import android.content.res.Resources
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.BackgroundColorSpan
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,10 +21,9 @@ class SellFiatDrawerAdapter(
     val localizedResources: Resources?
 ) : RecyclerView.Adapter<SellFiatDrawerAdapter.SellFiatViewHolder>() {
 
-    private val sellFiatItems = Fiat.values()
+    private val sellFiatItems = mutableListOf<Fiat>()
     private val searchSellFiatItems = mutableListOf<Fiat>()
-    private val searchCurrentFiatItems: MutableList<Fiat> =
-        Fiat.values().toList() as MutableList<Fiat>
+    private val searchCurrentFiatItems = mutableListOf<Fiat>()
     private var searchText = ""
     private var currentCheckedFiat: Fiat? = null
 
@@ -51,7 +51,7 @@ class SellFiatDrawerAdapter(
 
             return searchSellFiatItems
         } else {
-            return sellFiatItems.asList()
+            return sellFiatItems
         }
     }
 
@@ -107,10 +107,122 @@ class SellFiatDrawerAdapter(
         holder.bind(searchCurrentFiatItems[position])
     }
 
-    fun setInitCheckedFiat(initCheckedFiat: Fiat?) {
+    fun setInitialData(initCheckedFiat: Fiat?) {
+        sellFiatItems.addAll(
+            mutableListOf(
+            Fiat(
+                icon = R.drawable.ic_fiat_peso,
+                titleCode = R.string.fiat_code_ars,
+                titleName = R.string.fiat_name_ars,
+                isChecked = false
+            ),
+                Fiat(
+                icon = R.drawable.ic_fial_byn,
+                titleCode = R.string.fiat_code_byn,
+                titleName = R.string.fiat_name_byn,
+                isChecked = false
+            ),
+                Fiat(
+                icon = R.drawable.ic_fiat_peso,
+                titleCode = R.string.fiat_code_clp,
+                titleName = R.string.fiat_name_clp,
+                isChecked = false
+            ),
+                Fiat(
+                icon = R.drawable.ic_fiat_peso,
+                titleCode = R.string.fiat_code_cop,
+                titleName = R.string.fiat_name_cop,
+                isChecked = false
+            ),
+                Fiat(
+                icon = R.drawable.ic_fiat_eur,
+                titleCode = R.string.fiat_code_eur,
+                titleName = R.string.fiat_name_eur,
+                isChecked = false
+            ),
+                Fiat(
+                icon = R.drawable.ic_fiat_idr,
+                titleCode = R.string.fiat_code_idr,
+                titleName = R.string.fiat_name_idr,
+                isChecked = false
+            ),
+                Fiat(
+                icon = R.drawable.ic_fiat_inr,
+                titleCode = R.string.fiat_code_inr,
+                titleName = R.string.fiat_name_inr,
+                isChecked = false
+            ),
+                Fiat(
+                icon = R.drawable.ic_fiat_kzt,
+                titleCode = R.string.fiat_code_kzt,
+                titleName = R.string.fiat_name_kzt,
+                isChecked = false
+            ),
+                Fiat(
+                icon = R.drawable.ic_fiat_peso,
+                titleCode = R.string.fiat_code_mxn,
+                titleName = R.string.fiat_name_mxn,
+                isChecked = false
+            ),
+                Fiat(
+                icon = R.drawable.ic_fiat_myr,
+                titleCode = R.string.fiat_code_myr,
+                titleName = R.string.fiat_name_myr,
+                isChecked = false
+            ),
+                Fiat(
+                icon = R.drawable.ic_fiat_pen,
+                titleCode = R.string.fiat_code_pen,
+                titleName = R.string.fiat_name_pen,
+                isChecked = false
+            ),
+                Fiat(
+                icon = R.drawable.ic_fiat_peso,
+                titleCode = R.string.fiat_code_php,
+                titleName = R.string.fiat_name_php,
+                isChecked = false
+            ),
+                Fiat(
+                icon = R.drawable.ic_fiat_rub,
+                titleCode = R.string.fiat_code_rub,
+                titleName = R.string.fiat_name_rub,
+                isChecked = false
+            ),
+                Fiat(
+                icon = R.drawable.ic_fiat_thb,
+                titleCode = R.string.fiat_code_thb,
+                titleName = R.string.fiat_name_thb,
+                isChecked = false
+            ),
+                Fiat(
+                icon = R.drawable.ic_fiat_uah,
+                titleCode = R.string.fiat_code_uah,
+                titleName = R.string.fiat_name_uah,
+                isChecked = false
+            ),
+                Fiat(
+                icon = R.drawable.ic_fiat_usd,
+                titleCode = R.string.fiat_code_usd,
+                titleName = R.string.fiat_name_usd,
+                isChecked = false
+            ),
+                Fiat(
+                icon = R.drawable.ic_fiat_vef,
+                titleCode = R.string.fiat_code_vef,
+                titleName = R.string.fiat_name_vef,
+                isChecked = false
+            ),
+                Fiat(
+                icon = R.drawable.ic_fiat_vnd,
+                titleCode = R.string.fiat_code_vnd,
+                titleName = R.string.fiat_name_vnd,
+                isChecked = false
+            ))
+        )
+        searchCurrentFiatItems.addAll(sellFiatItems)
         if (initCheckedFiat != null) {
             val checkedFiat =
-                sellFiatItems[getPositionFromListByName(sellFiatItems.asList(), initCheckedFiat)]
+                sellFiatItems[getPositionFromListByName(sellFiatItems, initCheckedFiat)]
             checkedFiat.isChecked = true
             currentCheckedFiat = checkedFiat
         }
@@ -122,7 +234,7 @@ class SellFiatDrawerAdapter(
 
     private fun onFiatSelected(fiatItem: Fiat) {
         if (currentCheckedFiat != null) {
-            val pos = getPositionFromListByName(sellFiatItems.asList(), currentCheckedFiat!!)
+            val pos = getPositionFromListByName(sellFiatItems, currentCheckedFiat!!)
             if (pos != -1) {
                 sellFiatItems[pos].isChecked = false
             }

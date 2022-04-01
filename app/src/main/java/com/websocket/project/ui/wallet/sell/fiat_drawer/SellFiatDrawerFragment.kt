@@ -2,7 +2,6 @@ package com.websocket.project.ui.wallet.sell.fiat_drawer
 
 import android.content.res.Resources
 import android.os.Bundle
-import android.util.Log
 import android.util.TypedValue
 import android.view.View
 import com.jakewharton.rxbinding4.view.focusChanges
@@ -12,7 +11,6 @@ import com.websocket.project.databinding.DrawerFragmentSellFiatBinding
 import com.websocket.project.ui.base.*
 import com.websocket.project.ui.main.fiat.Fiat
 import com.websocket.project.ui.wallet.sell.SellFragmentActionListener
-import com.websocket.project.ui.wallet.sell.SellViewModel
 import java.util.*
 
 class SellFiatDrawerFragment(
@@ -31,17 +29,16 @@ class SellFiatDrawerFragment(
         super.onViewCreated(view, savedInstanceState)
 
         val localizedResources = getLocalizedResources(requireContext(), Locale("ru"))
-
         with(binding) {
             showContent = true
             sellFiatDrawerFragmentActionListenerBinding = this@SellFiatDrawerFragment
 
-            sellFiatSearchEditText.hint = localizedResources?.getString(R.string.buy_fiat_search_hint)
+            sellFiatSearchEditText.hint = localizedResources.getString(R.string.buy_fiat_search_hint)
             sellFiatSearchEditText.setTextSize(
                 TypedValue.COMPLEX_UNIT_SP,
                 12f
             )
-            sellFiatNothingFoundText.text = localizedResources?.getString(R.string.common_empty)
+            sellFiatNothingFoundText.text = localizedResources.getString(R.string.common_empty)
 
             with(sellFiatRecycler) {
                 addItemDecoration(
@@ -53,7 +50,7 @@ class SellFiatDrawerFragment(
                     )
                 )
                 itemAnimator = null
-                sellFiatDrawerAdapter.setInitCheckedFiat(currentCheckedFiat)
+                sellFiatDrawerAdapter.setInitialData(currentCheckedFiat)
                 adapter = sellFiatDrawerAdapter
             }
         }
@@ -94,6 +91,11 @@ class SellFiatDrawerFragment(
             sellFiatClearBtn.accessibleTouchTarget()
         }
     }
+
+//    override fun onDestroy() {
+//        super.onDestroy()
+////        sellFiatDrawerAdapter.uncheckOnDestroyFragment()
+//    }
 
     private fun searchFromList(text: String) {
         sellFiatDrawerAdapter.setNewSearchString(text)

@@ -32,14 +32,15 @@ class BuyFiatDrawerFragment(
         val localizedResources = getLocalizedResources(requireContext(), Locale("ru"))
 
         with(binding) {
+            showContent = true
             buyFiatDrawerFragmentActionListenerBinding = this@BuyFiatDrawerFragment
 
-            buyFiatSearchEditText.hint = localizedResources?.getString(R.string.buy_fiat_search_hint)
+            buyFiatSearchEditText.hint = localizedResources.getString(R.string.buy_fiat_search_hint)
             buyFiatSearchEditText.setTextSize(
                 TypedValue.COMPLEX_UNIT_SP,
                 12f
             )
-            buyFiatNothingFoundText.text = localizedResources?.getString(R.string.common_empty)
+            buyFiatNothingFoundText.text = localizedResources.getString(R.string.common_empty)
 
             with(buyFiatRecycler) {
                 addItemDecoration(
@@ -51,7 +52,7 @@ class BuyFiatDrawerFragment(
                     )
                 )
                 itemAnimator = null
-                buyFiatDrawerAdapter.setInitCheckedFiat(currentCheckedFiat)
+                buyFiatDrawerAdapter.setInitialData(currentCheckedFiat)
                 adapter = buyFiatDrawerAdapter
             }
         }
@@ -91,6 +92,11 @@ class BuyFiatDrawerFragment(
             }
             buyFiatClearBtn.accessibleTouchTarget()
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        buyFiatDrawerAdapter.uncheckOnDestroyFragment()
     }
 
     private fun searchFromList(text: String) {

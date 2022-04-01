@@ -3,12 +3,14 @@ package com.websocket.project.ui.wallet.buy
 import android.content.Context
 import android.content.res.Resources
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.websocket.project.R
 import com.websocket.project.databinding.FragmentBuyBinding
 import com.websocket.project.ui.base.*

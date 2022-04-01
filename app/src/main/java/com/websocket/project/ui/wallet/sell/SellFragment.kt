@@ -38,6 +38,8 @@ class SellFragment : BaseFragment<FragmentSellBinding>(), SellFragmentActionList
         SellPartnersAdapter(this@SellFragment, localizedResources)
     }
 
+    private lateinit var fiatDrawerFragmentTransaction: FragmentTransaction
+
     override fun initViewBinding(): FragmentSellBinding =
         FragmentSellBinding.inflate(layoutInflater)
 
@@ -52,8 +54,8 @@ class SellFragment : BaseFragment<FragmentSellBinding>(), SellFragmentActionList
 
         localizedResources = getLocalizedResources(requireContext(), Locale("ru"))
 
-        val fiatDrawerFragmentTransaction: FragmentTransaction =
-            (activity as MainActivity).supportFragmentManager.beginTransaction()
+        fiatDrawerFragmentTransaction =
+            parentFragmentManager.beginTransaction()
         fiatDrawerFragmentTransaction.replace(R.id.sellDrawer, sellFiatDrawerFragment)
         fiatDrawerFragmentTransaction.commit()
 
