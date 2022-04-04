@@ -236,7 +236,6 @@
     <string name="deposit_save_image">Save Image</string>
     <string name="deposit_share_address">Share Address</string>
     <string name="deposit_address_copied">Address copied</string>
-    <string name="deposit_image_saved_msg">The image is saved\nto the phone gallery</string>
     
     <string name="network_ethereum_name">Ethereum</string>
     <string name="network_ethereum_code">ERC-20</string>
@@ -296,6 +295,18 @@
     <string name="month_october">October</string>
     <string name="month_november">November</string>
     <string name="month_december">December</string>
+
+
+    //ALERT DIALOG
+    <string name="alert_technical_works_title">Technical works</string>
+    <string name="alert_missing_connection_mobile_title">Missing connection</string>
+    <string name="alert_missing_connection_wifi_title">Missing connection</string>
+    <string name="alert_image_saved_title">The image is saved\nto the phone gallery</string>
+
+    <string name="alert_technical_works_msg">The service is temporarily\nunavailable - try to connect later</string>
+    <string name="alert_missing_connection_mobile_msg">Check your mobile network\nor turn on Wi-Fi</string>
+    <string name="alert_missing_connection_wifi_msg">Check the Wi-Fi or turn on the\nmobile network</string>
+
 
     <string name="common_ok">OK</string>
     <string name="common_close">Close</string>

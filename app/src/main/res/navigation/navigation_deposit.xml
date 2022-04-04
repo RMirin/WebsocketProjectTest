@@ -29,7 +29,11 @@
         android:name="com.websocket.project.ui.alert.DialogFragmentAlert"
         android:label="DialogFragmentAlert" >
         <argument
-            android:name="titleString"
-            app:argType="string" />
+            android:name="alertType"
+            app:argType="com.websocket.project.ui.alert.AlertType" />
+        <argument
+            android:name="localeCode"
+            app:argType="string"
+            android:defaultValue='en' />
     </dialog>
 </navigation>

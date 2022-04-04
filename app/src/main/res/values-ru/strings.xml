@@ -238,7 +238,6 @@
     <string name="deposit_save_image">Сохранить</string>
     <string name="deposit_share_address">Поделиться</string>
     <string name="deposit_address_copied">Адрес скопирован</string>
-    <string name="deposit_image_saved_msg">Изображение сохраняется\nв галерее телефона</string>
 
     <string name="network_ethereum_name">Ethereum</string>
     <string name="network_ethereum_code">ERC-20</string>
@@ -298,6 +297,18 @@
     <string name="month_october">October</string>
     <string name="month_november">November</string>
     <string name="month_december">December</string>
+
+
+    //ALERT DIALOG
+    <string name="alert_technical_works_title">Технические работы</string>
+    <string name="alert_missing_connection_mobile_title">Отсутствует соединение</string>
+    <string name="alert_missing_connection_wifi_title">Отсутствует соединение</string>
+    <string name="alert_image_saved_title">Изображение сохраняется\nв галерее телефона</string>
+
+    <string name="alert_technical_works_msg">Сервис временно недоступен -\nпопробуйте подключиться позже</string>
+    <string name="alert_missing_connection_mobile_msg">Проверьте мобильную сеть или\nвключите Wi-Fi</string>
+    <string name="alert_missing_connection_wifi_msg">Проверьте Wi-Fi или включите\nмобильную сеть</string>
+
 
     <string name="common_ok">OK</string>
     <string name="common_close">Close</string>

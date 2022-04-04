@@ -6,8 +6,12 @@
     <data>
 
         <variable
-            name="titleTextBinding"
-            type="String" />
+            name="dialogFragmentAlertActionListenerBinding"
+            type="com.websocket.project.ui.alert.DialogFragmentAlertActionListener" />
+
+        <variable
+            name="imgVisibleBinding"
+            type="Boolean" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,40 +20,58 @@
         android:background="@drawable/bg_rectangle_gradient_dialog_view">
 
         <TextView
-            android:id="@+id/alertTitleText"
+            android:id="@+id/dialogFragmentAlertTitleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:gravity="center"
-            android:text="@{titleTextBinding}"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="@string/deposit_image_saved_msg" />
+            tools:text="@string/alert_image_saved_title" />
+
+        <TextView
+            android:id="@+id/dialogFragmentAlertMsgText"
+            isInvisible="@{false}"
+            show="@{imgVisibleBinding}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:drawablePadding="48dp"
+            android:gravity="center"
+            android:textColor="@color/grey"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dialogFragmentAlertTitleText"
+            tools:drawableTop="@drawable/ic_alert_missing_connection_wifi"
+            tools:text="@string/alert_missing_connection_wifi_msg" />
 
         <TextView
             android:id="@+id/dialogFragmentAlertOkBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/common_ok"
-            android:textAllCaps="true"
-            android:layout_marginTop="54dp"
             android:layout_marginStart="22dp"
+            android:layout_marginTop="44dp"
             android:layout_marginEnd="22dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/bg_rectangle_accent_btn"
+            android:gravity="center"
+            android:onClick="@{() -> dialogFragmentAlertActionListenerBinding.onOkClick()}"
             android:paddingTop="22dp"
             android:paddingBottom="22dp"
-            android:background="@drawable/bg_rectangle_accent_btn"
-            android:layout_marginBottom="30dp"
+            android:text="@string/common_ok"
+            android:textAllCaps="true"
             android:textColor="@android:color/white"
             android:textSize="@dimen/font_normal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/alertTitleText" />
+            app:layout_constraintTop_toBottomOf="@+id/dialogFragmentAlertMsgText"
+            app:layout_goneMarginTop="54dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

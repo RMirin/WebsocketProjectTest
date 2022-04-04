@@ -41,8 +41,10 @@ fun ImageView.bindImageBitmap(imageBitmap: Bitmap) {
 
 
 @BindingAdapter("imgId")
-fun ImageView.bindImgId(imgId: Int) {
-    setImageResource(imgId)
+fun ImageView.bindImgId(imgId: Int?) {
+    if (imgId != null) {
+        setImageResource(imgId)
+    }
 }
 
 @BindingAdapter("date")

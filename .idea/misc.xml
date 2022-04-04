@@ -181,7 +181,7 @@
         <entry key="app/src/main/res/layout/bottom_sheet_kyc_date_picker.xml" value="0.14" />
         <entry key="app/src/main/res/layout/bottom_sheet_layout_withdraw_network.xml" value="0.18" />
         <entry key="app/src/main/res/layout/custom_layout.xml" value="0.18958333333333333" />
-        <entry key="app/src/main/res/layout/dialog_fragment_alert.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/dialog_fragment_alert.xml" value="0.18" />
         <entry key="app/src/main/res/layout/dialog_fragment_close_position.xml" value="0.22" />
         <entry key="app/src/main/res/layout/dialog_fragment_delete_text.xml" value="0.17443351859769132" />
         <entry key="app/src/main/res/layout/dialog_fragment_identity_confirmation.xml" value="0.22" />
